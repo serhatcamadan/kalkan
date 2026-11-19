@@ -54,6 +54,27 @@ Ollama 0.40.14 · model `Qwen/Qwen3.5-0.8B@2fc0636`
 | B · llama-cli (aynı commit) | ✅ | | "Türkiye'nin başkenti Ankara'dır." · prompt 105 t/s · üretim **83.6 t/s** |
 | Ollama resmi `qwen3.5:0.8b` | ✅ | | "Ankara" |
 
+## Mac ölçümü · llama-server (M4, 10 thread, 5 koşu, JSON şeması zorunlu)
+| model | senaryo | p95 sn | üretim tok/s | prompt tok/s | JSON % | alıntı birebir % | RSS GB |
+|---|---|---|---|---|---|---|---|
+| B (0.8B, 1 iter LoRA) | kisa (96) | 0.97 | 105.9 | 1005 | **0** | – | 0.84 |
+| B | kisa_cachesiz | 1.13 | 105.9 | 1622 | **0** | – | 0.88 |
+| B | uzun (256) | 2.14 | 102.2 | 977 | 80 | 67 | 0.94 |
+| C (0.8B zero-shot) | kisa | 1.10 | 94.5 | 828 | 20 | – | 0.85 |
+| C | uzun | 1.93 | 95.1 | 836 | 100 | 64 | 0.89 |
+| C2B (2B zero-shot) | kisa | 1.91 | 54.4 | 631 | 40 | 100 | 1.56 |
+| C2B | uzun | 2.61 | 54.6 | 618 | 100 | 88 | 1.57 |
+
+Bulgular:
+1. **96 token yetmiyor.** Model JSON'u girintili (satır sonu + boşluk) yazıyor. Uzun alıntılarla birlikte
+   bütçe dolup cevap yarıda kesiliyor → geçersiz JSON. Benchmark v2 bunu "geçti" sayıyordu, v2.1'de düzeltildi.
+   Çözüm adayları (Adım 2/5/7): girintisiz JSON gramer kısıtı, kısa alıntı kuralı, fine-tune ile kompakt çıktı.
+2. **Alıntılar %64–88 birebir.** Zero-shot modeller alıntıyı genişletiyor veya değiştiriyor. KAPI (alıntı birebir
+   değilse düşür) gereksiz değil, şart. 2B, 0.8B'den belirgin daha sadık (88 vs 64).
+3. **Sinyal etiketleri zayıf** ("hesabınız askıya alınmıştır" → `odeme_talebi`). Zero-shot için beklenen. Fine-tune hedefi.
+4. Prompt önbelleği Mac'te önemsiz (+0.15 sn), çünkü Metal 1600 tok/s işliyor. VPS'te CPU ile belirleyici olacak.
+5. RAM: 0.8B ≈ 0.9 GB, 2B ≈ 1.6 GB → ikisi de 6 GB VPS'e sığar.
+
 ## Teşhis
 GGUF'umuz **sağlam**: aynı llama.cpp commit'iyle doğru ve hızlı cevap veriyor. Ollama 0.40.14'ün içindeki
 llama.cpp motoru daha eski. Yeni dönüştürücünün Qwen3.5 Gated-DeltaNet tensör düzenini (`ssm_beta` beklentisi)

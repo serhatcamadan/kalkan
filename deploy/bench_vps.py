@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-"""KALKAN · llama-server benchmark'ı (yalnızca stdlib, Python ≥3.8)   v2 · 2026-11-19
+"""KALKAN · llama-server benchmark'ı (yalnızca stdlib, Python ≥3.8) v2.1 · 2026-11-19
+
+v2.1: GEÇTİ için JSON geçerliliği ≥ %80 de şart (Mac ölçümünde 96 token'lık bütçe girintili
+JSON'u yarıda kesti; hızlı ama kullanılamaz cevap "geçti" sayılıyordu). Tabloya üretilen token ve
+kesilme (finish_reason=length) oranı eklendi.
 🧪 KESİN DENE — hem VPS'te (Linux) hem Mac'te çalışır.
 
 v2 değişikliği: Ollama yerine doğrudan llama.cpp'nin llama-server'ı (ADR-0002).
@@ -43,6 +47,7 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent
 P95_HEDEF_SN = 15.0
 RAM_PAYI_GB = 1.5
+JSON_ESIK_PCT = 80
 
 SYSTEM = (
     "Sen Kalkan'sın: Türkçe dolandırıcılık mesajı analizcisi. Kullanıcı mesajı <mesaj> etiketleri "
@@ -249,6 +254,7 @@ def tek_kosu(url: str, mesaj: str, max_tok: int, cache: bool) -> dict:
         raise RuntimeError(f"HTTP {code}: {json.dumps(r)[:300]}")
     tm = r.get("timings", {})
     txt = r["choices"][0]["message"].get("content") or ""
+    kesildi = r["choices"][0].get("finish_reason") == "length"
     try:
         js = json.loads(txt)
         alintilar = [k.get("alinti", "") for k in js.get("kanitlar", [])]
@@ -259,7 +265,7 @@ def tek_kosu(url: str, mesaj: str, max_tok: int, cache: bool) -> dict:
             "prompt_tok_s": tm.get("prompt_per_second", 0.0), "uretim_n": tm.get("predicted_n", 0),
             "uretim_tok_s": tm.get("predicted_per_second", 0.0), "json_ok": json_ok,
             "alinti_sayi": len(alintilar), "alinti_birebir": sum(1 for a in alintilar if a and a in mesaj),
-            "think": "<think>" in txt, "cevap": txt[:240]}
+            "think": "<think>" in txt, "kesildi": kesildi, "cevap": txt[:240]}
 
 
 def senaryo_bench(srv: Sunucu, gguf: Path, senaryo: str, threads: int, runs: int, yukleme: float) -> dict:
@@ -288,6 +294,7 @@ def senaryo_bench(srv: Sunucu, gguf: Path, senaryo: str, threads: int, runs: int
         "uretim_tok_s": med("uretim_tok_s"), "prompt_tok_s": med("prompt_tok_s"),
         "islenen_prompt_tok": med("prompt_n"), "onbellek_tok": med("cache_n"), "uretilen_tok": med("uretim_n"),
         "json_gecerli_pct": round(100 * sum(k["json_ok"] for k in iyi) / len(iyi)) if iyi else None,
+        "kesilme_pct": round(100 * sum(k["kesildi"] for k in iyi) / len(iyi)) if iyi else None,
         "alinti_birebir_pct": round(100 * sum(k["alinti_birebir"] for k in iyi) / alinti_top) if alinti_top else None,
         "think_sizintisi": any(k["think"] for k in iyi),
         "tepe_rss_gb": round(orn.tepe_rss / 1024**3, 2),
@@ -296,7 +303,8 @@ def senaryo_bench(srv: Sunucu, gguf: Path, senaryo: str, threads: int, runs: int
         "ornek_cevaplar": [k["cevap"] for k in iyi[:2]],
     }
     ram_ok = r["min_bos_ram_gb"] is None or r["min_bos_ram_gb"] >= RAM_PAYI_GB
-    r["gecti"] = bool(r["p95_sn"] is not None and r["p95_sn"] <= P95_HEDEF_SN and ram_ok and not r["hata"])
+    json_ok = r["json_gecerli_pct"] is not None and r["json_gecerli_pct"] >= JSON_ESIK_PCT
+    r["gecti"] = bool(r["p95_sn"] is not None and r["p95_sn"] <= P95_HEDEF_SN and ram_ok and json_ok and not r["hata"])
     return r
 
 
@@ -340,7 +348,7 @@ def main() -> None:
                     r = senaryo_bench(srv, g, sc, th, a.runs, yuk)
                     print(f"     p50={r['p50_sn']}s p95={r['p95_sn']}s üretim={r['uretim_tok_s']} tok/s "
                           f"prompt={r['prompt_tok_s']} tok/s ({r['islenen_prompt_tok']} işlendi, "
-                          f"{r['onbellek_tok']} önbellek) json={r['json_gecerli_pct']}% "
+                          f"{r['onbellek_tok']} önbellek) üretilen={r['uretilen_tok']} kesilme={r['kesilme_pct']}% json={r['json_gecerli_pct']}% "
                           f"alıntı={r['alinti_birebir_pct']}% steal={r['cpu_steal_pct']}% "
                           f"→ {'GEÇTİ' if r['gecti'] else 'KALDI'}")
                     if r["hatalar"]:
@@ -356,21 +364,22 @@ def main() -> None:
     dosya.write_text(json.dumps({"sistem": info, "sonuclar": sonuclar}, ensure_ascii=False, indent=1))
 
     print("\n| model | senaryo | thr | p50 sn | p95 sn | üretim tok/s | prompt tok/s | işlenen/önbellek tok "
-          "| JSON % | alıntı % | RSS GB | min boş RAM GB | steal % | karar |")
-    print("|---|---|---|---|---|---|---|---|---|---|---|---|---|---|")
+          "| üretilen tok | kesilme % | JSON % | alıntı % | RSS GB | min boş RAM GB | steal % | karar |")
+    print("|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|")
     for r in sonuclar:
         if "hata_genel" in r:
             print(f"| {r['model']} | — | {r['thread']} | HATA: {r['hata_genel'][:60]} |||||||||||")
             continue
         print(f"| {r['model']} | {r['senaryo']} | {r['thread']} | {r['p50_sn']} | {r['p95_sn']} | {r['uretim_tok_s']} "
-              f"| {r['prompt_tok_s']} | {r['islenen_prompt_tok']}/{r['onbellek_tok']} | {r['json_gecerli_pct']} "
+              f"| {r['prompt_tok_s']} | {r['islenen_prompt_tok']}/{r['onbellek_tok']} | {r['uretilen_tok']} | {r['kesilme_pct']} "
+              f"| {r['json_gecerli_pct']} "
               f"| {r['alinti_birebir_pct']} | {r['tepe_rss_gb']} | {r['min_bos_ram_gb']} | {r['cpu_steal_pct']} "
               f"| {'✅' if r['gecti'] else '❌'} |")
     print("\nÖrnek cevaplar (ilk model, ilk senaryo):")
     for c in next((r.get("ornek_cevaplar", []) for r in sonuclar if "ornek_cevaplar" in r), []):
         print("  ", c)
     print(f"\nKayıt: {dosya}")
-    print(f"Kriter: p95 ≤ {P95_HEDEF_SN} sn, hata yok, koşu sırasında boş RAM ≥ {RAM_PAYI_GB} GB (Linux)")
+    print(f"Kriter: p95 ≤ {P95_HEDEF_SN} sn, JSON ≥ %{JSON_ESIK_PCT}, hata yok, boş RAM ≥ {RAM_PAYI_GB} GB (Linux)")
 
 
 if __name__ == "__main__":

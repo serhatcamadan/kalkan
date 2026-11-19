@@ -75,7 +75,7 @@ setup_llamacpp() {
   git -C "$LCP" fetch --all --tags && git -C "$LCP" checkout "$LLAMA_CPP_REF" &&
   { [[ "$LLAMA_CPP_REF" != "master" ]] || git -C "$LCP" pull --ff-only; } &&
   cmake -S "$LCP" -B "$LCP/build" -DCMAKE_BUILD_TYPE=Release -DLLAMA_CURL=OFF -DLLAMA_BUILD_TESTS=OFF &&
-  cmake --build "$LCP/build" --config Release -j --target llama-quantize llama-cli &&
+  cmake --build "$LCP/build" --config Release -j --target llama-quantize llama-cli llama-server &&
   "$PY" -m venv "$VLCP" && "$VLCP/bin/pip" install -U pip &&
   "$VLCP/bin/pip" install -r "$LCP/requirements/requirements-convert_hf_to_gguf.txt" &&
   "$VLCP/bin/pip" install safetensors
