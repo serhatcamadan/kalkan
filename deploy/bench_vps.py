@@ -1,25 +1,27 @@
 #!/usr/bin/env python3
-"""KALKAN · VPS benchmark'ı (yalnızca stdlib, Python ≥3.8)        v1 · 2026-11-18
-🧪 KESİN DENE — VPS'i aldıktan sonra 3 günlük iade süresi İÇİNDE çalıştır.
+"""KALKAN · llama-server benchmark'ı (yalnızca stdlib, Python ≥3.8)   v2 · 2026-11-19
+🧪 KESİN DENE — hem VPS'te (Linux) hem Mac'te çalışır.
 
-Ne ölçer?
-  1. Sistem: CPU modeli, AVX2/AVX-512 bayrakları, çekirdek, RAM, disk, sanallaştırma
-  2. Disk: 512 MB sıralı yazma (fsync) / okuma
-  3. Ollama: her model × senaryo için ısınma + N koşu
-       - p50/p95 duvar saati süresi, üretim tok/s, prompt tok/s, yükleme süresi
-       - ollama süreçlerinin tepe RSS'i, en düşük MemAvailable
-       - CPU STEAL yüzdesi (paylaşımlı VPS'te gizli darboğaz)
-  4. Karar: p95 ≤ 15 sn ve RAM payı ≥ 1.5 GB (Postgres + uygulama için)
+v2 değişikliği: Ollama yerine doğrudan llama.cpp'nin llama-server'ı (ADR-0002).
+Kendi ürettiğimiz GGUF'ları, Mac'te kullanılan llama.cpp commit'iyle ölçer.
 
-Senaryolar (Kalkan'ın gerçek yükünü taklit eder; ~350 token sistem + mesaj):
-  kisa : num_predict 96, JSON şeması ile (hedef çıktı: kanıt-önce kompakt JSON)
-  uzun : num_predict 256, JSON şeması ile (kötü durum)
+Her GGUF × thread sayısı için:
+  1. llama-server'ı başlatır, /health 200 olana kadar bekler (soğuk yükleme süresi)
+  2. Her senaryo: 1 ısınma + N koşu, OpenAI uyumlu /v1/chat/completions, JSON şeması zorunlu
+  3. Ölçer: p50/p95 duvar süresi, prompt ve üretim tok/s, önbellekten gelen prompt token'ı,
+     tepe RSS, en düşük boş RAM, CPU steal %, JSON geçerliliği, kanıt alıntısının mesajda
+     birebir geçme oranı (Kalkan'ın KAPI'sının ön tadı)
+
+Senaryolar:
+  kisa          : max 96 token, prompt önbelleği AÇIK (gerçek kullanım: sistem istemi hep aynı)
+  kisa_cachesiz : max 96 token, prompt önbelleği KAPALI (en kötü durum: her istekte tüm istem)
+  uzun          : max 256 token, önbellek açık
 
 Kullanım:
-  python3 bench_vps.py                                   # qwen3.5:0.8b ve qwen3.5:2b
-  python3 bench_vps.py --models qwen3.5:0.8b --runs 5 --threads 4 3
-  python3 bench_vps.py --no-pull --models kalkan-spike-b # yerel GGUF'tan oluşturulmuş model
-Çıktı: deploy/results/bench-<host>-<zaman>.json + ekrana markdown tablo
+  python3 bench_vps.py                                         # models/*.gguf, tüm senaryolar
+  python3 bench_vps.py --models models/C-Q4_K_M.gguf --runs 5 --threads 4 3
+  LLAMA_SERVER=../.spike/llama.cpp/build/bin/llama-server python3 bench_vps.py --models ../.spike/gguf/B-Q4_K_M.gguf
+Çıktı: results/bench-<host>-<zaman>.json + ekrana markdown tablo
 """
 from __future__ import annotations
 
@@ -38,10 +40,7 @@ import urllib.error
 import urllib.request
 from pathlib import Path
 
-HOST = os.environ.get("OLLAMA_HOST", "http://127.0.0.1:11434")
-if not HOST.startswith("http"):
-    HOST = "http://" + HOST
-
+HERE = Path(__file__).resolve().parent
 P95_HEDEF_SN = 15.0
 RAM_PAYI_GB = 1.5
 
@@ -76,16 +75,22 @@ SCHEMA = {
     },
     "required": ["kanitlar", "tur"],
 }
-SENARYOLAR = {"kisa": 96, "uzun": 256}
+SENARYOLAR = {"kisa": (96, True), "kisa_cachesiz": (96, False), "uzun": (256, True)}
 
 
 # ----------------------------------------------------------------- yardımcılar
-def api(path: str, body: dict | None = None, timeout: float = 900) -> dict:
+def http(url: str, body: dict | None = None, timeout: float = 600) -> tuple[int, dict]:
     data = json.dumps(body).encode() if body is not None else None
-    req = urllib.request.Request(f"{HOST}{path}", data=data, headers={"Content-Type": "application/json"},
+    req = urllib.request.Request(url, data=data, headers={"Content-Type": "application/json"},
                                  method="POST" if body is not None else "GET")
-    with urllib.request.urlopen(req, timeout=timeout) as r:
-        return json.loads(r.read())
+    try:
+        with urllib.request.urlopen(req, timeout=timeout) as r:
+            return r.status, json.loads(r.read() or b"{}")
+    except urllib.error.HTTPError as e:
+        try:
+            return e.code, json.loads(e.read() or b"{}")
+        except ValueError:
+            return e.code, {}
 
 
 def meminfo() -> dict:
@@ -99,47 +104,42 @@ def meminfo() -> dict:
     return out
 
 
-def cpu_times() -> list[int] | None:
+def cpu_times():
     try:
         return [int(x) for x in open("/proc/stat").readline().split()[1:]]
     except OSError:
         return None
 
 
-def steal_pct(a, b) -> float | None:
+def steal_pct(a, b):
     if not a or not b or len(a) < 8:
         return None
     d = [y - x for x, y in zip(a, b)]
-    tot = sum(d[:8]) or 1
-    return round(100 * d[7] / tot, 1)
+    return round(100 * d[7] / (sum(d[:8]) or 1), 1)
 
 
-def ollama_rss() -> int:
-    tot = 0
-    for p in Path("/proc").glob("[0-9]*"):
-        try:
-            if "ollama" not in (p / "comm").read_text():
-                continue
-            for line in (p / "status").read_text().splitlines():
-                if line.startswith("VmRSS:"):
-                    tot += int(line.split()[1]) * 1024
-        except OSError:
-            continue
-    return tot
+def rss(pid: int) -> int:
+    try:  # Linux
+        for line in open(f"/proc/{pid}/status"):
+            if line.startswith("VmRSS:"):
+                return int(line.split()[1]) * 1024
+    except OSError:
+        pass
+    try:  # macOS
+        out = subprocess.run(["ps", "-o", "rss=", "-p", str(pid)], capture_output=True, text=True).stdout
+        return int(out.strip() or 0) * 1024
+    except (OSError, ValueError):
+        return 0
 
 
 class Ornekleyici(threading.Thread):
-    """Koşular sırasında 0.2 sn'de bir RSS ve MemAvailable örnekler."""
-
-    def __init__(self):
+    def __init__(self, pid: int):
         super().__init__(daemon=True)
-        self.dur = threading.Event()
-        self.tepe_rss = 0
-        self.min_avail = None
+        self.pid, self.dur, self.tepe_rss, self.min_avail = pid, threading.Event(), 0, None
 
     def run(self):
         while not self.dur.is_set():
-            self.tepe_rss = max(self.tepe_rss, ollama_rss())
+            self.tepe_rss = max(self.tepe_rss, rss(self.pid))
             av = meminfo().get("MemAvailable")
             if av is not None:
                 self.min_avail = av if self.min_avail is None else min(self.min_avail, av)
@@ -155,8 +155,8 @@ def pct(xs, q):
     return xs[lo] + (xs[hi] - xs[lo]) * (k - lo)
 
 
-# ----------------------------------------------------------------- 1–2. sistem + disk
-def sistem() -> dict:
+# ----------------------------------------------------------------- sistem + disk
+def sistem(server_bin: Path) -> dict:
     info = {"host": socket.gethostname(), "os": platform.platform(), "python": platform.python_version(),
             "cpu_sayisi": os.cpu_count()}
     try:
@@ -165,25 +165,29 @@ def sistem() -> dict:
         flags = set(next((l.split(":", 1)[1].split() for l in txt.splitlines() if l.startswith("flags")), []))
         info["bayraklar"] = {f: (f in flags) for f in ("avx", "avx2", "fma", "f16c", "avx512f", "avx512_vnni", "avx_vnni")}
     except OSError:
-        info["cpu_model"] = platform.processor()
+        if platform.system() == "Darwin":
+            info["cpu_model"] = subprocess.run(["sysctl", "-n", "machdep.cpu.brand_string"],
+                                               capture_output=True, text=True).stdout.strip()
     mi = meminfo()
-    info["ram_gb"] = round(mi.get("MemTotal", 0) / 1024**3, 2)
-    info["ram_bos_gb"] = round(mi.get("MemAvailable", 0) / 1024**3, 2)
-    info["swap_gb"] = round(mi.get("SwapTotal", 0) / 1024**3, 2)
+    if mi:
+        info["ram_gb"] = round(mi.get("MemTotal", 0) / 1024**3, 2)
+        info["ram_bos_gb"] = round(mi.get("MemAvailable", 0) / 1024**3, 2)
+        info["swap_gb"] = round(mi.get("SwapTotal", 0) / 1024**3, 2)
     du = shutil.disk_usage("/")
     info["disk_gb"], info["disk_bos_gb"] = round(du.total / 1024**3, 1), round(du.free / 1024**3, 1)
     if shutil.which("systemd-detect-virt"):
         info["sanallastirma"] = subprocess.run(["systemd-detect-virt"], capture_output=True, text=True).stdout.strip()
     try:
-        info["ollama"] = api("/api/version", timeout=5).get("version")
+        v = subprocess.run([str(server_bin), "--version"], capture_output=True, text=True, timeout=30)
+        info["llama_server"] = (v.stdout + v.stderr).strip().splitlines()[-2:]
     except Exception as e:  # noqa: BLE001
-        info["ollama"] = f"ULAŞILAMADI: {e}"
+        info["llama_server"] = f"ÇALIŞMADI: {e}"
     return info
 
 
 def disk_testi(mb: int = 512) -> dict:
     blok = os.urandom(1024 * 1024)
-    with tempfile.NamedTemporaryFile(dir=os.path.expanduser("~"), delete=False) as f:
+    with tempfile.NamedTemporaryFile(dir=str(HERE), delete=False) as f:
         yol = f.name
         t = time.perf_counter()
         for _ in range(mb):
@@ -195,126 +199,178 @@ def disk_testi(mb: int = 512) -> dict:
     with open(yol, "rb") as f:
         while f.read(8 * 1024 * 1024):
             pass
-    oku = mb / (time.perf_counter() - t)  # sayfa önbelleği yüzünden iyimser
+    oku = mb / (time.perf_counter() - t)
     os.unlink(yol)
     return {"yazma_mb_s": round(yaz), "okuma_mb_s_onbellekli": round(oku)}
 
 
-# ----------------------------------------------------------------- 3. LLM
-def tek_kosu(model: str, mesaj: str, num_predict: int, threads: int, think_ok: bool) -> dict:
-    body = {"model": model, "stream": False, "format": SCHEMA, "keep_alive": "15m",
-            "messages": [{"role": "system", "content": SYSTEM},
+# ----------------------------------------------------------------- llama-server
+class Sunucu:
+    def __init__(self, server_bin: Path, gguf: Path, threads: int, port: int, ctx: int):
+        self.url = f"http://127.0.0.1:{port}"
+        self.log = open(HERE / "results" / f"server-{gguf.stem}-t{threads}.log", "w")
+        cmd = [str(server_bin), "-m", str(gguf), "--host", "127.0.0.1", "--port", str(port),
+               "-c", str(ctx), "-t", str(threads), "-tb", str(threads), "-np", "1", "--jinja"]
+        self.t0 = time.perf_counter()
+        self.p = subprocess.Popen(cmd, stdout=self.log, stderr=subprocess.STDOUT)
+
+    def bekle(self, timeout: float = 600) -> float:
+        while time.perf_counter() - self.t0 < timeout:
+            if self.p.poll() is not None:
+                raise RuntimeError(f"llama-server kapandı (kod {self.p.returncode}), log: {self.log.name}")
+            try:
+                code, _ = http(f"{self.url}/health", timeout=2)
+                if code == 200:
+                    return time.perf_counter() - self.t0
+            except (urllib.error.URLError, ConnectionError, OSError):
+                pass
+            time.sleep(0.3)
+        raise TimeoutError("llama-server zamanında hazır olmadı")
+
+    def kapat(self):
+        self.p.terminate()
+        try:
+            self.p.wait(15)
+        except subprocess.TimeoutExpired:
+            self.p.kill()
+        self.log.close()
+
+
+def tek_kosu(url: str, mesaj: str, max_tok: int, cache: bool) -> dict:
+    body = {"messages": [{"role": "system", "content": SYSTEM},
                          {"role": "user", "content": f"<mesaj>\n{mesaj}\n</mesaj>"}],
-            "options": {"temperature": 0, "seed": 7, "num_predict": num_predict, "num_thread": threads,
-                        "num_ctx": 2048}}
-    if think_ok:
-        body["think"] = False
+            "max_tokens": max_tok, "temperature": 0, "seed": 7, "cache_prompt": cache,
+            "response_format": {"type": "json_schema", "json_schema": {"name": "kalkan", "schema": SCHEMA}},
+            "chat_template_kwargs": {"enable_thinking": False}}
     t = time.perf_counter()
-    r = api("/api/chat", body)
+    code, r = http(f"{url}/v1/chat/completions", body)
     duvar = time.perf_counter() - t
-    ns = 1e9
-    return {"duvar_sn": duvar,
-            "yukleme_sn": r.get("load_duration", 0) / ns,
-            "prompt_tok": r.get("prompt_eval_count", 0),
-            "prompt_tok_s": r.get("prompt_eval_count", 0) / max(r.get("prompt_eval_duration", 1) / ns, 1e-9),
-            "uretim_tok": r.get("eval_count", 0),
-            "uretim_tok_s": r.get("eval_count", 0) / max(r.get("eval_duration", 1) / ns, 1e-9),
-            "cevap": r.get("message", {}).get("content", "")[:200]}
-
-
-def think_destekli(model: str) -> bool:
+    if code != 200:
+        raise RuntimeError(f"HTTP {code}: {json.dumps(r)[:300]}")
+    tm = r.get("timings", {})
+    txt = r["choices"][0]["message"].get("content") or ""
     try:
-        caps = api("/api/show", {"model": model}, timeout=30).get("capabilities", [])
-        return "thinking" in caps
-    except Exception:  # noqa: BLE001
-        return False
+        js = json.loads(txt)
+        alintilar = [k.get("alinti", "") for k in js.get("kanitlar", [])]
+        json_ok = True
+    except (ValueError, AttributeError):
+        alintilar, json_ok = [], False
+    return {"duvar_sn": duvar, "prompt_n": tm.get("prompt_n", 0), "cache_n": tm.get("cache_n", 0),
+            "prompt_tok_s": tm.get("prompt_per_second", 0.0), "uretim_n": tm.get("predicted_n", 0),
+            "uretim_tok_s": tm.get("predicted_per_second", 0.0), "json_ok": json_ok,
+            "alinti_sayi": len(alintilar), "alinti_birebir": sum(1 for a in alintilar if a and a in mesaj),
+            "think": "<think>" in txt, "cevap": txt[:240]}
 
 
-def model_bench(model: str, senaryo: str, threads: int, runs: int) -> dict:
-    think_ok = think_destekli(model)
-    # ısınma: modeli belleğe yükle (yükleme süresi ayrı raporlanır)
-    isinma = tek_kosu(model, MESAJLAR[0], 8, threads, think_ok)
-    ornek = Ornekleyici()
-    ornek.start()
-    c0 = cpu_times()
-    kosular = []
+def senaryo_bench(srv: Sunucu, gguf: Path, senaryo: str, threads: int, runs: int, yukleme: float) -> dict:
+    max_tok, cache = SENARYOLAR[senaryo]
+    tek_kosu(srv.url, MESAJLAR[-1], 8, cache)  # ısınma (önbellek açıksa sistem istemi önbelleğe girer)
+    orn = Ornekleyici(srv.p.pid)
+    orn.start()
+    c0, kosular = cpu_times(), []
     for i in range(runs):
         try:
-            kosular.append(tek_kosu(model, MESAJLAR[i % len(MESAJLAR)], SENARYOLAR[senaryo], threads, think_ok))
+            kosular.append(tek_kosu(srv.url, MESAJLAR[i % len(MESAJLAR)], max_tok, cache))
         except Exception as e:  # noqa: BLE001
             kosular.append({"hata": repr(e)})
     c1 = cpu_times()
-    ornek.dur.set()
-    ornek.join()
+    orn.dur.set()
+    orn.join()
     iyi = [k for k in kosular if "hata" not in k]
-    duvar = [k["duvar_sn"] for k in iyi]
-    mi = meminfo().get("MemTotal", 0)
-    return {
-        "model": model, "senaryo": senaryo, "thread": threads, "kosu": len(kosular), "hata": len(kosular) - len(iyi),
-        "soguk_yukleme_sn": round(isinma["yukleme_sn"], 2),
-        "p50_sn": round(pct(duvar, .5), 2) if duvar else None,
-        "p95_sn": round(pct(duvar, .95), 2) if duvar else None,
-        "uretim_tok_s": round(statistics.median(k["uretim_tok_s"] for k in iyi), 1) if iyi else None,
-        "prompt_tok_s": round(statistics.median(k["prompt_tok_s"] for k in iyi), 1) if iyi else None,
-        "ort_prompt_tok": round(statistics.mean(k["prompt_tok"] for k in iyi)) if iyi else None,
-        "ort_uretim_tok": round(statistics.mean(k["uretim_tok"] for k in iyi)) if iyi else None,
-        "tepe_ollama_rss_gb": round(ornek.tepe_rss / 1024**3, 2),
-        "min_bos_ram_gb": round((ornek.min_avail or 0) / 1024**3, 2),
-        "ram_payi_gb": round((ornek.min_avail or 0) / 1024**3, 2) if mi else None,
+    d = [k["duvar_sn"] for k in iyi]
+    med = lambda key: round(statistics.median(k[key] for k in iyi), 1) if iyi else None  # noqa: E731
+    alinti_top = sum(k["alinti_sayi"] for k in iyi)
+    r = {
+        "model": gguf.name, "senaryo": senaryo, "thread": threads, "kosu": len(kosular),
+        "hata": len(kosular) - len(iyi), "hatalar": [k["hata"] for k in kosular if "hata" in k][:3],
+        "soguk_yukleme_sn": round(yukleme, 2),
+        "p50_sn": round(pct(d, .5), 2) if d else None, "p95_sn": round(pct(d, .95), 2) if d else None,
+        "uretim_tok_s": med("uretim_tok_s"), "prompt_tok_s": med("prompt_tok_s"),
+        "islenen_prompt_tok": med("prompt_n"), "onbellek_tok": med("cache_n"), "uretilen_tok": med("uretim_n"),
+        "json_gecerli_pct": round(100 * sum(k["json_ok"] for k in iyi) / len(iyi)) if iyi else None,
+        "alinti_birebir_pct": round(100 * sum(k["alinti_birebir"] for k in iyi) / alinti_top) if alinti_top else None,
+        "think_sizintisi": any(k["think"] for k in iyi),
+        "tepe_rss_gb": round(orn.tepe_rss / 1024**3, 2),
+        "min_bos_ram_gb": round(orn.min_avail / 1024**3, 2) if orn.min_avail is not None else None,
         "cpu_steal_pct": steal_pct(c0, c1),
-        "think_param": think_ok,
-        "ornek_cevap": iyi[0]["cevap"] if iyi else None,
+        "ornek_cevaplar": [k["cevap"] for k in iyi[:2]],
     }
+    ram_ok = r["min_bos_ram_gb"] is None or r["min_bos_ram_gb"] >= RAM_PAYI_GB
+    r["gecti"] = bool(r["p95_sn"] is not None and r["p95_sn"] <= P95_HEDEF_SN and ram_ok and not r["hata"])
+    return r
 
 
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--models", nargs="+", default=["qwen3.5:0.8b", "qwen3.5:2b"])
+    ap.add_argument("--models", nargs="+", type=Path, default=sorted((HERE / "models").glob("*.gguf")))
+    ap.add_argument("--server-bin", type=Path,
+                    default=Path(os.environ.get("LLAMA_SERVER", HERE / "llama.cpp/build/bin/llama-server")))
     ap.add_argument("--senaryolar", nargs="+", default=list(SENARYOLAR), choices=list(SENARYOLAR))
     ap.add_argument("--threads", nargs="+", type=int, default=[os.cpu_count() or 4])
     ap.add_argument("--runs", type=int, default=10)
-    ap.add_argument("--no-pull", action="store_true")
+    ap.add_argument("--ctx", type=int, default=2048)
+    ap.add_argument("--port", type=int, default=8089)
     ap.add_argument("--no-disk", action="store_true")
-    ap.add_argument("--out", type=Path, default=Path(__file__).parent / "results")
     a = ap.parse_args()
 
+    (HERE / "results").mkdir(exist_ok=True)
+    if not a.models:
+        raise SystemExit("GGUF bulunamadı. models/ klasörüne *.gguf koy veya --models ver.")
+    if not a.server_bin.exists():
+        raise SystemExit(f"llama-server yok: {a.server_bin}  (önce: bash bench_vps.sh, ya da LLAMA_SERVER=...)")
+
     print("▶ sistem bilgisi")
-    info = sistem()
+    info = sistem(a.server_bin)
     print(json.dumps(info, ensure_ascii=False, indent=1))
-    if str(info.get("ollama", "")).startswith("ULAŞILAMADI"):
-        raise SystemExit("Ollama çalışmıyor. Önce: bash deploy/bench_vps.sh (kurar ve başlatır)")
     if not a.no_disk:
         print("▶ disk testi (512 MB)")
         info["disk"] = disk_testi()
         print(info["disk"])
 
     sonuclar = []
-    for m in a.models:
-        if not a.no_pull:
-            print(f"▶ indiriliyor: {m}")
-            api("/api/pull", {"model": m, "stream": False}, timeout=3600)
-        for sc in a.senaryolar:
-            for th in a.threads:
-                print(f"▶ {m} · {sc} · {th} thread · {a.runs} koşu")
-                r = model_bench(m, sc, th, a.runs)
-                r["gecti"] = bool(r["p95_sn"] is not None and r["p95_sn"] <= P95_HEDEF_SN
-                                  and r["ram_payi_gb"] is not None and r["ram_payi_gb"] >= RAM_PAYI_GB)
-                print(f"   p50={r['p50_sn']}s p95={r['p95_sn']}s üretim={r['uretim_tok_s']} tok/s "
-                      f"prompt={r['prompt_tok_s']} tok/s steal={r['cpu_steal_pct']}% → {'GEÇTİ' if r['gecti'] else 'KALDI'}")
-                sonuclar.append(r)
+    for g in a.models:
+        for th in a.threads:
+            print(f"▶ {g.name} · {th} thread · sunucu başlatılıyor")
+            srv = Sunucu(a.server_bin, g, th, a.port, a.ctx)
+            try:
+                yuk = srv.bekle()
+                print(f"   hazır: {yuk:.1f} sn")
+                for sc in a.senaryolar:
+                    print(f"   ▶ {sc} · {a.runs} koşu")
+                    r = senaryo_bench(srv, g, sc, th, a.runs, yuk)
+                    print(f"     p50={r['p50_sn']}s p95={r['p95_sn']}s üretim={r['uretim_tok_s']} tok/s "
+                          f"prompt={r['prompt_tok_s']} tok/s ({r['islenen_prompt_tok']} işlendi, "
+                          f"{r['onbellek_tok']} önbellek) json={r['json_gecerli_pct']}% "
+                          f"alıntı={r['alinti_birebir_pct']}% steal={r['cpu_steal_pct']}% "
+                          f"→ {'GEÇTİ' if r['gecti'] else 'KALDI'}")
+                    if r["hatalar"]:
+                        print("     hatalar:", r["hatalar"])
+                    sonuclar.append(r)
+            except Exception as e:  # noqa: BLE001
+                print(f"   ❌ {e}")
+                sonuclar.append({"model": g.name, "thread": th, "hata_genel": repr(e)})
+            finally:
+                srv.kapat()
 
-    a.out.mkdir(parents=True, exist_ok=True)
-    dosya = a.out / f"bench-{info['host']}-{time.strftime('%Y%m%d-%H%M%S')}.json"
+    dosya = HERE / "results" / f"bench-{info['host']}-{time.strftime('%Y%m%d-%H%M%S')}.json"
     dosya.write_text(json.dumps({"sistem": info, "sonuclar": sonuclar}, ensure_ascii=False, indent=1))
 
-    print("\n| model | senaryo | thread | p50 sn | p95 sn | üretim tok/s | prompt tok/s | tepe RSS GB | min boş RAM GB | steal % | karar |")
-    print("|---|---|---|---|---|---|---|---|---|---|---|")
+    print("\n| model | senaryo | thr | p50 sn | p95 sn | üretim tok/s | prompt tok/s | işlenen/önbellek tok "
+          "| JSON % | alıntı % | RSS GB | min boş RAM GB | steal % | karar |")
+    print("|---|---|---|---|---|---|---|---|---|---|---|---|---|---|")
     for r in sonuclar:
-        print(f"| {r['model']} | {r['senaryo']} | {r['thread']} | {r['p50_sn']} | {r['p95_sn']} | {r['uretim_tok_s']} | "
-              f"{r['prompt_tok_s']} | {r['tepe_ollama_rss_gb']} | {r['min_bos_ram_gb']} | {r['cpu_steal_pct']} | "
-              f"{'✅' if r['gecti'] else '❌'} |")
+        if "hata_genel" in r:
+            print(f"| {r['model']} | — | {r['thread']} | HATA: {r['hata_genel'][:60]} |||||||||||")
+            continue
+        print(f"| {r['model']} | {r['senaryo']} | {r['thread']} | {r['p50_sn']} | {r['p95_sn']} | {r['uretim_tok_s']} "
+              f"| {r['prompt_tok_s']} | {r['islenen_prompt_tok']}/{r['onbellek_tok']} | {r['json_gecerli_pct']} "
+              f"| {r['alinti_birebir_pct']} | {r['tepe_rss_gb']} | {r['min_bos_ram_gb']} | {r['cpu_steal_pct']} "
+              f"| {'✅' if r['gecti'] else '❌'} |")
+    print("\nÖrnek cevaplar (ilk model, ilk senaryo):")
+    for c in next((r.get("ornek_cevaplar", []) for r in sonuclar if "ornek_cevaplar" in r), []):
+        print("  ", c)
     print(f"\nKayıt: {dosya}")
-    print(f"Kriter: p95 ≤ {P95_HEDEF_SN} sn VE koşu sırasında boş RAM ≥ {RAM_PAYI_GB} GB")
+    print(f"Kriter: p95 ≤ {P95_HEDEF_SN} sn, hata yok, koşu sırasında boş RAM ≥ {RAM_PAYI_GB} GB (Linux)")
 
 
 if __name__ == "__main__":

@@ -10,9 +10,6 @@ dependencies = []          # Adım 2'de: pydantic, pyyaml, httpx
 [project.optional-dependencies]
 dev = ["pytest>=8", "ruff>=0.6"]
 
-[tool.setuptools.packages.find]
-include = ["kalkan*"]
-
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 

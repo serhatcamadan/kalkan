@@ -1,4 +1,7 @@
-"""KALKAN · Adım 1 · Ollama cevap testi (yalnızca stdlib)           v1 · 2026-11-18
+"""KALKAN · Adım 1 · Ollama cevap testi (yalnızca stdlib)         v1.1 · 2026-11-19
+
+v1.1: herhangi bir model HATA veya BOZUK dönerse çıkış kodu 1 (v1 hatada da OK yazıyordu).
+Not: ADR-0002 ile yerel çalışma zamanı llama-server oldu; bu script spike kaydı için duruyor.
 
 Her model için aynı Türkçe istemi temperature=0 ile gönderir ve şunları kaydeder:
 cevap var mı, anlamsız mı (bozuk dönüşüm belirtisi), <think> sızıyor mu, JSON mu,
@@ -109,6 +112,10 @@ def main() -> None:
             durum = "BOZUK" if d["anlamsiz"] else "ok"
             print(f"{s['model']:<18}{ad:<9}{durum:<10}{str(d['json']):<6}{str(d['think_sizintisi']):<7}"
                   f"{str(d['tok_s']):<8}{str(d.get('kontrole_benzerlik', '-')):<10}{d['cevap'][:70]!r}")
+    basarisiz = [s["model"] for s in sonuc for ad in ("serbest", "json")
+                 if "hata" in s.get(ad, {}) or s.get(ad, {}).get("anlamsiz")]
+    if basarisiz:
+        raise SystemExit(f"BAŞARISIZ: {sorted(set(basarisiz))}")
 
 
 if __name__ == "__main__":

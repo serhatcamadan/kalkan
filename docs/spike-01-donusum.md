@@ -1,4 +1,4 @@
-# Spike 01 — Dönüşüm yolu (Adım 1) · v1 · 2026-11-18
+# Spike 01 — Dönüşüm yolu (Adım 1) · v2 · 2026-11-19 (sonuçlar işlendi)
 
 **Soru:** MLX'te LoRA ile eğitilmiş Qwen3.5-0.8B, Ollama'da Q4_K_M olarak doğru cevap veriyor mu?
 **Yöntem:** 1 iterasyonluk LoRA (kalite değil, boru hattı testi), üç yol + bir kontrol.
@@ -34,17 +34,53 @@
 - 2B Q4: üretim 5–10 tok/s, prompt 15–35 tok/s. **p95 > 15 sn olacak (%75)**.
 - Sonuç: 15 sn eşiğini tutturmak için çıktı kısa olmalı (kanıt-önce kompakt JSON, en fazla 3 kanıt). Sistem istemi de kısaltılmalı ya da KV önbelleği yeniden kullanılmalı. Fine-tune'un gizli bir kazancı da bu olabilir: kısa sistem istemi yetiyor.
 
-## Sonuçlar (spike SONRASI doldur)
+## Sonuçlar (19.11.2026 · Apple M4 16 GB · macOS 15.7.4)
+Sürümler: mlx-lm 0.32.2 · mlx 0.32.4 · llama.cpp `5812201a8` (b12544) · transformers 4.57.6 (dönüştürücü) ·
+Ollama 0.40.14 · model `Qwen/Qwen3.5-0.8B@2fc0636`
+
 | Adım | Durum | Süre | Not |
 |---|---|---|---|
-| 3b LoRA 1 iter | | | |
-| 4a fuse (A) | | | |
-| 4b merge (B) | | | |
-| 4c/4d inspect | | | norm +1? yerleşim farkı? |
-| 5c/5a/5b GGUF | | | |
-| 6* Ollama | | | |
-| 6d D0 `-q` | | | |
-| 7 smoke | | | benzerlik A/B ↔ C |
+| Kurulum (MLX + llama.cpp derleme) | OK | 35 + 505 sn | Sürenin çoğu derleme |
+| Model indirme | OK | 191 sn | |
+| LoRA 1 iterasyon | OK | 15 sn | |
+| 4a fuse (A) | OK | 3 sn | ama ↓ |
+| 4c inspect A | ❌ sorunlu | | isim seti farklı, conv yerleşimi farklı, **61 norm tensöründe +1 kayma** |
+| 5a GGUF (A) | FAIL | 2 sn | `Tokenizer class Qwen3_5Tokenizer does not exist`: fuse, tokenizer ayarını dönüştürücünün tanımadığı bir sınıf adıyla yazdı |
+| 4b merge (B) + 4d inspect | OK, `sorunlar: []` | 3 + 3 sn | |
+| 5c/5b GGUF (C, B) | OK | 29 / 17 sn | BF16 1.5 GB → Q4_K_M 522 MB |
+| 6 Ollama create (C, B) | OK | | ama ↓ |
+| 7 smoke (Ollama) | **HATA** (script v1 yanlışlıkla OK yazdı) | | `check_tensor_dims: tensor 'blk.0.ssm_beta.weight' not found` |
+| 6d D0 `ollama create -q` | FAIL (beklenen) | | `create-time quantization is only supported for safetensors imports` |
+| B · llama-cli (aynı commit) | ✅ | | "Türkiye'nin başkenti Ankara'dır." · prompt 105 t/s · üretim **83.6 t/s** |
+| Ollama resmi `qwen3.5:0.8b` | ✅ | | "Ankara" |
 
-Tahmin tuttu mu? T1 … T8 → ✅ / ❌ ve neden.
-**Karar → ADR-0001.**
+## Teşhis
+GGUF'umuz **sağlam**: aynı llama.cpp commit'iyle doğru ve hızlı cevap veriyor. Ollama 0.40.14'ün içindeki
+llama.cpp motoru daha eski. Yeni dönüştürücünün Qwen3.5 Gated-DeltaNet tensör düzenini (`ssm_beta` beklentisi)
+tanımıyor. Ollama'nın kendi kütüphane modeli çalışıyor, çünkü o model Ollama'nın beklediği düzende paketlenmiş.
+Sonuç: sorun **dönüştürücü ile çalışma zamanı arasındaki sürüm uyumsuzluğu**.
+
+## Tahminler tuttu mu?
+| # | Sonuç |
+|---|---|
+| T1 C çalışır | ⚠️ Kısmen: GGUF çalışıyor (llama-cli), Ollama'da açılmıyor. Bu riski öngörmedim. |
+| T2 A kırılır | ✅ İki ayrı sebeple: tokenizer kayması + ağırlık düzeni (norm +1) |
+| T3 B ≈ C | ✅ İnspect temiz, llama-cli doğru. Benzerlik ölçümü llama-server bench'inde. |
+| T4 D0 hata verir | ✅ Birebir |
+| T5 boyutlar | ✅ 1.5 GB / 522 MB |
+| T6 süre 20–40 dk | ❌ ~14 dk (tahmin fazlaydı) |
+| T7 Mac 80–150 tok/s | ✅ 83.6 tok/s (llama-cli, Metal) |
+| T8 think sızıntısı yok | ✅ llama-cli'de görülmedi |
+
+**Öğrenilen:** Kontrol grubu (C) olmasaydı Ollama hatasını bizim birleştirme script'imize bağlardık.
+Kontrol, hatanın yerini tek denemede gösterdi.
+
+## Kararlar
+- ADR-0001 → **Kabul: B yolu** (adaptörü orijinal HF ağırlıklarına kendi script'imizle birleştir).
+- ADR-0002 → **Kabul: yerel çalışma zamanı = llama-server** (Ollama değil).
+
+## Yol haritasına etkisi
+- Adım 5/8/10/11: "Ollama" yerine llama-server. `backends/ollama.py` yerine tek arka uç `openai_compat.py`
+  (yerel llama-server ve BYOK aynı kapıdan).
+- Zero-shot ve fine-tuned modeller **aynı dönüşüm hattından** geçer (`training/make_gguf.sh`): adil karşılaştırma.
+- Adım 8 parite testi: MLX ↔ llama-server (aynı commit).
