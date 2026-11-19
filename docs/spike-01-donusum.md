@@ -1,4 +1,4 @@
-# Spike 01 — Dönüşüm yolu (Adım 1) · v2 · 2026-11-19 (sonuçlar işlendi)
+# Spike 01 — Dönüşüm yolu (Adım 1) · v3 · 2026-11-19 (Mac + VPS sonuçları işlendi, ADIM KAPANDI)
 
 **Soru:** MLX'te LoRA ile eğitilmiş Qwen3.5-0.8B, Ollama'da Q4_K_M olarak doğru cevap veriyor mu?
 **Yöntem:** 1 iterasyonluk LoRA (kalite değil, boru hattı testi), üç yol + bir kontrol.
@@ -74,6 +74,41 @@ Bulgular:
 3. **Sinyal etiketleri zayıf** ("hesabınız askıya alınmıştır" → `odeme_talebi`). Zero-shot için beklenen. Fine-tune hedefi.
 4. Prompt önbelleği Mac'te önemsiz (+0.15 sn), çünkü Metal 1600 tok/s işliyor. VPS'te CPU ile belirleyici olacak.
 5. RAM: 0.8B ≈ 0.9 GB, 2B ≈ 1.6 GB → ikisi de 6 GB VPS'e sığar.
+
+## VPS ölçümü · llama-server (TR-VPS5: 4 vCPU E5-2699 v4 · 6 GB · Ubuntu 24.04 · 4 thread · 10 koşu)
+llama.cpp `5812201a8`, `GGML_NATIVE=ON` ile yerinde derlendi (Mac'teki commit'le aynı).
+
+| model | senaryo | p50 sn | p95 sn | üretim tok/s | prompt tok/s | üretilen tok | kesilme % | JSON % | alıntı % | RSS GB | min boş RAM GB | karar |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| C 0.8B | kisa (96) | 4.73 | 5.00 | 22.1 | 136 | 96 | 80 | 20 | – | 0.95 | 4.77 | ❌ kesilme |
+| C 0.8B | kisa_cachesiz | 6.05 | 6.51 | 22.0 | 185 | 96 | 80 | 20 | – | 0.95 | 4.76 | ❌ kesilme |
+| C 0.8B | **uzun (256)** | 6.94 | **9.22** | 22.2 | 132 | 147 | 0 | 100 | 64 | 0.95 | 4.76 | ✅ |
+| C2B 2B | kisa | 8.11 | 9.04 | 12.7 | 78 | 96 | 80 | 20 | 100 | 2.01 | 4.38 | ❌ kesilme |
+| C2B 2B | kisa_cachesiz | 11.09 | 11.51 | 13.0 | 92 | 96 | 80 | 20 | 100 | 2.01 | 4.38 | ❌ kesilme |
+| C2B 2B | **uzun (256)** | 10.38 | **11.78** | 12.8 | 77 | 124 | 0 | 100 | 89 | 2.01 | 4.39 | ✅ |
+
+CPU steal: %0,0 (paylaşımlı çekirdek gürültüsü yok). B (0.8B LoRA) satırları C ile aynı düzeyde.
+
+Bulgular:
+1. **Hız eşiği tutuyor.** Kesilmeden tamamlanan gerçekçi cevapta (124–147 token): 0.8B p95 9.2 sn, 2B p95 11.8 sn (≤15 sn).
+2. **"kisa"daki ❌'ların hepsi bütçe yüzünden, hız yüzünden değil.** %80 kesilme → JSON bozuk.
+3. **Gecikmenin asıl kaynağı üretilen token sayısı.** 0.8B'de 100 token ≈ 4.5 sn, 2B'de ≈ 7.8 sn.
+   Girintili JSON ve uzun alıntılar en büyük kaldıraç → kompakt çıktı (Adım 2 şema, Adım 5 gramer, Adım 7 fine-tune).
+4. **Prompt önbelleği** 345 token'lık istemde 0.8B'de ~1.3 sn, 2B'de ~3 sn kazandırıyor. Kalsın ama hayati değil.
+5. **RAM:** 2B çalışırken bile ≥4.4 GB boş → uygulama + veritabanı için pay var.
+6. **2B kanıtta daha sadık** (alıntı %89'a karşı %64), 0.8B ~1.7 kat daha hızlı. İkisi de aday olarak kalıyor.
+   Seçim Adım 8'de eval'e göre yapılacak.
+
+VPS tahminlerinin karnesi:
+| Tahmin | Gerçek | |
+|---|---|---|
+| 0.8B üretim 12–25 tok/s | 22 | ✅ |
+| 0.8B prompt 40–90 tok/s | 132–185 | ❌ (karamsar tahmin) |
+| 2B üretim 5–10 tok/s | 12.8 | ❌ (karamsar tahmin) |
+| 2B p95 > 15 sn (%75) | 11.8 | ❌ (2B VPS'te kullanılabilir) |
+| Çözüm kısa çıktıdan geçer | Doğrulandı | ✅ |
+
+**VPS kararı: tutuluyor.** 0.8B ve 2B, gerçekçi çıktı uzunluğunda sert kısıtları sağlıyor.
 
 ## Teşhis
 GGUF'umuz **sağlam**: aynı llama.cpp commit'iyle doğru ve hızlı cevap veriyor. Ollama 0.40.14'ün içindeki

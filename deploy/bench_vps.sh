@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-# KALKAN · VPS benchmark başlatıcı                                  v2 · 2026-11-19
+# KALKAN · VPS benchmark başlatıcı                                v2.1 · 2026-11-19
+# v2.1: python3 -u → çıktı tee ile anında ekrana düşer (v2 tamponluyordu)
 # 🧪 KESİN DENE — temiz Ubuntu 24.04 VPS'te.
 # v2: Ollama yerine llama.cpp'nin llama-server'ı (ADR-0002). Mac'teki spike ile AYNI commit derlenir.
 #
@@ -33,4 +34,4 @@ llama.cpp/build/bin/llama-server --version 2>&1 | tail -2
 
 # 3) benchmark (başka yük olmamalı)
 mkdir -p results
-python3 bench_vps.py "$@" 2>&1 | tee "results/bench-$(date +%Y%m%d-%H%M%S).log"
+python3 -u bench_vps.py "$@" 2>&1 | tee "results/bench-$(date +%Y%m%d-%H%M%S).log"

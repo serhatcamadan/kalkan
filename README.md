@@ -13,8 +13,8 @@ küçük model · fine-tuned küçük model · gpt-5.4-mini.
 ## Durum
 | # | Adım | Durum |
 |---|---|---|
-| 1 | Repo iskeleti ✅ · dönüşüm spike'ı ✅ (B yolu + llama-server) · VPS benchmark 🔄 | 🔄 |
-| 2 | Taksonomi, şema, sinyaller, PII | ⏳ |
+| 1 | Repo iskeleti · dönüşüm spike'ı (B yolu + llama-server) · Mac + VPS benchmark | ✅ |
+| 2 | Taksonomi, şema, sinyaller, PII | 🔄 |
 | 3–12 | Veri, eval, pipeline, fine-tune, güvenlik, demo, VPS, yazım | ⏳ |
 
 ## Hızlı başlangıç (şimdilik)
