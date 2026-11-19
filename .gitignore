@@ -1,0 +1,17 @@
+# KALKAN v1
+.spike/
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+.env
+*.gguf
+*.safetensors
+models/
+data/external/*
+!data/external/.gitkeep
+!data/external/download.py
+deploy/results/*.json
+deploy/results/*.log
+.DS_Store
