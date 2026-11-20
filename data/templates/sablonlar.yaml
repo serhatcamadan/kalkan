@@ -1,4 +1,5 @@
-# KALKAN · sentetik mesaj şablonları                                 v1 · 2026-11-19
+# KALKAN · sentetik mesaj şablonları                               v1.1 · 2026-11-20
+# v1.1: rakam/marka sonrası Türkçe ek uyumu ("lira'ye", "Mobil'dan"), reklamda gerçekçi indirim oranı (%120 indirim yok)
 #
 # Söz dizimi
 #   {a|b|c}          → rastgele biri (iç içe olabilir)
@@ -79,7 +80,7 @@ sablonlar:
   tur: sahte_kargo_gumruk
   split: test
   marka: kargo
-  metin: "SON UYARI: gönderiniz ⟦aciliyet:{bugün|yarın} saat {SAAT}'te iade edilecek⟧. ⟦odeme_talebi:Gümrük harcı {TUTAR_K}⟧, ödeme sayfası: ⟦link:{KISA_LINK}⟧"
+  metin: "SON UYARI: gönderiniz ⟦aciliyet:{bugün|yarın} saat {SAAT} itibarıyla iade edilecek⟧. ⟦odeme_talebi:Gümrük harcı {TUTAR_K}⟧, ödeme sayfası: ⟦link:{KISA_LINK}⟧"
 
 # ───────────────────────────────────────────── kurum_taklidi
 - id: kurum_01
@@ -197,7 +198,7 @@ sablonlar:
   tur: yasa_disi_bahis
   split: egitim
   marka: bahis
-  metin: "{MARKA}'da ⟦odul_vaadi:{TUTAR_O} deneme bonusu⟧ seni bekliyor! ⟦aciliyet:Yatırımsız bonus bugün son⟧. ⟦link:Güncel giriş: {BAHIS_LINK}⟧"
+  metin: "{MARKA} üyelerine ⟦odul_vaadi:{TUTAR_O} deneme bonusu⟧! ⟦aciliyet:Yatırımsız bonus bugün son⟧. ⟦link:Güncel giriş: {BAHIS_LINK}⟧"
 - id: bahis_02
   tur: yasa_disi_bahis
   split: egitim
@@ -222,7 +223,7 @@ sablonlar:
   tur: yasa_disi_bahis
   split: test
   marka: bahis
-  metin: "⟦odul_vaadi:Şike garantili maç listesi⟧ geldi, oranlar {YUZDE}'a kadar. ⟦odeme_talebi:Listeyi almak için {TUTAR_O} yatır⟧ ⟦kanal_degistirme:{TEL} WhatsApp⟧"
+  metin: "⟦odul_vaadi:Şike garantili maç listesi⟧ geldi, oranlar çok yüksek. ⟦odeme_talebi:Listeyi almak için {TUTAR_O} yatır⟧ ⟦kanal_degistirme:{TEL} WhatsApp⟧"
 - id: bahis_07
   tur: yasa_disi_bahis
   split: test
@@ -264,7 +265,7 @@ sablonlar:
   tur: oyun_hesap_skin
   split: test
   marka: oyun
-  metin: "abi oyun içi parayı yarı fiyatına satıyorum ⟦odeme_talebi:{TUTAR_O}'ye 10.000 elmas⟧, ⟦kod_talebi:hesabına yüklemem için gelen kodu at⟧ ⟦gizlilik_baskisi:moderatörlere söyleme banlarlar⟧"
+  metin: "abi oyun içi parayı yarı fiyatına satıyorum ⟦odeme_talebi:{TUTAR_O_TL}'ye 10.000 elmas⟧, ⟦kod_talebi:hesabına yüklemem için gelen kodu at⟧ ⟦gizlilik_baskisi:moderatörlere söyleme banlarlar⟧"
 
 # ───────────────────────────────────────────── odul_kampanya
 - id: odul_01
@@ -301,7 +302,7 @@ sablonlar:
   tur: odul_kampanya
   split: test
   marka: kart
-  metin: "{MARKA} müşterilerine özel: ⟦odul_vaadi:harcamalarınızın {TUTAR_O}'si iade edilecek⟧. ⟦kimlik_talebi:İade için CVV ve son kullanma tarihini girin⟧ ⟦link:{LINK}⟧"
+  metin: "{MARKA} müşterilerine özel: ⟦odul_vaadi:harcamalarınızın {TUTAR_O_TL}'si iade edilecek⟧. ⟦kimlik_talebi:İade için CVV ve son kullanma tarihini girin⟧ ⟦link:{LINK}⟧"
 
 # ───────────────────────────────────────────── yakin_taklidi
 - id: yakin_01
@@ -382,12 +383,12 @@ sablonlar:
   tur: reklam_spam
   split: egitim
   marka: eticaret
-  metin: "{MARKA}'da {Kasım|Yaz|Bahar} indirimi başladı! Tüm ürünlerde %{YUZDE}'ye varan fırsatlar. {RESMI_LINK} Ret için RET yazıp {KISA_NO}'e gönderin. Mersis: {MERSIS}"
+  metin: "{MARKA} {Kasım|Yaz|Bahar} indirimi başladı! Seçili ürünlerde %{INDIRIM} indirim. {RESMI_LINK} Ret için RET yazıp {KISA_NO}'e gönderin. Mersis: {MERSIS}"
 - id: reklam_02
   tur: reklam_spam
   split: egitim
   marka: operator
-  metin: "{MARKA}'dan size özel: aylık {TUTAR_O}'ye {20|40|60} GB tarife. Başvuru için mağazalarımızı ziyaret edin veya {RESMI_LINK}. SMS almamak için IPTAL yazıp {KISA_NO}'e gönderin."
+  metin: "Size özel {MARKA} teklifi: aylık {TUTAR_O_TL}'ye {20|40|60} GB tarife. Başvuru için mağazalarımızı ziyaret edin veya {RESMI_LINK}. SMS almamak için IPTAL yazıp {KISA_NO}'e gönderin."
 - id: reklam_03
   tur: reklam_spam
   split: egitim
@@ -397,7 +398,7 @@ sablonlar:
   tur: reklam_spam
   split: egitim
   marka: kart
-  metin: "{MARKA} ile market alışverişlerinize {TUTAR_K}'ye kadar bonus! Katılım için KATIL yazıp {KISA_NO}'e gönderin. Detay: {RESMI_LINK} Ret: {KISA_NO}"
+  metin: "{MARKA} ile market alışverişlerinize {TUTAR_K_TL}'ye kadar bonus! Katılım için KATIL yazıp {KISA_NO}'e gönderin. Detay: {RESMI_LINK} Ret: {KISA_NO}"
 - id: reklam_05
   tur: reklam_spam
   split: dogrulama
@@ -412,7 +413,7 @@ sablonlar:
   tur: reklam_spam
   split: test
   marka: kart
-  metin: "{MARKA} sahiplerine akaryakıtta %{YUZDE} indirim fırsatı {TARIH} tarihine kadar. Detaylar {RESMI_LINK} adresinde. Mersis: {MERSIS}"
+  metin: "{MARKA} sahiplerine akaryakıtta %{INDIRIM} indirim fırsatı {TARIH} tarihine kadar. Detaylar {RESMI_LINK} adresinde. Mersis: {MERSIS}"
 
 # ───────────────────────────────────────────── mesru_islem (zor negatif: gerçek bildirim)
 - id: mesru_01

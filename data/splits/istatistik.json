@@ -3,11 +3,11 @@
   "ornek": 1496,
   "sablon": 44,
   "marka": 16,
-  "ort_girdi": 146,
+  "ort_girdi": 145,
   "ort_hedef": 207,
   "kanit": 2.36,
-  "ascii": 26,
-  "yazim": 16
+  "ascii": 25,
+  "yazim": 15
  },
  "dogrulama": {
   "ornek": 198,
@@ -26,7 +26,7 @@
   "ort_girdi": 134,
   "ort_hedef": 210,
   "kanit": 2.41,
-  "ascii": 25,
+  "ascii": 26,
   "yazim": 16
  },
  "sizinti": {
@@ -44,7 +44,7 @@
   }
  },
  "sinyal_kapsami": {
-  "dolandiricilik": 93.4,
+  "dolandiricilik": 93.5,
   "dolandiricilik_disi": 86.5
  },
  "adversarial": {

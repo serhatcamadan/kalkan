@@ -1,4 +1,6 @@
-"""KALKAN · Adım 3 · sentetik veri üretici                            v1 · 2026-11-20
+"""KALKAN · Adım 3 · sentetik veri üretici                          v1.1 · 2026-11-20
+
+v1.1: TUTAR_*_TL ve INDIRIM slotları (Türkçe ek uyumu, gerçekçi indirim oranı).
 🧪 KESİN DENE:  python tools/veri_uret.py          (tohum sabit → aynı çıktı)
 
 Girdi : data/templates/sablonlar.yaml, data/adversarial/adversarial.yaml
@@ -118,6 +120,11 @@ def slot_doldur(ad: str, r: random.Random, bag: dict, tax: dict) -> str:
         return tutar(r, 19, 149, True)
     if ad == "TUTAR_O":
         return tutar(r, 250, 4999, r.random() < 0.3)
+    if ad in ("TUTAR_K_TL", "TUTAR_O_TL"):  # arkasından ek geliyorsa birim hep " TL" ("TL'ye"; "lira'ye" olmaz)
+        t = tutar(r, 19, 149, True) if ad == "TUTAR_K_TL" else tutar(r, 250, 4999, r.random() < 0.3)
+        return re.sub(r"\s?(TL|₺|lira)$", " TL", t)
+    if ad == "INDIRIM":
+        return str(r.choice([10, 15, 20, 25, 30, 40, 50]))
     if ad == "TUTAR_B":
         return tutar(r, 5000, 95000, False)
     if ad == "SURE":
