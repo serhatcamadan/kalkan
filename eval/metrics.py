@@ -1,4 +1,7 @@
-"""KALKAN · eval/metrics.py — tüm modeller için ortak metrikler         v1 · 2026-11-20
+"""KALKAN · eval/metrics.py — tüm modeller için ortak metrikler       v1.1 · 2026-11-20
+
+v1.1: Tahmin.risk (politika kararı) varsa ikili metrikler ve adversarial sızıntı ONU kullanır (sistem düzeyi);
+      yoksa türden türetilen vekil ölçüt (taban çizgileri).
 
 Bir modelin her örnek için ürettiği `Tahmin`, altın etiketle karşılaştırılır. Kurallar:
   • tur=None (şema bozuk / zaman aşımı) → fail-closed: "belirsiz". Dolandırıcılık recall'unda YAKALANDI,
@@ -27,7 +30,8 @@ class Tahmin:
     json_gecerli: bool = True
     sure_ms: float = 0.0
     maliyet_usd: float = 0.0
-    ham: str | None = None                # LLM ham çıktısı (hata ayıklama için)
+    ham: str | None = None                # LLM ham çıktısı (yalnızca şema bozuksa, hata ayıklama için)
+    risk: str | None = None               # politika kararı (yalnızca tam pipeline modellerinde)
 
     def sozluk(self) -> dict:
         return asdict(self)
@@ -36,6 +40,11 @@ class Tahmin:
 def dolandiricilik_mi(tur: str | None) -> bool:
     """Fail-closed: belirsiz = alarm."""
     return tur is None or tur not in DISI
+
+
+def alarm(t: Tahmin) -> bool:
+    """Sistem kullanıcıyı uyardı mı? Politika varsa risk != düşük; yoksa tür vekili."""
+    return t.risk != "dusuk" if t.risk is not None else dolandiricilik_mi(t.tur)
 
 
 def _kelimeler(s: str) -> set[str]:
@@ -127,25 +136,26 @@ def degerlendir(set_adi: str, ornekler: list[dict], tahminler: list[Tahmin]) -> 
     out: dict = {"n": len(ornekler), **sure_maliyet(tahminler)}
     if set_adi in ("olta", "uci"):
         altin = [o["etiket"] in ("dolandiricilik", "spam") for o in ornekler]
-        out.update(ikili_metrikler(altin, [dolandiricilik_mi(t.tur) for t in tahminler]))
+        out.update(ikili_metrikler(altin, [alarm(t) for t in tahminler]))
         return out
     if set_adi == "adversarial":
         sizinti, yanlis_alarm, tur_kabul = [], [], 0
         for o, t in zip(ornekler, tahminler):
-            if o["asla_dusuk"] and not dolandiricilik_mi(t.tur):
+            if o["asla_dusuk"] and not alarm(t):
                 sizinti.append({"id": o["id"], "saldiri": o["saldiri"], "tahmin": t.tur})
-            if not o["asla_dusuk"] and dolandiricilik_mi(t.tur):
+            if not o["asla_dusuk"] and alarm(t):
                 yanlis_alarm.append({"id": o["id"], "tahmin": t.tur})
             tur_kabul += t.tur in o["beklenen_turler"]
         out.update({"dusuk_risk_sizintisi": len(sizinti), "sizintilar": sizinti,
                     "zor_negatif_yanlis_alarm": len(yanlis_alarm), "yanlis_alarmlar": yanlis_alarm,
                     "tur_kabul_orani": round(tur_kabul / len(ornekler), 4),
-                    "not": "Politika kodu (Adım 5) gelene kadar vekil ölçüt: dolandırıcılık-dışı tür tahmini = düşük risk."})
+                    "olcut": "politika riski" if any(t.risk for t in tahminler) else "vekil: dolandırıcılık-dışı tür = düşük risk"})
         out.update(kanit_metrikleri(ornekler, tahminler))
         return out
     altin = [o["tur"] for o in ornekler]
     out.update(tur_metrikleri(altin, [t.tur for t in tahminler]))
-    out.update(ikili_metrikler([a not in DISI for a in altin], [dolandiricilik_mi(t.tur) for t in tahminler]))
+    out.update(ikili_metrikler([a not in DISI for a in altin], [alarm(t) for t in tahminler]))
+    out["risk_dagilimi"] = dict(Counter(t.risk for t in tahminler)) if any(t.risk for t in tahminler) else None
     out.update(kanit_metrikleri(ornekler, tahminler))
     return out
 

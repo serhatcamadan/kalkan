@@ -1,0 +1,3761 @@
+{
+ "meta": {
+  "model": "zs-0.8b",
+  "set": "dogrulama",
+  "n": 198,
+  "zaman": "2026-11-20T22:49:59",
+  "git": "79266c7",
+  "veri_sha256": "a70861c206cda3eb",
+  "dis_set_limit": null,
+  "hazirlik": {
+   "base_url": "http://127.0.0.1:8080",
+   "model": "yerel",
+   "gguf": "C-Q4_K_M.gguf",
+   "llama_build": "b12544-5812201a8"
+  },
+  "sure_sn": 256.6
+ },
+ "metrikler": {
+  "n": 198,
+  "p50_ms": 1115.0,
+  "p95_ms": 1990.0,
+  "json_gecerlilik": 1.0,
+  "usd_1000_mesaj": 0.0,
+  "dogruluk": 0.1919,
+  "makro_f1": 0.1306,
+  "sinif": {
+   "sahte_kargo_gumruk": {
+    "p": 0.283,
+    "r": 0.944,
+    "f1": 0.436,
+    "destek": 18
+   },
+   "kurum_taklidi": {
+    "p": 0.0,
+    "r": 0.0,
+    "f1": 0.0,
+    "destek": 18
+   },
+   "sahte_kamu_gorevlisi": {
+    "p": 0.0,
+    "r": 0.0,
+    "f1": 0.0,
+    "destek": 18
+   },
+   "yatirim_vip_grup": {
+    "p": 0.0,
+    "r": 0.0,
+    "f1": 0.0,
+    "destek": 18
+   },
+   "yasa_disi_bahis": {
+    "p": 1.0,
+    "r": 0.167,
+    "f1": 0.286,
+    "destek": 18
+   },
+   "oyun_hesap_skin": {
+    "p": 0.0,
+    "r": 0.0,
+    "f1": 0.0,
+    "destek": 18
+   },
+   "odul_kampanya": {
+    "p": 0.0,
+    "r": 0.0,
+    "f1": 0.0,
+    "destek": 18
+   },
+   "yakin_taklidi": {
+    "p": 0.173,
+    "r": 0.722,
+    "f1": 0.28,
+    "destek": 18
+   },
+   "gorev_is_ilani": {
+    "p": 0.0,
+    "r": 0.0,
+    "f1": 0.0,
+    "destek": 18
+   },
+   "reklam_spam": {
+    "p": 0.0,
+    "r": 0.0,
+    "f1": 0.0,
+    "destek": 18
+   },
+   "mesru_islem": {
+    "p": 1.0,
+    "r": 0.278,
+    "f1": 0.435,
+    "destek": 18
+   }
+  },
+  "belirsiz": 0,
+  "en_cok_karisan": [
+   {
+    "altin": "sahte_kamu_gorevlisi",
+    "tahmin": "yakin_taklidi",
+    "n": 18
+   },
+   {
+    "altin": "yatirim_vip_grup",
+    "tahmin": "yakin_taklidi",
+    "n": 17
+   },
+   {
+    "altin": "gorev_is_ilani",
+    "tahmin": "yakin_taklidi",
+    "n": 16
+   },
+   {
+    "altin": "odul_kampanya",
+    "tahmin": "sahte_kargo_gumruk",
+    "n": 15
+   },
+   {
+    "altin": "reklam_spam",
+    "tahmin": "sahte_kargo_gumruk",
+    "n": 13
+   },
+   {
+    "altin": "kurum_taklidi",
+    "tahmin": "odul_kampanya",
+    "n": 13
+   },
+   {
+    "altin": "oyun_hesap_skin",
+    "tahmin": "odul_kampanya",
+    "n": 11
+   },
+   {
+    "altin": "yasa_disi_bahis",
+    "tahmin": "yakin_taklidi",
+    "n": 8
+   }
+  ],
+  "karisiklik_matrisi": {
+   "gorev_is_ilani": {
+    "yakin_taklidi": 16,
+    "sahte_kamu_gorevlisi": 2
+   },
+   "kurum_taklidi": {
+    "sahte_kamu_gorevlisi": 5,
+    "odul_kampanya": 13
+   },
+   "mesru_islem": {
+    "mesru_islem": 5,
+    "sahte_kargo_gumruk": 6,
+    "odul_kampanya": 7
+   },
+   "odul_kampanya": {
+    "sahte_kargo_gumruk": 15,
+    "yakin_taklidi": 2,
+    "sahte_kamu_gorevlisi": 1
+   },
+   "oyun_hesap_skin": {
+    "odul_kampanya": 11,
+    "sahte_kamu_gorevlisi": 2,
+    "sahte_kargo_gumruk": 5
+   },
+   "reklam_spam": {
+    "odul_kampanya": 5,
+    "sahte_kargo_gumruk": 13
+   },
+   "sahte_kamu_gorevlisi": {
+    "yakin_taklidi": 18
+   },
+   "sahte_kargo_gumruk": {
+    "sahte_kargo_gumruk": 17,
+    "yakin_taklidi": 1
+   },
+   "yakin_taklidi": {
+    "odul_kampanya": 5,
+    "yakin_taklidi": 13
+   },
+   "yasa_disi_bahis": {
+    "yasa_disi_bahis": 3,
+    "odul_kampanya": 2,
+    "sahte_kargo_gumruk": 3,
+    "yakin_taklidi": 8,
+    "sahte_kamu_gorevlisi": 2
+   },
+   "yatirim_vip_grup": {
+    "yakin_taklidi": 17,
+    "sahte_kargo_gumruk": 1
+   }
+  },
+  "dolandiricilik_recall": 1.0,
+  "mesru_fpr": 0.8611,
+  "tp": 162,
+  "fn": 0,
+  "fp": 31,
+  "tn": 5,
+  "risk_dagilimi": {
+   "yuksek": 143,
+   "orta": 50,
+   "dusuk": 5
+  },
+  "alinti_sayisi": 337,
+  "kapi_oncesi_gecerlilik": 0.5401,
+  "eslesme_p": 0.0208,
+  "eslesme_r": 0.015,
+  "eslesme_f1": 0.0174,
+  "kesilen_cevap": 0,
+  "ort_cikti_token": 106.9,
+  "gurultuye_gore": {
+   "(yok)": {
+    "dogruluk": 0.192,
+    "n": 104
+   },
+   "ascii": {
+    "dogruluk": 0.136,
+    "n": 44
+   },
+   "bosluk": {
+    "dogruluk": 0.222,
+    "n": 9
+   },
+   "buyuk_harf": {
+    "dogruluk": 0.267,
+    "n": 15
+   },
+   "emoji": {
+    "dogruluk": 0.143,
+    "n": 21
+   },
+   "yazim": {
+    "dogruluk": 0.185,
+    "n": 27
+   }
+  }
+ },
+ "tahminler": [
+  {
+   "id": "dog-yatirim_05-009",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Altın ve döviz yatırımında risk olmadan aylık %500 kazanın. Kule Menkul lisanslı",
+     "sinyal": "yakinlik_iddiasi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1020.8852079813369,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-bahis_05-007",
+   "tur": "yasa_disi_bahis",
+   "kanitlar": [
+    {
+     "alinti": "Kupabet 3 gün geçmesi için 301.000 TL ödeme isteniyor.",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Kupabet 3 gün geçmesi için 301.000 TL ödeme isteniyor.",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1401.7998750205152,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-bahis_05-002",
+   "tur": "odul_kampanya",
+   "kanitlar": [
+    {
+     "alinti": "Kupabet 70% bonusu hesapta tanımlandı.",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Engelsiz giriş için https://kupabet255.xyz bonus geçerli.",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1416.6203330387361,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-oyun_05-001",
+   "tur": "odul_kampanya",
+   "kanitlar": [
+    {
+     "alinti": "Trade teklifi: 27.540 lira değerinde skin veriyorum.",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 915.5389999505132,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-gorev_05-006",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "YouTube videolarını izle ve 40,50 TL kazan!",
+     "sinyal": "yakinlik_iddiasi"
+    },
+    {
+     "alinti": "Telegram'da t.me/+tDztx9wKJM kontan doluyor",
+     "sinyal": "yakinlik_iddiasi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1330.7122500264086,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-reklam_05-016",
+   "tur": "odul_kampanya",
+   "kanitlar": [
+    {
+     "alinti": "Pazarcık sepetinde unuttuğun ürünler seni bekliyor",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Bugün ücretsiz kargo",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "https://pazarcik.com.tr/kampanya",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1704.4488330138847,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-odul_05-011",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "2.575 TL ALIŞVERİŞ KREDİSSİ TANIMLANDI",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "2 SAAT İİÇNDE PAZARCİK-İADE.COM/ODEME ÜZERİNDEN KULLANIN",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1547.943582991138,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-bahis_05-017",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "Kupabet 24 saat geçerli bonus 24 saat geçerli",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 860.1741249440238,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-reklam_05-004",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "PAZARCIK SEPETİNDE UNUTTUĞUN ÜRÜNLER SENİ BEKLİYOR 🛒",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "BUGÜN ÜCRETSİZ KARGO! PAZARCİK.COM.TR İLETİŞİM İZNİNİZİ 2525 İLE İPTAL EDEBİLİRS",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1747.0721660065465,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-yakin_05-012",
+   "tur": "odul_kampanya",
+   "kanitlar": [
+    {
+     "alinti": "6 haneli kod gelecek",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 773.2290420099162,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-yatirim_05-014",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Altın ve döviz yatırımında risk olmadan aylık %340 kazanın. Kule Menkul lisanslı",
+     "sinyal": "yakinlik_iddiasi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1049.6677919873036,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-oyun_05-010",
+   "tur": "odul_kampanya",
+   "kanitlar": [
+    {
+     "alinti": "Trade teklifi: 61.289 TL değerinde skin veriyorum.",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 869.9191250489093,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-kurum_05-014",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [
+    {
+     "alinti": "DİJİTAL VATANDAŞ: ADINIZA 4.420 TL VERGİ İADESİ TANIMLANMIŞTIR.",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1049.3050829973072,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-kamu_05-013",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "JANDARMA KOMUTANLIĞI: KİMLİĞİNİZ BİR ŞEBEKE TARAFINDAN KULLANILMIŞTIR.",
+     "sinyal": "yakinlik_iddiasi"
+    },
+    {
+     "alinti": "BİRİKİMLERİNİZİ [IBAN] NUMARALI GÜVENLİ EMANET HESABINA AKTARMANIZ GEREKİYOR.",
+     "sinyal": "yakinlik_iddiasi"
+    },
+    {
+     "alinti": "BANKAYA GİTMEYİN, İŞLEM TELEFONLA YAPILACAK.",
+     "sinyal": "yakinlik_iddiasi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 2520.5102079780772,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-oyun_05-015",
+   "tur": "odul_kampanya",
+   "kanitlar": [
+    {
+     "alinti": "Trade teklifi: 75.912 TL degerinde skin veriyorum.",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 915.6787909450941,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-bahis_05-013",
+   "tur": "yasa_disi_bahis",
+   "kanitlar": [
+    {
+     "alinti": "Kupabet 120% bonusu hesapta tanımlandı.",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Engelsiz giriş için bonus geçerli.",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1183.1595829571597,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-oyun_05-017",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [
+    {
+     "alinti": "Arenahub hesabı ile giriş yap",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 825.3779580118135,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-yakin_05-007",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "6 HANELİ KOD GELECEK ONU BANA ATAR MISIN?",
+     "sinyal": "yakinlik_iddiasi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 972.0600410364568,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-bahis_05-012",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "Kupabet 12 saat geçerli bonus 12 saat geçerli",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 858.2108750124462,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-odul_05-014",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "Pazarcik-Güvenlik.com/odeme üzerinden kullanın",
+     "sinyal": "kurum_taklidi"
+    },
+    {
+     "alinti": "4.908,99 TL kredisi tanilandi",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1372.059250017628,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-oyun_05-007",
+   "tur": "odul_kampanya",
+   "kanitlar": [
+    {
+     "alinti": "Trade teklifi: 65.777 TL değerinde skin veriyorum.",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 929.5766249997541,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-odul_05-016",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Pazarcik kurulu",
+     "sinyal": "yakinlik_iddiasi"
+    },
+    {
+     "alinti": "1.958 TL kredisi",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Pazarcik-tr.buzz/dogrula",
+     "sinyal": "yakinlik_iddiasi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1605.2446669782512,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-oyun_05-013",
+   "tur": "odul_kampanya",
+   "kanitlar": [
+    {
+     "alinti": "Trade teklifi: 49.767₺ değerinde skin veriyorum.",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 951.700208010152,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-yakin_05-002",
+   "tur": "odul_kampanya",
+   "kanitlar": [
+    {
+     "alinti": "6 haneli kod",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 750.5686249933206,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-reklam_05-002",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "Pazarcık sepetinde unuttuğun ürünler seni bekliyor",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Bugün ücretsiz kargo",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "www.pazarcik.com.tr/takip",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1624.5793749694712,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-odul_05-012",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "Pazarcık kuruluş yıldönümünde 2.965 TL kredisi tanımlandı.",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 999.6623329934664,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-kurum_05-012",
+   "tur": "odul_kampanya",
+   "kanitlar": [
+    {
+     "alinti": "Dijital Vatandaş: Adınıza 2.774 TL vergi iadesi tanımlanmıştır.",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 929.011249972973,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-yakin_05-010",
+   "tur": "odul_kampanya",
+   "kanitlar": [
+    {
+     "alinti": "6 haneli kod isteniyor",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 848.675666959025,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-yatirim_05-013",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Altın ve döviz yatırımında risk olmadan aylık %340 kazanın. Kule Menkul lisanslı",
+     "sinyal": "yakinlik_iddiasi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1107.4247080250643,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-odul_05-017",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "Pazarcık kuruluş yıldönümünde 2.903 TL kredisi tanımlandı.",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 883.4733329713345,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-kurum_05-003",
+   "tur": "odul_kampanya",
+   "kanitlar": [
+    {
+     "alinti": "Dijital Vatandaş: Adınıza 2.423,50 TL vergi iadesi tanımlanmıştır.",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1017.4203750211746,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-yakin_05-021",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "6 haneli kodu istiyor, bu tür istekler genellikle 60+ para veya kod istemektedir",
+     "sinyal": "yakinlik_iddiasi"
+    },
+    {
+     "alinti": "Görevi olan kişi, yeni numarası alarak acil para istemektedir",
+     "sinyal": "yakinlik_iddiasi"
+    },
+    {
+     "alinti": "Görevi olan kişi, yeni numarası alarak acil para istemektedir",
+     "sinyal": "yakinlik_iddiasi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 2046.9287079758942,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-kargo_05-012",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "Gönderi kodu KG625041934",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Göndericiye doner",
+     "sinyal": "yakinlik_iddiasi"
+    },
+    {
+     "alinti": "Odeme: https://esercelojistik.monster",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1704.7105410019867,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-yakin_05-009",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "6 HANELİ KOD GELECEK ONU BANA ATAR MISIN?",
+     "sinyal": "yakinlik_iddiasi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 955.4211249924265,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-bahis_05-003",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Kupabet 30 dakikalık geçerli bonus için engelsiz giriş isteniyor.",
+     "sinyal": "yakinlik_iddiasi"
+    },
+    {
+     "alinti": "Kupabet 40% bonus hesabına tanımlanmış, bu hesapta kayıp bonusu uygulanıyor.",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Engelsiz giriş için kayıp bonusu %40 hesapta uygulanıyor.",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1886.4288339973427,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-oyun_05-000",
+   "tur": "odul_kampanya",
+   "kanitlar": [
+    {
+     "alinti": "Trade teklifi: 42.888 TL değerinde skin veriyorum.",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 951.8870000028983,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-reklam_05-017",
+   "tur": "odul_kampanya",
+   "kanitlar": [
+    {
+     "alinti": "Pazarcik sepetinde unuttugun urunler seni bekliyor",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Bugun ucretsiz kargo",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "https://pazarcik.com.tr/kampanya",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1679.0870410040952,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-bahis_05-016",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Kupabet 493.12 saat geçerli bonus 12 saat geçerli",
+     "sinyal": "yakinlik_iddiasi"
+    },
+    {
+     "alinti": "Kupabet 493.12 saat geçerli bonus 12 saat geçerli",
+     "sinyal": "yakinlik_iddiasi"
+    },
+    {
+     "alinti": "Kupabet 493.12 saat geçerli bonus 12 saat geçerli",
+     "sinyal": "yakinlik_iddiasi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 2007.694000029005,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-mesru_05-008",
+   "tur": "mesru_islem",
+   "kanitlar": [
+    {
+     "alinti": "Cinarbank: Ayse adli kisiden hesabiniza 2.841 TL EFT gelmistir. Islem tarihi 21.",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 851.2217499664985,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "dusuk"
+  },
+  {
+   "id": "dog-kamu_05-006",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "JANDARMA KOMUTANLIGI: KIMLIGINIZ BIR SEBEKE TARAFINDAN KULLANILMISTIR.",
+     "sinyal": "yakinlik_iddiasi"
+    },
+    {
+     "alinti": "BIRIKIMLERINIZI [IBAN] NUMARALI GUVENLI EMANET HESABINA AKTARMANIZ GEREKIYOR.",
+     "sinyal": "yakinlik_iddiasi"
+    },
+    {
+     "alinti": "BANKAYA GITMEYIN, ISLEM TELEFONLA YAPILACAK.",
+     "sinyal": "yakinlik_iddiasi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 2246.741665992886,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-bahis_05-008",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Kupabet 733.net bonus 1 saat geçerli",
+     "sinyal": "yakinlik_iddiasi"
+    },
+    {
+     "alinti": "Kupabet 340 hesabına tanımlandı",
+     "sinyal": "yakinlik_iddiasi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1366.9973750365898,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-gorev_05-013",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "VİDEO BAŞI 78,90 TL KAZAN! GÖRVELER TELEGRAM'DA T.ME/+DZKZLQP9OG KONTENJAN BUGÜN",
+     "sinyal": "yakinlik_iddiasi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1259.833958989475,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-kurum_05-000",
+   "tur": "odul_kampanya",
+   "kanitlar": [
+    {
+     "alinti": "Dijital Vatandas: Adiniza 2.166 TL vergi iadesi tanimlanmistir. Iadeyi almak icu",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1091.6305829887278,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-yatirim_05-017",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Altıın ve döviz yatırımında risk olmadan aylık %25 kazanın.",
+     "sinyal": "yakinlik_iddiasi"
+    },
+    {
+     "alinti": "Kule Menkul lisanslı aracı kurumdur.",
+     "sinyal": "yakinlik_iddiasi"
+    },
+    {
+     "alinti": "Danışmanınız sizi arayacak, uygulamayı indirin.",
+     "sinyal": "yakinlik_iddiasi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1783.5928340209648,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-yatirim_05-016",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Altın ve döviz yatırımında risk olmadan aylık %30 kazanın. Kule Menkul lisanslı",
+     "sinyal": "yakinlik_iddiasi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1110.1082079694606,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-gorev_05-001",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [
+    {
+     "alinti": "64,49 lira kazan! Görevler Telegram'da",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 836.4543750067241,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-yatirim_05-010",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Altın ve döviz yatırımında risk olmadan aylık %500 kazanın. Kule Menkul lisanslı",
+     "sinyal": "yakinlik_iddiasi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1024.8583330539986,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-kurum_05-010",
+   "tur": "odul_kampanya",
+   "kanitlar": [
+    {
+     "alinti": "Dijital Vatandaş: Adınıza 1.001,00₺ vergi iadesi tanımlanmıştır. İadeyi almak",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1098.0521659948863,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-kamu_05-004",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Jandarma Komutanlığı: kimliğiniz bir şebeke tarafından kullanılmıştır.",
+     "sinyal": "yakinlik_iddiasi"
+    },
+    {
+     "alinti": "Birikimlerinizi [IBAN] numaralı güvenli emanet hesabına aktarmanız gerekiyor.",
+     "sinyal": "yakinlik_iddiasi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1473.8562920247205,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-bahis_05-014",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [
+    {
+     "alinti": "Kupabet bonusu %340 hesabına tanımlandı.",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Engelsiz giriş için https://kupabet934.net bonus 1 saat geçerli.",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1367.3802909906954,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-mesru_05-003",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "Çınarbank: Oğuz adlı kişiden hesabınıza 1.546 TL EFT gelmiştir.",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 992.6809170283377,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-gorev_05-015",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Video başı 46,49 TL kazan! Görevler Telegram'da chat.whatsapp.com/fDXUVicRxW",
+     "sinyal": "yakinlik_iddiasi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1104.7955420217477,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-mesru_05-009",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "Cinarbank: Elif adli kisiden hesabiniza 4.670,90 TL EFT gelmistir.",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 992.9872499778867,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-kamu_05-002",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Jandarma Komutanlığı: kimliğiniz bir şebeke tarafından kullanılmıştır.",
+     "sinyal": "yakinlik_iddiasi"
+    },
+    {
+     "alinti": "Birikimlerinizi [IBAN] numaralı güvenli emanet hesabına aktarmanız gerekiyor.",
+     "sinyal": "yakinlik_iddiasi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1424.7961249784566,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-kurum_05-011",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [
+    {
+     "alinti": "DİJİTAL VATANDAŞ: ADINIZA 617₺ VERGİ İADESİ TANIMLANMIŞTIR.",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1115.0089160073549,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-mesru_05-011",
+   "tur": "odul_kampanya",
+   "kanitlar": [
+    {
+     "alinti": "Çınarbank: Hakan adlı kişiden hesabınıza 2.134,00 lira EFT gelmiştir. İşlem Tari",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 967.1648330404423,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-oyun_05-011",
+   "tur": "odul_kampanya",
+   "kanitlar": [
+    {
+     "alinti": "Trade teklifi: senin envanterine 26.757 TL degerinde skin veriyorum.",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 904.7698330250569,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-odul_05-010",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "Pazarcik kurulu, 561,49 TL kredisi tanımı ve 1 saat iicde kullanımı",
+     "sinyal": "kurum_taklidi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1046.8717080075294,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-gorev_05-017",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Gorevler Telegram'da chat.whatsapp.com/pPXpozmXiq",
+     "sinyal": "yakinlik_iddiasi"
+    },
+    {
+     "alinti": "Kontenjan bugun doluyor",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1359.9129170179367,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-kurum_05-001",
+   "tur": "odul_kampanya",
+   "kanitlar": [
+    {
+     "alinti": "Dijital Vatandaş: Adınıza 4.089₺ vergi iadesi tanımlanmıştır. İadeyi almak için",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1090.9798329812475,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-oyun_05-006",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "Trade teklifi: 80.829 TL değerinde skin veriyorum.",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 898.6938750022091,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-mesru_05-013",
+   "tur": "mesru_islem",
+   "kanitlar": [
+    {
+     "alinti": "Çınarbank: Gül adlı kişiden hesabınıza 3.997 TL EFT gelmiştir. İşlem tarihi 10.0",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 884.0957499924116,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "dusuk"
+  },
+  {
+   "id": "dog-kargo_05-016",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "Gönderi kodu KG393591719",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Depo ücreti 130,90 TL",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Gönderi göndericiye döner",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1644.511374994181,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-mesru_05-010",
+   "tur": "odul_kampanya",
+   "kanitlar": [
+    {
+     "alinti": "Çınarbank: İsmail adlı kişiden hesabınıza 263,00 TL EFT gelmiştir. İşlem tarihi ",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 916.6472500073723,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-gorev_05-014",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Video başı 130,99 TL kazan! Görevler Telegram'da t.me/+kxapT3VIM0",
+     "sinyal": "yakinlik_iddiasi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1086.9924169965088,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-mesru_05-006",
+   "tur": "odul_kampanya",
+   "kanitlar": [
+    {
+     "alinti": "Çınarbank: Fatma adlı kişiden hesabınıza 842 TL EFT gelmiştir. İşlem tarihi 07.0",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 903.4511249628849,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-reklam_05-005",
+   "tur": "odul_kampanya",
+   "kanitlar": [
+    {
+     "alinti": "Pazarcik sepetinde unuttugun urunler seni bekliyor",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Bugun ucretsiz kargo",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "https://pazarcik.com.tr/fatura",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1593.4577920124866,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-oyun_05-004",
+   "tur": "odul_kampanya",
+   "kanitlar": [
+    {
+     "alinti": "Trade teklifi: 65.761 TL değerinde skin veriyorum.",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 956.2538330210373,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-yatirim_05-005",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Altın ve döviz yatırımında risk olmadan aylık %30 kazanın. Kule Menkul lisanslı",
+     "sinyal": "yakinlik_iddiasi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1112.5704169971868,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-gorev_05-004",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Video başı 47,90₺ kazan! Görevler Telegram'da...",
+     "sinyal": "yakinlik_iddiasi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 923.3444579876959,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-odul_05-004",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "Pazarcik kurulu kredisi tanımı ve 30 dakikada kullanımı",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 871.5391669538803,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-yatirim_05-006",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Altın ve döviz yatırımında risk olmadan aylık %200 kazanın. Kule Menkul lisanslı",
+     "sinyal": "yakinlik_iddiasi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1108.7050409987569,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-kamu_05-017",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Jandarma Komutanlığı: kimliğiniz bir şebeke tarafından kullanılmıştır.",
+     "sinyal": "yakinlik_iddiasi"
+    },
+    {
+     "alinti": "Birikimlerinizi [IBAN] numaralı güvenli emanet hesabına aktarmanız gerekiyor.",
+     "sinyal": "yakinlik_iddiasi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1407.135833054781,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-yakin_05-000",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "6 haneli kod istek",
+     "sinyal": "yakinlik_iddiasi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 851.8487500259653,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-gorev_05-010",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Konttenjan bugün doluyor",
+     "sinyal": "yakinlik_iddiasi"
+    },
+    {
+     "alinti": "YouTube viedolarını izle",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "37,49₺ kazan! Görevler Telegram'da chat.whatsapp.com/c9bV8A5zhS",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1707.5942090013996,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-yatirim_05-008",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "ALTIN VE DÖVİZ YATIRIMINDA RİSK OLMADAN AYLIK %25 KAZANIN",
+     "sinyal": "yakinlik_iddiasi"
+    },
+    {
+     "alinti": "KULE MENKUL LİSANSLI ARACI KURUMDUR",
+     "sinyal": "yakinlik_iddiasi"
+    },
+    {
+     "alinti": "DANIŞMANINIZ SİZİ ARAYACAK, UYGULAMAYI İNDİRİN",
+     "sinyal": "yakinlik_iddiasi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 2275.8077919716015,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-yakin_05-019",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "6 haneli kod isteniyor",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Kargo veya kargo işlemleri için gerekli",
+     "sinyal": "yakinlik_iddiasi"
+    },
+    {
+     "alinti": "Kargo veya kargo işlemleri için gerekli",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1653.3542919787578,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-bahis_05-000",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Kupabet 115.net bonus 2 saat geçerli",
+     "sinyal": "yakinlik_iddiasi"
+    },
+    {
+     "alinti": "Kupabet 115.net bonus 2 saat geçerli",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Kupabet 115.net bonus 2 saat geçerli",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1811.1544589628465,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-odul_05-003",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "Pazarcik-Guvenlik Top/9662 adresi kullanımı",
+     "sinyal": "kurum_taklidi"
+    },
+    {
+     "alinti": "4.084₺ kredisi tanımı",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "24 saat icinde kullanın",
+     "sinyal": "yakinlik_iddiasi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1837.509915989358,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-oyun_05-008",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "Trade teklifi: 80.326 TL değerinde skin veriyorum",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 954.4191660243087,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-kamu_05-014",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Jandarma Komutanlığı: kimliğiniz bir şebeke tarafından kullanılmıştır.",
+     "sinyal": "yakinlik_iddiasi"
+    },
+    {
+     "alinti": "Birikimlerinizi [IBAN] numaralı güvenli emanet hesabına aktarmanız gerekiyor.",
+     "sinyal": "yakinlik_iddiasi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1474.9737919773906,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-kargo_05-017",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "Gönderiye döner",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Gönderiye döner",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Gönderiye döner",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1589.5201670355164,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-kargo_05-011",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "Serçe Lojistik bilgilendirme: HK334053006 kodlu gönderinizin depo ücreti 100,90",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Serçe Lojistik bilgilendirme: HK334053006 kodlu gönderinizin depo ücreti 100,90",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1761.019249970559,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-kurum_05-005",
+   "tur": "odul_kampanya",
+   "kanitlar": [
+    {
+     "alinti": "Dijital Vatandaş: Adınıza 4.079 TL vergi iadesi tanımlanmıştır.",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1020.2419580309652,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-odul_05-015",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [
+    {
+     "alinti": "Pazarcık kuruluş yıldönümünde",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "3.173 TL alışveriş kredisi",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "3 gün içinde pazarcik-iade.cfd/odeme üzerinden kullanın",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1678.1885420205072,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-mesru_05-017",
+   "tur": "odul_kampanya",
+   "kanitlar": [
+    {
+     "alinti": "Çınarbank: Oğuz adlı kişiden hesabınıza 3.722 TL EFT gelmiştir. İşlem tarihi 03.",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 919.549707963597,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-yakin_05-013",
+   "tur": "odul_kampanya",
+   "kanitlar": [
+    {
+     "alinti": "6 haneli kod",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 754.2041659471579,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-bahis_05-006",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Kupabet 291.com bonus 48 saat geçerli",
+     "sinyal": "yakinlik_iddiasi"
+    },
+    {
+     "alinti": "Kupabet 291.com bonus 48 saat geçerli",
+     "sinyal": "yakinlik_iddiasi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1323.9603330148384,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-kargo_05-013",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "SP340961502 kodlu gönderi için 20,00₺ gönderi ücreti ve 48 saat içinde ödeme zor",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1152.0629589795135,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-mesru_05-000",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "Cinarbank: Zeynep adli kisiden hesabiniza 4.168,90 TL EFT gelmistir.",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1059.695833013393,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-mesru_05-007",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "Çınarbank: Fatma adlı kişiden hesabınıza 3.602₺ EFT gelmiştir.",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1008.6563749937341,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-yakin_05-004",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "6 haneli kod istek",
+     "sinyal": "yakinlik_iddiasi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 844.0765830455348,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-kargo_05-007",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "Serçe Lojistik bilgilendirme: SP601304393 kodlu gönderinizin depo ücreti 137,49₺",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1081.3283339957707,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-kargo_05-009",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "Serceloijstik.top/odeme",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "TK350570263",
+     "sinyal": "kod_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1294.8015829897486,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-yakin_05-008",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "6 haneli kod istek",
+     "sinyal": "yakinlik_iddiasi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 838.4062920231372,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-kurum_05-006",
+   "tur": "odul_kampanya",
+   "kanitlar": [
+    {
+     "alinti": "Dijital Vatandaş: Adınıza 4.537 lira vergi iadesi tanımlanmıştır.",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "İadeyi almak için kart bilgilerinizi girin: dijitalvatandasonline.rest/giris",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1501.954499981366,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-kamu_05-009",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Jandarma Komutanlığı: kimliğiniz bir şebeke tarafından kullanılmıştır.",
+     "sinyal": "yakinlik_iddiasi"
+    },
+    {
+     "alinti": "Birikimlerinizi [IBAN] numaralı güvenli emanet hesabına aktarmanız gerekiyor.",
+     "sinyal": "yakinlik_iddiasi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1463.345666998066,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-kurum_05-008",
+   "tur": "odul_kampanya",
+   "kanitlar": [
+    {
+     "alinti": "Dijitla Vatandaş: Adınıza 1.198 TL veri iadesi tanımlanmıştır.",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1009.612166963052,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-yatirim_05-007",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Altın ve döviz yatırımında risk olmadan aylık %340 kazandırır. Kule Menkul lisan",
+     "sinyal": "yakinlik_iddiasi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1111.1609999788925,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-kargo_05-006",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "Gönderi kodu KG733518619",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Depo ücreti 23,90 lira",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "30 dakika içinde ödemezseniz gönderi göndericiye döner",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1680.6511670001782,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-kargo_05-004",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "Serçe Lojistik bilgilendirme: TK378298248 kodlu gönderinizin depo ücreti 94,50TL",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Serçe Lojistik bilgilendirme: TK378298248 kodlu gönderinizin depo ücreti 94,50TL",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Serçe Lojistik bilgilendirme: TK378298248 kodlu gönderinizin depo ücreti 94,50TL",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 2527.8576660202816,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-kargo_05-015",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "SP721417417 kodlu gonderinizin depo ucreti 79,99 TL olarak hesaplandi.",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "12 saat icinde odemezseniz gonderi gondericiye doner.",
+     "sinyal": "yakinlik_iddiasi"
+    },
+    {
+     "alinti": "Odeme: https://serceloijstik.online/9801",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 2031.5601250040345,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-kargo_05-001",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "SP406272427 kodlu gonderinizin depo ucreti 129,99₺ olarak hesaplandi.",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "3 gun icinde odemezseniz gonderi gondericiye doner.",
+     "sinyal": "yakinlik_iddiasi"
+    },
+    {
+     "alinti": "Odeme: sercelojistik-destek.vip/dogrula",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 2093.51679100655,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-kargo_05-005",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "Serçe Lojistik bilgilendirme: HK605722729 kodlu gönderinizin depo ücreti 96,50TL",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Serçe Lojistik bilgilendirme: HK605722729 kodlu gönderinizin depo ücreti 96,50TL",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1761.0727080027573,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-kargo_05-003",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "Serçe Lojistik bilgilendirme: KG788949162  kodlu gönderinizin depo ücreti 115,99",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Serçe Lojistik bilgilendirme: KG788949162  kodlu gönderinizin depo ücreti 115,99",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1799.2369999992661,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-gorev_05-012",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Video başı 101,99 lira kazan! Görevler Telegram'da chat.whatsapp.com/q1mGnFblzk",
+     "sinyal": "yakinlik_iddiasi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1094.47499999078,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-kamu_05-010",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Jandarma Komutanligi: [IBAN] numarali guvenli emanet hesabina aktarmaniz",
+     "sinyal": "yakinlik_iddiasi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1078.0013340408914,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-bahis_05-009",
+   "tur": "yasa_disi_bahis",
+   "kanitlar": [
+    {
+     "alinti": "KUPABET: KAYIP BONUSU %25 HESABINA TANIMLANDI.",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "ENGELSİZ GİRİŞ İÇİN HTTPS://KUPABET584.VİP BONUS 30 DAKİKA GEÇERLİ",
+     "sinyal": "gizlilik_baskisi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1624.1730830515735,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-kamu_05-011",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Jandarma Komutanlığı: kimliğiniz bir şebeke tarafından kullanılmıştır.",
+     "sinyal": "yakinlik_iddiasi"
+    },
+    {
+     "alinti": "Birikimlerinizi [IBAN] numaralı güvenli emanet hesabına aktarmanız gerekiyor.",
+     "sinyal": "yakinlik_iddiasi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1546.8447500024922,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-kurum_05-007",
+   "tur": "odul_kampanya",
+   "kanitlar": [
+    {
+     "alinti": "Dijital Vatandaş: Adınıza 1.510,50 TL vergi iadesi tanımlanmıştır.",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1003.8347910158336,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-bahis_05-005",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "Kupabet 24 saat geçerli bonus 24 saat geçerli",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 865.9869999974035,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-kurum_05-002",
+   "tur": "odul_kampanya",
+   "kanitlar": [
+    {
+     "alinti": "Dijital Vatandaş: Adınnıza 3.967 TL vergi iadesi tanımlanmıştır.",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "İadyei almak için kart bilgilerinizi girin: http://dijitalvatandasgiris.sbs/odem",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1591.9818339752965,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-mesru_05-016",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "Cinarbank: Fatma adli kisiden hesabiniza 1.017₺ EFT gelmistir.",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1024.293792026583,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-mesru_05-005",
+   "tur": "odul_kampanya",
+   "kanitlar": [
+    {
+     "alinti": "Çınarbank: Selin adlı kişiden hesabınıza 840 lira EFT gelmiştir. İşlem tarihi 03",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 944.912042003125,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-odul_05-009",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "Kredisim tanımı ve ödeme yöntemi",
+     "sinyal": "kurum_taklidi"
+    },
+    {
+     "alinti": "Kredisim tanımı ve ödeme yöntemi",
+     "sinyal": "kurum_taklidi"
+    },
+    {
+     "alinti": "Kredisim tanımı ve ödeme yöntemi",
+     "sinyal": "kurum_taklidi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1674.303209001664,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-reklam_05-008",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "Pazarcık sepetinde unuttuğun ürünler seni bekliyor",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Bugün ücretsiz kargo",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "https://pazarcik.com.tr İletişim izninizi 4848 ile iptal edebilirsiniz.",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1854.0087079745717,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-gorev_05-002",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Gorevler Telegram'da t.me/+kKFFUAgksq",
+     "sinyal": "yakinlik_iddiasi"
+    },
+    {
+     "alinti": "Kazan! Gorevler Telegram'da t.me/+kKFFUAgksq",
+     "sinyal": "yakinlik_iddiasi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1498.6534579657018,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-kamu_05-016",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Jandarma Komutanligi: kimliginiz bir sebeke tarafindan kullanilmistir. Birikim [",
+     "sinyal": "yakinlik_iddiasi"
+    },
+    {
+     "alinti": " [IBAN] numarali guvenli emanet hesabina aktarmaniz gerekiyor. Bankaya gitmeyin",
+     "sinyal": "yakinlik_iddiasi"
+    },
+    {
+     "alinti": "islem telefonla yapilacak.",
+     "sinyal": "yakinlik_iddiasi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1990.0261249858886,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-gorev_05-009",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Video başı 97,50 TL kazan! Görevler Telegram'da...",
+     "sinyal": "yakinlik_iddiasi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 968.6130000045523,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-odul_05-006",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Pazarcık-destek.loan/6188",
+     "sinyal": "yakinlik_iddiasi"
+    },
+    {
+     "alinti": "60+ para veya kod istenir",
+     "sinyal": "gizlilik_baskisi"
+    },
+    {
+     "alinti": "Kargo veya randevu bildirimi",
+     "sinyal": "yakinlik_iddiasi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1741.79900001036,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-kurum_05-013",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [
+    {
+     "alinti": "Dijitla Vatandaş: Adınıza 2.251 TL vergi iadesi tanımlanmıştır. İadeyi almak",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1024.3046670220792,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-gorev_05-007",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Video başı 129,00 TL kazan! Görevler Telegram'da chat.whatsapp.com/IPQ8tlUcgH",
+     "sinyal": "yakinlik_iddiasi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1133.3416670095176,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-kamu_05-003",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Jandarma Komutanlığı: kimliğiniz bir şebeke tarafından kullanılmıştır.",
+     "sinyal": "yakinlik_iddiasi"
+    },
+    {
+     "alinti": "Birikimlerinizi [IBAN] numaralı güvenli emanet hesabına aktarmanız grekiyor.",
+     "sinyal": "yakinlik_iddiasi"
+    },
+    {
+     "alinti": "Bankaya gitmeyiin, işlem telefonla yapılacak.",
+     "sinyal": "yakinlik_iddiasi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1913.4051660075784,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-yatirim_05-000",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "Altın ve döviz yatırımında risk olmadan aylık %30 kazanın.",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Kule Menkul lisanslı aracı kurumdur.",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Danışmanınız sizi arayacak, uygulamayı indirin.",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1781.0737079707906,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-kurum_05-015",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [
+    {
+     "alinti": "Dijital Vatandaş: Adınıza 1.179,00 lira vergi iadesi tanımlanmıştır.",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1054.2465000180528,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-reklam_05-013",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "Pazarcık sepetinde unuttuğun ürünler seni bekliyor",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Bugün ücretsiz kargo",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "www.pazarcik.com.tr İletişim izninizi 3434 ile iptal edebilirsiniz",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1826.7403750214726,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-bahis_05-015",
+   "tur": "odul_kampanya",
+   "kanitlar": [
+    {
+     "alinti": "Kupabet bonusu %70 hesabına tanımlandı.",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Engelsiz giriş için https://kupabet436.win bonus 1 saat geçerli.",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1428.1626669690013,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-reklam_05-014",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "Pazarcık sepetinde unuttuğun ürünler seni bekliyor",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Bugün ücretsiz kargo",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "İletişim izninizi 2525 ile iptal edebilirsiniz",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1708.6354159982875,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-yatirim_05-003",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Altın ve döviz yatırımında risk olmadan aylık %120 kazanın. Kule Menkul lisanslı",
+     "sinyal": "yakinlik_iddiasi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1103.0925000086427,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-odul_05-013",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "Pazarcık kuruluş yıldönümünde 2.880₺ alışveriş kredisi tanımlandı.",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 936.1413749866188,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-odul_05-001",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "Pazarcık kuruluş yıldönümünde 3.149 lira kredi tanımlandı.",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Pazarcık kuruluş yıldönümünde 3.149 lira kredi tanımlandı.",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Pazarcık kuruluş yıldönümünde 3.149 lira kredi tanımlandı.",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1974.7899170033634,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-yakin_05-001",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "6 haneli kod istek",
+     "sinyal": "yakinlik_iddiasi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 871.9788339803927,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-gorev_05-003",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [
+    {
+     "alinti": "Görevi 30,49₺ kazanmak için Telegram'da t.me/+2aza8xhGIm kontan bugun doluyor.",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1025.0442090327851,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-reklam_05-006",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "Pazarcık sepetinde unuttuğun ürünler seni bekliyor",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Bugün ücretsiz kargo",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1263.753125036601,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-kurum_05-016",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [
+    {
+     "alinti": "Dijital Vatandaş: Adınıza 3.838,00 lira vergi iadesi tanımlanmıştır. İadeyi alıy",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1209.6413749968633,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-oyun_05-009",
+   "tur": "odul_kampanya",
+   "kanitlar": [
+    {
+     "alinti": "35.194 TL degerinde skin veriyorum",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Arenahub-destek.info/odeme",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1250.3570840344764,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-bahis_05-001",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Kupabet 30 dakika geçerli",
+     "sinyal": "yakinlik_iddiasi"
+    },
+    {
+     "alinti": "Kupabet %40 bonus",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1259.4896670198068,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-oyun_05-003",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "Envanterine 72.970 TL degerinde skin veriyorum",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 933.8811250054277,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-reklam_05-003",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "Pazarcık sepetinde unuttuğun ürünler seni bekliyor",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Bugün ücretsiz kargo!",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "İletişim izninizi 2525 ile iptal edebilirsiniz.",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1723.2427499839105,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-oyun_05-014",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "Trade teklifi: 69.296 TL değerinde skin veriyorum.",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 970.0228329747915,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-yatirim_05-012",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Altin ve doviz yatirimında risk olmadan aylik %70 kazanın.",
+     "sinyal": "yakinlik_iddiasi"
+    },
+    {
+     "alinti": "Kule Menkul lisansli araci kurumdur.",
+     "sinyal": "yakinlik_iddiasi"
+    },
+    {
+     "alinti": "Danismaniniz sizi arayacak, uygulamayi indirin: kulemenkul-iade.com/odeme.",
+     "sinyal": "yakinlik_iddiasi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1953.358082973864,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-odul_05-002",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "Pazarcık kuruluş yıldönümünde 709 TL kredisi tanımlandı.",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 939.7196659701876,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-bahis_05-011",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Kupabet 291 VIP bonus 12 saat geçerli",
+     "sinyal": "yakinlik_iddiasi"
+    },
+    {
+     "alinti": "Kupabet 291 VIP bonus 12 saat geçerli",
+     "sinyal": "yakinlik_iddiasi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1585.2957920287736,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-odul_05-007",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "Pazarcık kuruluş yıldönümünde 3.243 TL kredisi tanımlandı.",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 955.8140420122072,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-yatirim_05-002",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Altın ve döviz yatırımında risk olmadan aylık %30 kazanın. Kule Menkul lisanslı",
+     "sinyal": "yakinlik_iddiasi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1091.7052080039866,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-kamu_05-015",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Jandarma Komutanlığı: kimliğiniz bir şebeke tarafından kullanılmıştır.",
+     "sinyal": "yakinlik_iddiasi"
+    },
+    {
+     "alinti": "Birikimlerinizi [IBAN] numaralı güvenli emanet hesabına aktarmanız gerekiyor.",
+     "sinyal": "yakinlik_iddiasi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1443.2458330411464,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-kargo_05-008",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "Serçe Lojistik bilgilendirme: TK837306997 kodlu gönderinizin depo ücreti 53,50TL",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Serçe Lojistik bilgilendirme: TK837306997 kodlu gönderinizin depo ücreti 53,50TL",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1841.248209006153,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-kamu_05-007",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Jandarma Komutanlığı: kimliğiniz bir şebeke tarafından kullanılmıştır.",
+     "sinyal": "yakinlik_iddiasi"
+    },
+    {
+     "alinti": "Birikimlerinizi [IBAN] numaralı güvenli emanet hesabına aktarmanız gerekiyor.",
+     "sinyal": "yakinlik_iddiasi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1594.4822079618461,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-kamu_05-000",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Jandarma Komutanlığı: kimliğiniz bir şebeke tarafından kullanılmıştır.",
+     "sinyal": "yakinlik_iddiasi"
+    },
+    {
+     "alinti": "Birikimlerinizi [IBAN] numaralı güvenli emanet hesabına aktarmanız gerekiyor.",
+     "sinyal": "yakinlik_iddiasi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1389.2103749676608,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-gorev_05-005",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Video başı 63,99₺ kazan! Görevler Telegram'da t.me/+19rQTgMSuV",
+     "sinyal": "yakinlik_iddiasi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1171.5242080390453,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-oyun_05-012",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [
+    {
+     "alinti": "Arenahub hesabı ile giriş yap",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 873.1956660049036,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-reklam_05-010",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "Pazarcik sepetinde unuttugun urunler seni bekliyor",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Bugun ucretsiz kargo",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1235.9941669856198,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-gorev_05-008",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Video başı 72,99 lira kazan! Görevler Telegram'da...",
+     "sinyal": "yakinlik_iddiasi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1099.9488749657758,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-yatirim_05-001",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Altın ve döviz yatırımında risk olmadan aylık %50 kazanın. Kule Menkul lisanslı",
+     "sinyal": "yakinlik_iddiasi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1067.0405409764498,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-kurum_05-004",
+   "tur": "odul_kampanya",
+   "kanitlar": [
+    {
+     "alinti": "Dijital Vatandaş: Adınıza 3.730,49 TL vergi iadesi tanımlanmıştır. İadeyi almak",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1074.4418340036646,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-oyun_05-016",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "SKİN VERİYORUM",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "ENVANTERİNE 82.954₺",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "DEĞER KONTROLÜ İÇİN",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1793.6666660243645,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-kamu_05-012",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Jandarma Komutanlığı: kimliğiniz bir şebeke tarafından kullanılmıştır.",
+     "sinyal": "yakinlik_iddiasi"
+    },
+    {
+     "alinti": "Birikimlerinizi [IBAN] numaralı güvenli emanet hesabına aktarmanız gerekiyor.",
+     "sinyal": "yakinlik_iddiasi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1492.1460410114378,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-reklam_05-012",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "Pazarcik sepetinde unuttugun uurnler seni bekliyor",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Bugun ucretsiz kargo! https://pazarcik.com.tr/takip",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1410.3984169778414,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-mesru_05-012",
+   "tur": "odul_kampanya",
+   "kanitlar": [
+    {
+     "alinti": "Çınarbank: Oğuz adlı kişiden hesabınıza 4.233 TL EFT gelmiştir. İşlem tarihi 06.",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 854.2576669715345,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-kurum_05-009",
+   "tur": "odul_kampanya",
+   "kanitlar": [
+    {
+     "alinti": "Dijital Vatandaş: Adınıza 874 TL vergi iadesi tanımlanmıştır. İadeyi almak için",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1058.2902499591,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-reklam_05-009",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "Pazarcık sepetinde unuttuğun ürünler seni bekliyor",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Bugün ücretsiz kargo!",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "İletişim izninizi 3434 ile iptal edebilirsiniz.",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1763.2817080011591,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-gorev_05-000",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "VİDEO BAŞI 33,99₺ KAZAN! GÖREVLER TELEGRAM'DA CHAT.WHATSAPP.COM/İWBSJPSCQN KONT",
+     "sinyal": "yakinlik_iddiasi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1312.2972910059616,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-yatirim_05-015",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Altın ve döviz yatırımında risk olmadan aylık %25 kazanın.",
+     "sinyal": "yakinlik_iddiasi"
+    },
+    {
+     "alinti": "Kule Menkul lisanslı aracı kurumdur.",
+     "sinyal": "yakinlik_iddiasi"
+    },
+    {
+     "alinti": "Danışmanınız sizi arayacak, uygulamayı indirin.",
+     "sinyal": "yakinlik_iddiasi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1816.4790410082787,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-odul_05-005",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "Pazarcık kuruluş yıldönümünde 3.184 TL kredisi tanımlandı.",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 983.9861249784008,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-yakin_05-020",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "6 haneli kod",
+     "sinyal": "yakinlik_iddiasi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 812.9679589765146,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-mesru_05-001",
+   "tur": "mesru_islem",
+   "kanitlar": [
+    {
+     "alinti": "Çınarbank: Ayşe adlı kişiden hesabınıza 2.157 TL EFT gelmiştir. İşlem tarihi 18.",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 757.8719170414843,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "dusuk"
+  },
+  {
+   "id": "dog-gorev_05-011",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Video başı 56,50₺ kazan! Görevler Telegram'da chat.whatsapp.com/MmmojbQJNP",
+     "sinyal": "yakinlik_iddiasi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1097.6359169580974,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-yakin_05-016",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "6 haneli kod istek",
+     "sinyal": "yakinlik_iddiasi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 845.2368750004098,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-reklam_05-007",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "Pazarcık sepetinde unuttuğun ürünler seni bekliyor",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Bugün ücretsiz kargo!",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "İletişim izninizi 4848 ile iptal edebilirsiniz.",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1740.735124971252,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-oyun_05-002",
+   "tur": "odul_kampanya",
+   "kanitlar": [
+    {
+     "alinti": "Trade teklifi: 11.289₺ değerinde skin veriyorum.",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 996.8800420174375,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-kargo_05-002",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "KG175052522 kodlu gönderi",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "111,99₺",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "1 saat içinde ödemezseniz gönderi göndericiye döner",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1736.0853750142269,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-reklam_05-015",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "Pazarcık sepetinde unuttuğun ürünler seni bekliyor",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Bugün ücretsiz kargo!",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "pazarcik.com.tr/fatura İletişim izninizi 4848 ile iptal edebilirsiniz.",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1869.7854580241255,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-odul_05-000",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "Pazarcık kuruluş yıldönümünde 909,99 TL kredisi tanımlandı.",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 969.6197500452399,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-kargo_05-010",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "Gönderi ücreti 58,99 TL olarak hesaplandı ve 30 dakika içinde ödemezseniz gönder",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Gönderi göndericiye döner",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "https://sercelojistikgiris.shop/7458",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1939.094707951881,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-bahis_05-004",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [
+    {
+     "alinti": "Kupabet bonusu %30 hesabına tanimlandı.",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Engelsiz giris için https://kupabet103.vip bonus 12 saat geçerli.",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1401.7473330022767,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-kargo_05-014",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "Serce Lojistik bilgilendirme: TK948368549 kodlu gonderinizin depo ucreti 143,99",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "30 dakika icinde odemezseniz gonderi gondericiye doner",
+     "sinyal": "yakinlik_iddiasi"
+    },
+    {
+     "alinti": "Odeme: secrelojistik.site/2790",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 2154.7330830362625,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-yakin_05-006",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "6 haneli kod istek",
+     "sinyal": "yakinlik_iddiasi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 845.3735000221059,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-mesru_05-004",
+   "tur": "mesru_islem",
+   "kanitlar": [
+    {
+     "alinti": "Çınarbank: Mehmet adlı kişiden hesabınıza 4.600 TL EFT gelmiştir. İşlem tarihi 1",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 752.9639590065926,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "dusuk"
+  },
+  {
+   "id": "dog-gorev_05-016",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Video başı 118,00 TL kazan! Görevler Telegram'da...",
+     "sinyal": "yakinlik_iddiasi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 932.8594579710625,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-mesru_05-015",
+   "tur": "odul_kampanya",
+   "kanitlar": [
+    {
+     "alinti": "Çınarbank: Deniz adlı kişiden hesabınıza 3.788 lira EFT gelmiştir. İşlem tarihi ",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 791.351541003678,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-reklam_05-011",
+   "tur": "odul_kampanya",
+   "kanitlar": [
+    {
+     "alinti": "Pazarcık sepetinde unuttuğun ürünler seni bekliyor",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Bugün ücretsiz kargo",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "www.pazarcik.com.tr/kampanya",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1677.7488749939948,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-yakin_05-015",
+   "tur": "odul_kampanya",
+   "kanitlar": [
+    {
+     "alinti": "6 haneli kod isteniyor",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 838.7409159913659,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-reklam_05-000",
+   "tur": "odul_kampanya",
+   "kanitlar": [
+    {
+     "alinti": "Pazarcık sepetinde unuttuğun ürünler seni bekliyor",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Bugün ücretsiz kargo",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "https://pazarcik.com.tr/kampanya",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1678.0124580254778,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-reklam_05-001",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "Pazarcik sepetinde unuttugun urunler seni bekliyor",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Bugun ucretsiz kargo",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1295.4122920054942,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-oyun_05-005",
+   "tur": "odul_kampanya",
+   "kanitlar": [
+    {
+     "alinti": "Envanterinde 17.076₺ değerinde skin veriyorum.",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1023.4397919848561,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-yakin_05-018",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "6 haneli kod istek",
+     "sinyal": "yakinlik_iddiasi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 864.5972080412321,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-kamu_05-008",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Jandarma Komutanlığı: kimliğiniz bir şebeke tarafından kullanılmıştır.",
+     "sinyal": "yakinlik_iddiasi"
+    },
+    {
+     "alinti": "Birikimlerinizi [IBAN] numaralı güvenli emanet hesabına aktarmanız gerekiyor.",
+     "sinyal": "yakinlik_iddiasi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1439.7130000288598,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-yatirim_05-004",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Altın ve döviz yatırımında risk olmadan aylık %25 kazanın. Kule Menkul lisanslı",
+     "sinyal": "yakinlik_iddiasi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1102.4092909647152,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-mesru_05-014",
+   "tur": "mesru_islem",
+   "kanitlar": [
+    {
+     "alinti": "Çınarbank: Mehmet adlı kişiden hesabınıza 4.205 TL EFT gelmiştir. İşlem tarihi 0",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 768.8182079582475,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "dusuk"
+  },
+  {
+   "id": "dog-yakin_05-014",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "6 haneli kod geleceği istiyor",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Hemen lzım",
+     "sinyal": "yakinlik_iddiasi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1145.3756249975413,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-kargo_05-000",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "Gönderi kodu KG658288412",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Depo ücreti 130,99 TL",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Ödeme tarihinden sonra gönderi göndericiye döner",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1859.086540993303,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-odul_05-008",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "Pazarcik Kurulus Yildonumunda 3.672,99 TL kredisi tanımı",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "www.pazarcikgiris.online/giris uzerinden kullanın",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1476.6021669493057,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-kamu_05-005",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Jandarma Komutanlığı: kimliğiniz bir şebeke tarafından kullanılmıştır.",
+     "sinyal": "yakinlik_iddiasi"
+    },
+    {
+     "alinti": "Birikimlerinizi [IBAN] numaralı güvenli emanet hesabına aktarmanız gerekiyor.",
+     "sinyal": "yakinlik_iddiasi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1518.081791989971,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-yatirim_05-011",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Altin ve doviz yatirimında risk olmadan aylik %50 kazanın.",
+     "sinyal": "yakinlik_iddiasi"
+    },
+    {
+     "alinti": "Kule Menkul lisansli araci kurumdur.",
+     "sinyal": "yakinlik_iddiasi"
+    },
+    {
+     "alinti": "Danismaniniz sizi arayacak, uygulamayi indirin: kulemenkul-guvenlik.live",
+     "sinyal": "yakinlik_iddiasi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 2009.4813330215402,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-mesru_05-002",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "Çınarbank: Selin adlı kişiden hesabınıza 821₺ EFT gelmiştir.",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1032.7946250326931,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-kurum_05-017",
+   "tur": "odul_kampanya",
+   "kanitlar": [
+    {
+     "alinti": "Dijital Vatandaş: Adınıza 3.424 TL vergi iadesi tanımlanmıştır.",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1085.1617919979617,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-kamu_05-001",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Jandarma Komutanlığı: kimliğiniz bir şebeke tarafından kullanılmıştır.",
+     "sinyal": "yakinlik_iddiasi"
+    },
+    {
+     "alinti": "Birikimlerinizi [IBAN] numaralı güvenli emanet hesabına aktarmanız gerekiyor.",
+     "sinyal": "yakinlik_iddiasi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1449.5054169674404,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-bahis_05-010",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Kupabet 431.com bonus 30 dakika geçerli",
+     "sinyal": "yakinlik_iddiasi"
+    },
+    {
+     "alinti": "Kupabet 431.com bonus 30 dakika geçerli",
+     "sinyal": "yakinlik_iddiasi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1382.0572909899056,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  }
+ ]
+}

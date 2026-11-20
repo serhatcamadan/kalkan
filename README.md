@@ -17,8 +17,9 @@ küçük model · fine-tuned küçük model · gpt-5.4-mini.
 | 2 | Taksonomi, şema, sinyaller, PII (52 test) | ✅ |
 | 3 | Sentetik veri (1.991 örnek, 77 şablon) + şablon bazlı bölme + 30 adversarial + veri kartı | ✅ (golden: Gemini ön-eleme + insan teyidi) |
 | 4 | Eval düzeneği + kural (golden 0.89 / OLTA recall 0.20) ve TF-IDF (golden 0.49 / OLTA FPR 0.51) taban çizgileri | ✅ |
-| 5 | Tam pipeline + yerel zero-shot 0.8B/2B | ⏳ |
-| 6–12 | Veri, eval, pipeline, fine-tune, güvenlik, demo, VPS, yazım | ⏳ |
+| 5 | Tam pipeline (sinyal → maske → model → kapı → politika) + yerel zero-shot (0.8B makro-F1 0.13, 2B 0.24: fine-tune gerekçesi) | ✅ |
+| 6 | gpt-5.4-mini taban çizgisi (~$0.35) | ⏳ |
+| 7–12 | Veri, eval, pipeline, fine-tune, güvenlik, demo, VPS, yazım | ⏳ |
 
 ## Hızlı başlangıç (şimdilik)
 ```bash
@@ -30,10 +31,10 @@ make test
 
 ## Belgeler
 - [Spike 01 — dönüşüm yolu](docs/spike-01-donusum.md)
-- [Eval raporu](docs/eval-report.md) · [Adım 4 notları](docs/adim-04-eval.md)
+- [Adım 5 notları](docs/adim-05-pipeline.md) · [Eval raporu](docs/eval-report.md) · [Adım 4 notları](docs/adim-04-eval.md)
 - [Veri kartı](docs/veri-karti.md) · [Adım 3 notları](docs/adim-03-veri.md)
 - [Adım 2 notları](docs/adim-02-kurallar-iskelet.md)
-- [ADR-0001 dönüşüm yolu](docs/adr/0001-finetune-donusum-yolu.md) · [ADR-0002 llama-server](docs/adr/0002-yerel-calisma-zamani-llama-server.md) · [ADR-0003 IBAN](docs/adr/0003-iban-hem-pii-hem-kanit.md) · [ADR-0004 "güvenli" yasak](docs/adr/0004-guvenli-kelimesi-yasak.md)
+- [ADR-0001 dönüşüm yolu](docs/adr/0001-finetune-donusum-yolu.md) · [ADR-0002 llama-server](docs/adr/0002-yerel-calisma-zamani-llama-server.md) · [ADR-0003 IBAN](docs/adr/0003-iban-hem-pii-hem-kanit.md) · [ADR-0004 "güvenli" yasak](docs/adr/0004-guvenli-kelimesi-yasak.md) · [ADR-0005 politika](docs/adr/0005-politika-guvenlik-agi.md)
 
 ## Lisans ve veri
 Gerçek kişisel veri kullanılmaz. Kurum adları kurgusaldır. Linkler hiçbir zaman ziyaret edilmez, yalnızca statik analiz yapılır.

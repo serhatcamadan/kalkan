@@ -82,8 +82,24 @@ class ModelCiktisi(BaseModel):
 
     @classmethod
     def llm_json_schema(cls) -> dict:
-        """llama-server / OpenAI `response_format` için şema (Adım 5'te gramere çevrilir)."""
-        return cls.model_json_schema()
+        """llama-server / OpenAI `response_format` için şema. Her nesnede tüm alanlar `required`
+        (OpenAI strict modu bunu ister; llama-server gramerinde de kanitlar alanı atlanamaz)."""
+        sch = cls.model_json_schema()
+
+        def zorunlu(d):
+            if isinstance(d, dict):
+                if d.get("type") == "object" and "properties" in d:
+                    d["required"] = list(d["properties"])
+                    d["additionalProperties"] = False
+                    for p in d["properties"].values():
+                        p.pop("default", None)
+                for v in d.values():
+                    zorunlu(v)
+            elif isinstance(d, list):
+                for v in d:
+                    zorunlu(v)
+        zorunlu(sch)
+        return sch
 
 
 # --------------------------------------------------------------------- sistem cevabı

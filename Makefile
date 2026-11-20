@@ -1,5 +1,5 @@
-# KALKAN v4.0 · 2026-11-19
-.PHONY: eval eval-hizli rapor llm-paket llm-iceri teyit veri veri-istatistik incele golden dis-veri token-olc spike gguf-2b bench-mac bench test lint clean-spike
+# KALKAN v5.0 · 2026-11-19
+.PHONY: sunucu-08 sunucu-2b eval-zs-08 eval-zs-2b eval eval-hizli rapor llm-paket llm-iceri teyit veri veri-istatistik incele golden dis-veri token-olc spike gguf-2b bench-mac bench test lint clean-spike
 spike:          ## Mac: Adım 1 dönüşüm spike'ı
 	bash training/spike/spike_convert.sh
 gguf-2b:        ## Mac: Qwen3.5-2B → .spike/gguf/C2B-Q4_K_M.gguf
@@ -41,3 +41,17 @@ eval-hizli:     ## dış setleri atla
 	python -m eval.run_eval --set golden dogrulama adversarial
 rapor:          ## eval/results → docs/eval-report.md (otomatik bölüm)
 	python -m eval.report
+
+LLAMA_SERVER = .spike/llama.cpp/build/bin/llama-server
+SUNUCU_ARG   = --host 127.0.0.1 --port 8080 -c 4096 -np 1 --jinja
+sunucu-08:      ## Adım 5: Qwen3.5-0.8B zero-shot (ayrı terminalde açık kalsın)
+	$(LLAMA_SERVER) -m .spike/gguf/C-Q4_K_M.gguf $(SUNUCU_ARG)
+sunucu-2b:
+	$(LLAMA_SERVER) -m .spike/gguf/C2B-Q4_K_M.gguf $(SUNUCU_ARG)
+DIS_LIMIT ?= 300
+eval-zs-08:     ## sunucu-08 açıkken: golden + doğrulama + adversarial + dış setler (örneklem)
+	python -m eval.run_eval --model llm --etiket zs-0.8b --set golden dogrulama adversarial
+	python -m eval.run_eval --model llm --etiket zs-0.8b --set olta uci --limit $(DIS_LIMIT)
+eval-zs-2b:     ## sunucu-2b açıkken
+	python -m eval.run_eval --model llm --etiket zs-2b --set golden dogrulama adversarial
+	python -m eval.run_eval --model llm --etiket zs-2b --set olta uci --limit $(DIS_LIMIT)

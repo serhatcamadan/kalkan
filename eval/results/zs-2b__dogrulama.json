@@ -1,0 +1,2455 @@
+{
+ "meta": {
+  "model": "zs-2b",
+  "set": "dogrulama",
+  "n": 198,
+  "zaman": "2026-11-20T23:20:25",
+  "git": "79266c7",
+  "veri_sha256": "a70861c206cda3eb",
+  "dis_set_limit": null,
+  "hazirlik": {
+   "base_url": "http://127.0.0.1:8080",
+   "model": "yerel",
+   "gguf": "C2B-Q4_K_M.gguf",
+   "llama_build": "b12544-5812201a8"
+  },
+  "sure_sn": 134.29
+ },
+ "metrikler": {
+  "n": 198,
+  "p50_ms": 519.2,
+  "p95_ms": 1959.5,
+  "json_gecerlilik": 1.0,
+  "usd_1000_mesaj": 0.0,
+  "dogruluk": 0.3283,
+  "makro_f1": 0.2037,
+  "sinif": {
+   "sahte_kargo_gumruk": {
+    "p": 0.217,
+    "r": 1.0,
+    "f1": 0.356,
+    "destek": 18
+   },
+   "kurum_taklidi": {
+    "p": 0.0,
+    "r": 0.0,
+    "f1": 0.0,
+    "destek": 18
+   },
+   "sahte_kamu_gorevlisi": {
+    "p": 0.247,
+    "r": 1.0,
+    "f1": 0.396,
+    "destek": 18
+   },
+   "yatirim_vip_grup": {
+    "p": 0.75,
+    "r": 0.833,
+    "f1": 0.789,
+    "destek": 18
+   },
+   "yasa_disi_bahis": {
+    "p": 0.0,
+    "r": 0.0,
+    "f1": 0.0,
+    "destek": 18
+   },
+   "oyun_hesap_skin": {
+    "p": 0.0,
+    "r": 0.0,
+    "f1": 0.0,
+    "destek": 18
+   },
+   "odul_kampanya": {
+    "p": 0.0,
+    "r": 0.0,
+    "f1": 0.0,
+    "destek": 18
+   },
+   "yakin_taklidi": {
+    "p": 0.0,
+    "r": 0.0,
+    "f1": 0.0,
+    "destek": 18
+   },
+   "gorev_is_ilani": {
+    "p": 0.0,
+    "r": 0.0,
+    "f1": 0.0,
+    "destek": 18
+   },
+   "reklam_spam": {
+    "p": 0.636,
+    "r": 0.778,
+    "f1": 0.7,
+    "destek": 18
+   },
+   "mesru_islem": {
+    "p": 0.0,
+    "r": 0.0,
+    "f1": 0.0,
+    "destek": 18
+   }
+  },
+  "belirsiz": 0,
+  "en_cok_karisan": [
+   {
+    "altin": "odul_kampanya",
+    "tahmin": "sahte_kargo_gumruk",
+    "n": 18
+   },
+   {
+    "altin": "yakin_taklidi",
+    "tahmin": "sahte_kamu_gorevlisi",
+    "n": 18
+   },
+   {
+    "altin": "kurum_taklidi",
+    "tahmin": "sahte_kamu_gorevlisi",
+    "n": 17
+   },
+   {
+    "altin": "yasa_disi_bahis",
+    "tahmin": "sahte_kargo_gumruk",
+    "n": 14
+   },
+   {
+    "altin": "oyun_hesap_skin",
+    "tahmin": "sahte_kargo_gumruk",
+    "n": 14
+   },
+   {
+    "altin": "mesru_islem",
+    "tahmin": "sahte_kargo_gumruk",
+    "n": 14
+   },
+   {
+    "altin": "gorev_is_ilani",
+    "tahmin": "sahte_kamu_gorevlisi",
+    "n": 10
+   },
+   {
+    "altin": "gorev_is_ilani",
+    "tahmin": "reklam_spam",
+    "n": 6
+   }
+  ],
+  "karisiklik_matrisi": {
+   "gorev_is_ilani": {
+    "sahte_kamu_gorevlisi": 10,
+    "yatirim_vip_grup": 2,
+    "reklam_spam": 6
+   },
+   "kurum_taklidi": {
+    "sahte_kamu_gorevlisi": 17,
+    "sahte_kargo_gumruk": 1
+   },
+   "mesru_islem": {
+    "sahte_kamu_gorevlisi": 4,
+    "sahte_kargo_gumruk": 14
+   },
+   "odul_kampanya": {
+    "sahte_kargo_gumruk": 18
+   },
+   "oyun_hesap_skin": {
+    "sahte_kargo_gumruk": 14,
+    "yatirim_vip_grup": 3,
+    "sahte_kamu_gorevlisi": 1
+   },
+   "reklam_spam": {
+    "reklam_spam": 14,
+    "sahte_kargo_gumruk": 4
+   },
+   "sahte_kamu_gorevlisi": {
+    "sahte_kamu_gorevlisi": 18
+   },
+   "sahte_kargo_gumruk": {
+    "sahte_kargo_gumruk": 18
+   },
+   "yakin_taklidi": {
+    "sahte_kamu_gorevlisi": 18
+   },
+   "yasa_disi_bahis": {
+    "sahte_kargo_gumruk": 14,
+    "sahte_kamu_gorevlisi": 2,
+    "reklam_spam": 2
+   },
+   "yatirim_vip_grup": {
+    "yatirim_vip_grup": 15,
+    "sahte_kamu_gorevlisi": 3
+   }
+  },
+  "dolandiricilik_recall": 0.9506,
+  "mesru_fpr": 0.6111,
+  "tp": 154,
+  "fn": 8,
+  "fp": 22,
+  "tn": 14,
+  "risk_dagilimi": {
+   "yuksek": 109,
+   "orta": 67,
+   "dusuk": 22
+  },
+  "alinti_sayisi": 56,
+  "kapi_oncesi_gecerlilik": 0.3571,
+  "eslesme_p": 0.3393,
+  "eslesme_r": 0.0406,
+  "eslesme_f1": 0.0725,
+  "kesilen_cevap": 0,
+  "ort_cikti_token": 24.9,
+  "gurultuye_gore": {
+   "(yok)": {
+    "dogruluk": 0.346,
+    "n": 104
+   },
+   "ascii": {
+    "dogruluk": 0.295,
+    "n": 44
+   },
+   "bosluk": {
+    "dogruluk": 0.556,
+    "n": 9
+   },
+   "buyuk_harf": {
+    "dogruluk": 0.2,
+    "n": 15
+   },
+   "emoji": {
+    "dogruluk": 0.333,
+    "n": 21
+   },
+   "yazim": {
+    "dogruluk": 0.259,
+    "n": 27
+   }
+  }
+ },
+ "tahminler": [
+  {
+   "id": "dog-yatirim_05-009",
+   "tur": "yatirim_vip_grup",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 556.1543750227429,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-bahis_05-007",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 500.89862500317395,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-bahis_05-002",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 545.4019579919986,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-oyun_05-001",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 594.9960420257412,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-gorev_05-006",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 549.6670830179937,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-reklam_05-016",
+   "tur": "reklam_spam",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 517.9981660330668,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "dusuk"
+  },
+  {
+   "id": "dog-odul_05-011",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 642.7473329822533,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-bahis_05-017",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 511.6679170168936,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-reklam_05-004",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "PAZARCIK.COM.TR İLETİŞİM İZNİNİZİ İPTAL EDEBİLİRSİNİZ.",
+     "sinyal": "gizlilik_baskisi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1513.4660829789937,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-yakin_05-012",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 581.5882080351003,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-yatirim_05-014",
+   "tur": "yatirim_vip_grup",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 579.8841249779798,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-oyun_05-010",
+   "tur": "yatirim_vip_grup",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 562.7990000066347,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-kurum_05-014",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [
+    {
+     "alinti": "DİJİTAL VATANDAŞ: ADINIZA 4.420 TL VERGİ İADESİ TANIMLANMIŞTIR.",
+     "sinyal": "gizlilik_baskisi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1684.7466249600984,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-kamu_05-013",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [
+    {
+     "alinti": "KİMLİĞİNİZ BİR ŞEBEKE TARAFINDAN KULLANILMIŞTIR.",
+     "sinyal": "kurum_taklidi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1561.9799579726532,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-oyun_05-015",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 611.655457993038,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-bahis_05-013",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 516.911374987103,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-oyun_05-017",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 574.3552910280414,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-yakin_05-007",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 581.3122090185061,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-bahis_05-012",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 500.710166990757,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-odul_05-014",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 579.5154999941587,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-oyun_05-007",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 597.5609580054879,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-odul_05-016",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 574.4447920005769,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-oyun_05-013",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 565.8131660311483,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-yakin_05-002",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 521.2372499518096,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-reklam_05-002",
+   "tur": "reklam_spam",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 504.9373340443708,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "dusuk"
+  },
+  {
+   "id": "dog-odul_05-012",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 517.9248750209808,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-kurum_05-012",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 536.3621659926139,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-yakin_05-010",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 531.1947090085596,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-yatirim_05-013",
+   "tur": "yatirim_vip_grup",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 547.0805420191027,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-odul_05-017",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 557.8510829946026,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-kurum_05-003",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 590.8647500327788,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-yakin_05-021",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 519.533374987077,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-kargo_05-012",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 568.2881249813363,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-yakin_05-009",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 583.0758750089444,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-bahis_05-003",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 502.1997920121066,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-oyun_05-000",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 568.5028330190107,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-reklam_05-017",
+   "tur": "reklam_spam",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 508.4257500129752,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "dusuk"
+  },
+  {
+   "id": "dog-bahis_05-016",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 511.1791659728624,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-mesru_05-008",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 575.9299580240622,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-kamu_05-006",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 648.244165990036,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-bahis_05-008",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 498.4184170025401,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-gorev_05-013",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 574.5943330111913,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-kurum_05-000",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 564.0668330015615,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-yatirim_05-017",
+   "tur": "yatirim_vip_grup",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 538.2854579947889,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-yatirim_05-016",
+   "tur": "yatirim_vip_grup",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 541.1542090005241,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-gorev_05-001",
+   "tur": "yatirim_vip_grup",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 474.81420799158514,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-yatirim_05-010",
+   "tur": "yatirim_vip_grup",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 535.4155000532046,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-kurum_05-010",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 575.2700829762034,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-kamu_05-004",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [
+    {
+     "alinti": "kimlikiniz bir şebeke tarafından kullanılmıştır.",
+     "sinyal": "kimlik_talebi"
+    },
+    {
+     "alinti": "Birikimlerinizi [IBAN] numaralı güvenli emanet hesabına aktarmanız gerekiyor.",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Bankaya gitmeyin.",
+     "sinyal": "gizlilik_baskisi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 2203.0115830129944,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-bahis_05-014",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 541.0473750089295,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-mesru_05-003",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 607.0305000175722,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-gorev_05-015",
+   "tur": "reklam_spam",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 426.98266700608656,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "dusuk"
+  },
+  {
+   "id": "dog-mesru_05-009",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 562.846792046912,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-kamu_05-002",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [
+    {
+     "alinti": "kimlikiniz bir şebeke tarafından kullanılmıştır.",
+     "sinyal": "kimlik_talebi"
+    },
+    {
+     "alinti": "Birikimlerinizi [IBAN] numaralı güvenli emanet hesabına aktarmanız gerekiyor.",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Bankaya gitmeyin.",
+     "sinyal": "gizlilik_baskisi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 2157.7765000401996,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-kurum_05-011",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [
+    {
+     "alinti": "DİJİTAL VATANDAŞ: ADINIZA 617₺ VERGİ İADESİ TANIMLANMIŞTIR.",
+     "sinyal": "gizlilik_baskisi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1740.6129160081036,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-mesru_05-011",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 578.3214580151252,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-oyun_05-011",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 544.772916007787,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-odul_05-010",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 543.121125025209,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-gorev_05-017",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 493.2082919985987,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-kurum_05-001",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 558.6662910063751,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-oyun_05-006",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 549.1477500181645,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-mesru_05-013",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 505.4455000208691,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-kargo_05-016",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 537.064999982249,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-mesru_05-010",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 565.5772080062889,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-gorev_05-014",
+   "tur": "reklam_spam",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 418.0834170547314,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "dusuk"
+  },
+  {
+   "id": "dog-mesru_05-006",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 517.7555829868652,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-reklam_05-005",
+   "tur": "reklam_spam",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 517.3712499672547,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "dusuk"
+  },
+  {
+   "id": "dog-oyun_05-004",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 559.258333989419,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-yatirim_05-005",
+   "tur": "yatirim_vip_grup",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 518.8502919627354,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-gorev_05-004",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 503.1921250047162,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-odul_05-004",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 531.1685000197031,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-yatirim_05-006",
+   "tur": "yatirim_vip_grup",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 508.3044999628328,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-kamu_05-017",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [
+    {
+     "alinti": "kimlikiniz bir şebeke tarafından kullanılmıştır.",
+     "sinyal": "kimlik_talebi"
+    },
+    {
+     "alinti": "Birikimlerinizi [IBAN] numaralı güvenli emanet hesabına aktarmanız gerekiyor.",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Bankaya gitmeyin.",
+     "sinyal": "gizlilik_baskisi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 2141.1340829799883,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-yakin_05-000",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 543.3060419745743,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-gorev_05-010",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 529.5761249726638,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-yatirim_05-008",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [
+    {
+     "alinti": "ALTIN VE DÖVİZ YATIRIMINDA RİSK OLMADAN AYLIK %25 KAZANIN",
+     "sinyal": "odul_vaadi"
+    },
+    {
+     "alinti": "KULE MENKUL LİSANSLI ARACI KURUMDUR",
+     "sinyal": "kurum_taklidi"
+    },
+    {
+     "alinti": "UYGULAMAYI İNDİRİN: HTTPS://KULEEMNKUL.SBS/DOGRULA",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 2912.78637497453,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-yakin_05-019",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 540.7068330096081,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-bahis_05-000",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 502.3916669888422,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-odul_05-003",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 543.690541991964,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-oyun_05-008",
+   "tur": "yatirim_vip_grup",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 504.63445897912607,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-kamu_05-014",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [
+    {
+     "alinti": "kimlikiniz bir şebeke tarafından kullanılmıştır.",
+     "sinyal": "kimlik_talebi"
+    },
+    {
+     "alinti": "Birikimlerinizi [IBAN] numaralı güvenli emanet hesabına aktarmanız gerekiyor.",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Bankaya gitmeyin.",
+     "sinyal": "gizlilik_baskisi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 2054.850707994774,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-kargo_05-017",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 654.3546660104766,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-kargo_05-011",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 553.9663750096224,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-kurum_05-005",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 539.9671249906532,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-odul_05-015",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 506.11666595796123,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-mesru_05-017",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 531.254125002306,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-yakin_05-013",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 475.445874966681,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-bahis_05-006",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 473.08666695607826,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-kargo_05-013",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 537.4684169655666,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-mesru_05-000",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 558.072583982721,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-mesru_05-007",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 537.7205419936217,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-yakin_05-004",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 486.28050001570955,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-kargo_05-007",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 519.2470420151949,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-kargo_05-009",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 530.7093749870546,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-yakin_05-008",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 480.77787505462766,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-kurum_05-006",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 535.5148339876905,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-kamu_05-009",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [
+    {
+     "alinti": "kimlikiniz bir şebeke tarafından kullanılmıştır.",
+     "sinyal": "kimlik_talebi"
+    },
+    {
+     "alinti": "Birikimlerinizi [IBAN] numaralı güvenli emanet hesabına aktarmanız gerekiyor.",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Bankaya gitmeyin.",
+     "sinyal": "gizlilik_baskisi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 2094.9293749872595,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-kurum_05-008",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 589.0455829794519,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-yatirim_05-007",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [
+    {
+     "alinti": "hxxp://ekulemenkul[.]site/tr/islem",
+     "sinyal": "kurum_taklidi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1157.081667042803,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-kargo_05-006",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 513.376375020016,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-kargo_05-004",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 523.4296250273474,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-kargo_05-015",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 527.7166669839062,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-kargo_05-001",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 579.5922910328954,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-kargo_05-005",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 515.5520839616656,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-kargo_05-003",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 512.1188330231234,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-gorev_05-012",
+   "tur": "reklam_spam",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 400.8327079936862,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "dusuk"
+  },
+  {
+   "id": "dog-kamu_05-010",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [
+    {
+     "alinti": "kimliginiz bir sebeke tarafindan kullanilmistir.",
+     "sinyal": "kimlik_talebi"
+    },
+    {
+     "alinti": "Birikimlerinizi [IBAN] numarali guvenli emanet hesabina aktarmaniz gerekiyor.",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Bankaya gitmeyin, islem telefonla yapilacak.",
+     "sinyal": "gizlilik_baskisi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 2285.866458027158,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-bahis_05-009",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 605.6324579985812,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-kamu_05-011",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [
+    {
+     "alinti": "kimlikiniz bir şebeke tarafından kullanılmıştır.",
+     "sinyal": "kimlik_talebi"
+    },
+    {
+     "alinti": "[IBAN] numaralı güvenli emanet hesabına.",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Bankaya gitmmeyin.",
+     "sinyal": "gizlilik_baskisi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1901.6991659882478,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-kurum_05-007",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 511.6991670220159,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-bahis_05-005",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 480.6269999826327,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-kurum_05-002",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 519.9884999892674,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-mesru_05-016",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 525.0167499762028,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-mesru_05-005",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 480.450542003382,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-odul_05-009",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 559.0743329958059,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-reklam_05-008",
+   "tur": "reklam_spam",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 450.12562500778586,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "dusuk"
+  },
+  {
+   "id": "dog-gorev_05-002",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 470.6937909941189,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-kamu_05-016",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [
+    {
+     "alinti": "kimliginiz bir sebeke tarafindan kullanilmistir.",
+     "sinyal": "kimlik_talebi"
+    },
+    {
+     "alinti": "Birikimlerinizi [IBAN] numarali guvenli emanet hesabina aktarmaniz gerekiyor.",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Bankaya gitmeyin, islem telefonla yapilacak.",
+     "sinyal": "gizlilik_baskisi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 2267.447334015742,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-gorev_05-009",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 532.4667920358479,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-odul_05-006",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 546.6033749980852,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-kurum_05-013",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 479.07262499211356,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-gorev_05-007",
+   "tur": "reklam_spam",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 399.6546670095995,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "dusuk"
+  },
+  {
+   "id": "dog-kamu_05-003",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [
+    {
+     "alinti": "kimlikiniz bir şebeke tarafından kullanılmıştır.",
+     "sinyal": "kimlik_talebi"
+    },
+    {
+     "alinti": "[IBAN] numaralı güvenli emanet hesabına.",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Bankaya gitmeyiin.",
+     "sinyal": "gizlilik_baskisi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1819.5574590354227,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-yatirim_05-000",
+   "tur": "yatirim_vip_grup",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 536.8031249963678,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-kurum_05-015",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 553.2476250082254,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-reklam_05-013",
+   "tur": "reklam_spam",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 458.3091249805875,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "dusuk"
+  },
+  {
+   "id": "dog-bahis_05-015",
+   "tur": "reklam_spam",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 396.94454200798646,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "dusuk"
+  },
+  {
+   "id": "dog-reklam_05-014",
+   "tur": "reklam_spam",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 446.5652499930002,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "dusuk"
+  },
+  {
+   "id": "dog-yatirim_05-003",
+   "tur": "yatirim_vip_grup",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 487.4294580076821,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-odul_05-013",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 498.63600003300235,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-odul_05-001",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 446.9013750203885,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-yakin_05-001",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 465.15658299904317,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-gorev_05-003",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 468.4736659983173,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-reklam_05-006",
+   "tur": "reklam_spam",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 455.35029197344556,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "dusuk"
+  },
+  {
+   "id": "dog-kurum_05-016",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 530.8622919837944,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-oyun_05-009",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 508.560958027374,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-bahis_05-001",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 449.1472499794327,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-oyun_05-003",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 505.7745829690248,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-reklam_05-003",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 504.9313749768771,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-oyun_05-014",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 505.1671250257641,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-yatirim_05-012",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 511.26254099654034,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-odul_05-002",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 451.0568749974482,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-bahis_05-011",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 471.9859590404667,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-odul_05-007",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 519.553416990675,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-yatirim_05-002",
+   "tur": "yatirim_vip_grup",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 495.51849998533726,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-kamu_05-015",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [
+    {
+     "alinti": "kimlikiniz bir şebeke tarafından kullanılmıştır.",
+     "sinyal": "kimlik_talebi"
+    },
+    {
+     "alinti": "Birikimlerinizi [IBAN] numaralı güvenli emanet hesabına aktarmanız gerekiyor.",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Bankaya gitmeyin.",
+     "sinyal": "gizlilik_baskisi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1977.0924170152284,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-kargo_05-008",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 548.7030000076629,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-kamu_05-007",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [
+    {
+     "alinti": "kimlikiniz bir şebeke tarafından kullanılmıştır.",
+     "sinyal": "kimlik_talebi"
+    },
+    {
+     "alinti": "Birikimlerinizi [IBAN] numaralı güvenli emanet hesabına aktarmanız gerekiyor.",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Bankaya gitmeyin.",
+     "sinyal": "gizlilik_baskisi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1990.096999972593,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-kamu_05-000",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [
+    {
+     "alinti": "kimlikiniz bir şebeke tarafından kullanılmıştır.",
+     "sinyal": "kimlik_talebi"
+    },
+    {
+     "alinti": "Birikimlerinizi [IBAN] numaralı güvenli emanet hesabına aktarmanız gerekiyor.",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Bankaya gitmeyin.",
+     "sinyal": "gizlilik_baskisi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1885.6654170085676,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-gorev_05-005",
+   "tur": "reklam_spam",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 426.00199999287724,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "dusuk"
+  },
+  {
+   "id": "dog-oyun_05-012",
+   "tur": "yatirim_vip_grup",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 506.13945798249915,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-reklam_05-010",
+   "tur": "reklam_spam",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 451.1839999468066,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "dusuk"
+  },
+  {
+   "id": "dog-gorev_05-008",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 464.9285420309752,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-yatirim_05-001",
+   "tur": "yatirim_vip_grup",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 467.2994159627706,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-kurum_05-004",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 507.37820798531175,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-oyun_05-016",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 561.5447500022128,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-kamu_05-012",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [
+    {
+     "alinti": "kimlikiniz bir şebeke tarafından kullanılmıştır.",
+     "sinyal": "kimlik_talebi"
+    },
+    {
+     "alinti": "Birikimlerinizi [IBAN] numaralı güvenli emanet hesabına aktarmanız gerekiyor.",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Bankaya gitmeyin.",
+     "sinyal": "gizlilik_baskisi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1959.481334022712,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-reklam_05-012",
+   "tur": "reklam_spam",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 492.8157919785008,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "dusuk"
+  },
+  {
+   "id": "dog-mesru_05-012",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 547.5050419918261,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-kurum_05-009",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 471.5282500255853,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-reklam_05-009",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 493.86041599791497,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-gorev_05-000",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 517.6308749942109,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-yatirim_05-015",
+   "tur": "yatirim_vip_grup",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 475.82825005520135,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-odul_05-005",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 486.4067499875091,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-yakin_05-020",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 457.9655000125058,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-mesru_05-001",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 470.4906669794582,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-gorev_05-011",
+   "tur": "reklam_spam",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 441.28891598666087,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "dusuk"
+  },
+  {
+   "id": "dog-yakin_05-016",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 463.70162500534207,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-reklam_05-007",
+   "tur": "reklam_spam",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 436.1744999769144,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "dusuk"
+  },
+  {
+   "id": "dog-oyun_05-002",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 499.68708399683237,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-kargo_05-002",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 499.43533301120624,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-reklam_05-015",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 492.75541701354086,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-odul_05-000",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 494.656374969054,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-kargo_05-010",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 497.3935000016354,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-bahis_05-004",
+   "tur": "reklam_spam",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 393.8004169613123,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "dusuk"
+  },
+  {
+   "id": "dog-kargo_05-014",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 495.77345803845674,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-yakin_05-006",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 459.8507910268381,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-mesru_05-004",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 461.144124972634,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-gorev_05-016",
+   "tur": "yatirim_vip_grup",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 425.4535000072792,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-mesru_05-015",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 478.35195797961205,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-reklam_05-011",
+   "tur": "reklam_spam",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 442.3147499910556,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "dusuk"
+  },
+  {
+   "id": "dog-yakin_05-015",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 463.30620802473277,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-reklam_05-000",
+   "tur": "reklam_spam",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 446.1993330041878,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "dusuk"
+  },
+  {
+   "id": "dog-reklam_05-001",
+   "tur": "reklam_spam",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 445.3078330261633,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "dusuk"
+  },
+  {
+   "id": "dog-oyun_05-005",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 501.82387500535697,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-yakin_05-018",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 458.7461250484921,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-kamu_05-008",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [
+    {
+     "alinti": "kimlikiniz bir şebeke tarafından kullanılmıştır.",
+     "sinyal": "kimlik_talebi"
+    },
+    {
+     "alinti": "Birikimlerinizi [IBAN] numaralı güvenli emanet hesabına aktarmanız gerekiyor.",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Bankaya gitmeyin.",
+     "sinyal": "gizlilik_baskisi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1955.7339999591932,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-yatirim_05-004",
+   "tur": "yatirim_vip_grup",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 528.94995798124,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-mesru_05-014",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 491.04424996767193,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-yakin_05-014",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 468.22483401047066,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-kargo_05-000",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 496.45174999022856,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-odul_05-008",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 493.90395800583065,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-kamu_05-005",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [
+    {
+     "alinti": "kimlikiniz bir şebeke tarafından kullanılmıştır.",
+     "sinyal": "kimlik_talebi"
+    },
+    {
+     "alinti": "Birikimlerinizi [IBAN] numaralı güvenli emanet hesabına aktarmanız gerekiyor.",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Bankaya gitmeyin.",
+     "sinyal": "gizlilik_baskisi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1932.2381669771858,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-yatirim_05-011",
+   "tur": "yatirim_vip_grup",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 518.151750031393,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-mesru_05-002",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 486.38004198437557,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  },
+  {
+   "id": "dog-kurum_05-017",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 513.806042028591,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-kamu_05-001",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [
+    {
+     "alinti": "kimlikiniz bir şebeke tarafından kullanılmıştır.",
+     "sinyal": "kimlik_talebi"
+    },
+    {
+     "alinti": "Birikimlerinizi [IBAN] numaralı güvenli emanet hesabına aktarmanız gerekiyor.",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Bankaya gitmeyin.",
+     "sinyal": "gizlilik_baskisi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1919.7977079893462,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek"
+  },
+  {
+   "id": "dog-bahis_05-010",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 479.3599999975413,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta"
+  }
+ ]
+}

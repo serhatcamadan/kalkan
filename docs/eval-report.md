@@ -10,7 +10,9 @@ Elle yazılan yorumlar bu bölümün DIŞINA yazılır; `python -m eval.report` 
 - **Dış set uyarısı:** OLTA-TR'de kural modeli ayırt edemiyor (recall 0.20 ≈ FPR 0.19), TF-IDF meşru e-postaların
   yarısına alarm veriyor (FPR 0.51). Sentetik golden'daki başarı gerçek dağılıma taşınmıyor. Model seçiminde dış set
   sonuçları golden kadar ağırlık taşıyacak.
-- Ayrıntı ve tahmin karnesi: `docs/adim-04-eval.md`.
+- **Zero-shot (Adım 5):** 0.8B her şeye alarm veriyor (golden meşru FPR 1.00), 2B tür ayıramıyor (makro-F1 0.24) ve
+  dış sette TF-IDF'in altında. Küçük model talimatla değil örnekle öğrenmeli → fine-tune (Adım 7).
+- Ayrıntı ve tahmin karneleri: `docs/adim-04-eval.md`, `docs/adim-05-pipeline.md`.
 
 <!-- OTOMATIK:BAS -->
 ## Golden test (297 örnek, şablon ve marka ayrık)
@@ -19,6 +21,8 @@ Elle yazılan yorumlar bu bölümün DIŞINA yazılır; `python -m eval.report` 
 |---|---|---|---|---|---|---|---|---|---|---|
 | kural | 0.887 | 0.896 | 0.975 ✅ | 0.000 ✅ | 1.000 ✅ | 0.713 | 1.000 | 0.800 | 2.200 | 0.000 |
 | tfidf | 0.491 | 0.525 | 1.000 ✅ | 0.000 ✅ | — | — | 1.000 | 0.700 | 0.800 | 0.000 |
+| zs-0.8b | 0.128 | 0.195 | 1.000 ✅ | 1.000 ❌ | 0.482 ❌ | 0.106 | 1.000 | 1132.900 | 1958.500 | 0.000 |
+| zs-2b | 0.235 | 0.323 | 0.979 ✅ | 0.426 ❌ | 0.767 ❌ | 0.021 | 1.000 | 416.900 | 1015.800 | 0.000 |
 
 
 ## Doğrulama (ayar seti) ↔ golden farkı
@@ -28,6 +32,8 @@ Büyük düşüş = doğrulama setine aşırı uyum.
 |---|---|---|---|
 | kural | 0.990 | 0.887 | -0.103 |
 | tfidf | 0.716 | 0.491 | -0.225 |
+| zs-0.8b | 0.131 | 0.128 | -0.003 |
+| zs-2b | 0.204 | 0.235 | +0.032 |
 
 
 ## Adversarial (30 örnek)
@@ -37,6 +43,8 @@ Vekil ölçüt (politika kodu Adım 5'te): dolandırıcılık dışı tür = dü
 |---|---|---|---|---|
 | kural | 1 ❌ | adv_23 (kanal) | 2/7 | 0.833 |
 | tfidf | 2 ❌ | adv_17 (hibrit), adv_19 (hibrit) | 3/7 | 0.900 |
+| zs-0.8b | 0 ✅ | — | 7/7 | 0.167 |
+| zs-2b | 2 ❌ | adv_21 (emoji), adv_23 (kanal) | 6/7 | 0.200 |
 
 
 ## Dış setler (ikili: dolandırıcılık mı?)
@@ -46,12 +54,16 @@ OLTA-TR sentetik oltalama e-postası, UCI gerçek spam/normal e-posta. İkisi de
 |---|---|---|---|---|---|---|
 | kural | 18305 | 0.197 | 0.195 | 825 | 0.395 | 0.321 |
 | tfidf | 18305 | 0.721 | 0.510 | 825 | 0.708 | 0.758 |
+| zs-0.8b | 300 | 0.995 | 0.992 | 300 | 1.000 | 0.967 |
+| zs-2b | 300 | 0.566 | 0.475 | 300 | 0.900 | 0.700 |
 
 
 ## En çok karışan tür çiftleri (golden)
 
 - **kural**: oyun_hesap_skin → yakin_taklidi (13), gorev_is_ilani → sahte_kargo_gumruk (10), gorev_is_ilani → mesru_islem (5), yakin_taklidi → kurum_taklidi (1)
 - **tfidf**: yatirim_vip_grup → gorev_is_ilani (26), odul_kampanya → sahte_kargo_gumruk (22), yasa_disi_bahis → yatirim_vip_grup (14), oyun_hesap_skin → yakin_taklidi (13)
+- **zs-0.8b**: sahte_kamu_gorevlisi → yakin_taklidi (20), oyun_hesap_skin → odul_kampanya (17), mesru_islem → sahte_kargo_gumruk (16), odul_kampanya → sahte_kargo_gumruk (15)
+- **zs-2b**: gorev_is_ilani → sahte_kargo_gumruk (27), yakin_taklidi → sahte_kargo_gumruk (26), kurum_taklidi → sahte_kargo_gumruk (24), odul_kampanya → sahte_kargo_gumruk (21)
 
 
 ## Gürültü tipine göre doğruluk (golden)
@@ -60,6 +72,8 @@ OLTA-TR sentetik oltalama e-postası, UCI gerçek spam/normal e-posta. İkisi de
 |---|---|---|---|---|---|---|
 | kural | 0.901 | 0.917 | 0.829 | 0.944 | 1.000 | 0.830 |
 | tfidf | 0.567 | 0.528 | 0.457 | 0.444 | 0.417 | 0.528 |
+| zs-0.8b | 0.206 | 0.236 | 0.257 | 0.056 | 0.208 | 0.151 |
+| zs-2b | 0.319 | 0.306 | 0.400 | 0.278 | 0.250 | 0.321 |
 
 
 <details><summary>Sürüm izleri</summary>
@@ -74,5 +88,15 @@ OLTA-TR sentetik oltalama e-postası, UCI gerçek spam/normal e-posta. İkisi de
 - `tfidf/golden`: git 284aa14 · veri 2e46892225886536 · 2026-11-20T22:11:21
 - `tfidf/olta`: git 284aa14 · veri 43fcfc17d8b1b7d9 · 2026-11-20T22:12:04
 - `tfidf/uci`: git 284aa14 · veri 0000d324844a291a · 2026-11-20T22:12:08
+- `zs-0.8b/adversarial`: git 79266c7 · veri 539ec5edf4cc57b7 · 2026-11-20T22:50:34
+- `zs-0.8b/dogrulama`: git 79266c7 · veri a70861c206cda3eb · 2026-11-20T22:49:59
+- `zs-0.8b/golden`: git 79266c7 · veri 2e46892225886536 · 2026-11-20T22:45:43
+- `zs-0.8b/olta`: git 79266c7 · veri 43fcfc17d8b1b7d9 · 2026-11-20T23:01:39
+- `zs-0.8b/uci`: git 79266c7 · veri 0000d324844a291a · 2026-11-20T23:12:58
+- `zs-2b/adversarial`: git 79266c7 · veri 539ec5edf4cc57b7 · 2026-11-20T23:20:41
+- `zs-2b/dogrulama`: git 79266c7 · veri a70861c206cda3eb · 2026-11-20T23:20:25
+- `zs-2b/golden`: git 79266c7 · veri 2e46892225886536 · 2026-11-20T23:18:11
+- `zs-2b/olta`: git 79266c7 · veri 43fcfc17d8b1b7d9 · 2026-11-20T23:23:40
+- `zs-2b/uci`: git 79266c7 · veri 0000d324844a291a · 2026-11-20T23:29:24
 </details>
 <!-- OTOMATIK:SON -->
