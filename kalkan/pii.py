@@ -1,4 +1,6 @@
-"""KALKAN · pii.py — kişisel veri tespiti ve maskeleme                v1 · 2026-11-19
+"""KALKAN · pii.py — kişisel veri tespiti ve maskeleme              v1.1 · 2026-11-20
+
+v1.1: ayraçlarda 2 boşluğa/sekmeye kadar tolerans ("0599  885 86 14" maskelenmiyordu; veri testi yakaladı).
 
 Kanonik metin üzerinde çalışır (normalize.Metin.kanonik). Modele, loglara ve denetim kaydına
 yalnızca MASKELİ metin gider. Sıra (ADR-0003): önce signals.py sinyalleri çıkarır (IBAN geçerliliği
@@ -19,12 +21,12 @@ from __future__ import annotations
 import re
 from dataclasses import dataclass, field
 
-_IBAN = re.compile(r"\bTR(?:[ ]?\d){24}\b", re.IGNORECASE)
-_KART = re.compile(r"(?<![\d])(?:\d[ -]?){12,18}\d(?![\d])")
+_IBAN = re.compile(r"\bTR(?:[ \t]{0,2}\d){24}\b", re.IGNORECASE)
+_KART = re.compile(r"(?<![\d])(?:\d(?:[ \t]{1,2}|-)?){12,18}\d(?![\d])")
 _TCKN = re.compile(r"(?<![\d])[1-9]\d{10}(?![\d])")
 _TEL = re.compile(
-    r"(?<![\d+])(?:\+90[ ]?|0090[ ]?|0)?\(?[2-58]\d{2}\)?[ -]?\d{3}[ -]?\d{2}[ -]?\d{2}(?![\d])"
-    r"|(?<![\d])444[ ]?\d[ ]?\d{3}(?![\d])"
+    r"(?<![\d+])(?:\+90[ \t]{0,2}|0090[ \t]{0,2}|0)?\(?[2-58]\d{2}\)?(?:[ \t]{1,2}|-)?\d{3}(?:[ \t]{1,2}|-)?\d{2}(?:[ \t]{1,2}|-)?\d{2}(?![\d])"
+    r"|(?<![\d])444[ \t]{0,2}\d[ \t]{0,2}\d{3}(?![\d])"
 )
 _EPOSTA = re.compile(r"[\w.+-]+@[\w-]+(?:\.[\w-]+)+")
 

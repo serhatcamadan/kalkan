@@ -1,5 +1,5 @@
-# KALKAN v2.0 · 2026-11-19
-.PHONY: token-olc spike gguf-2b bench-mac bench test lint clean-spike
+# KALKAN v3.0 · 2026-11-19
+.PHONY: veri veri-istatistik incele golden dis-veri token-olc spike gguf-2b bench-mac bench test lint clean-spike
 spike:          ## Mac: Adım 1 dönüşüm spike'ı
 	bash training/spike/spike_convert.sh
 gguf-2b:        ## Mac: Qwen3.5-2B → .spike/gguf/C2B-Q4_K_M.gguf
@@ -19,3 +19,13 @@ clean-spike:
 	rm -rf .spike
 token-olc:      ## Mac: çıktı biçimlerinin token sayısı (Adım 2, P3)
 	python3 tools/token_olc.py --server .spike/llama.cpp/build/bin/llama-server --model .spike/gguf/C-Q4_K_M.gguf
+veri:           ## Adım 3: sentetik veri üret (deterministik)
+	python tools/veri_uret.py
+veri-istatistik:
+	python tools/veri_istatistik.py
+incele:         ## Adım 3: golden set için 150 örneği elle incele (kaldığın yerden devam eder)
+	python tools/incele.py
+golden:
+	python tools/incele.py --birlestir
+dis-veri:       ## OLTA-TR + UCI indir (repoya girmez)
+	python data/external/download.py

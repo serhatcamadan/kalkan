@@ -1,0 +1,63 @@
+{
+ "egitim": {
+  "ornek": 1496,
+  "sablon": 44,
+  "marka": 16,
+  "ort_girdi": 146,
+  "ort_hedef": 207,
+  "kanit": 2.36,
+  "ascii": 26,
+  "yazim": 16
+ },
+ "dogrulama": {
+  "ornek": 198,
+  "sablon": 11,
+  "marka": 7,
+  "ort_girdi": 146,
+  "ort_hedef": 206,
+  "kanit": 2.36,
+  "ascii": 25,
+  "yazim": 10
+ },
+ "test": {
+  "ornek": 297,
+  "sablon": 22,
+  "marka": 11,
+  "ort_girdi": 134,
+  "ort_hedef": 210,
+  "kanit": 2.41,
+  "ascii": 25,
+  "yazim": 16
+ },
+ "sizinti": {
+  "dogrulama": {
+   "ortak_sablon": 0,
+   "ortak_marka": 0,
+   "ayni_metin": 0,
+   "8gram_ortak_pct": 0.0
+  },
+  "test": {
+   "ortak_sablon": 0,
+   "ortak_marka": 0,
+   "ayni_metin": 0,
+   "8gram_ortak_pct": 0.0
+  }
+ },
+ "sinyal_kapsami": {
+  "dolandiricilik": 93.4,
+  "dolandiricilik_disi": 86.5
+ },
+ "adversarial": {
+  "enjeksiyon": 6,
+  "homoglyph": 4,
+  "gorunmez_karakter": 2,
+  "defang": 1,
+  "tr_harf": 2,
+  "yazim": 1,
+  "hibrit": 3,
+  "uzun_dolgu": 1,
+  "emoji": 1,
+  "kanal": 2,
+  "zor_negatif": 7
+ }
+}

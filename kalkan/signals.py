@@ -1,4 +1,7 @@
-"""KALKAN · signals.py — deterministik (kural tabanlı) sinyaller       v1 · 2026-11-19
+"""KALKAN · signals.py — deterministik (kural tabanlı) sinyaller     v1.1 · 2026-11-20
+
+v1.1: adında "rn" olan marka karşılaştırması düzeltildi; marka.com.tr.sahte.top alt alan hilesi;
+      gizli_karakter sinyali (adversarial set yakaladı).
 
 Modelden BAĞIMSIZ, kanonik metin üzerinde, PII maskelemeden ÖNCE çalışır (ADR-0003).
 Hiçbir link açılmaz/ziyaret edilmez; yalnızca metin olarak incelenir.
@@ -18,13 +21,14 @@ Hiçbir link açılmaz/ziyaret edilmez; yalnızca metin olarak incelenir.
   paylasma_uyarisi        "kodu kimseyle paylaşmayın" → meşru bildirim işareti
   gizlilik_ifadesi        "kimseye söyleme", "bankayı arama" → dolandırıcılık işareti (yukarıdakinin zıddı)
   telefon                 telefon numarası (değer maskeli)
+  gizli_karakter          HAM metinde sıfır genişlikli / yön değiştiren (RLO) karakter: meşru SMS'te olmaz
 """
 from __future__ import annotations
 
 import re
 
 from . import pii
-from .normalize import BENZER, Metin, asciile
+from .normalize import BENZER, GORUNMEZ, Metin, asciile
 from .schema import DeterministikSinyal
 from .taxonomy import yukle
 
@@ -114,15 +118,17 @@ def _link_sinyalleri(m: re.Match, tax: dict) -> list[DeterministikSinyal]:
         out.append(DeterministikSinyal(tip="supheli_tld", deger=tld, bas=b, bit=e))
 
     etiket, _ = _kayitli_etiket(host)
-    duz = asciile(etiket.lower()).replace("-", "")       # harfiyen
+    duz = asciile(etiket.lower()).replace("-", "")       # harfiyen (kayıt edilebilir etiket)
+    duz_tum = asciile(host).replace("-", "").replace(".", "")  # tüm etiketler: alt alan hilesi için
     isk = _iskelet(etiket).replace("-", "")              # görsel iskelet (rn→m, Kiril а→a, 0→o)
     for marka, resmi in tax["kurgusal_markalar"].items():
+        m_duz = asciile(marka.lower()).replace("-", "")
         m_isk = _iskelet(marka).replace("-", "")
         if any(host == r or host.endswith("." + r) for r in resmi):
             out.append(DeterministikSinyal(tip="resmi_alan_adi", deger=marka, bas=b, bit=e))
-        elif m_isk in duz:
+        elif m_duz in duz_tum:   # mavibank-guvenlik.top, mavibank.com.tr.giris-dogrula.top
             out.append(DeterministikSinyal(tip="marka_iceren_yabanci", deger=marka, bas=b, bit=e,
-                                           ek={"alan": host, "resmi": resmi}))
+                                           ek={"alan": host, "resmi": resmi, "alt_alan_hilesi": m_duz not in duz}))
         elif m_isk in isk or (len(m_isk) >= 5 and _levenshtein(isk, m_isk) <= 2):  # taklit: görünüşte aynı
             out.append(DeterministikSinyal(tip="benzer_alan_adi", deger=marka, bas=b, bit=e,
                                            ek={"alan": host, "resmi": resmi}))
@@ -170,4 +176,8 @@ def cikar(metin: Metin, tax: dict | None = None) -> list[DeterministikSinyal]:
     for m in _GIZLILIK.finditer(a):
         out.append(DeterministikSinyal(tip="gizlilik_ifadesi", deger=_rakamsiz(k[m.start():m.end()]), bas=m.start(), bit=m.end()))
 
+    gizli = [c for c in metin.ham if c in GORUNMEZ and c != "\u00ad"]
+    if gizli:  # kanonik metinden silindikleri için aralık yok; varlıkları başlı başına sinyal
+        out.append(DeterministikSinyal(tip="gizli_karakter", deger=f"{len(gizli)} adet", bas=0, bit=0,
+                                       ek={"kodlar": sorted({f"U+{ord(c):04X}" for c in gizli})}))
     return sorted(out, key=lambda s: (s.bas, s.tip))

@@ -16,7 +16,7 @@
 |---|---|---|
 | P1 | Python'un `"İ".lower()` sonucu 2 karakter; düz `.lower()` ofsetleri kaydırır | ✅ Testle kanıtlandı (`test_buyuk_I_noktali_tuzagi`) |
 | P2 | Rastgele 11 haneli sayıların ~%1'i TCKN kontrolünden geçer (kontrol hanesi 1/100) | ✅ 20.000 örnekte %0.5–1.5 bandında |
-| P3 | Kompakt JSON + kısa alıntı, girintili biçime göre ≥ %35 daha az token | ⏳ `tools/token_olc.py` ile ölçülecek (karakterde girintili 348 → kompakt 258, %26) |
+| P3 | Kompakt JSON + kısa alıntı, girintili biçime göre ≥ %35 daha az token | ✅ 164 → 81 token (**−%51**). Sadece kompakt: 110 (−%33). |
 | P4 | İlk taslakta en az bir sinyal anlamca yanlış çıkar (Türkçe yüzey benzerliği) | ✅ Aşağıda, bulgu 1 |
 
 ## Bulgular (geliştirirken)
@@ -29,6 +29,20 @@
    değerlerinde rakamlar `*` oluyor.
 3. `rnavibank` (rn ≈ m) ve Kiril `а` içeren `mаvibank` "marka içeriyor" değil **taklit** sayılmalı: harfiyen içerme
    ve görsel iskelet ayrı kontrol ediliyor (`marka_iceren_yabanci` ve `benzer_alan_adi`).
+
+4. **Token ölçümü (Qwen3.5 tokenizer, M4):**
+
+   | biçim | karakter | token | VPS 0.8B sn | VPS 2B sn |
+   |---|---|---|---|---|
+   | girintili (Adım 1'de modelin yazdığı) | 418 | 164 | 7.5 | 12.8 |
+   | kompakt | 328 | 110 | 5.0 | 8.6 |
+   | kompakt + kısa alıntı (hedef) | 248 | 81 | 3.7 | 6.3 |
+   | kompakt, `ensure_ascii=True` | 313 | 148 | 6.7 | 11.6 |
+
+   Beklenmedik ders: Türkçe karakterleri `\u00e7` gibi kaçışlarla yazmak token sayısını **%83 artırıyor**.
+   Eğitim verisi, şema ve gramer her yerde `ensure_ascii=False` kullanmalı (`ModelCiktisi.kompakt_json` öyle).
+5. `pip install -e` kurulumu düz klasör yapısında birden fazla üst düzey klasör gördüğü için hata veriyordu.
+   `[build-system]` ve `packages.find include=["kalkan*"]` eklendi (Serhat'ın düzeltmesi).
 
 ## Bilinçli sınırlar
 - Tutar yalnızca birimle (TL, ₺, lira) tanınır. "5 bin", "beş yüz" gibi yazıyla tutarlar v2.

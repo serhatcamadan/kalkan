@@ -75,3 +75,20 @@ def test_canli_otp_maskelenir_ve_sinyale_sizmaz():
     s = cikar(m)
     assert all("482913" not in x.deger for x in s)
     assert maskele(m.kanonik, maske_araliklari(s)).metin == "Doğrulama kodunuz [OTP]. Bu kodu kimseyle paylaşmayın."
+
+
+def test_gizli_karakter_sinyali():
+    s = [x for x in cikar(Metin("hesabınız ‮pot.kilnevug-knab‬ adresinden")) if x.tip == "gizli_karakter"]
+    assert s and "U+202E" in s[0].ek["kodlar"]
+    assert "gizli_karakter" not in tipler("Normal bir mesaj")
+
+
+def test_rn_iceren_marka_ve_alt_alan_hilesi():
+    """Adversarial set yakaladı (v1.1): 'sarnicbank' iskelette 'samicbank' oluyordu."""
+    tax = {"kurgusal_markalar": {"sarnicbank": ["sarnicbank.com.tr"]},
+           "kisa_link_alanlari": [], "supheli_tld": ["top"]}
+    t1 = {x.tip for x in cikar(Metin("giriş: sarnicbank-guvenlik.top"), tax)}
+    assert "marka_iceren_yabanci" in t1
+    s2 = [x for x in cikar(Metin("doğrula: sarnicbank.com.tr.giris-dogrula.top"), tax) if x.tip == "marka_iceren_yabanci"]
+    assert s2 and s2[0].ek["alt_alan_hilesi"] is True
+    assert "resmi_alan_adi" in {x.tip for x in cikar(Metin("https://sarnicbank.com.tr/x"), tax)}

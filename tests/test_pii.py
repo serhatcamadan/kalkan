@@ -71,3 +71,11 @@ def test_maske_ofset_geri_esleme():
     assert t[kb:kbit] == f"hemen, kimlik {GECERLI_TCKN} gönder"
     bas2 = m.metin.index("[TEL]")                 # etiketin kendisi → orijinal numara
     assert t[slice(*m.kanonige(bas2, bas2 + 5))] == "0532 123 45 67"
+
+
+def test_cift_bosluklu_numaralar_da_maskelenir():
+    """Veri üretiminde 'bosluk' gürültüsü bu açığı buldu (v1.1)."""
+    iban = iban_uret("9999904951867447657952")
+    iki = "  ".join(iban[j:j + 4] for j in range(0, 26, 4))
+    assert maskele(f"tel 0599  885 86 14 ve {iki} at").metin == "tel [TEL] ve [IBAN] at"
+    assert maskele("kart 4111  1111 1111  1111").metin == "kart [KART]"

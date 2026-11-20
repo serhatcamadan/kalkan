@@ -1,4 +1,4 @@
-# KALKAN · taksonomi                                              v1 · 2026-11-19
+# KALKAN · taksonomi                                              v2 · 2026-11-20 (marka listesi veri havuzlarıyla senkron)
 # Tek doğruluk kaynağı: tür ve sinyal kimlikleri burada. kalkan/schema.py'deki sabit listeler
 # bir testle (tests/test_taxonomy.py) bu dosyaya bağlıdır; biri değişirse test kırılır.
 # Kurum ve marka adları KURGUSALDIR (ADR adayı: gerçek kurum adı kullanmamak).
@@ -88,11 +88,42 @@ sinyaller:  # modelin kanıta iliştireceği etiketler (mesajdan birebir alınt�
 risk_seviyeleri: [yuksek, orta, dusuk, belirsiz]   # model üretmez, politika kodu üretir
 
 # Deterministik sinyaller için listeler (signals.py)
-kurgusal_markalar:   # ad → resmi alan adları. Eğitim ve test setinde FARKLI adlar kullanılacak (Adım 3).
-  mavibank: [mavibank.com.tr]
-  kuzeykart: [kuzeykart.com.tr]
-  hizlikargo: [hizlikargo.com.tr]
-  edevlet-ornek: [edevlet-ornek.gov.tr]
+kurgusal_markalar:   # ad → resmi alan adı. tools/veri_uret.py havuzları + adversarial markaları (test_veri ile senkron)
+  mavibank: [mavibank.com.tr]   # Mavibank
+  ardicbank: [ardicbank.com.tr]   # Ardıçbank
+  lacivertbank: [lacivertbank.com.tr]   # Lacivert Bank
+  kuzeykart: [kuzeykart.com.tr]   # Kuzeykart
+  yoncakart: [yoncakart.com.tr]   # Yonca Kart
+  hizlikargo: [hizlikargo.com.tr]   # Hızlıkargo
+  kumrukargo: [kumrukargo.com.tr]   # Kumru Kargo
+  turkuazmobil: [turkuazmobil.com.tr]   # Turkuaz Mobil
+  nartelekom: [nartelekom.com.tr]   # Nar Telekom
+  carsila: [carsila.com.tr]   # Çarşıla
+  sepetgo: [sepetgo.com.tr]   # Sepetgo
+  ehizmetkapisi: [ehizmetkapisi.com.tr]   # e-Hizmet Kapısı
+  kaleoyun: [kaleoyun.com.tr]   # Kaleoyun
+  vaporia: [vaporia.com.tr]   # Vaporia
+  bogazyatirim: [bogazyatirim.com.tr]   # Boğaz Yatırım
+  cinarbank: [cinarbank.com.tr]   # Çınarbank
+  pusulakart: [pusulakart.com.tr]   # Pusula Kart
+  sercelojistik: [sercelojistik.com.tr]   # Serçe Lojistik
+  lodosmobil: [lodosmobil.com.tr]   # Lodos Mobil
+  pazarcik: [pazarcik.com.tr]   # Pazarcık
+  dijitalvatandas: [dijitalvatandas.com.tr]   # Dijital Vatandaş
+  arenahub: [arenahub.com.tr]   # Arenahub
+  kulemenkul: [kulemenkul.com.tr]   # Kule Menkul
+  sedirbank: [sedirbank.com.tr]   # Sedirbank
+  ilgazbank: [ilgazbank.com.tr]   # Ilgaz Bank
+  poyrazkart: [poyrazkart.com.tr]   # Poyraz Kart
+  turnakargo: [turnakargo.com.tr]   # Turna Kargo
+  gokkusagimobil: [gokkusagimobil.com.tr]   # Gökkuşağı Mobil
+  pazaryolu: [pazaryolu.com.tr]   # Pazaryolu
+  kamuportali: [kamuportali.com.tr]   # Kamu Portalı
+  zirvearena: [zirvearena.com.tr]   # Zirvearena
+  limanportfoy: [limanportfoy.com.tr]   # Liman Portföy
+  sarnicbank: [sarnicbank.com.tr]   # Sarnıçbank
+  kestanekargo: [kestanekargo.com.tr]   # Kestane Kargo
+  mercanmobil: [mercanmobil.com.tr]   # Mercan Mobil
 
 kisa_link_alanlari: [bit.ly, tinyurl.com, t.ly, cutt.ly, is.gd, shorturl.at, rebrand.ly, s.id, t.co,
                      ow.ly, rb.gy, tiny.cc, goo.su, clck.ru, qr.ae, bitly.ws, shrtco.de, v.gd]

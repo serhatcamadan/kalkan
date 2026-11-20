@@ -1,7 +1,14 @@
 # KALKAN v1 · 2026-11-18
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["kalkan*"]   # data/, training/, deploy/ … paket değil
+
 [project]
 name = "kalkan"
-version = "0.2.0"
+version = "0.3.0"
 description = "Türkçe dolandırıcılık mesajı analizcisi — kanıt önce, fail-closed"
 readme = "README.md"
 requires-python = ">=3.11"
@@ -16,10 +23,3 @@ testpaths = ["tests"]
 [tool.ruff]
 line-length = 120
 target-version = "py311"
-
-[build-system]
-requires = ["setuptools>=68"]
-build-backend = "setuptools.build_meta"
-
-[tool.setuptools.packages.find]
-include = ["kalkan*"]
