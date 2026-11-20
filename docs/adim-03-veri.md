@@ -39,3 +39,18 @@ Yöntem: `tools/llm_inceleme.py` ile 150 örnek + yönerge Gemini'ye verildi. So
 Ders: LLM denetçi **hata yerini** iyi buluyor ama **önerdiği düzeltme** her zaman doğru değil (reklam_07). Bu yüzden insan teyidi şart.
 Ayrıca üretici v1.2'ye geçti: örnek başına tohum ve kararlı id. Bir şablonu düzeltmek artık diğer şablonların örneklerini
 ve inceleme kararlarını değiştirmiyor (doğrulandı: tek şablon değişikliği → yalnızca o şablonun 14 test örneği değişti).
+
+## Golden inceleme · 2. tur (düzeltmelerden sonra)
+| | Sonuç |
+|---|---|
+| Gemini (yeni sohbet, 150 örnek) | 150/150 doğru, 0 işaret |
+| İnsan teyidi (Serhat, Gemini'nin "doğru"larından rastgele 20) | 20/20 doğru · insan–LLM uyumu %100 |
+| `golden.jsonl` | 297 örnek: 150'si LLM ile denetlenmiş, 20'si insan teyitli, 0 çıkarılan |
+
+**Nasıl okunmalı?** 20 örnekte 0 kaçırma, Gemini'nin kaçırma oranının sıfır olduğunu kanıtlamaz. "Üç kuralı"na göre
+%95 güvenle üst sınır ≈ 3/20 = **%15**. 1. turda bulunan hataların hepsi şablon düzeyindeydi (3 şablon) ve düzeltildi.
+Bu yüzden kalan etiket hatasının da şablon düzeyinde ve az olması beklenir, ama "sıfır" değil, "düşük ve sınırlı" denmeli.
+
+Teyitte görülen küçük gerçekçilik kusuru: ASCII + BÜYÜK HARF birlikteyken "AKARYAKİTTA" (noktalı İ) çıkıyordu. Türkçe
+karaktersiz yazan biri "AKARYAKITTA" yazar. Üretici v1.3 düzeltti. Kararlı tohumlar sayesinde yalnızca bu iki gürültüyü
+birlikte taşıyan 4 test örneği değişti (etiketleri aynı, yalnızca harf biçimi).

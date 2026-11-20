@@ -5,7 +5,7 @@
 |---|---|---|---|---|
 | egitim | 1.496 | 44 | 16 | Fine-tune (Adım 7) |
 | dogrulama | 198 | 11 | 7 | Model/epoch seçimi |
-| test | 297 | 22 | 11 | Golden set (150'si elle incelenecek) |
+| test | 297 | 22 | 11 | Golden set: 150'si LLM (Gemini) ile denetlendi, 20'si insan teyitli |
 | adversarial | 30 | elle | 3 (ayrı) | Saldırı ve zor negatif ölçümü, eğitimde YOK |
 
 11 tür, eğitimde her tür 136 örnek (dengeli). Üretim deterministik: `python tools/veri_uret.py` (tohum 20261120).
@@ -39,6 +39,10 @@
 | Kaggle TurkishSMSCollection | — | | **KULLANILMIYOR**: gerçek kişilerin SMS'leri, lisans belirsiz |
 
 İki dış set de **e-posta**. Bizim veri SMS/WhatsApp kısalığında. Alan kayması beklenir ve raporlanacak.
+
+## Etiket denetimi
+İki tur LLM ön-elemesi + insan teyidi (ayrıntı: `docs/adim-03-veri.md`). 1. tur 13 işaret buldu; hepsi 3 şablona dayanıyordu
+ve düzeltildi. 2. tur 0 işaret, insan örneklemi 20/20 uyumlu. Kalan etiket hatası için %95 üst sınır ≈ %15 (n=20).
 
 ## Bilinen sınırlamalar
 1. Şablon kaynaklı veri iyimser skor verir. Şablon bölmesi ve dış set bunu ölçmek için var, ortadan kaldırmaz.

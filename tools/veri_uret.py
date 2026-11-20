@@ -1,8 +1,9 @@
-"""KALKAN · Adım 3 · sentetik veri üretici                          v1.2 · 2026-11-20
+"""KALKAN · Adım 3 · sentetik veri üretici                          v1.3 · 2026-11-20
 
 v1.1: TUTAR_*_TL ve INDIRIM slotları (Türkçe ek uyumu, gerçekçi indirim oranı).
 v1.2: ÖRNEK BAŞINA tohum ve kararlı id ("tes-yakin_06-003"): bir şablonu düzeltmek diğer şablonların
       örneklerini ve inceleme kararlarını DEĞİŞTİRMEZ. SAAT_MESAI slotu.
+v1.3: ASCII + BÜYÜK HARF gürültüsü birlikteyse "AKARYAKİTTA" değil "AKARYAKITTA" (teyitte görüldü).
 🧪 KESİN DENE:  python tools/veri_uret.py          (tohum sabit → aynı çıktı)
 
 Girdi : data/templates/sablonlar.yaml, data/adversarial/adversarial.yaml
@@ -190,7 +191,10 @@ def gurultu_uygula(metin: str, r: random.Random) -> tuple[str, list[str]]:
         metin = _isaret_disi(metin, lambda p: asciile(p).replace("İ", "I"))
         etiketler.append("ascii")
     if r.random() < 0.08:
-        metin = _isaret_disi(metin, lambda p: p.replace("i", "İ").replace("ı", "I").upper())
+        if "ascii" in etiketler:   # Türkçe karaktersiz yazan, büyük harfte de noktasız I kullanır: AKARYAKITTA
+            metin = _isaret_disi(metin, lambda p: p.upper())
+        else:
+            metin = _isaret_disi(metin, lambda p: p.replace("i", "İ").replace("ı", "I").upper())
         etiketler.append("buyuk_harf")
     if r.random() < 0.15:
         metin = _isaret_disi(metin, yazim_hatasi(r))
