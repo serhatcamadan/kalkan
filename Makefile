@@ -1,5 +1,5 @@
 # KALKAN v3.0 · 2026-11-19
-.PHONY: veri veri-istatistik incele golden dis-veri token-olc spike gguf-2b bench-mac bench test lint clean-spike
+.PHONY: llm-paket llm-iceri teyit veri veri-istatistik incele golden dis-veri token-olc spike gguf-2b bench-mac bench test lint clean-spike
 spike:          ## Mac: Adım 1 dönüşüm spike'ı
 	bash training/spike/spike_convert.sh
 gguf-2b:        ## Mac: Qwen3.5-2B → .spike/gguf/C2B-Q4_K_M.gguf
@@ -29,3 +29,9 @@ golden:
 	python tools/incele.py --birlestir
 dis-veri:       ## OLTA-TR + UCI indir (repoya girmez)
 	python data/external/download.py
+llm-paket:      ## golden ön-eleme paketi → data/golden/llm_paketi.md (Gemini'ye yükle)
+	python tools/llm_inceleme.py disari
+llm-iceri:      ## Gemini cevabı data/golden/llm_cevap.json → kararlar
+	python tools/llm_inceleme.py iceri
+teyit:          ## yalnızca LLM'in işaretledikleri + 20 rastgele "doğru"
+	python tools/incele.py --teyit

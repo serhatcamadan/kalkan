@@ -3,31 +3,31 @@
   "ornek": 1496,
   "sablon": 44,
   "marka": 16,
-  "ort_girdi": 145,
-  "ort_hedef": 207,
+  "ort_girdi": 146,
+  "ort_hedef": 208,
   "kanit": 2.36,
-  "ascii": 25,
-  "yazim": 15
+  "ascii": 24,
+  "yazim": 16
  },
  "dogrulama": {
   "ornek": 198,
   "sablon": 11,
   "marka": 7,
-  "ort_girdi": 146,
+  "ort_girdi": 144,
   "ort_hedef": 206,
   "kanit": 2.36,
-  "ascii": 25,
-  "yazim": 10
+  "ascii": 22,
+  "yazim": 14
  },
  "test": {
   "ornek": 297,
   "sablon": 22,
   "marka": 11,
-  "ort_girdi": 134,
+  "ort_girdi": 135,
   "ort_hedef": 210,
   "kanit": 2.41,
-  "ascii": 26,
-  "yazim": 16
+  "ascii": 24,
+  "yazim": 18
  },
  "sizinti": {
   "dogrulama": {
@@ -44,8 +44,8 @@
   }
  },
  "sinyal_kapsami": {
-  "dolandiricilik": 93.5,
-  "dolandiricilik_disi": 86.5
+  "dolandiricilik_disi": 84.8,
+  "dolandiricilik": 93.7
  },
  "adversarial": {
   "enjeksiyon": 6,

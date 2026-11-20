@@ -25,3 +25,17 @@ ama türe karar veremez. LLM'in yeri bu ikisinin arasında.
 ## Sayılar
 `python tools/veri_istatistik.py` çıktısı: eğitim 1.496 · doğrulama 198 · test 297 · adversarial 30.
 Ortalama hedef JSON 207 karakter (Adım 2 ölçümüyle ≈ 68 token → VPS 0.8B'de ≈ 3 sn üretim).
+
+## Golden inceleme · 1. tur: Gemini ön-elemesi (2026-11-20)
+Yöntem: `tools/llm_inceleme.py` ile 150 örnek + yönerge Gemini'ye verildi. Sonuç: 137 doğru, 13 işaret.
+13 işaretin tamamı **3 şablona** dayanıyordu:
+
+| Şablon | Gemini'nin dediği | Değerlendirme | Ne yapıldı |
+|---|---|---|---|
+| yakin_06 (×8) | `yakinlik_iddiasi` kanıtı hitabı ("Babacım", "Dayı") içermiyor | ✅ Haklı: "yurt dışındayım" bir bahane, yakınlık iddiası hitapta | Hitap kanıtın içine alındı. Aynı kusur eğitim şablonlarında (yakin_01–05) da vardı, düzeltildi |
+| reklam_07 (×2) | Ret mekanizması yok → tür `mesru_islem`/`sahte_kargo_gumruk` olmalı | ⚠️ **Belirti doğru, teşhis yanlış.** Şablon kendi taksonomimizle çelişiyordu (reklamda İYS ret satırı zorunlu), ama tür reklamdı | Şablona ret satırı eklendi, tür korundu |
+| mesru_07 (×2) | 21:15 / 21:45'te hastane randevusu gerçekçi değil | ✅ Haklı | `SAAT_MESAI` slotu (08–16) |
+
+Ders: LLM denetçi **hata yerini** iyi buluyor ama **önerdiği düzeltme** her zaman doğru değil (reklam_07). Bu yüzden insan teyidi şart.
+Ayrıca üretici v1.2'ye geçti: örnek başına tohum ve kararlı id. Bir şablonu düzeltmek artık diğer şablonların örneklerini
+ve inceleme kararlarını değiştirmiyor (doğrulandı: tek şablon değişikliği → yalnızca o şablonun 14 test örneği değişti).

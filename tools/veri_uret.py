@@ -1,6 +1,8 @@
-"""KALKAN · Adım 3 · sentetik veri üretici                          v1.1 · 2026-11-20
+"""KALKAN · Adım 3 · sentetik veri üretici                          v1.2 · 2026-11-20
 
 v1.1: TUTAR_*_TL ve INDIRIM slotları (Türkçe ek uyumu, gerçekçi indirim oranı).
+v1.2: ÖRNEK BAŞINA tohum ve kararlı id ("tes-yakin_06-003"): bir şablonu düzeltmek diğer şablonların
+      örneklerini ve inceleme kararlarını DEĞİŞTİRMEZ. SAAT_MESAI slotu.
 🧪 KESİN DENE:  python tools/veri_uret.py          (tohum sabit → aynı çıktı)
 
 Girdi : data/templates/sablonlar.yaml, data/adversarial/adversarial.yaml
@@ -145,6 +147,8 @@ def slot_doldur(ad: str, r: random.Random, bag: dict, tax: dict) -> str:
         return str(r.choice([20, 25, 30, 40, 50, 70, 120, 200, 340, 500]))
     if ad == "TARIH":
         return f"{r.randint(1, 28):02d}.{r.randint(1, 12):02d}.2026"
+    if ad == "SAAT_MESAI":
+        return f"{r.randint(8, 16):02d}:{r.choice(['00', '15', '30', '45'])}"
     if ad == "SAAT":
         return f"{r.randint(8, 22):02d}:{r.choice(['00', '15', '30', '45'])}"
     if ad == "KISA_NO":
@@ -266,30 +270,33 @@ def main() -> None:
     out_dir = KOK / "data/splits"
     out_dir.mkdir(parents=True, exist_ok=True)
     for split, hedef_n in HEDEF_SAYI.items():
-        r = random.Random(f"{a.tohum}-{split}")
         grup = [s for s in sablonlar if s["split"] == split]
         turler = sorted({s["tur"] for s in grup})
         tur_basi = hedef_n // len(turler)
         satirlar, gorulen = [], set()
         for tur in turler:
             tsab = [s for s in grup if s["tur"] == tur]
-            n, deneme = 0, 0
-            while n < tur_basi and deneme < tur_basi * 20:
-                deneme += 1
-                s = tsab[n % len(tsab)]
-                try:
-                    o = ornek_uret(s, split, r, tax, havuzlar)
-                except Exception as e:  # noqa: BLE001
-                    rapor["dusurulen"][f"{s['id']}: {type(e).__name__}: {str(e)[:60]}"] += 1
-                    continue
-                if o["metin"] in gorulen:
-                    rapor["dusurulen"]["tekrar"] += 1
-                    continue
-                gorulen.add(o["metin"])
-                o["id"] = f"{split[:3]}-{len(satirlar):05d}"
-                satirlar.append(o)
-                n += 1
-        r.shuffle(satirlar)
+            kota = {s["id"]: tur_basi // len(tsab) + (i < tur_basi % len(tsab)) for i, s in enumerate(tsab)}
+            for s in tsab:
+                n, k = 0, 0
+                while n < kota[s["id"]] and k < kota[s["id"]] * 20:
+                    r = random.Random(f"{a.tohum}-{split}-{s['id']}-{k}")   # örnek başına tohum
+                    kid = f"{split[:3]}-{s['id']}-{k:03d}"
+                    k += 1
+                    try:
+                        o = ornek_uret(s, split, r, tax, havuzlar)
+                    except Exception as e:  # noqa: BLE001
+                        rapor["dusurulen"][f"{s['id']}: {type(e).__name__}: {str(e)[:60]}"] += 1
+                        continue
+                    if o["metin"] in gorulen:
+                        rapor["dusurulen"]["tekrar"] += 1
+                        continue
+                    gorulen.add(o["metin"])
+                    o["id"] = kid
+                    satirlar.append(o)
+                    n += 1
+        satirlar.sort(key=lambda o: o["id"])
+        random.Random(f"{a.tohum}-{split}-sira").shuffle(satirlar)
         with open(out_dir / f"{split}.jsonl", "w", encoding="utf-8") as f:
             for o in satirlar:
                 f.write(json.dumps(o, ensure_ascii=False) + "\n")

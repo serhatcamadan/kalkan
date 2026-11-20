@@ -1,4 +1,5 @@
-# KALKAN · sentetik mesaj şablonları                               v1.1 · 2026-11-20
+# KALKAN · sentetik mesaj şablonları                               v1.2 · 2026-11-20
+# v1.2: Gemini ön-elemesi bulguları: yakınlık kanıtı hitabı içerir, reklam_07'de ret satırı, randevu mesai saatinde
 # v1.1: rakam/marka sonrası Türkçe ek uyumu ("lira'ye", "Mobil'dan"), reklamda gerçekçi indirim oranı (%120 indirim yok)
 #
 # Söz dizimi
@@ -309,32 +310,32 @@ sablonlar:
   tur: yakin_taklidi
   split: egitim
   marka: banka
-  metin: "{YAKIN} ⟦yakinlik_iddiasi:bu yeni numaram, telefonum {bozuldu|suya düştü|çalındı}⟧. ⟦odeme_talebi:Acil {TUTAR_O} lazım şu IBAN'a atar mısın {IBAN}⟧ ⟦gizlilik_baskisi:kimseye söyleme sonra anlatırım⟧"
+  metin: "⟦yakinlik_iddiasi:{YAKIN} bu yeni numaram⟧, telefonum {bozuldu|suya düştü|çalındı}. ⟦odeme_talebi:Acil {TUTAR_O} lazım şu IBAN'a atar mısın {IBAN}⟧ ⟦gizlilik_baskisi:kimseye söyleme sonra anlatırım⟧"
 - id: yakin_02
   tur: yakin_taklidi
   split: egitim
   marka: banka
-  metin: "{YAKIN} benim, ⟦yakinlik_iddiasi:arkadaşımın telefonundan yazıyorum⟧. ⟦aciliyet:Çok acil⟧, ⟦odeme_talebi:{TUTAR_O} göndermen lazım, akşam veririm⟧. Adı {AD}, IBAN: {IBAN}"
+  metin: "⟦yakinlik_iddiasi:{YAKIN} benim, arkadaşımın telefonundan yazıyorum⟧. ⟦aciliyet:Çok acil⟧, ⟦odeme_talebi:{TUTAR_O} göndermen lazım, akşam veririm⟧. Adı {AD}, IBAN: {IBAN}"
 - id: yakin_03
   tur: yakin_taklidi
   split: egitim
   marka: banka
-  metin: "{Selam|Merhaba} {YAKIN} ⟦yakinlik_iddiasi:numaram değişti bunu kaydet⟧. ⟦odeme_talebi:Bir ödemem var bankam kilitlendi {TUTAR_O} gönderebilir misin⟧? ⟦aciliyet:bugün yetişmesi lazım⟧"
+  metin: "{Selam|Merhaba} ⟦yakinlik_iddiasi:{YAKIN} numaram değişti bunu kaydet⟧. ⟦odeme_talebi:Bir ödemem var bankam kilitlendi {TUTAR_O} gönderebilir misin⟧? ⟦aciliyet:bugün yetişmesi lazım⟧"
 - id: yakin_04
   tur: yakin_taklidi
   split: egitim
   marka: banka
-  metin: "{YAKIN} ⟦yakinlik_iddiasi:ben {AD}, hastanedeyim telefonum yok⟧. ⟦odeme_talebi:Ameliyat için {TUTAR_B} yatırmam gerekiyor⟧, ⟦gizlilik_baskisi:babama söyleme endişelenir⟧"
+  metin: "⟦yakinlik_iddiasi:{YAKIN} ben {AD}, hastanedeyim telefonum yok⟧. ⟦odeme_talebi:Ameliyat için {TUTAR_B} yatırmam gerekiyor⟧, ⟦gizlilik_baskisi:babama söyleme endişelenir⟧"
 - id: yakin_05
   tur: yakin_taklidi
   split: dogrulama
   marka: banka
-  metin: "{YAKIN} ⟦yakinlik_iddiasi:WhatsApp'ım çöktü bu numaradan yazıyorum⟧. ⟦kod_talebi:Sana 6 haneli kod gelecek onu bana atar mısın⟧? ⟦aciliyet:Hemen lazım⟧"
+  metin: "⟦yakinlik_iddiasi:{YAKIN} WhatsApp'ım çöktü bu numaradan yazıyorum⟧. ⟦kod_talebi:Sana 6 haneli kod gelecek onu bana atar mısın⟧? ⟦aciliyet:Hemen lazım⟧"
 - id: yakin_06
   tur: yakin_taklidi
   split: test
   marka: banka
-  metin: "{YAKIN} ⟦yakinlik_iddiasi:yurt dışındayım kartım bloke oldu⟧, ⟦odeme_talebi:otel için {TUTAR_O} lazım arkadaşın hesabına at {IBAN}⟧ ⟦aciliyet:çok acil lütfen⟧"
+  metin: "⟦yakinlik_iddiasi:{YAKIN} benim, yurt dışındayım kartım bloke oldu⟧, ⟦odeme_talebi:otel için {TUTAR_O} lazım arkadaşın hesabına at {IBAN}⟧ ⟦aciliyet:çok acil lütfen⟧"
 - id: yakin_07
   tur: yakin_taklidi
   split: test
@@ -413,7 +414,7 @@ sablonlar:
   tur: reklam_spam
   split: test
   marka: kart
-  metin: "{MARKA} sahiplerine akaryakıtta %{INDIRIM} indirim fırsatı {TARIH} tarihine kadar. Detaylar {RESMI_LINK} adresinde. Mersis: {MERSIS}"
+  metin: "{MARKA} sahiplerine akaryakıtta %{INDIRIM} indirim fırsatı {TARIH} tarihine kadar. Detaylar {RESMI_LINK} adresinde. Ret için {KISA_NO}'e RET yazın. Mersis: {MERSIS}"
 
 # ───────────────────────────────────────────── mesru_islem (zor negatif: gerçek bildirim)
 - id: mesru_01
@@ -450,4 +451,4 @@ sablonlar:
   tur: mesru_islem
   split: test
   marka: kamu
-  metin: "{MARKA}: {TARIH} günü saat {SAAT} için hastane randevunuz oluşturulmuştur. İptal için randevu sistemini kullanınız."
+  metin: "{MARKA}: {TARIH} günü saat {SAAT_MESAI} için hastane randevunuz oluşturulmuştur. İptal için randevu sistemini kullanınız."
