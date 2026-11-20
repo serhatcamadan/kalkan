@@ -1,0 +1,5501 @@
+{
+ "meta": {
+  "model": "kural",
+  "set": "golden",
+  "n": 297,
+  "zaman": "2026-11-20T22:10:05",
+  "git": "284aa14",
+  "veri_sha256": "2e46892225886536",
+  "dis_set_limit": null,
+  "hazirlik": {},
+  "sure_sn": 0.31
+ },
+ "metrikler": {
+  "n": 297,
+  "p50_ms": 0.8,
+  "p95_ms": 2.2,
+  "json_gecerlilik": 1.0,
+  "usd_1000_mesaj": 0.0,
+  "dogruluk": 0.8956,
+  "makro_f1": 0.8869,
+  "sinif": {
+   "sahte_kargo_gumruk": {
+    "p": 0.73,
+    "r": 1.0,
+    "f1": 0.844,
+    "destek": 27
+   },
+   "kurum_taklidi": {
+    "p": 0.964,
+    "r": 1.0,
+    "f1": 0.982,
+    "destek": 27
+   },
+   "sahte_kamu_gorevlisi": {
+    "p": 1.0,
+    "r": 0.963,
+    "f1": 0.981,
+    "destek": 27
+   },
+   "yatirim_vip_grup": {
+    "p": 1.0,
+    "r": 0.963,
+    "f1": 0.981,
+    "destek": 27
+   },
+   "yasa_disi_bahis": {
+    "p": 0.964,
+    "r": 1.0,
+    "f1": 0.982,
+    "destek": 27
+   },
+   "oyun_hesap_skin": {
+    "p": 1.0,
+    "r": 0.519,
+    "f1": 0.683,
+    "destek": 27
+   },
+   "odul_kampanya": {
+    "p": 1.0,
+    "r": 1.0,
+    "f1": 1.0,
+    "destek": 27
+   },
+   "yakin_taklidi": {
+    "p": 0.667,
+    "r": 0.963,
+    "f1": 0.788,
+    "destek": 27
+   },
+   "gorev_is_ilani": {
+    "p": 1.0,
+    "r": 0.444,
+    "f1": 0.615,
+    "destek": 27
+   },
+   "reklam_spam": {
+    "p": 1.0,
+    "r": 1.0,
+    "f1": 1.0,
+    "destek": 27
+   },
+   "mesru_islem": {
+    "p": 0.818,
+    "r": 1.0,
+    "f1": 0.9,
+    "destek": 27
+   }
+  },
+  "belirsiz": 0,
+  "en_cok_karisan": [
+   {
+    "altin": "oyun_hesap_skin",
+    "tahmin": "yakin_taklidi",
+    "n": 13
+   },
+   {
+    "altin": "gorev_is_ilani",
+    "tahmin": "sahte_kargo_gumruk",
+    "n": 10
+   },
+   {
+    "altin": "gorev_is_ilani",
+    "tahmin": "mesru_islem",
+    "n": 5
+   },
+   {
+    "altin": "yakin_taklidi",
+    "tahmin": "kurum_taklidi",
+    "n": 1
+   },
+   {
+    "altin": "sahte_kamu_gorevlisi",
+    "tahmin": "yasa_disi_bahis",
+    "n": 1
+   },
+   {
+    "altin": "yatirim_vip_grup",
+    "tahmin": "mesru_islem",
+    "n": 1
+   }
+  ],
+  "karisiklik_matrisi": {
+   "gorev_is_ilani": {
+    "sahte_kargo_gumruk": 10,
+    "gorev_is_ilani": 12,
+    "mesru_islem": 5
+   },
+   "kurum_taklidi": {
+    "kurum_taklidi": 27
+   },
+   "mesru_islem": {
+    "mesru_islem": 27
+   },
+   "odul_kampanya": {
+    "odul_kampanya": 27
+   },
+   "oyun_hesap_skin": {
+    "yakin_taklidi": 13,
+    "oyun_hesap_skin": 14
+   },
+   "reklam_spam": {
+    "reklam_spam": 27
+   },
+   "sahte_kamu_gorevlisi": {
+    "sahte_kamu_gorevlisi": 26,
+    "yasa_disi_bahis": 1
+   },
+   "sahte_kargo_gumruk": {
+    "sahte_kargo_gumruk": 27
+   },
+   "yakin_taklidi": {
+    "yakin_taklidi": 26,
+    "kurum_taklidi": 1
+   },
+   "yasa_disi_bahis": {
+    "yasa_disi_bahis": 27
+   },
+   "yatirim_vip_grup": {
+    "yatirim_vip_grup": 26,
+    "mesru_islem": 1
+   }
+  },
+  "dolandiricilik_recall": 0.9753,
+  "mesru_fpr": 0.0,
+  "tp": 237,
+  "fn": 6,
+  "fp": 0,
+  "tn": 54,
+  "alinti_sayisi": 597,
+  "kapi_oncesi_gecerlilik": 1.0,
+  "eslesme_p": 0.7839,
+  "eslesme_r": 0.6536,
+  "eslesme_f1": 0.7129,
+  "gurultuye_gore": {
+   "(yok)": {
+    "dogruluk": 0.901,
+    "n": 141
+   },
+   "ascii": {
+    "dogruluk": 0.917,
+    "n": 72
+   },
+   "bosluk": {
+    "dogruluk": 0.829,
+    "n": 35
+   },
+   "buyuk_harf": {
+    "dogruluk": 0.944,
+    "n": 18
+   },
+   "emoji": {
+    "dogruluk": 1.0,
+    "n": 24
+   },
+   "yazim": {
+    "dogruluk": 0.83,
+    "n": 53
+   }
+  }
+ },
+ "tahminler": [
+  {
+   "id": "tes-mesru_06-008",
+   "tur": "mesru_islem",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 11.509584030136466,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-oyun_07-002",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "abi oyun içi parayı yarı fiyatına satıyorum 2",
+     "sinyal": "yakinlik_iddiasi"
+    },
+    {
+     "alinti": "hesabına yüklemem için gelen kodu at moderatörlere söyleme banlarlar",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.4314999678172171,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-reklam_06-000",
+   "tur": "reklam_spam",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 2.7053329977206886,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-mesru_07-010",
+   "tur": "mesru_islem",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 0.30583300394937396,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-kurum_06-004",
+   "tur": "kurum_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Siz değilseniz hemen bilgilerinizi güncelleyin ilgazbankgiris",
+     "sinyal": "kimlik_talebi"
+    },
+    {
+     "alinti": "Ilgaz Bank: mobil şubeniz yeni cihazda açıldı",
+     "sinyal": "kurum_taklidi"
+    },
+    {
+     "alinti": "ilgazbankgiris.monster/dogrula",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 2.7935829712077975,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-reklam_07-011",
+   "tur": "reklam_spam",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 2.2334170062094927,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-kargo_07-005",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "Gümrük harcı 130,90 TL",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "SON UYARI: gönderiniz yarın saat 16:30 itibarıyla iade edilecek",
+     "sinyal": "aciliyet"
+    },
+    {
+     "alinti": "https://bit.ly/HKEFO",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1.2556669535115361,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-reklam_07-010",
+   "tur": "reklam_spam",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 2.124083985108882,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-yatirim_06-003",
+   "tur": "yatirim_vip_grup",
+   "kanitlar": [
+    {
+     "alinti": "343,99 TL pasif gelir",
+     "sinyal": "odul_vaadi"
+    },
+    {
+     "alinti": "167,50 lira Kayıt için https://t.me/limanportfoyvip",
+     "sinyal": "kanal_degistirme"
+    },
+    {
+     "alinti": "https://t.me/limanportfoyvip",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1.0716660181060433,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-bahis_06-000",
+   "tur": "yasa_disi_bahis",
+   "kanitlar": [
+    {
+     "alinti": "Şike garantili maç listesi geldi",
+     "sinyal": "odul_vaadi"
+    },
+    {
+     "alinti": "127 lira yaır [TEL] WhatsApp",
+     "sinyal": "kanal_degistirme"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.28295896481722593,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-bahis_07-006",
+   "tur": "yasa_disi_bahis",
+   "kanitlar": [
+    {
+     "alinti": "533 TL bedava bahis",
+     "sinyal": "odul_vaadi"
+    },
+    {
+     "alinti": "https://sahabet288.xyz",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1.871083048172295,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-mesru_07-006",
+   "tur": "mesru_islem",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 0.27004204457625747,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-gorev_07-002",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "634 TL kazanç için kargo ve paketleme kiti 4",
+     "sinyal": "odul_vaadi"
+    },
+    {
+     "alinti": "447,00 lira Detaylar için şu numaraya yazın [TEL]",
+     "sinyal": "kanal_degistirme"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.3409999771974981,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-gorev_06-008",
+   "tur": "gorev_is_ilani",
+   "kanitlar": [
+    {
+     "alinti": "457,50 TL komisyon",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.3362919669598341,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-reklam_06-007",
+   "tur": "reklam_spam",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 2.272334008011967,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-oyun_06-001",
+   "tur": "oyun_hesap_skin",
+   "kanitlar": [
+    {
+     "alinti": "Zirvearena: 337₺ degerinde cuzdan bakiyesi hediye",
+     "sinyal": "odul_vaadi"
+    },
+    {
+     "alinti": "rebrand.ly/2mxUZ",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1.5670830034650862,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-kargo_06-008",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "info/5631 Hizmet bedeli 23,00₺",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Teslim almak için kart bilgilerinizi doğrulayın https://turnakargo-iade",
+     "sinyal": "kimlik_talebi"
+    },
+    {
+     "alinti": "https://turnakargo-iade.info/5631",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 2.1990409586578608,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-odul_07-002",
+   "tur": "odul_kampanya",
+   "kanitlar": [
+    {
+     "alinti": "POYRAZ KART MÜŞTERİLERİNE ÖZEL: HARCAMALARINIZIN 2",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "İADE İÇİN CVV VE SON KULLANMA TARİHİNİ GİRİN HTTP://POYRAZAKRT",
+     "sinyal": "kimlik_talebi"
+    },
+    {
+     "alinti": "952,49 TL'Sİ İADE EDİLECEK",
+     "sinyal": "aciliyet"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1.9059589831158519,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-mesru_07-003",
+   "tur": "mesru_islem",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 0.25687500601634383,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-kargo_07-009",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "Gümrük harcı 24,90₺",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "SON UYARI: gönderiniz yarın saat 21:30 itibarıyla iade edilecek",
+     "sinyal": "aciliyet"
+    },
+    {
+     "alinti": "bit.ly/Uid1W",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1.1305409716442227,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-reklam_06-003",
+   "tur": "reklam_spam",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 2.119167009368539,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-yatirim_07-012",
+   "tur": "yatirim_vip_grup",
+   "kanitlar": [
+    {
+     "alinti": "446,49 TL komisyon ödemeniz gerekiyor",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "849 TL kâr birikti",
+     "sinyal": "odul_vaadi"
+    },
+    {
+     "alinti": "Bugün ödemezseniz kârınız sıfırlanır",
+     "sinyal": "aciliyet"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.3107090014964342,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-yatirim_07-006",
+   "tur": "yatirim_vip_grup",
+   "kanitlar": [
+    {
+     "alinti": "036 TL komisyon ödemeniz gerekiyor",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "358 TL kâr birikti",
+     "sinyal": "odul_vaadi"
+    },
+    {
+     "alinti": "Bugün ödemezseniz kârınız sıfırlanır",
+     "sinyal": "aciliyet"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.2969589550048113,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-kurum_07-005",
+   "tur": "kurum_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Hesabınzıı korumak için şifrenizi yenileyin pazaryolu-tr",
+     "sinyal": "kimlik_talebi"
+    },
+    {
+     "alinti": "Pazaryolu hesabınızda olağandışı giriş tespit edildi",
+     "sinyal": "kurum_taklidi"
+    },
+    {
+     "alinti": "loan/giris 30 dakika içinde işlem yapılmazsa hesabınız silinir",
+     "sinyal": "aciliyet"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1.9026250229217112,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-kamu_06-005",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [
+    {
+     "alinti": "Il Emniyet Mudurlugu Mali  Sube: Ilgaz Bank kartiniz yasa  disi bahiste kullanil",
+     "sinyal": "yetki_iddiasi"
+    },
+    {
+     "alinti": "Hesabinizin  dondurulmamasi icin SMS ile geleen onay kodunu  soyleyin",
+     "sinyal": "kod_talebi"
+    },
+    {
+     "alinti": "aramizda kalsin",
+     "sinyal": "gizlilik_baskisi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.32941700192168355,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-yakin_06-003",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Baba benim",
+     "sinyal": "yakinlik_iddiasi"
+    },
+    {
+     "alinti": "497 lira lazım arkadaşın hesabına at  [IBAN] çok acil lütfen",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.33425004221498966,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-yatirim_07-010",
+   "tur": "yatirim_vip_grup",
+   "kanitlar": [
+    {
+     "alinti": "072 lira komisyon odemniz gerekiyor",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Bugun odmezseniz kariniz sifirlanir",
+     "sinyal": "aciliyet"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.3054169937968254,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-yakin_06-013",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Dayı benim",
+     "sinyal": "yakinlik_iddiasi"
+    },
+    {
+     "alinti": "856 lira lazım arkadaşın hesabına at [IBAN] çok acil lütfen",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.2722919452935457,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-yakin_07-011",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Babacım yeni numaramı kaydet",
+     "sinyal": "yakinlik_iddiasi"
+    },
+    {
+     "alinti": "Kiramı yatıramadım 335 TL gönderir misin aramızda kalsın",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.1997080398723483,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-yakin_07-007",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Anne yeni numaramı kaydet",
+     "sinyal": "yakinlik_iddiasi"
+    },
+    {
+     "alinti": "Kiramı yatıramadım 387 lira gönderir misin aramızda kalsın",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.19166700076311827,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-gorev_06-006",
+   "tur": "gorev_is_ilani",
+   "kanitlar": [
+    {
+     "alinti": "431 TL komisyon",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.30262500513345003,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-kamu_06-009",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [
+    {
+     "alinti": "Il Emniyet Mudurlugu Mali Sube: Ilgaz Bank kartiniz yasa disi bahiste kullanilmi",
+     "sinyal": "yetki_iddiasi"
+    },
+    {
+     "alinti": "Hesabinizin dondurulmamasi icin SMS ile gelen onay kodunu soyleyin",
+     "sinyal": "kod_talebi"
+    },
+    {
+     "alinti": "aramizda kalsin",
+     "sinyal": "gizlilik_baskisi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.30341697856783867,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-mesru_06-007",
+   "tur": "mesru_islem",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 0.2793750027194619,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-odul_06-006",
+   "tur": "odul_kampanya",
+   "kanitlar": [
+    {
+     "alinti": "Sadece 127,49 TL sigorta bedeli ödeyin",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Şanslı müşterimiz seçildiniz",
+     "sinyal": "odul_vaadi"
+    },
+    {
+     "alinti": "s.id/xGPBZ",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.836874998640269,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-oyun_06-009",
+   "tur": "oyun_hesap_skin",
+   "kanitlar": [
+    {
+     "alinti": "040₺ değerinde cüzdan bakiyesi hediye",
+     "sinyal": "odul_vaadi"
+    },
+    {
+     "alinti": "tinyurl.com/9baC9bV",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1.4143330045044422,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-kamu_07-010",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [
+    {
+     "alinti": "30 dakika içinde aramazsanız gıyabınızda işlem yapılacaktır",
+     "sinyal": "yetki_iddiasi"
+    },
+    {
+     "alinti": "Dosya numaranız için [TEL] numaralı savıclık hattını arayın",
+     "sinyal": "kanal_degistirme"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.3726250142790377,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-yatirim_06-006",
+   "tur": "yatirim_vip_grup",
+   "kanitlar": [
+    {
+     "alinti": "933 TL pasif gelir",
+     "sinyal": "odul_vaadi"
+    },
+    {
+     "alinti": "831 TL Kayıt için t.me/+PP6isRGShi",
+     "sinyal": "kanal_degistirme"
+    },
+    {
+     "alinti": "t.me/+PP6isRGShi",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.8628329960629344,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-kurum_06-012",
+   "tur": "kurum_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Sedirbank: mobil şubeniz yeni cihazda açıldı",
+     "sinyal": "kurum_taklidi"
+    },
+    {
+     "alinti": "sedirbank-guvenlik.monster",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 2.2156659979373217,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-bahis_07-004",
+   "tur": "yasa_disi_bahis",
+   "kanitlar": [
+    {
+     "alinti": "637₺ bedava bahis",
+     "sinyal": "odul_vaadi"
+    },
+    {
+     "alinti": "sahabet139.win",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1.605333003681153,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-bahis_06-011",
+   "tur": "yasa_disi_bahis",
+   "kanitlar": [
+    {
+     "alinti": "452 lira yatır [TEL] WhatsApp",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Şike garantili maç listesi geldi",
+     "sinyal": "odul_vaadi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.24108303477987647,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-kurum_07-010",
+   "tur": "kurum_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Hesabinizi korumak icin sifrenizi yenileyin https://pazaryolugiris",
+     "sinyal": "kimlik_talebi"
+    },
+    {
+     "alinti": "Pazaryolu hesabinizda olagandisi giris tespit edildi",
+     "sinyal": "kurum_taklidi"
+    },
+    {
+     "alinti": "icu 3 gun icinde islem yapilmazsa hesabiniz silinir",
+     "sinyal": "aciliyet"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 2.0286249928176403,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-odul_06-004",
+   "tur": "odul_kampanya",
+   "kanitlar": [
+    {
+     "alinti": "Sadece 76,50₺ sigorta bedeli ödeyin",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Şanslı müşterimiz seçildiniz",
+     "sinyal": "odul_vaadi"
+    },
+    {
+     "alinti": "https://s.id/bq1rx3",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.819833017885685,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-kargo_06-004",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "]site/7379 Hizmet bedeli 101,49 TL",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Teslim almak için kart bilgilerinizi doğrulayın hxxp://turnakargoonline[",
+     "sinyal": "kimlik_talebi"
+    },
+    {
+     "alinti": "hxxp://turnakargoonline[.]site/7379",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 2.1285840193741024,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-yatirim_07-005",
+   "tur": "yatirim_vip_grup",
+   "kanitlar": [
+    {
+     "alinti": "491₺ komisyon ödemeniz gerekiyor",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "452₺ kâr birikti",
+     "sinyal": "odul_vaadi"
+    },
+    {
+     "alinti": "Bugün ödemezseniz kârınız sıfırlanır",
+     "sinyal": "aciliyet"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.28716702945530415,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-kurum_07-007",
+   "tur": "kurum_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Hesabınızı korumak için şifrenizi yenileyin www",
+     "sinyal": "kimlik_talebi"
+    },
+    {
+     "alinti": "Pazaryolu hesabınızda olağandışı giriş tespit edildi",
+     "sinyal": "kurum_taklidi"
+    },
+    {
+     "alinti": "cfd/giris 30 dakika içinde işlem yapılmazsa hesabınız silinir",
+     "sinyal": "aciliyet"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1.7057500081136823,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-reklam_06-013",
+   "tur": "reklam_spam",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 1.9352909876033664,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-mesru_07-012",
+   "tur": "mesru_islem",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 0.23470900487154722,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-mesru_07-004",
+   "tur": "mesru_islem",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 0.225124997086823,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-bahis_06-001",
+   "tur": "yasa_disi_bahis",
+   "kanitlar": [
+    {
+     "alinti": "111,99 TL yatır [TEL] WhatsApp",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Şike garantili maç listesi geldi",
+     "sinyal": "odul_vaadi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.23250002413988113,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-gorev_07-011",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "447 TL kazanç için kargo ve paketleme kiti 3",
+     "sinyal": "odul_vaadi"
+    },
+    {
+     "alinti": "321 TL Detaylar için şu numaraya yazın [TEL]",
+     "sinyal": "kanal_degistirme"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.27091597439721227,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-yakin_06-007",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Abla benim",
+     "sinyal": "yakinlik_iddiasi"
+    },
+    {
+     "alinti": "323 TL lazzım arkadaşın hesabına at [IBAN] çok acil lütfen",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.2547500189393759,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-gorev_07-006",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "931 TL kazanç için kargo ve paketleme kiti 1",
+     "sinyal": "odul_vaadi"
+    },
+    {
+     "alinti": "977 lira Detaylar için şu numaraya yazın [TEL]",
+     "sinyal": "kanal_degistirme"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.2776249893940985,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-kurum_07-004",
+   "tur": "kurum_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Hesabınızı korumak için şifrenizi yenileyin pazaryolu-iade",
+     "sinyal": "kimlik_talebi"
+    },
+    {
+     "alinti": "Pazaryolu hesabınızda olağandışı giriş tespit edildi",
+     "sinyal": "kurum_taklidi"
+    },
+    {
+     "alinti": "cyou/tr/islem 3 gün içinde işlem yapılmazsa hesabınız silinir",
+     "sinyal": "aciliyet"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1.958165958058089,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-gorev_07-012",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "861 TL kazanç için kargo ve paketleme kiti 4",
+     "sinyal": "odul_vaadi"
+    },
+    {
+     "alinti": "096₺ Detaylar için şu numaraya yazın [TEL]",
+     "sinyal": "kanal_degistirme"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.28029101667925715,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-kamu_07-002",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [
+    {
+     "alinti": "hakkinizda dolandiricilik sorusturmasi baslatilmistir",
+     "sinyal": "yetki_iddiasi"
+    },
+    {
+     "alinti": "Dosya numaraniz icin [TEL] numarali savcilik hattini arayin",
+     "sinyal": "kanal_degistirme"
+    },
+    {
+     "alinti": "2 saat icinde aramazsaniz giyabinizda islem yapilacaktir",
+     "sinyal": "aciliyet"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.3504999913275242,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-yakin_07-005",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Baba yeni numaramı kaydet",
+     "sinyal": "yakinlik_iddiasi"
+    },
+    {
+     "alinti": "Kiramı yatıramadım 1",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "617₺ gönderir misin aramızda kalsın",
+     "sinyal": "gizlilik_baskisi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.19475002773106098,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-kargo_06-005",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "live Hizmet bedeli 131,90 TL",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Teslim almak için kart bilgilerinizi doğrulayın turnakargo-destek",
+     "sinyal": "kimlik_talebi"
+    },
+    {
+     "alinti": "turnakargo-destek.live",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 2.129625005181879,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-bahis_06-008",
+   "tur": "yasa_disi_bahis",
+   "kanitlar": [
+    {
+     "alinti": "512₺ yatır [TEL] WhatsApp",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Şike garantili maç listesi geldi",
+     "sinyal": "odul_vaadi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.2347499830648303,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-kargo_07-012",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "Gümrük harcı 118,00 TL",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "SON UYARI: gönderiniz yarın saat 20:30 itibarıyla iade edilecek",
+     "sinyal": "aciliyet"
+    },
+    {
+     "alinti": "https://shorturl.at/dhhZ43lB",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1.4591249637305737,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-gorev_07-007",
+   "tur": "mesru_islem",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 0.25995803298428655,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-mesru_06-009",
+   "tur": "mesru_islem",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 0.2669579698704183,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-kargo_07-002",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "Gümrük harcı 127,50 TL",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "SON UYARI: gönderiniz yarın saat 09:30 itibarıyla iade edilecek",
+     "sinyal": "aciliyet"
+    },
+    {
+     "alinti": "rebrand.ly/WTsVeQ5j",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1.3911659480072558,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-gorev_06-009",
+   "tur": "gorev_is_ilani",
+   "kanitlar": [
+    {
+     "alinti": "454₺ komisyon",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.28858304722234607,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-gorev_06-004",
+   "tur": "gorev_is_ilani",
+   "kanitlar": [
+    {
+     "alinti": "737,50 TL komisyon",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.2947080065496266,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-yakin_06-008",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "🔔 Kanka benim",
+     "sinyal": "yakinlik_iddiasi"
+    },
+    {
+     "alinti": "909 TL lazim arkadasin hesabina at [IBAN] cok acil lutfen",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.2840409870259464,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-gorev_07-004",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "091 TL kazanç için kargo ve paketleme kiti 3",
+     "sinyal": "odul_vaadi"
+    },
+    {
+     "alinti": "482 TL Detaylar için şu numaraya yazın [TEL]",
+     "sinyal": "kanal_degistirme"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.2914160140790045,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-kurum_06-003",
+   "tur": "kurum_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "SİZ DEĞİLSENİZ HEMEN BİLGİLERİNİZİ GÜNCELLEYİN İLGAZBANK-İADE",
+     "sinyal": "kimlik_talebi"
+    },
+    {
+     "alinti": "📦 ILGAZ BANK: MOBİL ŞUBENİZ YENİ CİHAZDA AÇILDI",
+     "sinyal": "kurum_taklidi"
+    },
+    {
+     "alinti": "İLGAZBANK-İADE.TOP",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 2.1259579807519913,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-mesru_06-004",
+   "tur": "mesru_islem",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 0.2875829814001918,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-bahis_06-003",
+   "tur": "yasa_disi_bahis",
+   "kanitlar": [
+    {
+     "alinti": "819 TL yatır [TEL] WhatsApp",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Şike garantili maç listesi geldi",
+     "sinyal": "odul_vaadi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.23199996212497354,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-mesru_06-012",
+   "tur": "mesru_islem",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 0.27595896972343326,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-bahis_06-009",
+   "tur": "yasa_disi_bahis",
+   "kanitlar": [
+    {
+     "alinti": "639 TL yatır [TEL] WhatsApp",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Şike garantili maç listesi geldi",
+     "sinyal": "odul_vaadi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.2138750278390944,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-odul_07-000",
+   "tur": "odul_kampanya",
+   "kanitlar": [
+    {
+     "alinti": "Poyraz Kart musterilerine ozel: harcamalarinizin 2",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Iade icin CVV ve son kullanma tarihini girin https://poyrazkart-iade",
+     "sinyal": "kimlik_talebi"
+    },
+    {
+     "alinti": "444 TL'si iade edilecek",
+     "sinyal": "aciliyet"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1.9960419740527868,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-yatirim_06-012",
+   "tur": "yatirim_vip_grup",
+   "kanitlar": [
+    {
+     "alinti": "534 TL pasif gelir",
+     "sinyal": "odul_vaadi"
+    },
+    {
+     "alinti": "349 TL Kayit icin https://t.me/limanportfoyvip",
+     "sinyal": "kanal_degistirme"
+    },
+    {
+     "alinti": "https://t.me/limanportfoyvip",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.8622920140624046,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-gorev_07-008",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "782 TL kazanç için kargo ve paketleme kiti 1",
+     "sinyal": "odul_vaadi"
+    },
+    {
+     "alinti": "076 TL Detaylar için şu numaraya yazın [TEL]",
+     "sinyal": "kanal_degistirme"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.281625019852072,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-odul_06-011",
+   "tur": "odul_kampanya",
+   "kanitlar": [
+    {
+     "alinti": "Sadece 95,90₺ sigorta bedeli ödeyin",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Şanslı müşterimiz seçildiniz",
+     "sinyal": "odul_vaadi"
+    },
+    {
+     "alinti": "https://t.co/tAewat",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.8189160143956542,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-mesru_07-009",
+   "tur": "mesru_islem",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 0.23479200899600983,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-oyun_07-004",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "abi oyun içi parayı yarı fiyatına satıyorum 2",
+     "sinyal": "yakinlik_iddiasi"
+    },
+    {
+     "alinti": "hesabına yüklemem için gelen kodu at moderatörlere söyleme banlarlar",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.2573750098235905,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-yakin_06-006",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Dayı benim",
+     "sinyal": "yakinlik_iddiasi"
+    },
+    {
+     "alinti": "339₺ lazım arkadaşın hesabına at [IBAN] çok acil lütfen",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.2549170167185366,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-gorev_06-005",
+   "tur": "gorev_is_ilani",
+   "kanitlar": [
+    {
+     "alinti": "637₺ komisyon",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.2904580323956907,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-kurum_06-005",
+   "tur": "kurum_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Siz degilseniz hemen bilgilerinizi guncelleyin http://ilgazbank-tr",
+     "sinyal": "kimlik_talebi"
+    },
+    {
+     "alinti": "Ilgaz Bank: mobil subeniz yeni cihazda acildi",
+     "sinyal": "kurum_taklidi"
+    },
+    {
+     "alinti": "http://ilgazbank-tr.com/5618",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1.7137500108219683,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-gorev_06-007",
+   "tur": "gorev_is_ilani",
+   "kanitlar": [
+    {
+     "alinti": "756₺ komisyon",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.29304204508662224,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-kamu_07-005",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [
+    {
+     "alinti": "hakkınızda dolandırıcılık soruşturması başlatılmıştır",
+     "sinyal": "yetki_iddiasi"
+    },
+    {
+     "alinti": "Dosya numaranız için [TEL] numaralı savcılık hattını arayın",
+     "sinyal": "kanal_degistirme"
+    },
+    {
+     "alinti": "1 saat içinde aramazsanız gıyabınızda işlem yapılacaktır",
+     "sinyal": "aciliyet"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.34620799124240875,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-odul_07-009",
+   "tur": "odul_kampanya",
+   "kanitlar": [
+    {
+     "alinti": "Poyraz Kart müşterilerine özel: harcamalarınızın 3",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "İade için CVV ve son kullanma tarihini girin poyrazkartgiris",
+     "sinyal": "kimlik_talebi"
+    },
+    {
+     "alinti": "606 TL'si iade edilecek",
+     "sinyal": "aciliyet"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 2.0630420185625553,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-kamu_06-018",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [
+    {
+     "alinti": "İl Emniyet Müdürlüğü Mali Şube: Ilgaz Bank kartınız yasa dışı bhaiste kullanılmı",
+     "sinyal": "yetki_iddiasi"
+    },
+    {
+     "alinti": "Hesabınızın dondurulmaması için SMS ile gelen onay kodunnu söyleyin",
+     "sinyal": "kod_talebi"
+    },
+    {
+     "alinti": "aramızda kalsın",
+     "sinyal": "gizlilik_baskisi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.2981250290758908,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-yakin_06-004",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Baba benim",
+     "sinyal": "yakinlik_iddiasi"
+    },
+    {
+     "alinti": "879,90₺ lazım arkadaşın hesabına at [IBAN] çok acil lütfen",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.24729198776185513,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-kargo_07-011",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "Gümrük harcı 66,50 lira",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "SON UYARI: gönderiniz yarın saat 18:00 itibarıyla iade edilecek",
+     "sinyal": "aciliyet"
+    },
+    {
+     "alinti": "t.ly/b8kqsQm",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.8245000499300659,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-kargo_06-006",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "xyz/tr/islem Hizmet bedeli 65,50 lira",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Teslim almak icin kart bilgilerinizi dogrulayin turnakargo-destek",
+     "sinyal": "kimlik_talebi"
+    },
+    {
+     "alinti": "turnakargo-destek.xyz/tr/islem",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 2.138666051905602,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-reklam_07-001",
+   "tur": "reklam_spam",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 1.7365830135531723,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-kargo_06-001",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "top/8249 Hizmet bedeli 115,90 TL",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Teslim almak icin kart bilgilerinizi dogrulayin www",
+     "sinyal": "kimlik_talebi"
+    },
+    {
+     "alinti": "www.eturnakargo.top/8249",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1.6787080094218254,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-bahis_06-005",
+   "tur": "yasa_disi_bahis",
+   "kanitlar": [
+    {
+     "alinti": "630,99₺ yatir [TEL] WhatsApp",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Sike garantili mac listesi geldi",
+     "sinyal": "odul_vaadi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.23612502263858914,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-kargo_06-012",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "live/odeme Hizmet bedeli 125,49 lira",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Teslim almak için kart bilgilerinizi doğrulayın http://turnakargogiris",
+     "sinyal": "kimlik_talebi"
+    },
+    {
+     "alinti": "http://turnakargogiris.live/odeme",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 2.013707999140024,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-bahis_06-010",
+   "tur": "yasa_disi_bahis",
+   "kanitlar": [
+    {
+     "alinti": "903 TL yatir [TEL] WhatsApp",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Sike garantili mac listesi geldi",
+     "sinyal": "odul_vaadi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.2304170047864318,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-reklam_07-007",
+   "tur": "reklam_spam",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 1.713083009235561,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-odul_07-001",
+   "tur": "odul_kampanya",
+   "kanitlar": [
+    {
+     "alinti": "📦 Poyraz Kart müşterilerine özel: harcamalarınızın 1",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "İade için CVV ve son kullanma tarihini girin http://poyrazkartonline",
+     "sinyal": "kimlik_talebi"
+    },
+    {
+     "alinti": "317 TL'si iade edilecek",
+     "sinyal": "aciliyet"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 2.2090410348027945,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-reklam_06-011",
+   "tur": "reklam_spam",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 1.9642080296762288,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-kamu_07-008",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [
+    {
+     "alinti": "hakkınızda dolandırıcılık soruşturması başlatılmıştır",
+     "sinyal": "yetki_iddiasi"
+    },
+    {
+     "alinti": "Dosya numaranız için [TEL] numaralı savcılık hattını arayın",
+     "sinyal": "kanal_degistirme"
+    },
+    {
+     "alinti": "12 saat içinde aramazsanız gıyabınızda işlem yapılacaktır",
+     "sinyal": "aciliyet"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.35137502709403634,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-bahis_07-011",
+   "tur": "yasa_disi_bahis",
+   "kanitlar": [
+    {
+     "alinti": "top Üye ol 497,00 lira bedava bahis",
+     "sinyal": "odul_vaadi"
+    },
+    {
+     "alinti": "sahabet410.top",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1.586040947586298,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-yatirim_06-001",
+   "tur": "yatirim_vip_grup",
+   "kanitlar": [
+    {
+     "alinti": "613 lira pasif gelir",
+     "sinyal": "odul_vaadi"
+    },
+    {
+     "alinti": "310,50 TL Kayıt için chat.whatsapp",
+     "sinyal": "kanal_degistirme"
+    },
+    {
+     "alinti": "chat.whatsapp.com/yI6Bbm1QVm",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1.5476669650524855,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-mesru_06-013",
+   "tur": "mesru_islem",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 0.2656250144354999,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-yakin_06-002",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Babacım benim",
+     "sinyal": "yakinlik_iddiasi"
+    },
+    {
+     "alinti": "603 TL lazım arkadaşın hesabına at [IBAN] çok acil lütfen",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.2525000018067658,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-kamu_06-017",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [
+    {
+     "alinti": "İl Emniyet Müdürlüğü Mali Şube: Ilgaz Bank kartınız yasa dışı bahiste kullanılmı",
+     "sinyal": "yetki_iddiasi"
+    },
+    {
+     "alinti": "Hesabınızın dondurulmaması için SMS ile gelen onay kodunu söyleyin",
+     "sinyal": "kod_talebi"
+    },
+    {
+     "alinti": "aramızda kalsın",
+     "sinyal": "gizlilik_baskisi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.291000003926456,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-kurum_07-011",
+   "tur": "kurum_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "HESABINIZI KORUMAK İÇİN ŞİFRENİZİ YENİLEYİN HTTPS://PAZARYOLU-İADE",
+     "sinyal": "kimlik_talebi"
+    },
+    {
+     "alinti": "PAZARYOLU HESABINIZDA OLAĞANDIŞI GİRİŞ TESPİT EDİLDİ",
+     "sinyal": "kurum_taklidi"
+    },
+    {
+     "alinti": "LİVE/ODEME 12 SAAT İÇİNDE İŞLEM YAPILMAZSA HESABINIZ SİLİNİR",
+     "sinyal": "aciliyet"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 2.0568330073729157,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-yatirim_07-001",
+   "tur": "yatirim_vip_grup",
+   "kanitlar": [
+    {
+     "alinti": "857 TL komisyon ödemeniz gerekiyor",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "742 TL kâr birikti",
+     "sinyal": "odul_vaadi"
+    },
+    {
+     "alinti": "Bugün ödemezseniz kârınız sıfırlanır",
+     "sinyal": "aciliyet"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.2732090069912374,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-odul_06-010",
+   "tur": "odul_kampanya",
+   "kanitlar": [
+    {
+     "alinti": "SADECE 113,99₺ SİGORTA BEDELİ ÖDEYİN",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "️ ŞANSLI MÜŞTERİMİZ SEÇİLDİNİZ",
+     "sinyal": "odul_vaadi"
+    },
+    {
+     "alinti": "HTTPS://T.LY/2UHQJAU",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.8760420023463666,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-yakin_06-012",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Abi benim",
+     "sinyal": "yakinlik_iddiasi"
+    },
+    {
+     "alinti": "524,00 TL lazım arkadaşın hesabına at [IBAN] çok acil lütfen",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.25395903503522277,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-odul_07-004",
+   "tur": "odul_kampanya",
+   "kanitlar": [
+    {
+     "alinti": "Poyraz Kart musterilerine ozel: harcamalarinizin 1",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Iade icin CVV ve son kullanma tarihini girin https://poyrazkartgiris",
+     "sinyal": "kimlik_talebi"
+    },
+    {
+     "alinti": "536 TL'si iade edilecek",
+     "sinyal": "aciliyet"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 2.1593329729512334,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-oyun_07-012",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "abi oyun içi parayı yarı fiyatına satıyorum 727,50 TL'ye 10",
+     "sinyal": "yakinlik_iddiasi"
+    },
+    {
+     "alinti": "hesabına yüklemem için gelen kodu at moderatörlere söyleme banlarlar",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.3037910209968686,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-reklam_06-012",
+   "tur": "reklam_spam",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 1.9370419904589653,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-oyun_06-004",
+   "tur": "oyun_hesap_skin",
+   "kanitlar": [
+    {
+     "alinti": "014 TL değerinde cüzdan bakiyesi hediye",
+     "sinyal": "odul_vaadi"
+    },
+    {
+     "alinti": "https://is.gd/C6iMz3",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.9275830234400928,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-gorev_06-000",
+   "tur": "gorev_is_ilani",
+   "kanitlar": [
+    {
+     "alinti": "387 TL komisyon",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.28745800955221057,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-kargo_07-006",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "Gumruk harci 41,90 TL",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "SON UYARI: gonderiniz bugun saat 18:15 itibariyla iade edilecek",
+     "sinyal": "aciliyet"
+    },
+    {
+     "alinti": "https://is.gd/Gg6UF",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.9206670220009983,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-kamu_07-007",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [
+    {
+     "alinti": "hakkınızda  dolandırıcılık  soruşturması başlatılmıştır",
+     "sinyal": "yetki_iddiasi"
+    },
+    {
+     "alinti": "Dosya numaranız için  [TEL] numaralı savcılık hattını arayın",
+     "sinyal": "kanal_degistirme"
+    },
+    {
+     "alinti": "24 saat  içinde aramazsanız  gıyabınızda  işlem yapılacaktır",
+     "sinyal": "aciliyet"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.36562501918524504,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-kargo_06-013",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "buzz/dogrula Hizmet bedeli 30,49 TL",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Teslim almak  için kart bilgilerinizi doğrulayın www",
+     "sinyal": "kimlik_talebi"
+    },
+    {
+     "alinti": "www.turnakargo-iade.buzz/dogrula",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1.9957500044256449,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-oyun_07-011",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "abi oyun ici parayi yari fiyatina satiyorum 4",
+     "sinyal": "yakinlik_iddiasi"
+    },
+    {
+     "alinti": "hesabina yuklemem icin gelen kodu at moderatorlere soyleme banlarlar",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.28620800003409386,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-kargo_07-001",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "Gumruk harci 38,90 TL",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "SON UYARI: gonderiniz bugun saat 14:30 itibariyla iade edilecek",
+     "sinyal": "aciliyet"
+    },
+    {
+     "alinti": "https://tinyurl.com/P1zLvM",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1.3873749994672835,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-odul_06-003",
+   "tur": "odul_kampanya",
+   "kanitlar": [
+    {
+     "alinti": "Sadece 48,99₺ sigorta bedeli ödeyin",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Şanslı müşterimiz seçildiniz",
+     "sinyal": "odul_vaadi"
+    },
+    {
+     "alinti": "https://bit.ly/apUshiBd",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1.0322079760953784,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-reklam_06-004",
+   "tur": "reklam_spam",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 1.9692499772645533,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-kurum_07-002",
+   "tur": "kurum_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Hesabinizi korumak icin sifrenizi yenileyin pazayrolu",
+     "sinyal": "kimlik_talebi"
+    },
+    {
+     "alinti": "Pazaryolu hesabinizda olagandisi giris tespit edildi",
+     "sinyal": "kurum_taklidi"
+    },
+    {
+     "alinti": "live/giris 24 saat icinde islem yapilmazsa hesabiniz silinir",
+     "sinyal": "aciliyet"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1.6486250096932054,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-mesru_07-005",
+   "tur": "mesru_islem",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 0.23058400256559253,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-yakin_06-010",
+   "tur": "kurum_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "725₺ lzaım arkadaşın hesabına at [IBAN] çok acil lütfen",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.27545797638595104,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-kamu_06-000",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [
+    {
+     "alinti": "İl Emniyet Müdürlüğü Mali Şube: Sedirbank kartınız yasa dışı bahiste kullanılmış",
+     "sinyal": "yetki_iddiasi"
+    },
+    {
+     "alinti": "Hesabınızın dondurulmaması için SMS ile glen onay kodunu söyleyin",
+     "sinyal": "kod_talebi"
+    },
+    {
+     "alinti": "aramızda kalsın",
+     "sinyal": "gizlilik_baskisi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.28783403104171157,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-gorev_06-002",
+   "tur": "gorev_is_ilani",
+   "kanitlar": [
+    {
+     "alinti": "514,99  lira komisyon",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.3028750070370734,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-kamu_07-004",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [
+    {
+     "alinti": "hakkınızda dolandırıcılık soruşturması başlatılmıştır",
+     "sinyal": "yetki_iddiasi"
+    },
+    {
+     "alinti": "Dosya numaranız için [TEL] numaralı savcılık hattını arayın",
+     "sinyal": "kanal_degistirme"
+    },
+    {
+     "alinti": "24 saat içinde aramazsanız gıyabınızda işlem yapılacaktır",
+     "sinyal": "aciliyet"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.36445801379159093,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-kargo_06-007",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "win/tr/islem Hizmet bedeli 114,50 TL",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Teslim almak için kart bilgilerinizi doğrulayın turnakargo-tr",
+     "sinyal": "kimlik_talebi"
+    },
+    {
+     "alinti": "turnakargo-tr.win/tr/islem",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1.792416034732014,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-gorev_06-013",
+   "tur": "mesru_islem",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 0.2684580394998193,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-mesru_06-001",
+   "tur": "mesru_islem",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 0.2699579927138984,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-yakin_07-000",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "KANKA  YENI NUMARAMI  KAYDET",
+     "sinyal": "yakinlik_iddiasi"
+    },
+    {
+     "alinti": "KIRAMI YATIRAMADIM  2",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "610  TL GONDERIR  MISIN ARAMIZDA KALSIN",
+     "sinyal": "gizlilik_baskisi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.20179100101813674,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-reklam_07-009",
+   "tur": "reklam_spam",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 1.7531660269014537,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-yakin_07-002",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "📦 Baba yeni numaraim kaydet",
+     "sinyal": "yakinlik_iddiasi"
+    },
+    {
+     "alinti": "Kirami yatirramadim 3",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "054 TL gonderir misin aramizda kalsin",
+     "sinyal": "gizlilik_baskisi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.2257919986732304,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-kurum_06-006",
+   "tur": "kurum_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Siz değilseniz hemen bilgilerinizi güncelleyin www",
+     "sinyal": "kimlik_talebi"
+    },
+    {
+     "alinti": "🎁 Sedirbank: mobil şubeniz yeni cihazda açıldı",
+     "sinyal": "kurum_taklidi"
+    },
+    {
+     "alinti": "www.sedirbank-iade.rest/odeme",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1.9039170001633465,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-bahis_07-012",
+   "tur": "yasa_disi_bahis",
+   "kanitlar": [
+    {
+     "alinti": "499,99 TL bedava bahis",
+     "sinyal": "odul_vaadi"
+    },
+    {
+     "alinti": "https://tribunbet448.net",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1.7784159863367677,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-oyun_06-002",
+   "tur": "oyun_hesap_skin",
+   "kanitlar": [
+    {
+     "alinti": "654 TL degerinde cuzdan bakiyesi hediye",
+     "sinyal": "odul_vaadi"
+    },
+    {
+     "alinti": "https://rebrand.ly/7hAkSV",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1.3839169987477362,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-gorev_07-010",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "581 TL kazanc icin kargo ve paketleme kiti 4",
+     "sinyal": "odul_vaadi"
+    },
+    {
+     "alinti": "316,49 lira Detaylar icin su numaraya yazin [TEL]",
+     "sinyal": "kanal_degistirme"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.2910830080509186,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-reklam_06-006",
+   "tur": "reklam_spam",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 1.9986669649370015,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-yatirim_07-008",
+   "tur": "yatirim_vip_grup",
+   "kanitlar": [
+    {
+     "alinti": "Çekim için  önce  667 TL  komisyon  ödemeniz gerekiyor",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "983  TL kâr birikti",
+     "sinyal": "odul_vaadi"
+    },
+    {
+     "alinti": "Bugün ödemezseniz kârınız sıfırlanır",
+     "sinyal": "aciliyet"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.3203750238753855,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-kamu_06-027",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [
+    {
+     "alinti": "İl Emniyet Müdürlüğü Mali  Şube:  Sedirbank kartınız  yasa dışı bahiste kullanıl",
+     "sinyal": "yetki_iddiasi"
+    },
+    {
+     "alinti": "Hesabınızın dondurulmaması için  SMS ile gelen  onay kodunu söyleyin",
+     "sinyal": "kod_talebi"
+    },
+    {
+     "alinti": "aramızda kalsın",
+     "sinyal": "gizlilik_baskisi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.30233297729864717,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-oyun_06-010",
+   "tur": "oyun_hesap_skin",
+   "kanitlar": [
+    {
+     "alinti": "245,49 lira değerinde cüzdan bakiyesi hediye",
+     "sinyal": "odul_vaadi"
+    },
+    {
+     "alinti": "https://s.id/qYWR2s",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.8271660190075636,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-odul_07-008",
+   "tur": "odul_kampanya",
+   "kanitlar": [
+    {
+     "alinti": "Poyraz Kart müşterilerine özel: harcamalarınızın 1",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "İade için CVV ve son kullanma tarihini girin https://poyrazkart-guvenlik",
+     "sinyal": "kimlik_talebi"
+    },
+    {
+     "alinti": "852 TL'si iade edilecek",
+     "sinyal": "aciliyet"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 2.399250050075352,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-oyun_07-000",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "abi  oyun içi paaryı  yarı fiyatına satıyorum 3",
+     "sinyal": "yakinlik_iddiasi"
+    },
+    {
+     "alinti": "hesabına yklemem  için gelen kodu at  moderatörlere söyleme banlarlar",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.2756670000962913,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-bahis_07-010",
+   "tur": "yasa_disi_bahis",
+   "kanitlar": [
+    {
+     "alinti": "com Üye ol 765 TL bedava bahis",
+     "sinyal": "odul_vaadi"
+    },
+    {
+     "alinti": "https://sahabet792.com",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1.6205830033868551,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-yatirim_07-000",
+   "tur": "yatirim_vip_grup",
+   "kanitlar": [
+    {
+     "alinti": "924,49 TL komisyon ödemeniz gerekiyor",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "597 TL kâr birikti",
+     "sinyal": "odul_vaadi"
+    },
+    {
+     "alinti": "Bugün ödemezseniz kârınız sıfırlanır",
+     "sinyal": "aciliyet"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.2899999963119626,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-odul_07-011",
+   "tur": "odul_kampanya",
+   "kanitlar": [
+    {
+     "alinti": "Poyraz Kart musterilerine ozel: harcamalarinizin 424 TL'si iade edilecek",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Iade icin CVV ve son kullanma tarihini girin https://poyrazkartonline",
+     "sinyal": "kimlik_talebi"
+    },
+    {
+     "alinti": "https://poyrazkartonline.info/dogrula",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 2.2012919653207064,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-oyun_06-003",
+   "tur": "oyun_hesap_skin",
+   "kanitlar": [
+    {
+     "alinti": "793,49 TL  değerinde  cüzdan bakiyesi hediye",
+     "sinyal": "odul_vaadi"
+    },
+    {
+     "alinti": "cutt.ly/ifhoxc",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1.08691694913432,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-yakin_06-001",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Kardeşim benim",
+     "sinyal": "yakinlik_iddiasi"
+    },
+    {
+     "alinti": "554,49 TL lazım arkadaşın hesabına at [IBAN] çok acil lüften",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.2807909622788429,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-yakin_07-003",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Dayi yeni numarami kaydet",
+     "sinyal": "yakinlik_iddiasi"
+    },
+    {
+     "alinti": "Kirami  yatiramadim 2",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "816₺ gonderir  misin aramizda kalsin",
+     "sinyal": "gizlilik_baskisi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.20995800150558352,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-reklam_06-001",
+   "tur": "reklam_spam",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 1.9801250309683383,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-gorev_06-011",
+   "tur": "mesru_islem",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 0.28612499590963125,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-odul_06-005",
+   "tur": "odul_kampanya",
+   "kanitlar": [
+    {
+     "alinti": "Sadeece 104,90₺ sigorta bedeli ödeyin",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Şanslı müşterimiz seçildiniz",
+     "sinyal": "odul_vaadi"
+    },
+    {
+     "alinti": "https://t.co/PVhHX",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.8343749796040356,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-gorev_07-003",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "987 lira kazanç için kargo ve paketleme kiti 4",
+     "sinyal": "odul_vaadi"
+    },
+    {
+     "alinti": "823 TL Detaylar için şu numaraya yazın [TEL]",
+     "sinyal": "kanal_degistirme"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.29508303850889206,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-kamu_07-012",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [
+    {
+     "alinti": "hakkınızda dolandırıcılık soruşturması başlatılmıştır",
+     "sinyal": "yetki_iddiasi"
+    },
+    {
+     "alinti": "3 gün  içinde  aramazsanız gıyabınızda  işlem yapılacaktır",
+     "sinyal": "aciliyet"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.35683298483490944,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-yatirim_07-007",
+   "tur": "yatirim_vip_grup",
+   "kanitlar": [
+    {
+     "alinti": "658,49 TL KOMİSYON ÖDEMENİZ GEREKİYOR",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "829₺ KÂR BİRİKTİ",
+     "sinyal": "odul_vaadi"
+    },
+    {
+     "alinti": "BUGÜN ÖDEMEZSENİZ KÂRINIZ SIFIRLANIR",
+     "sinyal": "aciliyet"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.2886250149458647,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-yatirim_06-004",
+   "tur": "yatirim_vip_grup",
+   "kanitlar": [
+    {
+     "alinti": "117,90 TL pasif gelir",
+     "sinyal": "odul_vaadi"
+    },
+    {
+     "alinti": "Başlangıç paketi sadece 351,49₺ Kayıt için t.me/+CWUfT7WhqD",
+     "sinyal": "kanal_degistirme"
+    },
+    {
+     "alinti": "t.me/+CWUfT7WhqD",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.8472499903291464,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-oyun_06-005",
+   "tur": "oyun_hesap_skin",
+   "kanitlar": [
+    {
+     "alinti": "583₺ değerinde cüzdan bakiyesi hediye",
+     "sinyal": "odul_vaadi"
+    },
+    {
+     "alinti": "https://rebrand.ly/vBgxiVK8",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1.386958989314735,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-odul_06-001",
+   "tur": "odul_kampanya",
+   "kanitlar": [
+    {
+     "alinti": "Sadece 132,00 lira sigorta bedeli odeyin",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Sansli musterimiz secildiniz",
+     "sinyal": "odul_vaadi"
+    },
+    {
+     "alinti": "shorturl.at/C2qx3",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1.447791000828147,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-oyun_06-012",
+   "tur": "oyun_hesap_skin",
+   "kanitlar": [
+    {
+     "alinti": "Zirvearena: 306 lira degerinde cuzdan bakiyesi hediye",
+     "sinyal": "odul_vaadi"
+    },
+    {
+     "alinti": "cutt.ly/fy1d9",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1.0658330284059048,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-gorev_07-009",
+   "tur": "mesru_islem",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 0.26633398374542594,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-reklam_06-002",
+   "tur": "reklam_spam",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 1.9548330456018448,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-oyun_07-008",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "ABI OYUN ICI PARAYI YARI FIYATINA SATIYORUM 3",
+     "sinyal": "yakinlik_iddiasi"
+    },
+    {
+     "alinti": "HESABINA YUKLEMEM ICIN GELEN KODU AT MODERATORLERE SOYLEME BANLARLAR",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.30499999411404133,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-mesru_07-007",
+   "tur": "mesru_islem",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 0.2519999979995191,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-bahis_07-009",
+   "tur": "yasa_disi_bahis",
+   "kanitlar": [
+    {
+     "alinti": "708 TL bedava bahis",
+     "sinyal": "odul_vaadi"
+    },
+    {
+     "alinti": "https://tribunbet726.win",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1.7927500302903354,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-kurum_07-006",
+   "tur": "kurum_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Hesabınızı korumak için şifrenizi yenileyin www",
+     "sinyal": "kimlik_talebi"
+    },
+    {
+     "alinti": "Pazaryolu hesabınızda olağandışı giriş tespit edildi",
+     "sinyal": "kurum_taklidi"
+    },
+    {
+     "alinti": "win 2 saat içinde işlem yapılmazsa hesabınız silinir",
+     "sinyal": "aciliyet"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 2.3106670123524964,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-oyun_06-008",
+   "tur": "oyun_hesap_skin",
+   "kanitlar": [
+    {
+     "alinti": "166 TL değerinde cüzdan bakiyesi hediye",
+     "sinyal": "odul_vaadi"
+    },
+    {
+     "alinti": "t.co/HkhWIwaD",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.822708010673523,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-odul_06-007",
+   "tur": "odul_kampanya",
+   "kanitlar": [
+    {
+     "alinti": "Sadece 102,49 TL sigorta bedeli ödeyin",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Şanslı müşterimiz seçildiniz",
+     "sinyal": "odul_vaadi"
+    },
+    {
+     "alinti": "t.ly/Zl7Y2AKr",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.8104160078801215,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-kargo_07-000",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "at/TpUa7VTN",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "SON UYARI: gonderiniz yarin saat 09:45 itibaiyla iade edilecek",
+     "sinyal": "aciliyet"
+    },
+    {
+     "alinti": "https://shorturl.at/TpUa7VTN",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1.4968329924158752,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-bahis_06-012",
+   "tur": "yasa_disi_bahis",
+   "kanitlar": [
+    {
+     "alinti": "173 TL yatir [TEL] WhatsApp",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "⚠️ Sike garantili mac listesi geldi",
+     "sinyal": "odul_vaadi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.251916004344821,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-yakin_07-008",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Abi yeni numaramı kaydet",
+     "sinyal": "yakinlik_iddiasi"
+    },
+    {
+     "alinti": "Kiramı yatıramadım 1",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "783₺ gönderir misin aramızda kalsın",
+     "sinyal": "gizlilik_baskisi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.20229199435561895,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-yatirim_06-002",
+   "tur": "yatirim_vip_grup",
+   "kanitlar": [
+    {
+     "alinti": "Yapay zekâ destekli robot ile günlük 854 lira pasif gelir",
+     "sinyal": "odul_vaadi"
+    },
+    {
+     "alinti": "094₺ Kaytı için chat.whatsapp",
+     "sinyal": "kanal_degistirme"
+    },
+    {
+     "alinti": "chat.whatsapp.com/KmPQ7dnM0F",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1.508000015746802,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-yakin_07-001",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Annecim yeni numaramı kaydet",
+     "sinyal": "yakinlik_iddiasi"
+    },
+    {
+     "alinti": "Kiramı yatıramadım 3",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "351 TL gönderir misin aramızda kalsın",
+     "sinyal": "gizlilik_baskisi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.20454201148822904,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-yatirim_06-011",
+   "tur": "yatirim_vip_grup",
+   "kanitlar": [
+    {
+     "alinti": "488,99₺ pasif gelir",
+     "sinyal": "odul_vaadi"
+    },
+    {
+     "alinti": "Baslangic paketi sadece 342,50₺ Kait icin t.me/+n317WNLBHb",
+     "sinyal": "kanal_degistirme"
+    },
+    {
+     "alinti": "t.me/+n317WNLBHb",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.8634160039946437,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-oyun_06-013",
+   "tur": "oyun_hesap_skin",
+   "kanitlar": [
+    {
+     "alinti": "at/iTbiYH",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "322₺ değerinde cüzdan bakiyesi hediye",
+     "sinyal": "odul_vaadi"
+    },
+    {
+     "alinti": "https://shorturl.at/iTbiYH",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1.474207965657115,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-oyun_07-006",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "abi oyun içi parayı yarı fiyatına satıyorum 1",
+     "sinyal": "yakinlik_iddiasi"
+    },
+    {
+     "alinti": "hesabına yüklemem için gelen kodu at moderatörlere söyleme banlarlar",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.26862503727898,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-kargo_06-002",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "win Hizmet bedeli 111,49 TL",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Teslim almak için kart bilgilerinizi doğrulayın https://turnakargo-iade",
+     "sinyal": "kimlik_talebi"
+    },
+    {
+     "alinti": "https://turnakargo-iade.win",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1.9576670019887388,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-reklam_07-008",
+   "tur": "reklam_spam",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 1.7265420174226165,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-yatirim_07-009",
+   "tur": "yatirim_vip_grup",
+   "kanitlar": [
+    {
+     "alinti": "216 TL komisyon ödemeniz gerekiyor",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "198₺ kâr birikti",
+     "sinyal": "odul_vaadi"
+    },
+    {
+     "alinti": "Bugün ödemezseniz kârınız sıfırlanır",
+     "sinyal": "aciliyet"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.2850419841706753,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-mesru_07-002",
+   "tur": "mesru_islem",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 0.2277909661643207,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-yatirim_06-008",
+   "tur": "yatirim_vip_grup",
+   "kanitlar": [
+    {
+     "alinti": "587₺ PASİF GELİR",
+     "sinyal": "odul_vaadi"
+    },
+    {
+     "alinti": "BAŞLANGIÇ PAKETİ SADECE 575,00 TL KAYIT İÇİN CHAT.WHATSAPP",
+     "sinyal": "kanal_degistirme"
+    },
+    {
+     "alinti": "CHAT.WHATSAPP.COM/HCALRRT1M7",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1.5043329913169146,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-kargo_06-010",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "Teeslim almak için kart  bilgilerinizi doğrulayın turnakargo-iade",
+     "sinyal": "kimlik_talebi"
+    },
+    {
+     "alinti": "turnakargo-iade.com/odeme",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1.9664999563246965,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-odul_07-003",
+   "tur": "odul_kampanya",
+   "kanitlar": [
+    {
+     "alinti": "Poyraz Kart müşterilerine özel: harcamalarınızın 2",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "İade için CVV ve son kullanma tarihini girin poyrazkart-destek",
+     "sinyal": "kimlik_talebi"
+    },
+    {
+     "alinti": "556 TL'si iade edilecek",
+     "sinyal": "aciliyet"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 2.166457998100668,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-odul_06-008",
+   "tur": "odul_kampanya",
+   "kanitlar": [
+    {
+     "alinti": "Sadece 146,50 lira sigorta bedeli odeyin",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "⚠️ Sansli musterimiz secildiniz",
+     "sinyal": "odul_vaadi"
+    },
+    {
+     "alinti": "t.co/GRhLW",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.8356670150533319,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-odul_07-012",
+   "tur": "odul_kampanya",
+   "kanitlar": [
+    {
+     "alinti": "Poyraz Kart müşterilerine özel: harcamalarınızın 2",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "İade için CVV ve son kullanma tarihini girin poyrazkart-destek",
+     "sinyal": "kimlik_talebi"
+    },
+    {
+     "alinti": "844 TL'si iade edilecek",
+     "sinyal": "aciliyet"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 2.159166964702308,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-oyun_07-001",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "abi oyun ici parayi yari fiyatina satiyorum 276 TL'ye 10",
+     "sinyal": "yakinlik_iddiasi"
+    },
+    {
+     "alinti": "hesabina yuklemem icin gelen kodu at moderatorlere soyleme banlarlar",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.2643750049173832,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-kamu_06-002",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [
+    {
+     "alinti": "İl Emniyet Müdürlüğü Mali Şube: Ilgaz Bank kartınız yasa dışı bahistte kullanılm",
+     "sinyal": "yetki_iddiasi"
+    },
+    {
+     "alinti": "Hesabınızın dondurulmaması için SMS ile gelen onay kodunu söyleyni",
+     "sinyal": "kod_talebi"
+    },
+    {
+     "alinti": "aramızda kalsın",
+     "sinyal": "gizlilik_baskisi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.29883295064792037,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-yakin_06-009",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Anne beinm",
+     "sinyal": "yakinlik_iddiasi"
+    },
+    {
+     "alinti": "838,90 lira laım arkadaşın hesabına at [IBAN] çok acil lüften",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.2733329893089831,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-yatirim_06-010",
+   "tur": "yatirim_vip_grup",
+   "kanitlar": [
+    {
+     "alinti": "951 TL pasif gelir",
+     "sinyal": "odul_vaadi"
+    },
+    {
+     "alinti": "771,00₺ Kayıt için https://t.me/limanportfoyvip",
+     "sinyal": "kanal_degistirme"
+    },
+    {
+     "alinti": "https://t.me/limanportfoyvip",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.8968330221250653,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-bahis_06-002",
+   "tur": "yasa_disi_bahis",
+   "kanitlar": [
+    {
+     "alinti": "923,99 TL yatır [TEL] WhatsApp",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Şike garantili maç listesi geldi",
+     "sinyal": "odul_vaadi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.23508304730057716,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-bahis_07-003",
+   "tur": "yasa_disi_bahis",
+   "kanitlar": [
+    {
+     "alinti": "589 TL bedava bahis",
+     "sinyal": "odul_vaadi"
+    },
+    {
+     "alinti": "https://sahabet656.win",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1.6490419511683285,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-kurum_07-000",
+   "tur": "kurum_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Hesabınızı korumak için şifrenizi yenileyin hxxp://epazaryolu[",
+     "sinyal": "kimlik_talebi"
+    },
+    {
+     "alinti": "Pazaryolu hesabınızda olağandışı giriş tespit edildi",
+     "sinyal": "kurum_taklidi"
+    },
+    {
+     "alinti": "]cyou/tr/islem 48 saat içinde işlem yapılmazsa hesabınız silinir",
+     "sinyal": "aciliyet"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1.7348749679513276,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-kargo_07-004",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "Gümrük harcı 106,50 lira",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "SON UYARI: gönderiniz bugün saat 08:45 itibarıyla iade edilecek",
+     "sinyal": "aciliyet"
+    },
+    {
+     "alinti": "https://cutt.ly/jnfYes2",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1.1228749644942582,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-oyun_07-010",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "abi  oyun  içi parayı yarı fiyatına satıyorum 4",
+     "sinyal": "yakinlik_iddiasi"
+    },
+    {
+     "alinti": "hesabına yüklemem için gelen kodu at moderatörlere söyleme banlarlar",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.267457973677665,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-kamu_06-007",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [
+    {
+     "alinti": "İl Emniyet  Müdürlüğü Mali  Şube: Ilgaz Bank kartınız  yasa  dışı bahiste kullan",
+     "sinyal": "yetki_iddiasi"
+    },
+    {
+     "alinti": "Hesabınızın dondurulmaması için SMS ile gelen onay kodunu  söyleyin",
+     "sinyal": "kod_talebi"
+    },
+    {
+     "alinti": "aramızda kalsın",
+     "sinyal": "gizlilik_baskisi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.30325003899633884,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-odul_07-010",
+   "tur": "odul_kampanya",
+   "kanitlar": [
+    {
+     "alinti": "Poyraz Kart musterilerine ozel: harcamalarinizin 1",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Iade icin CVV ve son kullanma tarihini girin https://poyrazkartonline",
+     "sinyal": "kimlik_talebi"
+    },
+    {
+     "alinti": "332,50 TL'si iade edilecek",
+     "sinyal": "aciliyet"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 2.1753330365754664,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-mesru_07-000",
+   "tur": "mesru_islem",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 0.23283303016796708,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-oyun_06-007",
+   "tur": "oyun_hesap_skin",
+   "kanitlar": [
+    {
+     "alinti": "985₺ değerinde cüzdan bakiyesi hediye",
+     "sinyal": "odul_vaadi"
+    },
+    {
+     "alinti": "rebrand.ly/iC4SJy9",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1.36674998793751,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-bahis_06-006",
+   "tur": "yasa_disi_bahis",
+   "kanitlar": [
+    {
+     "alinti": "637 lira yatır [TEL] WhatsApp",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "⚠️ Şike garantili maç listesi geldi",
+     "sinyal": "odul_vaadi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.22962503135204315,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-yakin_06-000",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Dayı benim",
+     "sinyal": "yakinlik_iddiasi"
+    },
+    {
+     "alinti": "377,99 TL lazım arkadaşın hesabına at [IBAN] çok acil lütfen",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.25762501172721386,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-mesru_06-000",
+   "tur": "mesru_islem",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 0.2596250269562006,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-odul_07-005",
+   "tur": "odul_kampanya",
+   "kanitlar": [
+    {
+     "alinti": "Poyraz Kart müşterilerine özel: harcamalarınızın 1",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "İade için CVV ve son kullanma tarihini girin http://poyrazkartonline",
+     "sinyal": "kimlik_talebi"
+    },
+    {
+     "alinti": "922,50 TL'si iade edilecek",
+     "sinyal": "aciliyet"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 2.2021670010872185,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-yatirim_07-002",
+   "tur": "yatirim_vip_grup",
+   "kanitlar": [
+    {
+     "alinti": "167,99 lira komisyon ödemeniz gerekiyor",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "822₺ kâr birikti",
+     "sinyal": "odul_vaadi"
+    },
+    {
+     "alinti": "Bugün ödemezseniz kârınız sıfırlanır",
+     "sinyal": "aciliyet"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.2922499552369118,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-kurum_07-003",
+   "tur": "kurum_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Hesabınızı korumak için şifrenizi yenileyin https://pazaryolu-destek",
+     "sinyal": "kimlik_talebi"
+    },
+    {
+     "alinti": "Pazaryolu hesabınızda olağandışı giriş tespit edildi",
+     "sinyal": "kurum_taklidi"
+    },
+    {
+     "alinti": "icu 12 saat içinde işlem yapılmazsa hesabınız silinir",
+     "sinyal": "aciliyet"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 2.161292009986937,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-mesru_06-003",
+   "tur": "mesru_islem",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 0.2648339723236859,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-yakin_07-006",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "📦 Abla yeni numaramı kaydet",
+     "sinyal": "yakinlik_iddiasi"
+    },
+    {
+     "alinti": "Kiramı yatıramadım 1",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "953 TL gönderir misin aramızda kalsın",
+     "sinyal": "gizlilik_baskisi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.2215420245192945,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-bahis_06-004",
+   "tur": "yasa_disi_bahis",
+   "kanitlar": [
+    {
+     "alinti": "928₺ yatir [TEL] WhatsApp",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Sike garantili mac listesi geldi",
+     "sinyal": "odul_vaadi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.22041599731892347,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-kamu_07-001",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [
+    {
+     "alinti": "hakkınızda dolandırıcılık soruşturması başlatılmıştır",
+     "sinyal": "yetki_iddiasi"
+    },
+    {
+     "alinti": "Dosya numaranız için [TEL] numaralı savcılık hattını arayın",
+     "sinyal": "kanal_degistirme"
+    },
+    {
+     "alinti": "3 gün içinde aramazsanız gıyabınızda işlem yapılacaktır",
+     "sinyal": "aciliyet"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.3303749836049974,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-kamu_06-022",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [
+    {
+     "alinti": "IL EMNIYET MUDURLUGU MALI SUBE: SEDIRBANK KARTINIZ YASA DISI BAHISTE KULLANILMIS",
+     "sinyal": "yetki_iddiasi"
+    },
+    {
+     "alinti": "HESABINIZIN DONDURULMAMASI ICIN SMS ILE GELEN ONAY KODUNU SOYLEYIN",
+     "sinyal": "kod_talebi"
+    },
+    {
+     "alinti": "ARAMIZDA KALSIN",
+     "sinyal": "gizlilik_baskisi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.28070900589227676,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-yatirim_06-005",
+   "tur": "yatirim_vip_grup",
+   "kanitlar": [
+    {
+     "alinti": "951 lira pasif gelir",
+     "sinyal": "odul_vaadi"
+    },
+    {
+     "alinti": "494₺ Kayıt için t.me/+t2OxCJHJMD",
+     "sinyal": "kanal_degistirme"
+    },
+    {
+     "alinti": "t.me/+t2OxCJHJMD",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.8644170011393726,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-mesru_06-011",
+   "tur": "mesru_islem",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 0.2755839959718287,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-kamu_06-001",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [
+    {
+     "alinti": "İl Emniyet Müdürlüğü Mali Şube: Sedirbank kartınız yasa dışı bahiste kullanılmış",
+     "sinyal": "yetki_iddiasi"
+    },
+    {
+     "alinti": "Hesabınızın dondurulmaması için SMS ile gelen onay kodunu söyleyin",
+     "sinyal": "kod_talebi"
+    },
+    {
+     "alinti": "aramızda kalsın",
+     "sinyal": "gizlilik_baskisi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.2911249757744372,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-kargo_06-011",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "top Hizmet bedeli 19,50  TL",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Teslim almak icin kart  bilgilerinizi dogrulayin  www",
+     "sinyal": "kimlik_talebi"
+    },
+    {
+     "alinti": "www.turnakargo-destek.top",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 2.1346249850466847,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-kamu_07-003",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [
+    {
+     "alinti": "HAKKINIZDA DOLANDIRICILIK SORUŞTURMASI BAŞLATILMIŞTIR",
+     "sinyal": "yetki_iddiasi"
+    },
+    {
+     "alinti": "DOSYA NUMARANIZ İÇİN [TEL] NUMARALI SAVCILIK HATTINI ARAYIN",
+     "sinyal": "kanal_degistirme"
+    },
+    {
+     "alinti": "1 SAAT İÇİNDE ARAMAZSANIZ GIYABINIZDA İŞLEM YAPILACAKTIR",
+     "sinyal": "aciliyet"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.3352499916218221,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-kurum_06-009",
+   "tur": "kurum_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Siz değilseniz hemen bilgilerinizi güncelleyin www",
+     "sinyal": "kimlik_talebi"
+    },
+    {
+     "alinti": "Ilgaz Bank: mobil şubeniz yeni cihazda açıldı",
+     "sinyal": "kurum_taklidi"
+    },
+    {
+     "alinti": "www.ilgazbankgiris.win/1226",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1.9460420007817447,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-odul_06-009",
+   "tur": "odul_kampanya",
+   "kanitlar": [
+    {
+     "alinti": "SADECE 136,99 TL SİGORTA BEDELİ ÖDEYİN",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "ŞANSLI MÜŞTERİMİZ SEÇİLDİNİZ",
+     "sinyal": "odul_vaadi"
+    },
+    {
+     "alinti": "TİNYURL.COM/5WKU9Z",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1.4602500014007092,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-kargo_07-003",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "Gumruk harci 118,49₺",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "SON UYARI: gonderiniz  yarin  saat 19:00 itibariyla iade edilecek",
+     "sinyal": "aciliyet"
+    },
+    {
+     "alinti": "https://cutt.ly/0HhPNwS",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1.1255419813096523,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-kargo_07-007",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "SON UYARI: gönderiniz yarın saat 13:30 itibarıyla iade edilceek",
+     "sinyal": "aciliyet"
+    },
+    {
+     "alinti": "https://is.gd/6TwrA1M",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.9189580450765789,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-oyun_07-009",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "abi oyun içi  parayı  yarı fiyatına  satıyorum  2",
+     "sinyal": "yakinlik_iddiasi"
+    },
+    {
+     "alinti": "hesabına yüklemem için  gelen kodu at  moderatörlere söyleme banlarlar",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.28033298440277576,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-kurum_07-008",
+   "tur": "kurum_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Hesabınızı korumak için şifrenizi yenileyin epazaryolu",
+     "sinyal": "kimlik_talebi"
+    },
+    {
+     "alinti": "Pazaryolu hesabınızda olağandışı giriş tespit edildi",
+     "sinyal": "kurum_taklidi"
+    },
+    {
+     "alinti": "cyou/tr/islem 24 saat içinde işlem yapılmazsa hesabınız silinir",
+     "sinyal": "aciliyet"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1.708791998680681,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-kurum_06-011",
+   "tur": "kurum_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Siz degisleniz hemeen bilgilerinizi guncelleyin http://ilgazbank-tr",
+     "sinyal": "kimlik_talebi"
+    },
+    {
+     "alinti": "Ilgaz Bank: mobil subeniz yeni cihazda acildi",
+     "sinyal": "kurum_taklidi"
+    },
+    {
+     "alinti": "http://ilgazbank-tr.live/5537",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1.7042499966919422,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-gorev_06-001",
+   "tur": "gorev_is_ilani",
+   "kanitlar": [
+    {
+     "alinti": "538 lira komisyon",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.30633294954895973,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-kurum_06-010",
+   "tur": "kurum_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Siz değilseniz hemen bilgilerinizi güncelleyin https://esedirbank",
+     "sinyal": "kimlik_talebi"
+    },
+    {
+     "alinti": "Sedirbank: mobil şubeniz yeni cihazda açıldı",
+     "sinyal": "kurum_taklidi"
+    },
+    {
+     "alinti": "https://esedirbank.top/odeme",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1.6168750007636845,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-yatirim_07-004",
+   "tur": "yatirim_vip_grup",
+   "kanitlar": [
+    {
+     "alinti": "117 TL komisyon odemeniz gerekiyor",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "934 TL kar birikti",
+     "sinyal": "odul_vaadi"
+    },
+    {
+     "alinti": "Bugun odemezseniz kariniz sifirlanir",
+     "sinyal": "aciliyet"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.27712498558685184,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-mesru_07-001",
+   "tur": "mesru_islem",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 0.24799996754154563,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-oyun_06-011",
+   "tur": "oyun_hesap_skin",
+   "kanitlar": [
+    {
+     "alinti": "563 lira degerinde cuzdan bakiyesi hediye",
+     "sinyal": "odul_vaadi"
+    },
+    {
+     "alinti": "https://s.id/HoTnxr",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.8128339541144669,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-bahis_07-002",
+   "tur": "yasa_disi_bahis",
+   "kanitlar": [
+    {
+     "alinti": "815 TL bedava bahis",
+     "sinyal": "odul_vaadi"
+    },
+    {
+     "alinti": "https://sahabet173.top",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1.6164580010809004,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-yatirim_06-013",
+   "tur": "yatirim_vip_grup",
+   "kanitlar": [
+    {
+     "alinti": "Yapay zekâ destekli robot ile günlük 619 TL pasif gelir",
+     "sinyal": "odul_vaadi"
+    },
+    {
+     "alinti": "522 lira Kayıt için t.me/+ZXG8LCcgmm",
+     "sinyal": "kanal_degistirme"
+    },
+    {
+     "alinti": "t.me/+ZXG8LCcgmm",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.8340000058524311,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-kamu_06-024",
+   "tur": "yasa_disi_bahis",
+   "kanitlar": [
+    {
+     "alinti": "Hesabinizin dondurulmamasi icin SMS ile gelen onay kodunu soyleyin",
+     "sinyal": "kod_talebi"
+    },
+    {
+     "alinti": "aramizda kalsin",
+     "sinyal": "gizlilik_baskisi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.3070419770665467,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-reklam_06-009",
+   "tur": "reklam_spam",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 1.9670829642564058,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-oyun_06-000",
+   "tur": "oyun_hesap_skin",
+   "kanitlar": [
+    {
+     "alinti": "696,49 TL değerinde cüzdan bakiyesi hediye",
+     "sinyal": "odul_vaadi"
+    },
+    {
+     "alinti": "tinyurl.com/dgfbK6uJ",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1.3920000055804849,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-kargo_07-010",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "Gumruk harci 33,99 TL",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "SON UYARI: gonderiniz yarin saat 20:15 itibariyla iade edilecek",
+     "sinyal": "aciliyet"
+    },
+    {
+     "alinti": "https://t.co/rnzW6",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.835042039398104,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-reklam_07-004",
+   "tur": "reklam_spam",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 1.7233749967999756,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-gorev_07-001",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "593₺ kazanç için kargo ve paketleme kiti 1",
+     "sinyal": "odul_vaadi"
+    },
+    {
+     "alinti": "353₺ Detaylar için şu numaraya yazın [TEL]",
+     "sinyal": "kanal_degistirme"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.27404201682657003,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-oyun_07-007",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "abi oyun içi parayı yarı fiyatına satıyorum 2",
+     "sinyal": "yakinlik_iddiasi"
+    },
+    {
+     "alinti": "hesabına yüklemem için gelen kodu at moderatörlere söyleme banlarlar",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.25224999990314245,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-kurum_06-008",
+   "tur": "kurum_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Siz degilseniz hemen bilgilerinizi guncelleyin www",
+     "sinyal": "kimlik_talebi"
+    },
+    {
+     "alinti": "Sedirbank: mobil subeniz yeni cihazda acildi",
+     "sinyal": "kurum_taklidi"
+    },
+    {
+     "alinti": "www.sedirbank-iade.live/7442",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1.9171250169165432,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-yakin_07-012",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Dayi yeni numarami kaydet",
+     "sinyal": "yakinlik_iddiasi"
+    },
+    {
+     "alinti": "Kirami yatiramadim 1",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "129 lira gonderir misin aramizda kalsin",
+     "sinyal": "gizlilik_baskisi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.21129200467839837,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-bahis_07-005",
+   "tur": "yasa_disi_bahis",
+   "kanitlar": [
+    {
+     "alinti": "124₺ bedava  bahis",
+     "sinyal": "odul_vaadi"
+    },
+    {
+     "alinti": "https://sahabet152.win",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1.6259579570032656,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-kurum_06-002",
+   "tur": "kurum_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Siz değilseniz hemen bilgilerinizi güncelleyin https://ilgazbank-guvenlik",
+     "sinyal": "kimlik_talebi"
+    },
+    {
+     "alinti": "Ilgaz Bank: mobil şubeniz yeni cihazda açıldı",
+     "sinyal": "kurum_taklidi"
+    },
+    {
+     "alinti": "https://ilgazbank-guvenlik.loan/6728",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 2.178166003432125,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-reklam_07-005",
+   "tur": "reklam_spam",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 1.7501250258646905,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-yatirim_07-011",
+   "tur": "yatirim_vip_grup",
+   "kanitlar": [
+    {
+     "alinti": "529 TL KOMİSYON ÖDEMENİZ GEREKİYOR",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "783 TL KÂR BİRİKTİ",
+     "sinyal": "odul_vaadi"
+    },
+    {
+     "alinti": "BUGÜN ÖDEMEZSENİZ KÂRINIZ SIFIRLANIR",
+     "sinyal": "aciliyet"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.2820420195348561,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-kurum_06-000",
+   "tur": "kurum_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Siz değilseniz hemen bilgilerinizi güncelleyin https://ilgazbankgiris",
+     "sinyal": "kimlik_talebi"
+    },
+    {
+     "alinti": "Ilgaz Bank: mobil şubeniz yeni cihazda açıldı",
+     "sinyal": "kurum_taklidi"
+    },
+    {
+     "alinti": "https://ilgazbankgiris.win/giris",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1.962208014447242,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-kamu_07-006",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [
+    {
+     "alinti": "hakkınızda dolandırıcılık soruşturması başatılmıştır",
+     "sinyal": "yetki_iddiasi"
+    },
+    {
+     "alinti": "Dosya numaranız için [TEL] numaralı savcılık hattını arayın",
+     "sinyal": "kanal_degistirme"
+    },
+    {
+     "alinti": "24 saat içinde arramazsanız gıyabınızda işlem yapılacaktır",
+     "sinyal": "aciliyet"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.3795420052483678,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-bahis_07-007",
+   "tur": "yasa_disi_bahis",
+   "kanitlar": [
+    {
+     "alinti": "258,49 TL bedava bahis",
+     "sinyal": "odul_vaadi"
+    },
+    {
+     "alinti": "tribunbet114.xyz",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1.7605830216780305,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-mesru_06-002",
+   "tur": "mesru_islem",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 0.27420796686783433,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-yatirim_06-009",
+   "tur": "yatirim_vip_grup",
+   "kanitlar": [
+    {
+     "alinti": "995 TL pasif gelir",
+     "sinyal": "odul_vaadi"
+    },
+    {
+     "alinti": "665 TL Kayıt için chat.whatsapp",
+     "sinyal": "kanal_degistirme"
+    },
+    {
+     "alinti": "chat.whatsapp.com/b1nEMnx1aX",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1.562874997034669,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-kargo_06-000",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "icu/giris Hizmet bedeli 48,90₺",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Teslim almak icin kart bilgilerinizi dogrulayin https://turnakargo-iade",
+     "sinyal": "kimlik_talebi"
+    },
+    {
+     "alinti": "https://turnakargo-iade.icu/giris",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1.965500006917864,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-yakin_06-005",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Annecim benim",
+     "sinyal": "yakinlik_iddiasi"
+    },
+    {
+     "alinti": "otel için 528,90 lira lazım arkadaşın hesabına at [IBAN] çok acil lütfen",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.26862503727898,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-odul_07-007",
+   "tur": "odul_kampanya",
+   "kanitlar": [
+    {
+     "alinti": "Poyraz Kart müşterilerine özel: harcamalarınızın 258 TL'si iade edilecek",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "İade için CVV ve son kullanma tarihini girin poyrazkartonline",
+     "sinyal": "kimlik_talebi"
+    },
+    {
+     "alinti": "poyrazkartonline.rest/dogrula",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 2.182625001296401,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-reklam_06-008",
+   "tur": "reklam_spam",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 1.996167004108429,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-bahis_07-001",
+   "tur": "yasa_disi_bahis",
+   "kanitlar": [
+    {
+     "alinti": "tribunbet542.com",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1.7620419966988266,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-reklam_06-010",
+   "tur": "reklam_spam",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 1.9660420366562903,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-mesru_07-008",
+   "tur": "mesru_islem",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 0.2282080240547657,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-kurum_06-001",
+   "tur": "kurum_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Siz değilseniz hemen bilgilerinizi güncelleyin www",
+     "sinyal": "kimlik_talebi"
+    },
+    {
+     "alinti": "Sedirbank: mobil şubeniz yeni cihazda açıldı",
+     "sinyal": "kurum_taklidi"
+    },
+    {
+     "alinti": "www.sedirbank-tr.click/odeme",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1.723166962619871,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-mesru_06-010",
+   "tur": "mesru_islem",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 0.26529195019975305,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-gorev_07-000",
+   "tur": "mesru_islem",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 0.27358398074284196,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-bahis_07-000",
+   "tur": "yasa_disi_bahis",
+   "kanitlar": [
+    {
+     "alinti": "276 TL bedava  bahis",
+     "sinyal": "odul_vaadi"
+    },
+    {
+     "alinti": "tribunbet546.net",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1.7587500042282045,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-kurum_07-012",
+   "tur": "kurum_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Hesabinizi korumak icin sifrenizi yenileyin www",
+     "sinyal": "kimlik_talebi"
+    },
+    {
+     "alinti": "Pazaryolu hesabinizda olagandisi giris tespit edildi",
+     "sinyal": "kurum_taklidi"
+    },
+    {
+     "alinti": "vip/tr/islem 24 saat icinde islem yapilmazsa hesabiniz silinir",
+     "sinyal": "aciliyet"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1.6325839678756893,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-yatirim_06-007",
+   "tur": "yatirim_vip_grup",
+   "kanitlar": [
+    {
+     "alinti": "589 TL  pasif gelir",
+     "sinyal": "odul_vaadi"
+    },
+    {
+     "alinti": "601₺  Kayıt için t.me/+QOpUToMEFo",
+     "sinyal": "kanal_degistirme"
+    },
+    {
+     "alinti": "t.me/+QOpUToMEFo",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.8588330238126218,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-kurum_07-001",
+   "tur": "kurum_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Hesabinizi korumak icin sifrenizi yenileyin https://pazaryolu-guvenlik",
+     "sinyal": "kimlik_talebi"
+    },
+    {
+     "alinti": "⚠️ Pazaryolu hesabinizda olagandisi giris tespit edildi",
+     "sinyal": "kurum_taklidi"
+    },
+    {
+     "alinti": "com/giris 48 saat icinde islem yapilmazsa hesabiniz silinir",
+     "sinyal": "aciliyet"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 2.341417013667524,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-kargo_07-008",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "Gümrük harcı 139,90₺",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "SON UYARI: gönderiniz bugün saat 09:00 itibarıyla iade edilecek",
+     "sinyal": "aciliyet"
+    },
+    {
+     "alinti": "s.id/qKp2XyI",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.8275419822894037,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-kamu_07-009",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [
+    {
+     "alinti": "hakkınızda dolandırıcılık soruşturması  başlatılmıştır",
+     "sinyal": "yetki_iddiasi"
+    },
+    {
+     "alinti": "Dosya numaranız  için [TEL] numaralı savcılık hattını arayın",
+     "sinyal": "kanal_degistirme"
+    },
+    {
+     "alinti": "30 dakika içinde aramazsanız gıyabınızda işlem yapılacaktır",
+     "sinyal": "aciliyet"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.34608395071700215,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-mesru_07-011",
+   "tur": "mesru_islem",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 0.2264160430058837,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-oyun_06-006",
+   "tur": "oyun_hesap_skin",
+   "kanitlar": [
+    {
+     "alinti": "t.co/hnLjar",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.7789999945089221,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-kargo_06-003",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "win Hizmet bedeli 100,50₺",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Teslim almak için kart bilgilerinizi doğrulayın http://turnakargo-tr",
+     "sinyal": "kimlik_talebi"
+    },
+    {
+     "alinti": "http://turnakargo-tr.win",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1.754417025949806,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-bahis_06-007",
+   "tur": "yasa_disi_bahis",
+   "kanitlar": [
+    {
+     "alinti": "Listeyi almak icin 284,50 TL yatir [TEL] WhatsApp",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Sike garantili mac listesi geldi",
+     "sinyal": "odul_vaadi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.21762499818578362,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-mesru_06-006",
+   "tur": "mesru_islem",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 0.2557080006226897,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-bahis_07-008",
+   "tur": "yasa_disi_bahis",
+   "kanitlar": [
+    {
+     "alinti": "291₺ BEDAVA BAHİS",
+     "sinyal": "odul_vaadi"
+    },
+    {
+     "alinti": "HTTPS://TRİBUNBET699.COM",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1.8684170208871365,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-reklam_06-005",
+   "tur": "reklam_spam",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 1.9821669557131827,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-reklam_07-006",
+   "tur": "reklam_spam",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 1.756124955136329,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-kamu_06-003",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [
+    {
+     "alinti": "Il Emniyet Mudurlugu Mali Sube: Sedirbank kartiniz yasa disi bahiste kullanilmis",
+     "sinyal": "yetki_iddiasi"
+    },
+    {
+     "alinti": "Hesabinizin dondurulmamasi icin SMS ile gelen onay kodunu soyleyin",
+     "sinyal": "kod_talebi"
+    },
+    {
+     "alinti": "aramizda kalsin",
+     "sinyal": "gizlilik_baskisi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.29979104874655604,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-yakin_07-004",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Teyze yeni numaramı kaydet",
+     "sinyal": "yakinlik_iddiasi"
+    },
+    {
+     "alinti": "Kiramı yatıramadım 4",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "922 lira gönderir misin aramızda kalsın",
+     "sinyal": "gizlilik_baskisi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.19825005438178778,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-mesru_06-005",
+   "tur": "mesru_islem",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 0.30333298491314054,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-odul_06-012",
+   "tur": "odul_kampanya",
+   "kanitlar": [
+    {
+     "alinti": "Sadece 79,90 TL sigorta  bedeli  ödeyin",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Şanslı  müşterimiz seçildiniz",
+     "sinyal": "odul_vaadi"
+    },
+    {
+     "alinti": "s.id/CddwB",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.7885000086389482,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-kamu_07-011",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [
+    {
+     "alinti": "HAKKINIZDA DOLANDIRICILIK SORUŞTURMASI BAŞLATILMIŞTIR",
+     "sinyal": "yetki_iddiasi"
+    },
+    {
+     "alinti": "DOSYA NUMARANIZ İÇİN [TEL] NUMARALI SAVCILIK HATTINI ARAYIN",
+     "sinyal": "kanal_degistirme"
+    },
+    {
+     "alinti": "12 SAAT İÇİNDE ARAMAZSANIZ GIYABINIZDA İŞLEM YAPILACAKTIR",
+     "sinyal": "aciliyet"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.3546250518411398,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-odul_06-013",
+   "tur": "odul_kampanya",
+   "kanitlar": [
+    {
+     "alinti": "Sadece 91,99 TL sigorta bedeli ödeyin",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Şanslı müşterimiz seçildiniz",
+     "sinyal": "odul_vaadi"
+    },
+    {
+     "alinti": "t.ly/VrBbFiee",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.7897919858805835,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-gorev_06-010",
+   "tur": "gorev_is_ilani",
+   "kanitlar": [
+    {
+     "alinti": "726 lira komisyon",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.2791670267470181,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-kurum_06-013",
+   "tur": "kurum_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Siz değilseniz hemen bilgilerinizi güncelleyin https://ilgazbank-iade",
+     "sinyal": "kimlik_talebi"
+    },
+    {
+     "alinti": "Ilgaz Bank: mobil şubeniz yeni cihazda açıldı",
+     "sinyal": "kurum_taklidi"
+    },
+    {
+     "alinti": "https://ilgazbank-iade.live/dogrula",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1.8552920082584023,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-reklam_07-000",
+   "tur": "reklam_spam",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 1.7147500184364617,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-yatirim_06-000",
+   "tur": "mesru_islem",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 1.475958968512714,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-kamu_06-010",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [
+    {
+     "alinti": "İl Emniyet Müdürlüğü Mali Şube: Ilgaz Bank kartınız yasa dışı bahiste kulanılmış",
+     "sinyal": "yetki_iddiasi"
+    },
+    {
+     "alinti": "Hesabınızın dondurulmaması için SMS ile gelen onay kodunu söyleyin",
+     "sinyal": "kod_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.2800829824991524,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-gorev_07-005",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "789 lira kazanc icin kargo ve paketleme kiti 1",
+     "sinyal": "odul_vaadi"
+    },
+    {
+     "alinti": "300₺ Detaylar icin su numaraya yazin [TEL]",
+     "sinyal": "kanal_degistirme"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.2839170047082007,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-yakin_07-010",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Babacım yeni numaramı kaydet",
+     "sinyal": "yakinlik_iddiasi"
+    },
+    {
+     "alinti": "Kiramı yatıramadım 4",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "205₺ gönderir misin aramızda kalsın",
+     "sinyal": "gizlilik_baskisi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.19770796643570065,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-oyun_07-005",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "abi oyun içi parayı  yarı fiyatına satıyorum  3",
+     "sinyal": "yakinlik_iddiasi"
+    },
+    {
+     "alinti": "hesabına yüklemem  için gelen kodu  at moderatörlere  söyleme banlarlar",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.264208996668458,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-yatirim_07-003",
+   "tur": "yatirim_vip_grup",
+   "kanitlar": [
+    {
+     "alinti": "161 TL komisyon ödemeniz gerekiyor",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "172₺ kâr birikti",
+     "sinyal": "odul_vaadi"
+    },
+    {
+     "alinti": "Bugün ödemezseniz kârınız sıfırlanır",
+     "sinyal": "aciliyet"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.28129195561632514,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-yakin_06-011",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Kardesim benim",
+     "sinyal": "yakinlik_iddiasi"
+    },
+    {
+     "alinti": "495 TL lazim arkadasin hesabina at [IBAN] cok acil lutfen",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.24700001813471317,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-kargo_06-009",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "]site/odeme Hizmet  bedeli 128,00 TL",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Teslim almak  için kart bilgilerinizi doğrulayın hxxp://turnakargo-guvenlik[",
+     "sinyal": "kimlik_talebi"
+    },
+    {
+     "alinti": "hxxp://turnakargo-guvenlik[.]site/odeme",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 2.3154160007834435,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-kamu_07-000",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [
+    {
+     "alinti": "hakkınızda dolandırıcılık soruşturması başlatılmıştır",
+     "sinyal": "yetki_iddiasi"
+    },
+    {
+     "alinti": "Dosya numaranız için [TEL] numaralı savcılık hattını arayın",
+     "sinyal": "kanal_degistirme"
+    },
+    {
+     "alinti": "3 gün içinde aramazsanız gıyabınızda işlem yapılacaktır",
+     "sinyal": "aciliyet"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.3548330278135836,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-kurum_07-009",
+   "tur": "kurum_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Hessabınızı korumak için şifrenizi yenileyin pazaryolu-tr",
+     "sinyal": "kimlik_talebi"
+    },
+    {
+     "alinti": "xyz 2 saat içinde işlem yapılmazsa hesabınız silinir",
+     "sinyal": "aciliyet"
+    },
+    {
+     "alinti": "pazaryolu-tr.xyz",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1.765957975294441,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-yakin_07-009",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Abi yeni numaramı kaydet",
+     "sinyal": "yakinlik_iddiasi"
+    },
+    {
+     "alinti": "Kiramı yatıramadım 4",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "169 TL gönderir misin aramızda kalsın",
+     "sinyal": "gizlilik_baskisi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.1926659606397152,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-gorev_06-012",
+   "tur": "gorev_is_ilani",
+   "kanitlar": [
+    {
+     "alinti": "630,50 TL komisyon",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.2875839709304273,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-reklam_07-002",
+   "tur": "reklam_spam",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 1.7331669805571437,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-kurum_06-007",
+   "tur": "kurum_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Siz degilseniz hemen bilgilerinizi guncelleyin ilgazbankgiris",
+     "sinyal": "kimlik_talebi"
+    },
+    {
+     "alinti": "Ilgaz Bank: mobil subeniz yeni cihazda acildi",
+     "sinyal": "kurum_taklidi"
+    },
+    {
+     "alinti": "ilgazbankgiris.sbs/giris",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1.9381250021979213,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-oyun_07-003",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "abi oyun içi parayı yarı fiyatına satıyorum 3",
+     "sinyal": "yakinlik_iddiasi"
+    },
+    {
+     "alinti": "hesabına yüklemem için gelen kodu at moderatörlere söyleme banlarlar",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.2594590187072754,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-kamu_06-016",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [
+    {
+     "alinti": "İL EMNİYET MÜDÜRLÜĞÜ MALİ ŞUBE: SEDİRBANK KARTINIZ YASA DIŞI BAHİSTE KULLANILMIŞ",
+     "sinyal": "yetki_iddiasi"
+    },
+    {
+     "alinti": "HESABINIZIN DONDURULMAMASI İÇİN SMS İLE GELEN ONAY KODUNU SÖYLEYİN",
+     "sinyal": "kod_talebi"
+    },
+    {
+     "alinti": "ARAMIZDA KALSIN",
+     "sinyal": "gizlilik_baskisi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.28491602279245853,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-odul_06-000",
+   "tur": "odul_kampanya",
+   "kanitlar": [
+    {
+     "alinti": "Sadece 50,00 TL sigorta bedeil odeyin",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Sansli musterimiz secildiniz",
+     "sinyal": "odul_vaadi"
+    },
+    {
+     "alinti": "https://t.ly/Z7jEUld",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.8331249700859189,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-bahis_06-013",
+   "tur": "yasa_disi_bahis",
+   "kanitlar": [
+    {
+     "alinti": "542,99 TL yatir [TEL] WhatsApp",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Sike garantili mac listesi geldi",
+     "sinyal": "odul_vaadi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.2280839835293591,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-odul_06-002",
+   "tur": "odul_kampanya",
+   "kanitlar": [
+    {
+     "alinti": "Sadece 120,90₺ sigorta bedeli ödeyin",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Şanslı müşterimiz seçildiniz",
+     "sinyal": "odul_vaadi"
+    },
+    {
+     "alinti": "https://t.co/q6zocebt",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.8190830121748149,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-reklam_07-003",
+   "tur": "reklam_spam",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 1.7132499488070607,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-gorev_06-003",
+   "tur": "gorev_is_ilani",
+   "kanitlar": [
+    {
+     "alinti": "153 TL komisyon",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.27891702484339476,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-odul_07-006",
+   "tur": "odul_kampanya",
+   "kanitlar": [
+    {
+     "alinti": "Poyraz Kart musterilerine ozel: harcamalarinizin 2",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Iade icin CVV ve son kullanma tarihini girin poyrazkart-guvenlik[",
+     "sinyal": "kimlik_talebi"
+    },
+    {
+     "alinti": "704,99 TL'si iade edilecek",
+     "sinyal": "aciliyet"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 2.35016702208668,
+   "maliyet_usd": 0.0,
+   "ham": null
+  },
+  {
+   "id": "tes-reklam_07-012",
+   "tur": "reklam_spam",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 1.7177080153487623,
+   "maliyet_usd": 0.0,
+   "ham": null
+  }
+ ]
+}

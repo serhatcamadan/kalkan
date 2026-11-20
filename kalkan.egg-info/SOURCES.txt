@@ -13,8 +13,10 @@ kalkan.egg-info/requires.txt
 kalkan.egg-info/top_level.txt
 kalkan/backends/__init__.py
 tests/test_iskelet.py
+tests/test_metrics.py
 tests/test_normalize.py
 tests/test_pii.py
 tests/test_schema.py
 tests/test_signals.py
 tests/test_taxonomy.py
+tests/test_veri.py

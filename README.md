@@ -16,8 +16,9 @@ küçük model · fine-tuned küçük model · gpt-5.4-mini.
 | 1 | Repo iskeleti · dönüşüm spike'ı (B yolu + llama-server) · Mac + VPS benchmark | ✅ |
 | 2 | Taksonomi, şema, sinyaller, PII (52 test) | ✅ |
 | 3 | Sentetik veri (1.991 örnek, 77 şablon) + şablon bazlı bölme + 30 adversarial + veri kartı | ✅ (golden: Gemini ön-eleme + insan teyidi) |
-| 4 | Eval düzeneği + kural ve TF-IDF baseline | ⏳ |
-| 5–12 | Veri, eval, pipeline, fine-tune, güvenlik, demo, VPS, yazım | ⏳ |
+| 4 | Eval düzeneği + kural (golden makro-F1 0.89) ve TF-IDF (0.49) taban çizgileri | ✅ (dış set 🔄) |
+| 5 | Tam pipeline + yerel zero-shot 0.8B/2B | ⏳ |
+| 6–12 | Veri, eval, pipeline, fine-tune, güvenlik, demo, VPS, yazım | ⏳ |
 
 ## Hızlı başlangıç (şimdilik)
 ```bash
@@ -29,6 +30,7 @@ make test
 
 ## Belgeler
 - [Spike 01 — dönüşüm yolu](docs/spike-01-donusum.md)
+- [Eval raporu](docs/eval-report.md) · [Adım 4 notları](docs/adim-04-eval.md)
 - [Veri kartı](docs/veri-karti.md) · [Adım 3 notları](docs/adim-03-veri.md)
 - [Adım 2 notları](docs/adim-02-kurallar-iskelet.md)
 - [ADR-0001 dönüşüm yolu](docs/adr/0001-finetune-donusum-yolu.md) · [ADR-0002 llama-server](docs/adr/0002-yerel-calisma-zamani-llama-server.md) · [ADR-0003 IBAN](docs/adr/0003-iban-hem-pii-hem-kanit.md) · [ADR-0004 "güvenli" yasak](docs/adr/0004-guvenli-kelimesi-yasak.md)

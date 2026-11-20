@@ -1,5 +1,5 @@
-# KALKAN v3.0 · 2026-11-19
-.PHONY: llm-paket llm-iceri teyit veri veri-istatistik incele golden dis-veri token-olc spike gguf-2b bench-mac bench test lint clean-spike
+# KALKAN v4.0 · 2026-11-19
+.PHONY: eval eval-hizli rapor llm-paket llm-iceri teyit veri veri-istatistik incele golden dis-veri token-olc spike gguf-2b bench-mac bench test lint clean-spike
 spike:          ## Mac: Adım 1 dönüşüm spike'ı
 	bash training/spike/spike_convert.sh
 gguf-2b:        ## Mac: Qwen3.5-2B → .spike/gguf/C2B-Q4_K_M.gguf
@@ -35,3 +35,9 @@ llm-iceri:      ## Gemini cevabı data/golden/llm_cevap.json → kararlar
 	python tools/llm_inceleme.py iceri
 teyit:          ## yalnızca LLM'in işaretledikleri + 20 rastgele "doğru"
 	python tools/incele.py --teyit
+eval:           ## Adım 4: kural + tfidf, tüm setler (dış setler dahil) → eval/results
+	python -m eval.run_eval
+eval-hizli:     ## dış setleri atla
+	python -m eval.run_eval --set golden dogrulama adversarial
+rapor:          ## eval/results → docs/eval-report.md (otomatik bölüm)
+	python -m eval.report
