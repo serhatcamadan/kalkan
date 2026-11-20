@@ -1,5 +1,5 @@
-# KALKAN v1.3 · 2026-11-19
-.PHONY: spike gguf-2b bench-mac bench test lint clean-spike
+# KALKAN v2.0 · 2026-11-19
+.PHONY: token-olc spike gguf-2b bench-mac bench test lint clean-spike
 spike:          ## Mac: Adım 1 dönüşüm spike'ı
 	bash training/spike/spike_convert.sh
 gguf-2b:        ## Mac: Qwen3.5-2B → .spike/gguf/C2B-Q4_K_M.gguf
@@ -17,3 +17,5 @@ lint:
 clean-spike:
 	-ollama rm kalkan-spike-c kalkan-spike-a kalkan-spike-b kalkan-spike-d0
 	rm -rf .spike
+token-olc:      ## Mac: çıktı biçimlerinin token sayısı (Adım 2, P3)
+	python3 tools/token_olc.py --server .spike/llama.cpp/build/bin/llama-server --model .spike/gguf/C-Q4_K_M.gguf

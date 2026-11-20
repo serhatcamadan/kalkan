@@ -14,8 +14,9 @@ küçük model · fine-tuned küçük model · gpt-5.4-mini.
 | # | Adım | Durum |
 |---|---|---|
 | 1 | Repo iskeleti · dönüşüm spike'ı (B yolu + llama-server) · Mac + VPS benchmark | ✅ |
-| 2 | Taksonomi, şema, sinyaller, PII | 🔄 |
-| 3–12 | Veri, eval, pipeline, fine-tune, güvenlik, demo, VPS, yazım | ⏳ |
+| 2 | Taksonomi, şema, sinyaller, PII (52 test) | ✅ |
+| 3 | Sentetik veri + şablon bazlı bölme + adversarial set | ⏳ |
+| 4–12 | Veri, eval, pipeline, fine-tune, güvenlik, demo, VPS, yazım | ⏳ |
 
 ## Hızlı başlangıç (şimdilik)
 ```bash
@@ -27,7 +28,8 @@ make test
 
 ## Belgeler
 - [Spike 01 — dönüşüm yolu](docs/spike-01-donusum.md)
-- [ADR-0001 dönüşüm yolu](docs/adr/0001-finetune-donusum-yolu.md) · [ADR-0002 llama-server](docs/adr/0002-yerel-calisma-zamani-llama-server.md)
+- [Adım 2 notları](docs/adim-02-kurallar-iskelet.md)
+- [ADR-0001 dönüşüm yolu](docs/adr/0001-finetune-donusum-yolu.md) · [ADR-0002 llama-server](docs/adr/0002-yerel-calisma-zamani-llama-server.md) · [ADR-0003 IBAN](docs/adr/0003-iban-hem-pii-hem-kanit.md) · [ADR-0004 "güvenli" yasak](docs/adr/0004-guvenli-kelimesi-yasak.md)
 
 ## Lisans ve veri
 Gerçek kişisel veri kullanılmaz. Kurum adları kurgusaldır. Linkler hiçbir zaman ziyaret edilmez, yalnızca statik analiz yapılır.

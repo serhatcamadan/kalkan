@@ -1,0 +1,99 @@
+# KALKAN · taksonomi                                              v1 · 2026-11-19
+# Tek doğruluk kaynağı: tür ve sinyal kimlikleri burada. kalkan/schema.py'deki sabit listeler
+# bir testle (tests/test_taxonomy.py) bu dosyaya bağlıdır; biri değişirse test kırılır.
+# Kurum ve marka adları KURGUSALDIR (ADR adayı: gerçek kurum adı kullanmamak).
+
+surum: 1
+
+turler:
+  - id: sahte_kargo_gumruk
+    tanim: Gerçek olmayan bir gönderi için gümrük, adres güncelleme veya teslim ücreti istenir.
+    ipuclari: [küçük tutar (20–150 TL), "gümrükte bekliyor", "adres eksik", kısa link, 24 saat]
+    karisir: mesru_islem
+    ayirt_edici: Meşru kargo bildirimi takip numarası verir ama ödeme veya kart bilgisi İSTEMEZ.
+
+  - id: kurum_taklidi
+    tanim: Banka, operatör, e-devlet veya platform gibi bir kurum adına hesap/kart sorunu bildirilir.
+    ipuclari: [hesabınız askıya alındı, kartınız bloke, kimlik doğrulama, kurum adını içeren yabancı alan adı]
+    karisir: mesru_islem
+    ayirt_edici: Kurumlar SMS ile şifre/kart bilgisi istemez ve kendi alan adları dışında link vermez.
+
+  - id: sahte_kamu_gorevlisi
+    tanim: Polis, savcı, MASAK veya HERA/terör soruşturması bahanesiyle (çoğunlukla 60+) para veya kod istenir.
+    ipuclari: [soruşturma, savcılık, hesabınız terör örgütü tarafından kullanılıyor, paranızı güvene alın, kimseye söylemeyin]
+    karisir: kurum_taklidi
+    ayirt_edici: Yetki/soruşturma iddiası ve gizlilik baskısı bir aradadır; kamu görevlisi para veya kod istemez.
+
+  - id: yatirim_vip_grup
+    tanim: Borsa, kripto veya döviz için "VIP sinyal grubu", garantili kazanç, aracı kurum taklidi.
+    ipuclari: [garantili kazanç, "%300", VIP grup, Telegram/WhatsApp grubuna katıl, sınırlı kontenjan]
+    karisir: odul_kampanya
+    ayirt_edici: Karşılık bir yatırım/üyelik ve getiri vaadidir; çekiliş değil.
+
+  - id: yasa_disi_bahis
+    tanim: Lisanssız bahis/casino sitesi, deneme bonusu, şike/kesin maç tüyosu.
+    ipuclari: [deneme bonusu, yatırımsız bonus, kesin maç, giriş adresi değişti, güncel link]
+    karisir: reklam_spam
+    ayirt_edici: Sürekli değişen giriş adresi ve bahis/casino terimleri.
+
+  - id: oyun_hesap_skin
+    tanim: Oyun hesabı, skin, oyun parası (CS2/Steam vb.) üzerinden hesap ele geçirme veya ödeme.
+    ipuclari: [ücretsiz skin, trade teklifi, hesabın yasaklanacak, Steam Guard kodu, oy ver linki]
+    karisir: odul_kampanya
+    ayirt_edici: Oyun platformu bağlamı ve hesap girişi/kod talebi.
+
+  - id: odul_kampanya
+    tanim: Kazanılmamış bir çekiliş, hediye, puan veya iade için küçük bir ücret ya da bilgi istenir.
+    ipuclari: [tebrikler kazandınız, kargo bedeli, puanlarınız silinecek, son gün]
+    karisir: reklam_spam
+    ayirt_edici: Kazanım iddiası + ödeme/bilgi talebi. Reklam bir şey satar, ödül tuzağı "kazandın" der.
+
+  - id: yakin_taklidi
+    tanim: Aile üyesi veya arkadaş gibi davranan, yeni numaradan acil para isteyen mesaj.
+    ipuclari: [anne/baba/kanka, yeni numaram, telefonum bozuldu, acil para, kimseye söyleme]
+    karisir: null
+    ayirt_edici: Yakınlık hitabı + yeni numara + acil havale.
+
+  - id: gorev_is_ilani
+    tanim: Evden kolay iş, beğeni/yorum görevleri; önce küçük kazanç, sonra "seviye" için ödeme istenir.
+    ipuclari: [evden çalış, günlük kazanç, beğeni görevi, kayıt ücreti, seviye atla]
+    karisir: yatirim_vip_grup
+    ayirt_edici: Karşılık bir iş/görevdir; ödeme "başlangıç/seviye ücreti" diye istenir.
+
+  - id: reklam_spam
+    tanim: İstenmeyen ama dolandırıcılık niteliği taşımayan ticari ileti. (zor negatif)
+    ipuclari: [indirim, kampanya, RET yazıp gönderin, İYS, mağaza adı]
+    karisir: odul_kampanya
+    ayirt_edici: Ödeme/kimlik/kod istemez; ret mekanizması içerir.
+
+  - id: mesru_islem
+    tanim: Gerçek tek kullanımlık şifre, kargo, randevu veya işlem bildirimi. (zor negatif)
+    ipuclari: [doğrulama kodunuz, kimseyle paylaşmayın, takip no, işleminiz gerçekleşmiştir]
+    karisir: kurum_taklidi
+    ayirt_edici: Bilgi verir, bir şey İSTEMEZ. "Kodu kimseyle paylaşmayın" uyarısı meşruiyet işaretidir.
+
+sinyaller:  # modelin kanıta iliştireceği etiketler (mesajdan birebir alıntıyla)
+  - {id: odeme_talebi, tanim: "Para, ücret, havale/EFT veya kart ile ödeme talebi"}
+  - {id: kod_talebi, tanim: "Tek kullanımlık şifre, doğrulama veya Steam Guard kodunu paylaşma talebi"}
+  - {id: kimlik_talebi, tanim: "Şifre, TC no, kart bilgisi veya giriş yapma talebi"}
+  - {id: aciliyet, tanim: "Süre baskısı veya tehdit (24 saat, hemen, iptal edilecek)"}
+  - {id: kurum_taklidi, tanim: "Bir kurum/marka adına konuşma iddiası"}
+  - {id: yetki_iddiasi, tanim: "Polis, savcı, MASAK gibi resmi yetki iddiası"}
+  - {id: odul_vaadi, tanim: "Kazanç, hediye, bonus veya garantili getiri vaadi"}
+  - {id: gizlilik_baskisi, tanim: "Kimseye söyleme, bankayı arama gibi yalnızlaştırma"}
+  - {id: kanal_degistirme, tanim: "WhatsApp/Telegram grubuna geç, şu numarayı ara, uygulama kur"}
+  - {id: yakinlik_iddiasi, tanim: "Aile/arkadaş gibi hitap, yeni numara iddiası"}
+  - {id: link, tanim: "Tıklanması istenen bağlantı"}
+
+risk_seviyeleri: [yuksek, orta, dusuk, belirsiz]   # model üretmez, politika kodu üretir
+
+# Deterministik sinyaller için listeler (signals.py)
+kurgusal_markalar:   # ad → resmi alan adları. Eğitim ve test setinde FARKLI adlar kullanılacak (Adım 3).
+  mavibank: [mavibank.com.tr]
+  kuzeykart: [kuzeykart.com.tr]
+  hizlikargo: [hizlikargo.com.tr]
+  edevlet-ornek: [edevlet-ornek.gov.tr]
+
+kisa_link_alanlari: [bit.ly, tinyurl.com, t.ly, cutt.ly, is.gd, shorturl.at, rebrand.ly, s.id, t.co,
+                     ow.ly, rb.gy, tiny.cc, goo.su, clck.ru, qr.ae, bitly.ws, shrtco.de, v.gd]
+supheli_tld: [top, xyz, click, icu, live, shop, online, site, buzz, monster, rest, cfd, sbs, cyou, vip, win, loan]

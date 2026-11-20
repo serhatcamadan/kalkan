@@ -1,9 +1,11 @@
 Metadata-Version: 2.4
 Name: kalkan
-Version: 0.1.0
+Version: 0.2.0
 Summary: Türkçe dolandırıcılık mesajı analizcisi — kanıt önce, fail-closed
 Requires-Python: >=3.11
 Description-Content-Type: text/markdown
+Requires-Dist: pydantic<3,>=2.13
+Requires-Dist: pyyaml>=6.0
 Provides-Extra: dev
 Requires-Dist: pytest>=8; extra == "dev"
 Requires-Dist: ruff>=0.6; extra == "dev"
@@ -23,20 +25,23 @@ küçük model · fine-tuned küçük model · gpt-5.4-mini.
 ## Durum
 | # | Adım | Durum |
 |---|---|---|
-| 1 | Repo iskeleti + dönüşüm spike'ı + VPS benchmark | 🔄 |
-| 2 | Taksonomi, şema, sinyaller, PII | ⏳ |
-| 3–12 | Veri, eval, pipeline, fine-tune, güvenlik, demo, VPS, yazım | ⏳ |
+| 1 | Repo iskeleti · dönüşüm spike'ı (B yolu + llama-server) · Mac + VPS benchmark | ✅ |
+| 2 | Taksonomi, şema, sinyaller, PII (52 test) | ✅ |
+| 3 | Sentetik veri + şablon bazlı bölme + adversarial set | ⏳ |
+| 4–12 | Veri, eval, pipeline, fine-tune, güvenlik, demo, VPS, yazım | ⏳ |
 
 ## Hızlı başlangıç (şimdilik)
 ```bash
 make spike          # Mac (Apple Silicon): MLX LoRA → GGUF → Ollama boru hattı testi
-make bench          # VPS: Ollama gecikme/RAM ölçümü
+make bench-mac      # Mac: llama-server gecikme ölçümü
+# VPS: deploy/ içinde → bash bench_vps.sh
 make test
 ```
 
 ## Belgeler
 - [Spike 01 — dönüşüm yolu](docs/spike-01-donusum.md)
-- [ADR'ler](docs/adr/)
+- [Adım 2 notları](docs/adim-02-kurallar-iskelet.md)
+- [ADR-0001 dönüşüm yolu](docs/adr/0001-finetune-donusum-yolu.md) · [ADR-0002 llama-server](docs/adr/0002-yerel-calisma-zamani-llama-server.md) · [ADR-0003 IBAN](docs/adr/0003-iban-hem-pii-hem-kanit.md) · [ADR-0004 "güvenli" yasak](docs/adr/0004-guvenli-kelimesi-yasak.md)
 
 ## Lisans ve veri
 Gerçek kişisel veri kullanılmaz. Kurum adları kurgusaldır. Linkler hiçbir zaman ziyaret edilmez, yalnızca statik analiz yapılır.

@@ -1,11 +1,11 @@
 # KALKAN v1 · 2026-11-18
 [project]
 name = "kalkan"
-version = "0.1.0"
+version = "0.2.0"
 description = "Türkçe dolandırıcılık mesajı analizcisi — kanıt önce, fail-closed"
 readme = "README.md"
 requires-python = ">=3.11"
-dependencies = []          # Adım 2'de: pydantic, pyyaml, httpx
+dependencies = ["pydantic>=2.13,<3", "pyyaml>=6.0"]   # httpx: Adım 5
 
 [project.optional-dependencies]
 dev = ["pytest>=8", "ruff>=0.6"]
@@ -16,3 +16,10 @@ testpaths = ["tests"]
 [tool.ruff]
 line-length = 120
 target-version = "py311"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["kalkan*"]
