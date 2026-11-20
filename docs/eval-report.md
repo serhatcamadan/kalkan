@@ -7,6 +7,9 @@ Elle yazılan yorumlar bu bölümün DIŞINA yazılır; `python -m eval.report` 
   yeni şablonlara genelleyemiyor (0.49). Kural modeli 0.89, ama doğrulamaya göre ayarlandığı için iyimser.
 - Kanıt üretebilen tek taban çizgisi kural modeli. LLM'lerden beklenen: tür makro-F1'de kuralı geçmek ve kanıt
   eşleşmesinde 0.71'in üstüne çıkmak, adversarial sızıntıyı 0'a indirmek.
+- **Dış set uyarısı:** OLTA-TR'de kural modeli ayırt edemiyor (recall 0.20 ≈ FPR 0.19), TF-IDF meşru e-postaların
+  yarısına alarm veriyor (FPR 0.51). Sentetik golden'daki başarı gerçek dağılıma taşınmıyor. Model seçiminde dış set
+  sonuçları golden kadar ağırlık taşıyacak.
 - Ayrıntı ve tahmin karnesi: `docs/adim-04-eval.md`.
 
 <!-- OTOMATIK:BAS -->

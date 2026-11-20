@@ -35,6 +35,21 @@ Adversarial'dan çıkan TEK değişiklik bir veri akışı hatasıydı (aşağı
 5. Kural modelinin kanıt alıntıları tasarım gereği %100 birebir. Ama altın kanıtlarla eşleşme F1'i 0.71: doğru yeri
    buluyor, sınırları ve sinyal etiketi kaba. TF-IDF hiç kanıt üretmiyor (**H3 ✅**: tür bulur, nedenini söyleyemez).
 
-## Açık: dış setler (Serhat'ın makinesinde çalışacak)
-`make eval` → OLTA-TR (18.305) ve UCI (825) satırları rapora eklenecek. Beklenti: kural recall'u e-postada düşer,
-TF-IDF daha da düşer (SMS'te eğitildi, e-posta uzun ve farklı dağılımda).
+## Dış setler (2026-11-20, M4)
+| model | OLTA recall | OLTA meşru FPR | ayırt etme (recall − FPR) | UCI spam→alarm | UCI normal→alarm |
+|---|---|---|---|---|---|
+| kural | 0.197 | 0.195 | **0.002** | 0.395 | 0.321 |
+| tfidf | 0.721 | 0.510 | **0.211** | 0.708 | 0.758 |
+
+Tahmin: "ikisi de belirgin düşer, TF-IDF daha çok" → düşüş ✅, sıralama ❌ (TF-IDF recall'u daha yüksek, ama meşru
+e-postaların yarısına alarm veriyor).
+
+6. **Sentetik SMS'te öğrenilen hiçbir şey e-postaya taşınmadı.** Kural modelinin recall'u ile FPR'si neredeyse eşit:
+   yazı-tura atmaktan farkı yok (recall − FPR ≈ 0). Kurallar SMS'in kalıplarına yazılmış ("24 saat içinde ödeyin"),
+   oltalama e-postası başka cümlelerle konuşuyor. TF-IDF ise "uzun ve resmi metin = şüpheli" gibi görünen bir yüzey
+   kestirmesi öğrenmiş: UCI'da normal e-postaya spam'den DAHA SIK alarm veriyor (0.76 > 0.71).
+7. **Sonuç:** Sentetik golden'daki ✅'ler gerçek dünyayı temsil etmiyor. Model seçiminde dış set sonuçları en az golden
+   kadar ağırlık taşımalı. Bu, H1'in ikinci yarısını ("fine-tuned küçük model dış sette daha çok düşer") test etmenin
+   zeminini hazırlıyor: fine-tune da aynı sentetik veriden öğrenecek. LLM'lerin dünya bilgisi burada sınanacak.
+8. Not: UCI "spam" ≠ dolandırıcılık. Oradaki alarm oranları ikili bir doğru/yanlış değil, "spam'e daha çok mu alarm
+   veriyor" sorusunun göstergesi.

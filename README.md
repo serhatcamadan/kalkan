@@ -16,7 +16,7 @@ küçük model · fine-tuned küçük model · gpt-5.4-mini.
 | 1 | Repo iskeleti · dönüşüm spike'ı (B yolu + llama-server) · Mac + VPS benchmark | ✅ |
 | 2 | Taksonomi, şema, sinyaller, PII (52 test) | ✅ |
 | 3 | Sentetik veri (1.991 örnek, 77 şablon) + şablon bazlı bölme + 30 adversarial + veri kartı | ✅ (golden: Gemini ön-eleme + insan teyidi) |
-| 4 | Eval düzeneği + kural (golden makro-F1 0.89) ve TF-IDF (0.49) taban çizgileri | ✅ (dış set 🔄) |
+| 4 | Eval düzeneği + kural (golden 0.89 / OLTA recall 0.20) ve TF-IDF (golden 0.49 / OLTA FPR 0.51) taban çizgileri | ✅ |
 | 5 | Tam pipeline + yerel zero-shot 0.8B/2B | ⏳ |
 | 6–12 | Veri, eval, pipeline, fine-tune, güvenlik, demo, VPS, yazım | ⏳ |
 
