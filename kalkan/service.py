@@ -25,7 +25,7 @@ from .istem import sistem_istemi
 from .normalize import Metin
 from .pii import maskele
 from .policy import karar_ver
-from .schema import Kanit, ModelCiktisi, SistemCevabi
+from .schema import ALINTI_MAKS, KANIT_MAKS, Kanit, ModelCiktisi, SistemCevabi
 from .signals import cikar, maske_araliklari
 
 GIRDI_MAKS = 2000
@@ -44,6 +44,7 @@ class Iz:
     cikti_token: int
     ham_cikti: str | None
     kesildi: bool = False
+    onbellek_token: int = 0
 
 
 def analiz(ham: str, arka_uc, trace_id: str | None = None) -> tuple[SistemCevabi, Iz]:
@@ -61,7 +62,12 @@ def analiz(ham: str, arka_uc, trace_id: str | None = None) -> tuple[SistemCevabi
         hata = cevap.hata or ("kesildi" if cevap.kesildi else None)
         if cevap.metin is not None:
             try:
-                cikti = ModelCiktisi.model_validate(json.loads(cevap.metin))
+                d = json.loads(cevap.metin)
+                if isinstance(d, dict) and isinstance(d.get("kanitlar"), list):
+                    # Şema sınırlarını uygulayamayan sağlayıcılar için (bazı strict modlar maxItems/maxLength
+                    # desteklemez): fazlası ve 80 karakteri aşan alıntı atılır, tüm cevap çöpe gitmez.
+                    d["kanitlar"] = [k for k in d["kanitlar"] if len(str((k or {}).get("alinti", ""))) <= ALINTI_MAKS][:KANIT_MAKS]
+                cikti = ModelCiktisi.model_validate(d)
                 tur, ham_kanitlar, json_gecerli = cikti.tur, cikti.kanitlar, True
             except (ValueError, ValidationError) as e:
                 hata = ("kesildi; " if cevap.kesildi else "") + f"sema: {str(e)[:120]}"
@@ -73,7 +79,7 @@ def analiz(ham: str, arka_uc, trace_id: str | None = None) -> tuple[SistemCevabi
                          oneri_kodu=k.oneri_kodu, mesaj=k.mesaj, dusurulen_kanit=len(dusen))
     iz = Iz(maskeli, ham_kanitlar, tur.value if tur else None, json_gecerli, hata,
             cevap.sure_ms if cevap else 0.0, cevap.girdi_token if cevap else 0, cevap.cikti_token if cevap else 0,
-            cevap.metin if cevap else None, bool(cevap and cevap.kesildi))
+            cevap.metin if cevap else None, bool(cevap and cevap.kesildi), cevap.onbellek_token if cevap else 0)
     return sonuc, iz
 
 

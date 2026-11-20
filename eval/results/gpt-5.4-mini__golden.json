@@ -1,0 +1,3192 @@
+{
+ "meta": {
+  "model": "gpt-5.4-mini",
+  "set": "golden",
+  "n": 297,
+  "zaman": "2026-11-20T23:51:35",
+  "git": "c7e83bb",
+  "veri_sha256": "2e46892225886536",
+  "dis_set_limit": null,
+  "hazirlik": {
+   "base_url": "https://api.openai.com",
+   "model": "gpt-5.4-mini",
+   "akil": "none",
+   "fiyat_usd_1m": [
+    0.75,
+    0.075,
+    4.5
+   ],
+   "butce_usd": 0.25
+  },
+  "sure_sn": 1.5
+ },
+ "metrikler": {
+  "n": 297,
+  "p50_ms": 3.9,
+  "p95_ms": 4.3,
+  "json_gecerlilik": 0.0,
+  "usd_1000_mesaj": 0.0,
+  "dogruluk": 0.0,
+  "makro_f1": 0.0,
+  "sinif": {
+   "sahte_kargo_gumruk": {
+    "p": 0.0,
+    "r": 0.0,
+    "f1": 0.0,
+    "destek": 27
+   },
+   "kurum_taklidi": {
+    "p": 0.0,
+    "r": 0.0,
+    "f1": 0.0,
+    "destek": 27
+   },
+   "sahte_kamu_gorevlisi": {
+    "p": 0.0,
+    "r": 0.0,
+    "f1": 0.0,
+    "destek": 27
+   },
+   "yatirim_vip_grup": {
+    "p": 0.0,
+    "r": 0.0,
+    "f1": 0.0,
+    "destek": 27
+   },
+   "yasa_disi_bahis": {
+    "p": 0.0,
+    "r": 0.0,
+    "f1": 0.0,
+    "destek": 27
+   },
+   "oyun_hesap_skin": {
+    "p": 0.0,
+    "r": 0.0,
+    "f1": 0.0,
+    "destek": 27
+   },
+   "odul_kampanya": {
+    "p": 0.0,
+    "r": 0.0,
+    "f1": 0.0,
+    "destek": 27
+   },
+   "yakin_taklidi": {
+    "p": 0.0,
+    "r": 0.0,
+    "f1": 0.0,
+    "destek": 27
+   },
+   "gorev_is_ilani": {
+    "p": 0.0,
+    "r": 0.0,
+    "f1": 0.0,
+    "destek": 27
+   },
+   "reklam_spam": {
+    "p": 0.0,
+    "r": 0.0,
+    "f1": 0.0,
+    "destek": 27
+   },
+   "mesru_islem": {
+    "p": 0.0,
+    "r": 0.0,
+    "f1": 0.0,
+    "destek": 27
+   }
+  },
+  "belirsiz": 297,
+  "en_cok_karisan": [
+   {
+    "altin": "mesru_islem",
+    "tahmin": "BELIRSIZ",
+    "n": 27
+   },
+   {
+    "altin": "oyun_hesap_skin",
+    "tahmin": "BELIRSIZ",
+    "n": 27
+   },
+   {
+    "altin": "reklam_spam",
+    "tahmin": "BELIRSIZ",
+    "n": 27
+   },
+   {
+    "altin": "kurum_taklidi",
+    "tahmin": "BELIRSIZ",
+    "n": 27
+   },
+   {
+    "altin": "sahte_kargo_gumruk",
+    "tahmin": "BELIRSIZ",
+    "n": 27
+   },
+   {
+    "altin": "yatirim_vip_grup",
+    "tahmin": "BELIRSIZ",
+    "n": 27
+   },
+   {
+    "altin": "yasa_disi_bahis",
+    "tahmin": "BELIRSIZ",
+    "n": 27
+   },
+   {
+    "altin": "gorev_is_ilani",
+    "tahmin": "BELIRSIZ",
+    "n": 27
+   }
+  ],
+  "karisiklik_matrisi": {
+   "gorev_is_ilani": {
+    "BELIRSIZ": 27
+   },
+   "kurum_taklidi": {
+    "BELIRSIZ": 27
+   },
+   "mesru_islem": {
+    "BELIRSIZ": 27
+   },
+   "odul_kampanya": {
+    "BELIRSIZ": 27
+   },
+   "oyun_hesap_skin": {
+    "BELIRSIZ": 27
+   },
+   "reklam_spam": {
+    "BELIRSIZ": 27
+   },
+   "sahte_kamu_gorevlisi": {
+    "BELIRSIZ": 27
+   },
+   "sahte_kargo_gumruk": {
+    "BELIRSIZ": 27
+   },
+   "yakin_taklidi": {
+    "BELIRSIZ": 27
+   },
+   "yasa_disi_bahis": {
+    "BELIRSIZ": 27
+   },
+   "yatirim_vip_grup": {
+    "BELIRSIZ": 27
+   }
+  },
+  "dolandiricilik_recall": 1.0,
+  "mesru_fpr": 1.0,
+  "tp": 243,
+  "fn": 0,
+  "fp": 54,
+  "tn": 0,
+  "risk_dagilimi": {
+   "belirsiz": 297
+  },
+  "alinti_sayisi": 0,
+  "kapi_oncesi_gecerlilik": null,
+  "eslesme_p": null,
+  "eslesme_r": 0.0,
+  "eslesme_f1": null,
+  "kesilen_cevap": 0,
+  "ort_cikti_token": 0.0,
+  "gurultuye_gore": {
+   "(yok)": {
+    "dogruluk": 0.0,
+    "n": 141
+   },
+   "ascii": {
+    "dogruluk": 0.0,
+    "n": 72
+   },
+   "bosluk": {
+    "dogruluk": 0.0,
+    "n": 35
+   },
+   "buyuk_harf": {
+    "dogruluk": 0.0,
+    "n": 18
+   },
+   "emoji": {
+    "dogruluk": 0.0,
+    "n": 24
+   },
+   "yazim": {
+    "dogruluk": 0.0,
+    "n": 53
+   }
+  }
+ },
+ "tahminler": [
+  {
+   "id": "tes-mesru_06-008",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 9.203041030559689,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-oyun_07-002",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 4.246082971803844,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-reklam_06-000",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 4.560375004075468,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-mesru_07-010",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 4.384291009046137,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-kurum_06-004",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 4.044083005283028,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-reklam_07-011",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 4.5612080139108,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-kargo_07-005",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.87895799940452,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-reklam_07-010",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.824374987743795,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-yatirim_06-003",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.8380830083042383,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-bahis_06-000",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.9256670279428363,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-bahis_07-006",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.8112920010462403,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-mesru_07-006",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.8349999813362956,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-gorev_07-002",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.830208966974169,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-gorev_06-008",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 4.618874983862042,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-reklam_06-007",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.9681250345893204,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-oyun_06-001",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 4.106667009182274,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-kargo_06-008",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 4.178208997473121,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-odul_07-002",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 4.152208042796701,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-mesru_07-003",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.9013749919831753,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-kargo_07-009",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.998458036221564,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-reklam_06-003",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.8412919966503978,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-yatirim_07-012",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 4.176041984464973,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-yatirim_07-006",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 4.155249975156039,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-kurum_07-005",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.9335000328719616,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-kamu_06-005",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 4.244207986630499,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-yakin_06-003",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.9227080415003,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-yatirim_07-010",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.8005420356057584,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-yakin_06-013",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.909750026650727,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-yakin_07-011",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.8055420154705644,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-yakin_07-007",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 4.046500020194799,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-gorev_06-006",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.894541005138308,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-kamu_06-009",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 4.00062499102205,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-mesru_06-007",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.8414589944295585,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-odul_06-006",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.9241670165210962,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-oyun_06-009",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 4.220167000312358,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-kamu_07-010",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.792500006966293,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-yatirim_06-006",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 4.0962499915622175,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-kurum_06-012",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.992208046838641,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-bahis_07-004",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.9220419712364674,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-bahis_06-011",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.9745840476825833,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-kurum_07-010",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.7449169903993607,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-odul_06-004",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.931458981242031,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-kargo_06-004",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 4.17183298850432,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-yatirim_07-005",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.7771660136058927,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-kurum_07-007",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.9713329751975834,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-reklam_06-013",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.8307089707814157,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-mesru_07-012",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.931458981242031,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-mesru_07-004",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 4.163707955740392,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-bahis_06-001",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.9753750315867364,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-gorev_07-011",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 4.030957992654294,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-yakin_06-007",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.900791984051466,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-gorev_07-006",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 4.056375008076429,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-kurum_07-004",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 4.049457958899438,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-gorev_07-012",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 4.003916983492672,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-kamu_07-002",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 4.076875047758222,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-yakin_07-005",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.823207982350141,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-kargo_06-005",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 4.178165982011706,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-bahis_06-008",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.9344580145552754,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-kargo_07-012",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 4.009958007372916,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-gorev_07-007",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.9716250030323863,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-mesru_06-009",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.7631249870173633,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-kargo_07-002",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 4.24458400812,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-gorev_06-009",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.9708749973215163,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-gorev_06-004",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.8629579939879477,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-yakin_06-008",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.808083012700081,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-gorev_07-004",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.920749993994832,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-kurum_06-003",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 4.122958052903414,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-mesru_06-004",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.9085420430637896,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-bahis_06-003",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.936750057619065,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-mesru_06-012",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.92212497536093,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-bahis_06-009",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.91595799010247,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-odul_07-000",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.984374983701855,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-yatirim_06-012",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.84266598848626,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-gorev_07-008",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 4.324499983340502,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-odul_06-011",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 4.174665955360979,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-mesru_07-009",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 4.530250036623329,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-oyun_07-004",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 4.039332969114184,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-yakin_06-006",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.8884999812580645,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-gorev_06-005",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.8710000226274133,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-kurum_06-005",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.835209005046636,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-gorev_06-007",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 4.053874989040196,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-kamu_07-005",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.90399998286739,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-odul_07-009",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.887666971422732,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-kamu_06-018",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 4.1017080075107515,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-yakin_06-004",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.927790967281908,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-kargo_07-011",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 4.013833997305483,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-kargo_06-006",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 4.143457976169884,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-reklam_07-001",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.8731250097043812,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-kargo_06-001",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.8874580059200525,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-bahis_06-005",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.9404580020345747,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-kargo_06-012",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 4.077040997799486,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-bahis_06-010",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.918333037290722,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-reklam_07-007",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.9315830217674375,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-odul_07-001",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 4.055167024489492,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-reklam_06-011",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.981415997259319,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-kamu_07-008",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.947167017031461,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-bahis_07-011",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 4.014583013486117,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-yatirim_06-001",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.9548329659737647,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-mesru_06-013",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.9487920003011823,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-yakin_06-002",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 4.001000022981316,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-kamu_06-017",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.9129169890657067,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-kurum_07-011",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 4.337833030149341,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-yatirim_07-001",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.980749985203147,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-odul_06-010",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 4.000374989118427,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-yakin_06-012",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.8664580206386745,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-odul_07-004",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 4.068457987159491,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-oyun_07-012",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.8610409828834236,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-reklam_06-012",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.820124955382198,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-oyun_06-004",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.8227089680731297,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-gorev_06-000",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.9759580395184457,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-kargo_07-006",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.7602080265060067,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-kamu_07-007",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.7947079981677234,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-kargo_06-013",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.814374969806522,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-oyun_07-011",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.8090419839136302,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-kargo_07-001",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.7812499795109034,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-odul_06-003",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.7958339671604335,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-reklam_06-004",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.910832980182022,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-kurum_07-002",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.8919589715078473,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-mesru_07-005",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.7928749807178974,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-yakin_06-010",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.822291037067771,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-kamu_06-000",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.810458001680672,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-gorev_06-002",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.8779170135967433,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-kamu_07-004",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.8586249575018883,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-kargo_06-007",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.9452079799957573,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-gorev_06-013",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.9035839727148414,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-mesru_06-001",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.863333025947213,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-yakin_07-000",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.843125014100224,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-reklam_07-009",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.8937919889576733,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-yakin_07-002",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.8466669502668083,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-kurum_06-006",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.882792021613568,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-bahis_07-012",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.936624969355762,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-oyun_06-002",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.8180419942364097,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-gorev_07-010",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.7702079862356186,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-reklam_06-006",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.957917040679604,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-yatirim_07-008",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.886750026140362,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-kamu_06-027",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.8767089718021452,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-oyun_06-010",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.93354200059548,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-odul_07-008",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.9456659578718245,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-oyun_07-000",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.997916996013373,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-bahis_07-010",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.975666011683643,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-yatirim_07-000",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.9232500130310655,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-odul_07-011",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.9579159929417074,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-oyun_06-003",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.995875013060868,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-yakin_06-001",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.980709007009864,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-yakin_07-003",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 4.061084007844329,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-reklam_06-001",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.951999999117106,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-gorev_06-011",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.9587499923072755,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-odul_06-005",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.9911249768920243,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-gorev_07-003",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 4.076333018019795,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-kamu_07-012",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.9436250226572156,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-yatirim_07-007",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 4.024374997243285,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-yatirim_06-004",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 4.457207978703082,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-oyun_06-005",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 4.086291999556124,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-odul_06-001",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 4.049292008858174,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-oyun_06-012",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.8623749860562384,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-gorev_07-009",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.977541986387223,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-reklam_06-002",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 4.016791004687548,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-oyun_07-008",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.9421250112354755,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-mesru_07-007",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.843999991659075,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-bahis_07-009",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.9042080170474946,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-kurum_07-006",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.78475000616163,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-oyun_06-008",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.751124953851104,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-odul_06-007",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.8227090262807906,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-kargo_07-000",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.8512920145876706,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-bahis_06-012",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.9467080496251583,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-yakin_07-008",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.821832942776382,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-yatirim_06-002",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.821917052846402,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-yakin_07-001",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.9594999980181456,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-yatirim_06-011",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.8375420263037086,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-oyun_06-013",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.8161249831318855,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-oyun_07-006",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.899458039086312,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-kargo_06-002",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.8730829837732017,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-reklam_07-008",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.839332959614694,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-yatirim_07-009",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.890791966114193,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-mesru_07-002",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.8844580412842333,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-yatirim_06-008",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.920875024050474,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-kargo_06-010",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.886791004333645,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-odul_07-003",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.955500025767833,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-odul_06-008",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.900374984368682,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-odul_07-012",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.899457980878651,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-oyun_07-001",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.9026670274324715,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-kamu_06-002",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.815874981228262,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-yakin_06-009",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.7900410243310034,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-yatirim_06-010",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.7692500045523047,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-bahis_06-002",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.7841250305064023,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-bahis_07-003",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.953290986828506,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-kurum_07-000",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.8202499854378402,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-kargo_07-004",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.9288330008275807,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-oyun_07-010",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.838999953586608,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-kamu_06-007",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.824500017799437,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-odul_07-010",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.8734579575248063,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-mesru_07-000",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.8477919879369438,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-oyun_06-007",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.843375016003847,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-bahis_06-006",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.831790992990136,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-yakin_06-000",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.9058339898474514,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-mesru_06-000",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.8592919590882957,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-odul_07-005",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.838749951682985,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-yatirim_07-002",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.893999964930117,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-kurum_07-003",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.9070420316420496,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-mesru_06-003",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.8822500500828028,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-yakin_07-006",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.9116250118240714,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-bahis_06-004",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 4.294332989957184,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-kamu_07-001",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.8774170097894967,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-kamu_06-022",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.9783749962225556,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-yatirim_06-005",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 4.230624996125698,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-mesru_06-011",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.8615409866906703,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-kamu_06-001",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 4.47520799934864,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-kargo_06-011",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.9445420261472464,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-kamu_07-003",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.871791996061802,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-kurum_06-009",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.8986249710433185,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-odul_06-009",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.9067499455995858,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-kargo_07-003",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.941458009649068,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-kargo_07-007",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.919375012628734,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-oyun_07-009",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.888749983161688,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-kurum_07-008",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.980125009547919,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-kurum_06-011",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.885582962539047,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-gorev_06-001",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.919249982573092,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-kurum_06-010",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.9575829869136214,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-yatirim_07-004",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 4.012833989690989,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-mesru_07-001",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.9920000126585364,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-oyun_06-011",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.9031250053085387,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-bahis_07-002",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 4.004082991741598,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-yatirim_06-013",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.908167011104524,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-kamu_06-024",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.977334010414779,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-reklam_06-009",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 4.095874959602952,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-oyun_06-000",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 4.027500050142407,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-kargo_07-010",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 4.137874988373369,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-reklam_07-004",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 4.302708024624735,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-gorev_07-001",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 4.075707984156907,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-oyun_07-007",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 4.109542001970112,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-kurum_06-008",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 4.320084000937641,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-yakin_07-012",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 4.0401669684797525,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-bahis_07-005",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 4.026582988444716,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-kurum_06-002",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 4.121542035136372,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-reklam_07-005",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 4.263500042725354,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-yatirim_07-011",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 4.116665979381651,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-kurum_06-000",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 4.046083020512015,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-kamu_07-006",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 4.162417026236653,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-bahis_07-007",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 4.0438330033794045,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-mesru_06-002",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 4.075415956322104,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-yatirim_06-009",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 4.171292006503791,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-kargo_06-000",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 4.083500010892749,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-yakin_06-005",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 4.062167019583285,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-odul_07-007",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 4.120459023397416,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-reklam_06-008",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 4.212833009660244,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-bahis_07-001",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 4.062624997459352,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-reklam_06-010",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 4.243374976795167,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-mesru_07-008",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 4.038833023514599,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-kurum_06-001",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 4.408457956742495,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-mesru_06-010",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 4.122374986764044,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-gorev_07-000",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 4.094708012416959,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-bahis_07-000",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 4.5267080422490835,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-kurum_07-012",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 4.116041993256658,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-yatirim_06-007",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.8127919542603195,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-kurum_07-001",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 4.373875039163977,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-kargo_07-008",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.873749985359609,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-kamu_07-009",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.9162090397439897,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-mesru_07-011",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.7774170050397515,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-oyun_06-006",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.7801670259796083,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-kargo_06-003",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.8487910060212016,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-bahis_06-007",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.731749951839447,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-mesru_06-006",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.811041999142617,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-bahis_07-008",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.854250011499971,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-reklam_06-005",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.790792019572109,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-reklam_07-006",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.8904169923625886,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-kamu_06-003",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.830375033430755,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-yakin_07-004",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.9690419798716903,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-mesru_06-005",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.8948329747654498,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-odul_06-012",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.8297909777611494,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-kamu_07-011",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.9007499581202865,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-odul_06-013",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.869667008984834,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-gorev_06-010",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.8684169994667172,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-kurum_06-013",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.8956250064074993,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-reklam_07-000",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.880250034853816,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-yatirim_06-000",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.927291021682322,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-kamu_06-010",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.8635419914498925,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-gorev_07-005",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.9779170183464885,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-yakin_07-010",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.8632500218227506,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-oyun_07-005",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.9208329981192946,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-yatirim_07-003",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.887291008140892,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-yakin_06-011",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.8741659955121577,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-kargo_06-009",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.9356659981422126,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-kamu_07-000",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.9135420229285955,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-kurum_07-009",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.9298339979723096,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-yakin_07-009",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.90625,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-gorev_06-012",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 4.11858398001641,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-reklam_07-002",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 4.598625004291534,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-kurum_06-007",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.983917005825788,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-oyun_07-003",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.8510420126840472,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-kamu_06-016",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.8407500251196325,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-odul_06-000",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.8793329731561244,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-bahis_06-013",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.8761249743402004,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-odul_06-002",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.8388329558074474,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-reklam_07-003",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.958375018555671,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-gorev_06-003",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.8845419767312706,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-odul_07-006",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.8501659873872995,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  },
+  {
+   "id": "tes-reklam_07-012",
+   "tur": null,
+   "kanitlar": [],
+   "json_gecerli": false,
+   "sure_ms": 3.9490420022048056,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "belirsiz"
+  }
+ ]
+}

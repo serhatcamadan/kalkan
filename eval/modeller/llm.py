@@ -19,16 +19,22 @@ from ..metrics import Tahmin
 
 class LLMModeli:
     def __init__(self, ad: str, base_url: str, model: str = "yerel", api_key: str | None = None, yerel: bool = True,
-                 usd_girdi_1m: float = 0.0, usd_cikti_1m: float = 0.0):
+                 fiyat: tuple[float, float, float] = (0.0, 0.0, 0.0), akil: str | None = None,
+                 butce_usd: float | None = None):
         self.ad = ad
-        self.arka_uc = OpenAIUyumlu(base_url, model=model, api_key=api_key, yerel=yerel)
-        self.fiyat = (usd_girdi_1m, usd_cikti_1m)
+        self.arka_uc = OpenAIUyumlu(base_url, model=model, api_key=api_key, yerel=yerel, akil=akil)
+        self.fiyat = fiyat                         # $/1M: (girdi, önbellekli girdi, çıktı)
+        self.butce_usd, self.harcanan = butce_usd, 0.0
         self.uyusmazlik = 0
         self.kesilen = 0
         self.cikti_token: list[int] = []
 
+    def butce_bitti(self) -> bool:
+        return self.butce_usd is not None and self.harcanan >= self.butce_usd
+
     def hazirla(self, egitim, dogrulama) -> dict:
-        bilgi = {"base_url": self.arka_uc.base_url, "model": self.arka_uc.model}
+        bilgi = {"base_url": self.arka_uc.base_url, "model": self.arka_uc.model, "akil": self.arka_uc.akil,
+                 "fiyat_usd_1m": self.fiyat, "butce_usd": self.butce_usd}
         if self.arka_uc.yerel:
             try:
                 with urllib.request.urlopen(f"{self.arka_uc.base_url}/props", timeout=5) as r:
@@ -45,7 +51,9 @@ class LLMModeli:
         if o.get("model_girdisi") not in (None, iz.model_girdisi):
             self.uyusmazlik += 1
         o["model_girdisi"] = iz.model_girdisi          # kanıt geçerliliği modelin GERÇEKTEN gördüğü metne göre
-        maliyet = (iz.girdi_token * self.fiyat[0] + iz.cikti_token * self.fiyat[1]) / 1e6
+        maliyet = ((iz.girdi_token - iz.onbellek_token) * self.fiyat[0] + iz.onbellek_token * self.fiyat[1]
+                   + iz.cikti_token * self.fiyat[2]) / 1e6
+        self.harcanan += maliyet
         kanitlar = [{"alinti": k.alinti, "sinyal": getattr(k.sinyal, "value", k.sinyal)} for k in iz.ham_kanitlar]
         self.kesilen += iz.kesildi
         self.cikti_token.append(iz.cikti_token)

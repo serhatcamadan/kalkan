@@ -1,5 +1,5 @@
-# KALKAN v5.0 · 2026-11-19
-.PHONY: sunucu-08 sunucu-2b eval-zs-08 eval-zs-2b eval eval-hizli rapor llm-paket llm-iceri teyit veri veri-istatistik incele golden dis-veri token-olc spike gguf-2b bench-mac bench test lint clean-spike
+# KALKAN v6.0 · 2026-11-19
+.PHONY: eval-gpt-pilot eval-gpt sunucu-08 sunucu-2b eval-zs-08 eval-zs-2b eval eval-hizli rapor llm-paket llm-iceri teyit veri veri-istatistik incele golden dis-veri token-olc spike gguf-2b bench-mac bench test lint clean-spike
 spike:          ## Mac: Adım 1 dönüşüm spike'ı
 	bash training/spike/spike_convert.sh
 gguf-2b:        ## Mac: Qwen3.5-2B → .spike/gguf/C2B-Q4_K_M.gguf
@@ -55,3 +55,10 @@ eval-zs-08:     ## sunucu-08 açıkken: golden + doğrulama + adversarial + dı�
 eval-zs-2b:     ## sunucu-2b açıkken
 	python -m eval.run_eval --model llm --etiket zs-2b --set golden dogrulama adversarial
 	python -m eval.run_eval --model llm --etiket zs-2b --set olta uci --limit $(DIS_LIMIT)
+
+# Adım 6 — gpt-5.4-mini (BYOK). Anahtar YALNIZCA terminal ortam değişkeninde: read -s OPENAI_API_KEY; export OPENAI_API_KEY
+eval-gpt-pilot: ## 20 golden örnek, en fazla $0.03 → gerçek mesaj başı maliyeti ölç
+	python -m eval.run_eval --model llm --etiket gpt-5.4-mini --byok --akil none --set golden --pilot 20 --butce-usd 0.03
+eval-gpt:       ## golden + adversarial (≤ $0.25) ve OLTA 100 (≤ $0.10). UCI dış API'ye GÖNDERİLMEZ.
+	python -m eval.run_eval --model llm --etiket gpt-5.4-mini --byok --akil none --set golden adversarial --butce-usd 0.25
+	python -m eval.run_eval --model llm --etiket gpt-5.4-mini --byok --akil none --set olta --limit 100 --butce-usd 0.10
