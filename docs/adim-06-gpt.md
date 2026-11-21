@@ -81,3 +81,24 @@ Harcama: pilot $0.023 + golden $0.356 + adversarial $0.034 + OLTA $0.061 = **$0.
    tüm LLM sonuçlarını (gpt dahil) API çağrısı olmadan yeniden puanlıyor. ADR-0005'in somut faydası.
 6. **Karar kuralı:** gpt-5.4-mini sert kısıtı (banka modunda veri TR'de) zaten geçemiyor; rolü **üst çizgi**:
    fine-tune'un (Adım 7–8) ne kadar yaklaştığı buna göre ölçülecek (H1).
+
+## Politika v1.1 ile yeniden puanlama ($0, 2026-11-21)
+| model · set | recall önce → sonra | meşru FPR önce → sonra | ayırt etme önce → sonra |
+|---|---|---|---|
+| gpt-5.4-mini · golden | 0.996 → 1.000 | 0.000 → 0.000 | — |
+| gpt-5.4-mini · adversarial | sızıntı 1 → 0 (adv_21 artık kör değil) | | |
+| gpt-5.4-mini · OLTA (n=50) | 0.50 → 0.87 | 0.25 → **0.50** | 0.25 → **0.37** |
+| zs-2b · golden | 0.979 → 1.000 | 0.426 → 0.426 | — |
+| zs-2b · adversarial | sızıntı 2 → 0 | | |
+| zs-2b · OLTA (n=300) | 0.57 → 0.83 | 0.47 → 0.71 | 0.09 → 0.12 |
+| zs-0.8b | değişiklik yok (zaten her şeye alarm) | | |
+
+Yorum:
+- Kural SMS'te bedelsiz (golden meşru FPR değişmedi), e-postada **pahalı**: OLTA'daki meşru bülten e-postalarının çoğunda da
+  ret satırı yok, bu yüzden yanlış alarm 2 katına çıkıyor. Buna karşılık kaçan oltalama 3'te 1'e iniyor ve ayırt etme
+  gücü artıyor (0.25 → 0.37).
+- Kararımız kuralı **tutmak**: "orta" bir suçlama değil, "doğrulamadan tıklama" uyarısı. Kalkan'ın varsayılanı da yanlış
+  negatife karşı tarafını belli ediyor (ADR-0004/0005). Ama e-postada FPR ≤ %5 hedefini hiçbir yapılandırma tutturmuyor.
+  README'de "e-posta için uygun değil, SMS/WhatsApp odaklı" diye açıkça yazılacak.
+- OLTA'da gpt için n=50: ±0.14 civarı belirsizlik. Sayılar yön gösterir, kesin değildir.
+- Kural OLTA'ya bakılarak YAZILMADI (taksonomi + adv_21). OLTA etkisi sonradan ölçüldü.
