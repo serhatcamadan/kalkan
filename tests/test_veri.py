@@ -68,3 +68,27 @@ def test_adversarial_alanlari():
     turler = {t["id"] for t in yukle()["turler"]}
     for a in adv:
         assert set(a["beklenen_turler"]) <= turler and isinstance(a["asla_dusuk"], bool)
+
+
+def test_sablon_cesitliligi_ve_test_donuk():
+    """Adım 7b: tür başına ≥10 eğitim, ≥2 doğrulama şablonu; test şablonları (golden kaynağı) tür başına tam 2."""
+    from collections import Counter, defaultdict
+    kay = yaml.safe_load(open(KOK / "data/templates/sablonlar.yaml", encoding="utf-8"))
+    say = defaultdict(Counter)
+    for s in kay["sablonlar"]:
+        say[s["tur"]][s["split"]] += 1
+    assert len(say) == 11
+    for tur, c in say.items():
+        assert c["egitim"] >= 10 and c["dogrulama"] >= 2 and c["test"] == 2, (tur, dict(c))
+
+
+def test_golden_test_bolumuyle_tutarli():
+    """Golden test bölümünden seçildi: şablon değişiklikleri golden örneklerini DEĞİŞTİRMEMELİ."""
+    g = KOK / "data/golden/golden.jsonl"
+    if not g.exists():
+        pytest.skip("golden.jsonl yok (make golden)")
+    test = {r["id"]: r for r in oku("data/splits/test.jsonl")}
+    for r in oku("data/golden/golden.jsonl"):
+        assert r["id"] in test, r["id"]
+        if "metin" in r:
+            assert r["metin"] == test[r["id"]]["metin"], r["id"]

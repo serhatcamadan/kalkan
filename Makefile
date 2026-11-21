@@ -1,5 +1,5 @@
-# KALKAN v6.0 · 2026-11-19
-.PHONY: yeniden-puanla eval-gpt-pilot eval-gpt eval-gpt-ekonomik sunucu-08 sunucu-2b eval-zs-08 eval-zs-2b eval eval-hizli rapor llm-paket llm-iceri teyit veri veri-istatistik incele golden dis-veri token-olc spike gguf-2b bench-mac bench test lint clean-spike
+# KALKAN v7.0 · 2026-11-19
+.PHONY: sft-veri sablon-parite egit-08 loss kontrol-08 kontrol-08-it sablon-paket sablon-iceri egit-v2 loss-v2 kontrol-v2 kontrol-08-temel yeniden-puanla eval-gpt-pilot eval-gpt eval-gpt-ekonomik sunucu-08 sunucu-2b eval-zs-08 eval-zs-2b eval eval-hizli rapor llm-paket llm-iceri teyit veri veri-istatistik incele golden dis-veri token-olc spike gguf-2b bench-mac bench test lint clean-spike
 spike:          ## Mac: Adım 1 dönüşüm spike'ı
 	bash training/spike/spike_convert.sh
 gguf-2b:        ## Mac: Qwen3.5-2B → .spike/gguf/C2B-Q4_K_M.gguf
@@ -67,3 +67,35 @@ eval-gpt-ekonomik: ## SEÇENEK B: golden 150 (tür başına eşit, sabit) + adve
 	python -m eval.run_eval --model llm --etiket gpt-5.4-mini --byok --akil none --set olta --limit 50 --butce-usd 0.10
 yeniden-puanla: ## politika değişince tüm LLM sonuçlarını model çağırmadan yeniden puanla ($0)
 	python -m eval.yeniden_puanla
+
+# Adım 7 — MLX LoRA fine-tune (Mac). MLX komutları spike'ın venv'ini kullanır.
+MLXPY = .spike/venv-mlx/bin/python
+sft-veri:       ## eğitim/doğrulama → data/sft (kısa sistem istemi + kompakt JSON hedef)
+	python training/build_sft.py
+sablon-parite:  ## eğitimden ÖNCE: MLX sohbet formatı = llama-server istemi mi? (mask_prompt doğru yerde mi?)
+	$(MLXPY) training/sablon_parite.py
+egit-08:        ## LoRA eğitimi (training/lora.yaml) → training/adapters/ft-0.8b-v1, log → training/logs
+	bash training/train.sh training/lora.yaml
+loss:           ## kayıp eğrisi → training/logs/*.png + docs/img/
+	python training/loss_egrisi.py training/logs/ft-0.8b-v1.log
+kontrol-08:     ## MLX'te doğrulama seti: JSON / tür / alıntı (adaptörlü)
+	$(MLXPY) training/hizli_kontrol.py --adapter training/adapters/ft-0.8b-v1
+AD ?= ft-0.8b-v1
+kontrol-08-it:  ## kontrol noktası: make kontrol-08-it IT=300 [AD=ft-0.8b-v2]  (→ training/adapters/$(AD)-it300/)
+	@test -n "$(IT)" || { echo "IT=<iterasyon> ver, ör. make kontrol-08-it IT=300"; exit 1; }
+	@d=training/adapters/$(AD)-it$(IT); k=training/adapters/$(AD)/$$(printf %07d $(IT))_adapters.safetensors; \
+	  test -f $$k || { echo "$$k yok"; exit 1; }; mkdir -p $$d; \
+	  cp training/adapters/$(AD)/adapter_config.json $$d/ && cp $$k $$d/adapters.safetensors && echo "▶ $$d"
+	$(MLXPY) training/hizli_kontrol.py --adapter training/adapters/$(AD)-it$(IT)
+sablon-paket:   ## Adım 7b: yeni şablonlar → data/templates/inceleme/paket.md (Gemini'ye yükle)
+	python tools/sablon_inceleme.py disari
+sablon-iceri:   ## Gemini cevabı data/templates/inceleme/cevap.json → işaretlenen şablonlar
+	python tools/sablon_inceleme.py iceri
+egit-v2:        ## Adım 7b: LoRA v2 (şablon v1.3, ~1 epoch) → training/adapters/ft-0.8b-v2
+	bash training/train.sh training/lora_v2.yaml
+loss-v2:
+	python training/loss_egrisi.py training/logs/ft-0.8b-v2.log
+kontrol-v2:     ## v2'nin 4 kontrol noktasını sırayla ölç (~25 dk) → training/logs/kontrol__*.json
+	for it in 300 450 600 750; do $(MAKE) --no-print-directory kontrol-08-it AD=ft-0.8b-v2 IT=$$it || exit 1; done
+kontrol-08-temel: ## aynı ölçüm adaptörsüz (öncesi)
+	$(MLXPY) training/hizli_kontrol.py --temel

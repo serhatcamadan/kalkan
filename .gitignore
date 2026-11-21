@@ -15,3 +15,12 @@ data/external/*
 deploy/results/*.json
 deploy/results/*.log
 .DS_Store
+deploy/llama.cpp/
+training/adapters/
+data/sft/
+training/logs/*.csv
+
+# pip install -e . üretir
+*.egg-info/
+# kopyası docs/img/ altında
+training/logs/*.png

@@ -94,6 +94,7 @@ def main() -> None:
     ap.add_argument("--akil", default="none", help="reasoning_effort (BYOK): none|minimal|low|medium")
     ap.add_argument("--butce-usd", type=float, help="bu çalıştırmada harcanabilecek en fazla $ (aşılınca durur)")
     ap.add_argument("--pilot", type=int, help="her setin ilk N örneği (maliyet/süre ölçümü için)")
+    ap.add_argument("--istem", default="tam", choices=["tam", "kisa"], help="fine-tune modelleri: kisa")
     ap.add_argument("--golden-limit", type=int, help="golden'dan tür başına eşit, sabit tohumlu alt küme (pahalı modeller)")
     a = ap.parse_args()
 
@@ -110,10 +111,11 @@ def main() -> None:
                 if not anahtar:
                     raise SystemExit("OPENAI_API_KEY ortam değişkeni yok (anahtarı dosyaya YAZMA; terminalde ayarla).")
                 model = LLMModeli(a.etiket, os.environ.get("KALKAN_OPENAI_BASE_URL", "https://api.openai.com"), model=a.api_model, api_key=anahtar, yerel=False,
-                                  fiyat=FIYAT.get(a.api_model, (0.0, 0.0, 0.0)), akil=a.akil, butce_usd=a.butce_usd)
+                                  fiyat=FIYAT.get(a.api_model, (0.0, 0.0, 0.0)), akil=a.akil, butce_usd=a.butce_usd,
+                                  istem=a.istem)
                 del anahtar
             else:
-                model = LLMModeli(a.etiket, a.base_url, butce_usd=a.butce_usd)
+                model = LLMModeli(a.etiket, a.base_url, butce_usd=a.butce_usd, istem=a.istem)
             model_adi = a.etiket
         else:
             model = MODELLER[model_adi]()

@@ -1,17 +1,19 @@
-# Veri kartı — Kalkan sentetik Türkçe dolandırıcılık mesajları · v1 · 2026-11-20
+# Veri kartı — Kalkan sentetik Türkçe dolandırıcılık mesajları · v1.3 · 2026-11-21
 
 ## Özet
 | Bölüm | Örnek | Şablon | Marka havuzu | Amaç |
 |---|---|---|---|---|
-| egitim | 1.496 | 44 | 16 | Fine-tune (Adım 7) |
-| dogrulama | 198 | 11 | 7 | Model/epoch seçimi |
+| egitim | 1.496 | 110 | 16 | Fine-tune (Adım 7) |
+| dogrulama | 198 | 22 | 7 | Kontrol noktası seçimi |
 | test | 297 | 22 | 11 | Golden set: 150'si LLM (Gemini) ile denetlendi, 20'si insan teyitli |
 | adversarial | 30 | elle | 3 (ayrı) | Saldırı ve zor negatif ölçümü, eğitimde YOK |
 
 11 tür, eğitimde her tür 136 örnek (dengeli). Üretim deterministik: `python tools/veri_uret.py` (tohum 20261120).
 
 ## Nasıl üretildi?
-1. **77 şablon** (`data/templates/sablonlar.yaml`), tür başına 7: 4 eğitim, 1 doğrulama, 2 test. `{a|b}` varyasyonları ve
+1. **154 şablon** (`data/templates/sablonlar.yaml` v1.3), tür başına 14: 10 eğitim, 2 doğrulama, 2 test.
+   v1.2'de 4/1/2 idi; Adım 7'de 4 kalıptan genelleme olmadığı görülünce eğitim/doğrulama genişletildi, test ŞABLONLARINA
+   dokunulmadı (test.jsonl sha256 aynı; golden geçerli). Ayrıntı: `docs/adim-07-finetune.md` → Adım 7b. `{a|b}` varyasyonları ve
    `{SLOT}` doldurma (tutar, süre, link, IBAN, telefon, ad…).
 2. **Kanıt önce:** Kanıtlar şablonda `⟦sinyal:metin⟧` ile işaretli. Gürültü işaretlere dokunmaz, bu yüzden alıntı mesajda
    daima birebir geçer. Hedef çıktı, MASKELİ girdiye göre üretilir ve şema (≤3 kanıt, ≤80 karakter) ile doğrulanır.
@@ -51,4 +53,5 @@ ve düzeltildi. 2. tur 0 işaret, insan örneklemi 20/20 uyumlu. Kalan etiket ha
 3. Yazıyla tutarlar ("4bin", "beş yüz") deterministik olarak tanınmıyor (adv_16).
 4. Dengeli sınıf dağılımı gerçek dünyayı yansıtmaz (gerçekte meşru mesaj çok daha fazla). Meşru FPR ayrıca raporlanacak.
 5. Yerel LLM ile parafraz (yol haritasındaki qwen3.5:4b adımı) bu sürümde **yapılmadı**. Önce şablon verisiyle
-   baseline ölçülecek (Adım 4–6). Fark gerekirse v2'de parafraz eklenecek.
+   baseline ölçülecek (Adım 4–6). Adım 7'de darboğaz şablon çeşitliliği çıktı; ilk çare elle yazılmış yeni şablonlar
+   (v1.3). Yetmezse parafraz eklenecek.

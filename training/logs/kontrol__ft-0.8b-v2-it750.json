@@ -1,0 +1,1373 @@
+{
+ "adaptor": "ft-0.8b-v2-it750",
+ "n": 198,
+ "json": 1.0,
+ "tur": 0.6363636363636364,
+ "alinti": 0.9676113360323887,
+ "cikti_token": 81.20202020202021,
+ "kacan": 8,
+ "n_dol": 162,
+ "alarm": 18,
+ "n_mes": 36,
+ "tam_sablon": 10,
+ "sablon_sayisi": 22,
+ "sablon": {
+  "bahis_05": {
+   "dogru": 9,
+   "toplam": 9,
+   "tahminler": {
+    "yasa_disi_bahis": 9
+   }
+  },
+  "bahis_14": {
+   "dogru": 9,
+   "toplam": 9,
+   "tahminler": {
+    "yasa_disi_bahis": 9
+   }
+  },
+  "gorev_05": {
+   "dogru": 6,
+   "toplam": 9,
+   "tahminler": {
+    "yasa_disi_bahis": 3,
+    "gorev_is_ilani": 6
+   }
+  },
+  "gorev_14": {
+   "dogru": 9,
+   "toplam": 9,
+   "tahminler": {
+    "gorev_is_ilani": 9
+   }
+  },
+  "kamu_05": {
+   "dogru": 9,
+   "toplam": 9,
+   "tahminler": {
+    "sahte_kamu_gorevlisi": 9
+   }
+  },
+  "kamu_14": {
+   "dogru": 8,
+   "toplam": 9,
+   "tahminler": {
+    "sahte_kamu_gorevlisi": 8,
+    "oyun_hesap_skin": 1
+   }
+  },
+  "kargo_05": {
+   "dogru": 7,
+   "toplam": 9,
+   "tahminler": {
+    "sahte_kamu_gorevlisi": 2,
+    "sahte_kargo_gumruk": 7
+   }
+  },
+  "kargo_14": {
+   "dogru": 1,
+   "toplam": 9,
+   "tahminler": {
+    "sahte_kamu_gorevlisi": 4,
+    "odul_kampanya": 4,
+    "sahte_kargo_gumruk": 1
+   }
+  },
+  "kurum_05": {
+   "dogru": 0,
+   "toplam": 9,
+   "tahminler": {
+    "sahte_kamu_gorevlisi": 9
+   }
+  },
+  "kurum_14": {
+   "dogru": 0,
+   "toplam": 9,
+   "tahminler": {
+    "mesru_islem": 8,
+    "odul_kampanya": 1
+   }
+  },
+  "mesru_05": {
+   "dogru": 0,
+   "toplam": 9,
+   "tahminler": {
+    "yatirim_vip_grup": 9
+   }
+  },
+  "mesru_14": {
+   "dogru": 9,
+   "toplam": 9,
+   "tahminler": {
+    "mesru_islem": 9
+   }
+  },
+  "odul_05": {
+   "dogru": 6,
+   "toplam": 9,
+   "tahminler": {
+    "sahte_kamu_gorevlisi": 2,
+    "odul_kampanya": 6,
+    "sahte_kargo_gumruk": 1
+   }
+  },
+  "odul_14": {
+   "dogru": 9,
+   "toplam": 9,
+   "tahminler": {
+    "odul_kampanya": 9
+   }
+  },
+  "oyun_05": {
+   "dogru": 9,
+   "toplam": 9,
+   "tahminler": {
+    "oyun_hesap_skin": 9
+   }
+  },
+  "oyun_14": {
+   "dogru": 0,
+   "toplam": 9,
+   "tahminler": {
+    "sahte_kamu_gorevlisi": 8,
+    "kurum_taklidi": 1
+   }
+  },
+  "reklam_05": {
+   "dogru": 0,
+   "toplam": 9,
+   "tahminler": {
+    "odul_kampanya": 6,
+    "gorev_is_ilani": 3
+   }
+  },
+  "reklam_14": {
+   "dogru": 9,
+   "toplam": 9,
+   "tahminler": {
+    "reklam_spam": 9
+   }
+  },
+  "yakin_05": {
+   "dogru": 2,
+   "toplam": 9,
+   "tahminler": {
+    "oyun_hesap_skin": 2,
+    "kurum_taklidi": 5,
+    "yakin_taklidi": 2
+   }
+  },
+  "yakin_14": {
+   "dogru": 9,
+   "toplam": 9,
+   "tahminler": {
+    "yakin_taklidi": 9
+   }
+  },
+  "yatirim_05": {
+   "dogru": 9,
+   "toplam": 9,
+   "tahminler": {
+    "yatirim_vip_grup": 9
+   }
+  },
+  "yatirim_14": {
+   "dogru": 6,
+   "toplam": 9,
+   "tahminler": {
+    "yasa_disi_bahis": 3,
+    "yatirim_vip_grup": 6
+   }
+  }
+ },
+ "ornekler": [
+  {
+   "id": "dog-yatirim_14-000",
+   "sablon_id": "yatirim_14",
+   "altin": "yatirim_vip_grup",
+   "tahmin": "yasa_disi_bahis"
+  },
+  {
+   "id": "dog-bahis_05-007",
+   "sablon_id": "bahis_05",
+   "altin": "yasa_disi_bahis",
+   "tahmin": "yasa_disi_bahis"
+  },
+  {
+   "id": "dog-bahis_05-002",
+   "sablon_id": "bahis_05",
+   "altin": "yasa_disi_bahis",
+   "tahmin": "yasa_disi_bahis"
+  },
+  {
+   "id": "dog-oyun_05-001",
+   "sablon_id": "oyun_05",
+   "altin": "oyun_hesap_skin",
+   "tahmin": "oyun_hesap_skin"
+  },
+  {
+   "id": "dog-gorev_05-006",
+   "sablon_id": "gorev_05",
+   "altin": "gorev_is_ilani",
+   "tahmin": "yasa_disi_bahis"
+  },
+  {
+   "id": "dog-reklam_14-007",
+   "sablon_id": "reklam_14",
+   "altin": "reklam_spam",
+   "tahmin": "reklam_spam"
+  },
+  {
+   "id": "dog-odul_14-002",
+   "sablon_id": "odul_14",
+   "altin": "odul_kampanya",
+   "tahmin": "odul_kampanya"
+  },
+  {
+   "id": "dog-bahis_14-008",
+   "sablon_id": "bahis_14",
+   "altin": "yasa_disi_bahis",
+   "tahmin": "yasa_disi_bahis"
+  },
+  {
+   "id": "dog-reklam_05-004",
+   "sablon_id": "reklam_05",
+   "altin": "reklam_spam",
+   "tahmin": "odul_kampanya"
+  },
+  {
+   "id": "dog-yakin_14-000",
+   "sablon_id": "yakin_14",
+   "altin": "yakin_taklidi",
+   "tahmin": "yakin_taklidi"
+  },
+  {
+   "id": "dog-yatirim_14-005",
+   "sablon_id": "yatirim_14",
+   "altin": "yatirim_vip_grup",
+   "tahmin": "yasa_disi_bahis"
+  },
+  {
+   "id": "dog-oyun_14-001",
+   "sablon_id": "oyun_14",
+   "altin": "oyun_hesap_skin",
+   "tahmin": "sahte_kamu_gorevlisi"
+  },
+  {
+   "id": "dog-kurum_14-005",
+   "sablon_id": "kurum_14",
+   "altin": "kurum_taklidi",
+   "tahmin": "mesru_islem"
+  },
+  {
+   "id": "dog-kamu_14-004",
+   "sablon_id": "kamu_14",
+   "altin": "sahte_kamu_gorevlisi",
+   "tahmin": "sahte_kamu_gorevlisi"
+  },
+  {
+   "id": "dog-oyun_14-007",
+   "sablon_id": "oyun_14",
+   "altin": "oyun_hesap_skin",
+   "tahmin": "sahte_kamu_gorevlisi"
+  },
+  {
+   "id": "dog-bahis_14-004",
+   "sablon_id": "bahis_14",
+   "altin": "yasa_disi_bahis",
+   "tahmin": "yasa_disi_bahis"
+  },
+  {
+   "id": "dog-oyun_14-009",
+   "sablon_id": "oyun_14",
+   "altin": "oyun_hesap_skin",
+   "tahmin": "sahte_kamu_gorevlisi"
+  },
+  {
+   "id": "dog-yakin_05-007",
+   "sablon_id": "yakin_05",
+   "altin": "yakin_taklidi",
+   "tahmin": "oyun_hesap_skin"
+  },
+  {
+   "id": "dog-bahis_14-003",
+   "sablon_id": "bahis_14",
+   "altin": "yasa_disi_bahis",
+   "tahmin": "yasa_disi_bahis"
+  },
+  {
+   "id": "dog-odul_14-005",
+   "sablon_id": "odul_14",
+   "altin": "odul_kampanya",
+   "tahmin": "odul_kampanya"
+  },
+  {
+   "id": "dog-oyun_05-007",
+   "sablon_id": "oyun_05",
+   "altin": "oyun_hesap_skin",
+   "tahmin": "oyun_hesap_skin"
+  },
+  {
+   "id": "dog-odul_14-007",
+   "sablon_id": "odul_14",
+   "altin": "odul_kampanya",
+   "tahmin": "odul_kampanya"
+  },
+  {
+   "id": "dog-oyun_14-004",
+   "sablon_id": "oyun_14",
+   "altin": "oyun_hesap_skin",
+   "tahmin": "sahte_kamu_gorevlisi"
+  },
+  {
+   "id": "dog-yakin_05-002",
+   "sablon_id": "yakin_05",
+   "altin": "yakin_taklidi",
+   "tahmin": "kurum_taklidi"
+  },
+  {
+   "id": "dog-reklam_05-002",
+   "sablon_id": "reklam_05",
+   "altin": "reklam_spam",
+   "tahmin": "gorev_is_ilani"
+  },
+  {
+   "id": "dog-odul_14-003",
+   "sablon_id": "odul_14",
+   "altin": "odul_kampanya",
+   "tahmin": "odul_kampanya"
+  },
+  {
+   "id": "dog-kurum_14-003",
+   "sablon_id": "kurum_14",
+   "altin": "kurum_taklidi",
+   "tahmin": "mesru_islem"
+  },
+  {
+   "id": "dog-yakin_05-010",
+   "sablon_id": "yakin_05",
+   "altin": "yakin_taklidi",
+   "tahmin": "kurum_taklidi"
+  },
+  {
+   "id": "dog-yatirim_14-004",
+   "sablon_id": "yatirim_14",
+   "altin": "yatirim_vip_grup",
+   "tahmin": "yasa_disi_bahis"
+  },
+  {
+   "id": "dog-odul_14-008",
+   "sablon_id": "odul_14",
+   "altin": "odul_kampanya",
+   "tahmin": "odul_kampanya"
+  },
+  {
+   "id": "dog-kurum_05-003",
+   "sablon_id": "kurum_05",
+   "altin": "kurum_taklidi",
+   "tahmin": "sahte_kamu_gorevlisi"
+  },
+  {
+   "id": "dog-yakin_14-008",
+   "sablon_id": "yakin_14",
+   "altin": "yakin_taklidi",
+   "tahmin": "yakin_taklidi"
+  },
+  {
+   "id": "dog-kargo_14-003",
+   "sablon_id": "kargo_14",
+   "altin": "sahte_kargo_gumruk",
+   "tahmin": "sahte_kamu_gorevlisi"
+  },
+  {
+   "id": "dog-yakin_05-009",
+   "sablon_id": "yakin_05",
+   "altin": "yakin_taklidi",
+   "tahmin": "oyun_hesap_skin"
+  },
+  {
+   "id": "dog-bahis_05-003",
+   "sablon_id": "bahis_05",
+   "altin": "yasa_disi_bahis",
+   "tahmin": "yasa_disi_bahis"
+  },
+  {
+   "id": "dog-oyun_05-000",
+   "sablon_id": "oyun_05",
+   "altin": "oyun_hesap_skin",
+   "tahmin": "oyun_hesap_skin"
+  },
+  {
+   "id": "dog-reklam_14-008",
+   "sablon_id": "reklam_14",
+   "altin": "reklam_spam",
+   "tahmin": "reklam_spam"
+  },
+  {
+   "id": "dog-bahis_14-007",
+   "sablon_id": "bahis_14",
+   "altin": "yasa_disi_bahis",
+   "tahmin": "yasa_disi_bahis"
+  },
+  {
+   "id": "dog-mesru_05-008",
+   "sablon_id": "mesru_05",
+   "altin": "mesru_islem",
+   "tahmin": "yatirim_vip_grup"
+  },
+  {
+   "id": "dog-kamu_05-006",
+   "sablon_id": "kamu_05",
+   "altin": "sahte_kamu_gorevlisi",
+   "tahmin": "sahte_kamu_gorevlisi"
+  },
+  {
+   "id": "dog-bahis_05-008",
+   "sablon_id": "bahis_05",
+   "altin": "yasa_disi_bahis",
+   "tahmin": "yasa_disi_bahis"
+  },
+  {
+   "id": "dog-gorev_14-004",
+   "sablon_id": "gorev_14",
+   "altin": "gorev_is_ilani",
+   "tahmin": "gorev_is_ilani"
+  },
+  {
+   "id": "dog-kurum_05-000",
+   "sablon_id": "kurum_05",
+   "altin": "kurum_taklidi",
+   "tahmin": "sahte_kamu_gorevlisi"
+  },
+  {
+   "id": "dog-yatirim_14-008",
+   "sablon_id": "yatirim_14",
+   "altin": "yatirim_vip_grup",
+   "tahmin": "yatirim_vip_grup"
+  },
+  {
+   "id": "dog-yatirim_14-007",
+   "sablon_id": "yatirim_14",
+   "altin": "yatirim_vip_grup",
+   "tahmin": "yatirim_vip_grup"
+  },
+  {
+   "id": "dog-gorev_05-001",
+   "sablon_id": "gorev_05",
+   "altin": "gorev_is_ilani",
+   "tahmin": "gorev_is_ilani"
+  },
+  {
+   "id": "dog-yatirim_14-001",
+   "sablon_id": "yatirim_14",
+   "altin": "yatirim_vip_grup",
+   "tahmin": "yatirim_vip_grup"
+  },
+  {
+   "id": "dog-kurum_14-001",
+   "sablon_id": "kurum_14",
+   "altin": "kurum_taklidi",
+   "tahmin": "mesru_islem"
+  },
+  {
+   "id": "dog-kamu_05-004",
+   "sablon_id": "kamu_05",
+   "altin": "sahte_kamu_gorevlisi",
+   "tahmin": "sahte_kamu_gorevlisi"
+  },
+  {
+   "id": "dog-bahis_14-005",
+   "sablon_id": "bahis_14",
+   "altin": "yasa_disi_bahis",
+   "tahmin": "yasa_disi_bahis"
+  },
+  {
+   "id": "dog-mesru_05-003",
+   "sablon_id": "mesru_05",
+   "altin": "mesru_islem",
+   "tahmin": "yatirim_vip_grup"
+  },
+  {
+   "id": "dog-gorev_14-006",
+   "sablon_id": "gorev_14",
+   "altin": "gorev_is_ilani",
+   "tahmin": "gorev_is_ilani"
+  },
+  {
+   "id": "dog-mesru_14-000",
+   "sablon_id": "mesru_14",
+   "altin": "mesru_islem",
+   "tahmin": "mesru_islem"
+  },
+  {
+   "id": "dog-kamu_05-002",
+   "sablon_id": "kamu_05",
+   "altin": "sahte_kamu_gorevlisi",
+   "tahmin": "sahte_kamu_gorevlisi"
+  },
+  {
+   "id": "dog-kurum_14-002",
+   "sablon_id": "kurum_14",
+   "altin": "kurum_taklidi",
+   "tahmin": "mesru_islem"
+  },
+  {
+   "id": "dog-mesru_14-002",
+   "sablon_id": "mesru_14",
+   "altin": "mesru_islem",
+   "tahmin": "mesru_islem"
+  },
+  {
+   "id": "dog-oyun_14-002",
+   "sablon_id": "oyun_14",
+   "altin": "oyun_hesap_skin",
+   "tahmin": "kurum_taklidi"
+  },
+  {
+   "id": "dog-odul_14-001",
+   "sablon_id": "odul_14",
+   "altin": "odul_kampanya",
+   "tahmin": "odul_kampanya"
+  },
+  {
+   "id": "dog-gorev_14-008",
+   "sablon_id": "gorev_14",
+   "altin": "gorev_is_ilani",
+   "tahmin": "gorev_is_ilani"
+  },
+  {
+   "id": "dog-kurum_05-001",
+   "sablon_id": "kurum_05",
+   "altin": "kurum_taklidi",
+   "tahmin": "sahte_kamu_gorevlisi"
+  },
+  {
+   "id": "dog-oyun_05-006",
+   "sablon_id": "oyun_05",
+   "altin": "oyun_hesap_skin",
+   "tahmin": "oyun_hesap_skin"
+  },
+  {
+   "id": "dog-mesru_14-004",
+   "sablon_id": "mesru_14",
+   "altin": "mesru_islem",
+   "tahmin": "mesru_islem"
+  },
+  {
+   "id": "dog-kargo_14-007",
+   "sablon_id": "kargo_14",
+   "altin": "sahte_kargo_gumruk",
+   "tahmin": "sahte_kamu_gorevlisi"
+  },
+  {
+   "id": "dog-mesru_14-001",
+   "sablon_id": "mesru_14",
+   "altin": "mesru_islem",
+   "tahmin": "mesru_islem"
+  },
+  {
+   "id": "dog-gorev_14-005",
+   "sablon_id": "gorev_14",
+   "altin": "gorev_is_ilani",
+   "tahmin": "gorev_is_ilani"
+  },
+  {
+   "id": "dog-mesru_05-006",
+   "sablon_id": "mesru_05",
+   "altin": "mesru_islem",
+   "tahmin": "yatirim_vip_grup"
+  },
+  {
+   "id": "dog-reklam_05-005",
+   "sablon_id": "reklam_05",
+   "altin": "reklam_spam",
+   "tahmin": "odul_kampanya"
+  },
+  {
+   "id": "dog-oyun_05-004",
+   "sablon_id": "oyun_05",
+   "altin": "oyun_hesap_skin",
+   "tahmin": "oyun_hesap_skin"
+  },
+  {
+   "id": "dog-yatirim_05-005",
+   "sablon_id": "yatirim_05",
+   "altin": "yatirim_vip_grup",
+   "tahmin": "yatirim_vip_grup"
+  },
+  {
+   "id": "dog-gorev_05-004",
+   "sablon_id": "gorev_05",
+   "altin": "gorev_is_ilani",
+   "tahmin": "gorev_is_ilani"
+  },
+  {
+   "id": "dog-odul_05-004",
+   "sablon_id": "odul_05",
+   "altin": "odul_kampanya",
+   "tahmin": "sahte_kamu_gorevlisi"
+  },
+  {
+   "id": "dog-yatirim_05-006",
+   "sablon_id": "yatirim_05",
+   "altin": "yatirim_vip_grup",
+   "tahmin": "yatirim_vip_grup"
+  },
+  {
+   "id": "dog-kamu_14-008",
+   "sablon_id": "kamu_14",
+   "altin": "sahte_kamu_gorevlisi",
+   "tahmin": "sahte_kamu_gorevlisi"
+  },
+  {
+   "id": "dog-yakin_05-000",
+   "sablon_id": "yakin_05",
+   "altin": "yakin_taklidi",
+   "tahmin": "yakin_taklidi"
+  },
+  {
+   "id": "dog-gorev_14-001",
+   "sablon_id": "gorev_14",
+   "altin": "gorev_is_ilani",
+   "tahmin": "gorev_is_ilani"
+  },
+  {
+   "id": "dog-yatirim_05-008",
+   "sablon_id": "yatirim_05",
+   "altin": "yatirim_vip_grup",
+   "tahmin": "yatirim_vip_grup"
+  },
+  {
+   "id": "dog-yakin_14-006",
+   "sablon_id": "yakin_14",
+   "altin": "yakin_taklidi",
+   "tahmin": "yakin_taklidi"
+  },
+  {
+   "id": "dog-bahis_05-000",
+   "sablon_id": "bahis_05",
+   "altin": "yasa_disi_bahis",
+   "tahmin": "yasa_disi_bahis"
+  },
+  {
+   "id": "dog-odul_05-003",
+   "sablon_id": "odul_05",
+   "altin": "odul_kampanya",
+   "tahmin": "sahte_kamu_gorevlisi"
+  },
+  {
+   "id": "dog-oyun_05-008",
+   "sablon_id": "oyun_05",
+   "altin": "oyun_hesap_skin",
+   "tahmin": "oyun_hesap_skin"
+  },
+  {
+   "id": "dog-kamu_14-005",
+   "sablon_id": "kamu_14",
+   "altin": "sahte_kamu_gorevlisi",
+   "tahmin": "sahte_kamu_gorevlisi"
+  },
+  {
+   "id": "dog-kargo_14-008",
+   "sablon_id": "kargo_14",
+   "altin": "sahte_kargo_gumruk",
+   "tahmin": "odul_kampanya"
+  },
+  {
+   "id": "dog-kargo_14-002",
+   "sablon_id": "kargo_14",
+   "altin": "sahte_kargo_gumruk",
+   "tahmin": "odul_kampanya"
+  },
+  {
+   "id": "dog-kurum_05-005",
+   "sablon_id": "kurum_05",
+   "altin": "kurum_taklidi",
+   "tahmin": "sahte_kamu_gorevlisi"
+  },
+  {
+   "id": "dog-odul_14-006",
+   "sablon_id": "odul_14",
+   "altin": "odul_kampanya",
+   "tahmin": "odul_kampanya"
+  },
+  {
+   "id": "dog-mesru_14-008",
+   "sablon_id": "mesru_14",
+   "altin": "mesru_islem",
+   "tahmin": "mesru_islem"
+  },
+  {
+   "id": "dog-yakin_14-001",
+   "sablon_id": "yakin_14",
+   "altin": "yakin_taklidi",
+   "tahmin": "yakin_taklidi"
+  },
+  {
+   "id": "dog-bahis_05-006",
+   "sablon_id": "bahis_05",
+   "altin": "yasa_disi_bahis",
+   "tahmin": "yasa_disi_bahis"
+  },
+  {
+   "id": "dog-kargo_14-004",
+   "sablon_id": "kargo_14",
+   "altin": "sahte_kargo_gumruk",
+   "tahmin": "sahte_kamu_gorevlisi"
+  },
+  {
+   "id": "dog-mesru_05-000",
+   "sablon_id": "mesru_05",
+   "altin": "mesru_islem",
+   "tahmin": "yatirim_vip_grup"
+  },
+  {
+   "id": "dog-mesru_05-007",
+   "sablon_id": "mesru_05",
+   "altin": "mesru_islem",
+   "tahmin": "yatirim_vip_grup"
+  },
+  {
+   "id": "dog-yakin_05-004",
+   "sablon_id": "yakin_05",
+   "altin": "yakin_taklidi",
+   "tahmin": "kurum_taklidi"
+  },
+  {
+   "id": "dog-kargo_05-007",
+   "sablon_id": "kargo_05",
+   "altin": "sahte_kargo_gumruk",
+   "tahmin": "sahte_kamu_gorevlisi"
+  },
+  {
+   "id": "dog-kargo_14-000",
+   "sablon_id": "kargo_14",
+   "altin": "sahte_kargo_gumruk",
+   "tahmin": "odul_kampanya"
+  },
+  {
+   "id": "dog-yakin_05-008",
+   "sablon_id": "yakin_05",
+   "altin": "yakin_taklidi",
+   "tahmin": "kurum_taklidi"
+  },
+  {
+   "id": "dog-kurum_05-006",
+   "sablon_id": "kurum_05",
+   "altin": "kurum_taklidi",
+   "tahmin": "sahte_kamu_gorevlisi"
+  },
+  {
+   "id": "dog-kamu_14-000",
+   "sablon_id": "kamu_14",
+   "altin": "sahte_kamu_gorevlisi",
+   "tahmin": "sahte_kamu_gorevlisi"
+  },
+  {
+   "id": "dog-kurum_05-008",
+   "sablon_id": "kurum_05",
+   "altin": "kurum_taklidi",
+   "tahmin": "sahte_kamu_gorevlisi"
+  },
+  {
+   "id": "dog-yatirim_05-007",
+   "sablon_id": "yatirim_05",
+   "altin": "yatirim_vip_grup",
+   "tahmin": "yatirim_vip_grup"
+  },
+  {
+   "id": "dog-kargo_05-006",
+   "sablon_id": "kargo_05",
+   "altin": "sahte_kargo_gumruk",
+   "tahmin": "sahte_kargo_gumruk"
+  },
+  {
+   "id": "dog-kargo_05-004",
+   "sablon_id": "kargo_05",
+   "altin": "sahte_kargo_gumruk",
+   "tahmin": "sahte_kamu_gorevlisi"
+  },
+  {
+   "id": "dog-kargo_14-006",
+   "sablon_id": "kargo_14",
+   "altin": "sahte_kargo_gumruk",
+   "tahmin": "odul_kampanya"
+  },
+  {
+   "id": "dog-kargo_05-001",
+   "sablon_id": "kargo_05",
+   "altin": "sahte_kargo_gumruk",
+   "tahmin": "sahte_kargo_gumruk"
+  },
+  {
+   "id": "dog-kargo_05-005",
+   "sablon_id": "kargo_05",
+   "altin": "sahte_kargo_gumruk",
+   "tahmin": "sahte_kargo_gumruk"
+  },
+  {
+   "id": "dog-kargo_05-003",
+   "sablon_id": "kargo_05",
+   "altin": "sahte_kargo_gumruk",
+   "tahmin": "sahte_kargo_gumruk"
+  },
+  {
+   "id": "dog-gorev_14-003",
+   "sablon_id": "gorev_14",
+   "altin": "gorev_is_ilani",
+   "tahmin": "gorev_is_ilani"
+  },
+  {
+   "id": "dog-kamu_14-001",
+   "sablon_id": "kamu_14",
+   "altin": "sahte_kamu_gorevlisi",
+   "tahmin": "oyun_hesap_skin"
+  },
+  {
+   "id": "dog-bahis_14-000",
+   "sablon_id": "bahis_14",
+   "altin": "yasa_disi_bahis",
+   "tahmin": "yasa_disi_bahis"
+  },
+  {
+   "id": "dog-kamu_14-002",
+   "sablon_id": "kamu_14",
+   "altin": "sahte_kamu_gorevlisi",
+   "tahmin": "sahte_kamu_gorevlisi"
+  },
+  {
+   "id": "dog-kurum_05-007",
+   "sablon_id": "kurum_05",
+   "altin": "kurum_taklidi",
+   "tahmin": "sahte_kamu_gorevlisi"
+  },
+  {
+   "id": "dog-bahis_05-005",
+   "sablon_id": "bahis_05",
+   "altin": "yasa_disi_bahis",
+   "tahmin": "yasa_disi_bahis"
+  },
+  {
+   "id": "dog-kurum_05-002",
+   "sablon_id": "kurum_05",
+   "altin": "kurum_taklidi",
+   "tahmin": "sahte_kamu_gorevlisi"
+  },
+  {
+   "id": "dog-mesru_14-007",
+   "sablon_id": "mesru_14",
+   "altin": "mesru_islem",
+   "tahmin": "mesru_islem"
+  },
+  {
+   "id": "dog-mesru_05-005",
+   "sablon_id": "mesru_05",
+   "altin": "mesru_islem",
+   "tahmin": "yatirim_vip_grup"
+  },
+  {
+   "id": "dog-odul_14-000",
+   "sablon_id": "odul_14",
+   "altin": "odul_kampanya",
+   "tahmin": "odul_kampanya"
+  },
+  {
+   "id": "dog-reklam_05-008",
+   "sablon_id": "reklam_05",
+   "altin": "reklam_spam",
+   "tahmin": "odul_kampanya"
+  },
+  {
+   "id": "dog-gorev_05-002",
+   "sablon_id": "gorev_05",
+   "altin": "gorev_is_ilani",
+   "tahmin": "gorev_is_ilani"
+  },
+  {
+   "id": "dog-kamu_14-007",
+   "sablon_id": "kamu_14",
+   "altin": "sahte_kamu_gorevlisi",
+   "tahmin": "sahte_kamu_gorevlisi"
+  },
+  {
+   "id": "dog-gorev_14-000",
+   "sablon_id": "gorev_14",
+   "altin": "gorev_is_ilani",
+   "tahmin": "gorev_is_ilani"
+  },
+  {
+   "id": "dog-odul_05-006",
+   "sablon_id": "odul_05",
+   "altin": "odul_kampanya",
+   "tahmin": "odul_kampanya"
+  },
+  {
+   "id": "dog-kurum_14-004",
+   "sablon_id": "kurum_14",
+   "altin": "kurum_taklidi",
+   "tahmin": "odul_kampanya"
+  },
+  {
+   "id": "dog-gorev_05-007",
+   "sablon_id": "gorev_05",
+   "altin": "gorev_is_ilani",
+   "tahmin": "gorev_is_ilani"
+  },
+  {
+   "id": "dog-kamu_05-003",
+   "sablon_id": "kamu_05",
+   "altin": "sahte_kamu_gorevlisi",
+   "tahmin": "sahte_kamu_gorevlisi"
+  },
+  {
+   "id": "dog-yatirim_05-000",
+   "sablon_id": "yatirim_05",
+   "altin": "yatirim_vip_grup",
+   "tahmin": "yatirim_vip_grup"
+  },
+  {
+   "id": "dog-kurum_14-006",
+   "sablon_id": "kurum_14",
+   "altin": "kurum_taklidi",
+   "tahmin": "mesru_islem"
+  },
+  {
+   "id": "dog-reklam_14-004",
+   "sablon_id": "reklam_14",
+   "altin": "reklam_spam",
+   "tahmin": "reklam_spam"
+  },
+  {
+   "id": "dog-bahis_14-006",
+   "sablon_id": "bahis_14",
+   "altin": "yasa_disi_bahis",
+   "tahmin": "yasa_disi_bahis"
+  },
+  {
+   "id": "dog-reklam_14-005",
+   "sablon_id": "reklam_14",
+   "altin": "reklam_spam",
+   "tahmin": "reklam_spam"
+  },
+  {
+   "id": "dog-yatirim_05-003",
+   "sablon_id": "yatirim_05",
+   "altin": "yatirim_vip_grup",
+   "tahmin": "yatirim_vip_grup"
+  },
+  {
+   "id": "dog-odul_14-004",
+   "sablon_id": "odul_14",
+   "altin": "odul_kampanya",
+   "tahmin": "odul_kampanya"
+  },
+  {
+   "id": "dog-odul_05-001",
+   "sablon_id": "odul_05",
+   "altin": "odul_kampanya",
+   "tahmin": "odul_kampanya"
+  },
+  {
+   "id": "dog-yakin_05-001",
+   "sablon_id": "yakin_05",
+   "altin": "yakin_taklidi",
+   "tahmin": "yakin_taklidi"
+  },
+  {
+   "id": "dog-gorev_05-003",
+   "sablon_id": "gorev_05",
+   "altin": "gorev_is_ilani",
+   "tahmin": "gorev_is_ilani"
+  },
+  {
+   "id": "dog-reklam_05-006",
+   "sablon_id": "reklam_05",
+   "altin": "reklam_spam",
+   "tahmin": "odul_kampanya"
+  },
+  {
+   "id": "dog-kurum_14-007",
+   "sablon_id": "kurum_14",
+   "altin": "kurum_taklidi",
+   "tahmin": "mesru_islem"
+  },
+  {
+   "id": "dog-oyun_14-000",
+   "sablon_id": "oyun_14",
+   "altin": "oyun_hesap_skin",
+   "tahmin": "sahte_kamu_gorevlisi"
+  },
+  {
+   "id": "dog-bahis_05-001",
+   "sablon_id": "bahis_05",
+   "altin": "yasa_disi_bahis",
+   "tahmin": "yasa_disi_bahis"
+  },
+  {
+   "id": "dog-oyun_05-003",
+   "sablon_id": "oyun_05",
+   "altin": "oyun_hesap_skin",
+   "tahmin": "oyun_hesap_skin"
+  },
+  {
+   "id": "dog-reklam_05-003",
+   "sablon_id": "reklam_05",
+   "altin": "reklam_spam",
+   "tahmin": "gorev_is_ilani"
+  },
+  {
+   "id": "dog-oyun_14-005",
+   "sablon_id": "oyun_14",
+   "altin": "oyun_hesap_skin",
+   "tahmin": "sahte_kamu_gorevlisi"
+  },
+  {
+   "id": "dog-yatirim_14-003",
+   "sablon_id": "yatirim_14",
+   "altin": "yatirim_vip_grup",
+   "tahmin": "yatirim_vip_grup"
+  },
+  {
+   "id": "dog-odul_05-002",
+   "sablon_id": "odul_05",
+   "altin": "odul_kampanya",
+   "tahmin": "odul_kampanya"
+  },
+  {
+   "id": "dog-bahis_14-002",
+   "sablon_id": "bahis_14",
+   "altin": "yasa_disi_bahis",
+   "tahmin": "yasa_disi_bahis"
+  },
+  {
+   "id": "dog-odul_05-007",
+   "sablon_id": "odul_05",
+   "altin": "odul_kampanya",
+   "tahmin": "odul_kampanya"
+  },
+  {
+   "id": "dog-yatirim_05-002",
+   "sablon_id": "yatirim_05",
+   "altin": "yatirim_vip_grup",
+   "tahmin": "yatirim_vip_grup"
+  },
+  {
+   "id": "dog-kamu_14-006",
+   "sablon_id": "kamu_14",
+   "altin": "sahte_kamu_gorevlisi",
+   "tahmin": "sahte_kamu_gorevlisi"
+  },
+  {
+   "id": "dog-kargo_05-008",
+   "sablon_id": "kargo_05",
+   "altin": "sahte_kargo_gumruk",
+   "tahmin": "sahte_kargo_gumruk"
+  },
+  {
+   "id": "dog-kamu_05-007",
+   "sablon_id": "kamu_05",
+   "altin": "sahte_kamu_gorevlisi",
+   "tahmin": "sahte_kamu_gorevlisi"
+  },
+  {
+   "id": "dog-kamu_05-000",
+   "sablon_id": "kamu_05",
+   "altin": "sahte_kamu_gorevlisi",
+   "tahmin": "sahte_kamu_gorevlisi"
+  },
+  {
+   "id": "dog-gorev_05-005",
+   "sablon_id": "gorev_05",
+   "altin": "gorev_is_ilani",
+   "tahmin": "yasa_disi_bahis"
+  },
+  {
+   "id": "dog-oyun_14-003",
+   "sablon_id": "oyun_14",
+   "altin": "oyun_hesap_skin",
+   "tahmin": "sahte_kamu_gorevlisi"
+  },
+  {
+   "id": "dog-reklam_14-001",
+   "sablon_id": "reklam_14",
+   "altin": "reklam_spam",
+   "tahmin": "reklam_spam"
+  },
+  {
+   "id": "dog-gorev_05-008",
+   "sablon_id": "gorev_05",
+   "altin": "gorev_is_ilani",
+   "tahmin": "yasa_disi_bahis"
+  },
+  {
+   "id": "dog-yatirim_05-001",
+   "sablon_id": "yatirim_05",
+   "altin": "yatirim_vip_grup",
+   "tahmin": "yatirim_vip_grup"
+  },
+  {
+   "id": "dog-kurum_05-004",
+   "sablon_id": "kurum_05",
+   "altin": "kurum_taklidi",
+   "tahmin": "sahte_kamu_gorevlisi"
+  },
+  {
+   "id": "dog-oyun_14-008",
+   "sablon_id": "oyun_14",
+   "altin": "oyun_hesap_skin",
+   "tahmin": "sahte_kamu_gorevlisi"
+  },
+  {
+   "id": "dog-kamu_14-003",
+   "sablon_id": "kamu_14",
+   "altin": "sahte_kamu_gorevlisi",
+   "tahmin": "sahte_kamu_gorevlisi"
+  },
+  {
+   "id": "dog-reklam_14-003",
+   "sablon_id": "reklam_14",
+   "altin": "reklam_spam",
+   "tahmin": "reklam_spam"
+  },
+  {
+   "id": "dog-mesru_14-003",
+   "sablon_id": "mesru_14",
+   "altin": "mesru_islem",
+   "tahmin": "mesru_islem"
+  },
+  {
+   "id": "dog-kurum_14-000",
+   "sablon_id": "kurum_14",
+   "altin": "kurum_taklidi",
+   "tahmin": "mesru_islem"
+  },
+  {
+   "id": "dog-reklam_14-000",
+   "sablon_id": "reklam_14",
+   "altin": "reklam_spam",
+   "tahmin": "reklam_spam"
+  },
+  {
+   "id": "dog-gorev_05-000",
+   "sablon_id": "gorev_05",
+   "altin": "gorev_is_ilani",
+   "tahmin": "gorev_is_ilani"
+  },
+  {
+   "id": "dog-yatirim_14-006",
+   "sablon_id": "yatirim_14",
+   "altin": "yatirim_vip_grup",
+   "tahmin": "yatirim_vip_grup"
+  },
+  {
+   "id": "dog-odul_05-005",
+   "sablon_id": "odul_05",
+   "altin": "odul_kampanya",
+   "tahmin": "odul_kampanya"
+  },
+  {
+   "id": "dog-yakin_14-007",
+   "sablon_id": "yakin_14",
+   "altin": "yakin_taklidi",
+   "tahmin": "yakin_taklidi"
+  },
+  {
+   "id": "dog-mesru_05-001",
+   "sablon_id": "mesru_05",
+   "altin": "mesru_islem",
+   "tahmin": "yatirim_vip_grup"
+  },
+  {
+   "id": "dog-gorev_14-002",
+   "sablon_id": "gorev_14",
+   "altin": "gorev_is_ilani",
+   "tahmin": "gorev_is_ilani"
+  },
+  {
+   "id": "dog-yakin_14-004",
+   "sablon_id": "yakin_14",
+   "altin": "yakin_taklidi",
+   "tahmin": "yakin_taklidi"
+  },
+  {
+   "id": "dog-reklam_05-007",
+   "sablon_id": "reklam_05",
+   "altin": "reklam_spam",
+   "tahmin": "gorev_is_ilani"
+  },
+  {
+   "id": "dog-oyun_05-002",
+   "sablon_id": "oyun_05",
+   "altin": "oyun_hesap_skin",
+   "tahmin": "oyun_hesap_skin"
+  },
+  {
+   "id": "dog-kargo_05-002",
+   "sablon_id": "kargo_05",
+   "altin": "sahte_kargo_gumruk",
+   "tahmin": "sahte_kargo_gumruk"
+  },
+  {
+   "id": "dog-reklam_14-006",
+   "sablon_id": "reklam_14",
+   "altin": "reklam_spam",
+   "tahmin": "reklam_spam"
+  },
+  {
+   "id": "dog-odul_05-000",
+   "sablon_id": "odul_05",
+   "altin": "odul_kampanya",
+   "tahmin": "odul_kampanya"
+  },
+  {
+   "id": "dog-kargo_14-001",
+   "sablon_id": "kargo_14",
+   "altin": "sahte_kargo_gumruk",
+   "tahmin": "sahte_kamu_gorevlisi"
+  },
+  {
+   "id": "dog-bahis_05-004",
+   "sablon_id": "bahis_05",
+   "altin": "yasa_disi_bahis",
+   "tahmin": "yasa_disi_bahis"
+  },
+  {
+   "id": "dog-kargo_14-005",
+   "sablon_id": "kargo_14",
+   "altin": "sahte_kargo_gumruk",
+   "tahmin": "sahte_kargo_gumruk"
+  },
+  {
+   "id": "dog-yakin_05-006",
+   "sablon_id": "yakin_05",
+   "altin": "yakin_taklidi",
+   "tahmin": "kurum_taklidi"
+  },
+  {
+   "id": "dog-mesru_05-004",
+   "sablon_id": "mesru_05",
+   "altin": "mesru_islem",
+   "tahmin": "yatirim_vip_grup"
+  },
+  {
+   "id": "dog-gorev_14-007",
+   "sablon_id": "gorev_14",
+   "altin": "gorev_is_ilani",
+   "tahmin": "gorev_is_ilani"
+  },
+  {
+   "id": "dog-mesru_14-006",
+   "sablon_id": "mesru_14",
+   "altin": "mesru_islem",
+   "tahmin": "mesru_islem"
+  },
+  {
+   "id": "dog-reklam_14-002",
+   "sablon_id": "reklam_14",
+   "altin": "reklam_spam",
+   "tahmin": "reklam_spam"
+  },
+  {
+   "id": "dog-yakin_14-003",
+   "sablon_id": "yakin_14",
+   "altin": "yakin_taklidi",
+   "tahmin": "yakin_taklidi"
+  },
+  {
+   "id": "dog-reklam_05-000",
+   "sablon_id": "reklam_05",
+   "altin": "reklam_spam",
+   "tahmin": "odul_kampanya"
+  },
+  {
+   "id": "dog-reklam_05-001",
+   "sablon_id": "reklam_05",
+   "altin": "reklam_spam",
+   "tahmin": "odul_kampanya"
+  },
+  {
+   "id": "dog-oyun_05-005",
+   "sablon_id": "oyun_05",
+   "altin": "oyun_hesap_skin",
+   "tahmin": "oyun_hesap_skin"
+  },
+  {
+   "id": "dog-yakin_14-005",
+   "sablon_id": "yakin_14",
+   "altin": "yakin_taklidi",
+   "tahmin": "yakin_taklidi"
+  },
+  {
+   "id": "dog-kamu_05-008",
+   "sablon_id": "kamu_05",
+   "altin": "sahte_kamu_gorevlisi",
+   "tahmin": "sahte_kamu_gorevlisi"
+  },
+  {
+   "id": "dog-yatirim_05-004",
+   "sablon_id": "yatirim_05",
+   "altin": "yatirim_vip_grup",
+   "tahmin": "yatirim_vip_grup"
+  },
+  {
+   "id": "dog-mesru_14-005",
+   "sablon_id": "mesru_14",
+   "altin": "mesru_islem",
+   "tahmin": "mesru_islem"
+  },
+  {
+   "id": "dog-yakin_14-002",
+   "sablon_id": "yakin_14",
+   "altin": "yakin_taklidi",
+   "tahmin": "yakin_taklidi"
+  },
+  {
+   "id": "dog-kargo_05-000",
+   "sablon_id": "kargo_05",
+   "altin": "sahte_kargo_gumruk",
+   "tahmin": "sahte_kargo_gumruk"
+  },
+  {
+   "id": "dog-odul_05-008",
+   "sablon_id": "odul_05",
+   "altin": "odul_kampanya",
+   "tahmin": "sahte_kargo_gumruk"
+  },
+  {
+   "id": "dog-kamu_05-005",
+   "sablon_id": "kamu_05",
+   "altin": "sahte_kamu_gorevlisi",
+   "tahmin": "sahte_kamu_gorevlisi"
+  },
+  {
+   "id": "dog-yatirim_14-002",
+   "sablon_id": "yatirim_14",
+   "altin": "yatirim_vip_grup",
+   "tahmin": "yatirim_vip_grup"
+  },
+  {
+   "id": "dog-mesru_05-002",
+   "sablon_id": "mesru_05",
+   "altin": "mesru_islem",
+   "tahmin": "yatirim_vip_grup"
+  },
+  {
+   "id": "dog-kurum_14-008",
+   "sablon_id": "kurum_14",
+   "altin": "kurum_taklidi",
+   "tahmin": "mesru_islem"
+  },
+  {
+   "id": "dog-kamu_05-001",
+   "sablon_id": "kamu_05",
+   "altin": "sahte_kamu_gorevlisi",
+   "tahmin": "sahte_kamu_gorevlisi"
+  },
+  {
+   "id": "dog-bahis_14-001",
+   "sablon_id": "bahis_14",
+   "altin": "yasa_disi_bahis",
+   "tahmin": "yasa_disi_bahis"
+  }
+ ]
+}

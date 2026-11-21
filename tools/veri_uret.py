@@ -1,4 +1,4 @@
-"""KALKAN · Adım 3 · sentetik veri üretici                          v1.3 · 2026-11-20
+"""KALKAN · Adım 3 · sentetik veri üretici                          v1.4 · 2026-11-21
 
 v1.1: TUTAR_*_TL ve INDIRIM slotları (Türkçe ek uyumu, gerçekçi indirim oranı).
 v1.2: ÖRNEK BAŞINA tohum ve kararlı id ("tes-yakin_06-003"): bir şablonu düzeltmek diğer şablonların
@@ -19,6 +19,7 @@ Kurallar
   • Kanıt alıntısı işaretlerle (⟦sinyal:…⟧) üretilir, gürültü işaretlere dokunmaz → alıntı daima birebir.
   • Doğrulanamayan örnek (maskeli alıntı maskeli metinde yok, şema hatası) SESSİZCE değil, sayılarak düşürülür.
   • Telefonlar 0599/0850 999 aralığından, IBAN'lar banka kodu 99999 ile üretilir (tahsisli olmaması amaçlanmıştır).
+v1.4: {RESMI_SITE} slotu (yol şablonda). Mevcut şablonların RNG sırası değişmez → test.jsonl aynı.
 """
 from __future__ import annotations
 
@@ -112,6 +113,8 @@ def slot_doldur(ad: str, r: random.Random, bag: dict, tax: dict) -> str:
         return sahte_link(r, s, tax)
     if ad == "RESMI_LINK":
         return r.choice(["https://", "", "www."]) + f"{s}.com.tr" + r.choice(["", "/kampanya", "/takip", "/fatura"])
+    if ad == "RESMI_SITE":   # v1.4: yolu şablon yazar ({RESMI_SITE}/kampanya); RESMI_LINK'in rastgele yolu bazı bağlamlarda alakasız
+        return r.choice(["https://", "", "www."]) + f"{s}.com.tr"
     if ad == "KISA_LINK":
         return kisa_link(r, tax)
     if ad == "BAHIS_LINK":

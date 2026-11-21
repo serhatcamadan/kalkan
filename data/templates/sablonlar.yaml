@@ -1,4 +1,9 @@
-# KALKAN · sentetik mesaj şablonları                               v1.2 · 2026-11-20
+# KALKAN · sentetik mesaj şablonları                               v1.4 · 2026-11-21
+# v1.4: Gemini şablon incelemesi (69 doğru / 7 düzelt / 1 çıkar): kamu_09 yeniden yazıldı (SMS'e uygun), kamu_12/14
+#       sesli arama ifadeleri, mesru_13 tarih çelişkisi, yeni şablonlarda {RESMI_SITE}/<anlamlı yol>.
+# v1.3: Adım 7b şablon çeşitliliği: tür başına eğitim 4→10, doğrulama 1→2 şablon. TEST ŞABLONLARINA DOKUNULMADI
+#       (golden ve önceki tüm ölçümler karşılaştırılabilir kalır). Yeni şablonlar sınıflar arası tuzak içerir:
+#       "kargo bedava" reklamı, şubede bekleyen meşru kargo, Türkçe ek/üslup çeşitliliği, linksiz/telefonlu sürümler.
 # v1.2: Gemini ön-elemesi bulguları: yakınlık kanıtı hitabı içerir, reklam_07'de ret satırı, randevu mesai saatinde
 # v1.1: rakam/marka sonrası Türkçe ek uyumu ("lira'ye", "Mobil'dan"), reklamda gerçekçi indirim oranı (%120 indirim yok)
 #
@@ -82,6 +87,42 @@ sablonlar:
   split: test
   marka: kargo
   metin: "SON UYARI: gönderiniz ⟦aciliyet:{bugün|yarın} saat {SAAT} itibarıyla iade edilecek⟧. ⟦odeme_talebi:Gümrük harcı {TUTAR_K}⟧, ödeme sayfası: ⟦link:{KISA_LINK}⟧"
+# v1.3 (Adım 7b): +6 eğitim, +1 doğrulama şablonu
+- id: kargo_08
+  tur: sahte_kargo_gumruk
+  split: egitim
+  marka: kargo
+  metin: "{MARKA}: Teslimat adresinizde {hata|eksiklik} tespit edildi, gönderiniz {şubede|depoda} bekletiliyor. ⟦link:Adresinizi {güncelleyin|onaylayın}: {KISA_LINK}⟧ ⟦odeme_talebi:Yeniden gönderim ücreti {TUTAR_K}⟧"
+- id: kargo_09
+  tur: sahte_kargo_gumruk
+  split: egitim
+  marka: kargo
+  metin: "{Merhaba|İyi günler}, {MARKA} kuryesiyim. {TAKIP} nolu paketiniz için ⟦odeme_talebi:{TUTAR_K} eksik posta ücreti çıktı⟧. ⟦kanal_degistirme:Ödeme için WhatsApp'tan {TEL} numarasına yazın⟧, ⟦aciliyet:bugün yapılmazsa paket iade edilir⟧."
+- id: kargo_10
+  tur: sahte_kargo_gumruk
+  split: egitim
+  marka: kargo
+  metin: "{MARKA} Bilgi: {TAKIP} sayılı gönderi için gümrük beyannamesi {düzenlendi|hazırlandı}. ⟦odeme_talebi:Vergi tutarı {TUTAR_O}, {IBAN} hesabına yatırılmalıdır⟧. Açıklamaya takip numaranızı yazınız. ⟦aciliyet:{SURE} içinde ödenmezse gönderi iade edilir⟧"
+- id: kargo_11
+  tur: sahte_kargo_gumruk
+  split: egitim
+  marka: kargo
+  metin: "{Paketiniz|Kargonuz} teslim edilemedi. ⟦odeme_talebi:{TUTAR_K} ödeyip yeni teslim tarihi seçin⟧: ⟦link:{KISA_LINK}⟧ -{MARKA}"
+- id: kargo_12
+  tur: sahte_kargo_gumruk
+  split: egitim
+  marka: kargo
+  metin: "⟦link:{LINK}⟧ adresinden ⟦kimlik_talebi:kimlik ve kart bilgilerinizi doğrulamadığınız sürece⟧ {MARKA} gönderiniz teslim edilmeyecektir. ⟦aciliyet:Sistem bugün saat {SAAT} itibarıyla kapanacak⟧."
+- id: kargo_13
+  tur: sahte_kargo_gumruk
+  split: egitim
+  marka: kargo
+  metin: "{ETICARET} siparişiniz {MARKA} gümrük deposuna ulaştı. ⟦odeme_talebi:Teslimat için {TUTAR_K} gümrük vergisi gerekiyor⟧, ⟦link:ödeme bağlantısı {LINK}⟧ ⟦aciliyet:{SURE} sonra gönderi imha edilir⟧"
+- id: kargo_14
+  tur: sahte_kargo_gumruk
+  split: dogrulama
+  marka: kargo
+  metin: "Sevgili müşterimiz, {MARKA} aracımız bugün adresinize uğradı ancak kimseye ulaşamadı. ⟦kanal_degistirme:Teslim saatini ayarlamak için {TEL} numaralı hatta mesaj atın⟧, ⟦odeme_talebi:randevu ücreti {TUTAR_K} kartla alınır⟧."
 
 # ───────────────────────────────────────────── kurum_taklidi
 - id: kurum_01
@@ -119,6 +160,42 @@ sablonlar:
   split: test
   marka: eticaret
   metin: "{MARKA} hesabınızda olağandışı giriş tespit edildi. ⟦kimlik_talebi:Hesabınızı korumak için şifrenizi yenileyin⟧ ⟦link:{LINK}⟧ ⟦aciliyet:{SURE} içinde işlem yapılmazsa hesabınız silinir⟧"
+# v1.3 (Adım 7b): +6 eğitim, +1 doğrulama şablonu
+- id: kurum_08
+  tur: kurum_taklidi
+  split: egitim
+  marka: kamu
+  metin: "{MARKA}: Adınıza kesilmiş ⟦kurum_taklidi:{TUTAR_K} tutarında ödenmemiş trafik cezası bulunmaktadır⟧. ⟦aciliyet:{SURE} içinde ödenmezse ceza iki katına çıkar⟧. ⟦link:Ödeme: {LINK}⟧"
+- id: kurum_09
+  tur: kurum_taklidi
+  split: egitim
+  marka: eticaret
+  metin: "{MARKA}: {TUTAR_O} tutarındaki iadeniz onaylandı ancak ⟦kimlik_talebi:kart bilgileriniz doğrulanamadı⟧. ⟦link:İadeyi almak için {LINK}⟧ ⟦aciliyet:{SURE} içinde işlem yapılmazsa iade iptal olur⟧"
+- id: kurum_10
+  tur: kurum_taklidi
+  split: egitim
+  marka: operator
+  metin: "Sayın abonemiz, ⟦kurum_taklidi:{MARKA} hattınızın kayıt süresi dolmuştur⟧. ⟦kimlik_talebi:Hattınızın kapanmaması için kimlik numaranızı ve doğum tarihinizi⟧ {LINK} üzerinden girin. ⟦aciliyet:Son gün {TARIH}⟧"
+- id: kurum_11
+  tur: kurum_taklidi
+  split: egitim
+  marka: kart
+  metin: "{MARKA}: {TUTAR_O} limit artışı talebiniz alındı. ⟦kod_talebi:Talebi iptal etmek için size gelen kodu {TEL} numarasına SMS ile gönderin⟧ ⟦aciliyet:{SURE} içinde⟧"
+- id: kurum_12
+  tur: kurum_taklidi
+  split: egitim
+  marka: banka
+  metin: "{MARKA} Müşteri Hizmetleri: ⟦kurum_taklidi:hesabınıza yurt dışından giriş denemesi yapıldı⟧. ⟦kanal_degistirme:Güvenlik ekibimizle görüşmek için {TEL} numarasını arayın⟧, ⟦aciliyet:{SURE} içinde aramazsanız kartınız iptal edilecek⟧."
+- id: kurum_13
+  tur: kurum_taklidi
+  split: egitim
+  marka: kamu
+  metin: "{MARKA} bildirimi: ⟦kurum_taklidi:adınıza düzenlenen elektronik tebligat teslim edilemedi⟧. ⟦kimlik_talebi:Tebligatı görüntülemek için T.C. kimlik numaranız ve şifrenizle giriş yapın⟧ ⟦link:{KISA_LINK}⟧"
+- id: kurum_14
+  tur: kurum_taklidi
+  split: dogrulama
+  marka: operator
+  metin: "{MARKA}: ⟦kurum_taklidi:faturanız iki kez tahsil edildiği için {TUTAR_K} iade edilecektir⟧. ⟦kimlik_talebi:İade için kart numaranızı ve son kullanma tarihini⟧ ⟦link:{LINK}⟧ adresine girin."
 
 # ───────────────────────────────────────────── sahte_kamu_gorevlisi
 - id: kamu_01
@@ -156,6 +233,42 @@ sablonlar:
   split: test
   marka: banka
   metin: "Sayın vatandaşımız, ⟦yetki_iddiasi:hakkınızda dolandırıcılık soruşturması başlatılmıştır⟧. ⟦kanal_degistirme:Dosya numaranız için {TEL} numaralı savcılık hattını arayın⟧. ⟦aciliyet:{SURE} içinde aramazsanız gıyabınızda işlem yapılacaktır⟧."
+# v1.3 (Adım 7b): +6 eğitim, +1 doğrulama şablonu
+- id: kamu_08
+  tur: sahte_kamu_gorevlisi
+  split: egitim
+  marka: banka
+  metin: "Sayın {AD} {Bey|Hanım}, ⟦yetki_iddiasi:ben Cumhuriyet Savcısıyım, dosyanız bende⟧. ⟦kanal_degistirme:Görüntülü görüşme için WhatsApp'tan {TEL} numarasına yazın⟧. ⟦gizlilik_baskisi:Bu görüşmeyi kimseyle paylaşmanız yasaktır⟧."
+- id: kamu_09
+  tur: sahte_kamu_gorevlisi
+  split: egitim
+  marka: banka
+  metin: "⟦yetki_iddiasi:Emniyet Dolandırıcılık Büro Amirliği: adınıza açılan bir banka hesabı soruşturmaya konu olmuştur⟧. ⟦kanal_degistirme:İfadeniz için bugün {TEL} numaralı memurumuzu arayınız⟧. ⟦gizlilik_baskisi:Soruşturma gizlidir, bankanızla paylaşmayınız⟧."
+- id: kamu_10
+  tur: sahte_kamu_gorevlisi
+  split: egitim
+  marka: banka
+  metin: "⟦yetki_iddiasi:Vergi Denetim Kurulu müfettişi {AD}⟧: adınıza sahte fatura düzenlenmiş. ⟦odeme_talebi:Hesabınızdaki parayı soruşturma bitene kadar {IBAN} numaralı kamu hesabına aktarın⟧. ⟦gizlilik_baskisi:Avukatınızla dahi konuşmayın⟧."
+- id: kamu_11
+  tur: sahte_kamu_gorevlisi
+  split: egitim
+  marka: banka
+  metin: "⟦yetki_iddiasi:Siber Polis: hattınız bir dolandırıcılık olayında kullanıldı⟧. ⟦kod_talebi:Hattınızın kapatılmaması için gelen SMS kodunu memura söyleyin⟧ ⟦aciliyet:1 saat içinde⟧"
+- id: kamu_12
+  tur: sahte_kamu_gorevlisi
+  split: egitim
+  marka: banka
+  metin: "{MARKA} hesabınızla ilgili ⟦yetki_iddiasi:Jandarma Siber birimi olarak ulaşıyoruz⟧. ⟦kimlik_talebi:Kimliğinizi doğrulamak için internet bankacılığı şifrenizi bu numaraya iletin⟧, ⟦gizlilik_baskisi:bankayı aramayın, onlar da şüpheli⟧."
+- id: kamu_13
+  tur: sahte_kamu_gorevlisi
+  split: egitim
+  marka: banka
+  metin: "⟦yetki_iddiasi:Ben Başsavcılıktan Savcı {AD}, telefonla ifadenizi alacağım⟧. ⟦kod_talebi:Kimlik teyidi için size gelen 6 haneli kodu söyleyin⟧. ⟦gizlilik_baskisi:İfade gizlidir, ailenize anlatmayın⟧."
+- id: kamu_14
+  tur: sahte_kamu_gorevlisi
+  split: dogrulama
+  marka: banka
+  metin: "Merhaba, ⟦yetki_iddiasi:Terörle Mücadele Şube'den Başkomiser {AD}⟧. Kimliğinizle açılmış hesaplar var. ⟦kanal_degistirme:Sizi birazdan {TEL} numarasından savcımız arayacak⟧, ⟦gizlilik_baskisi:çağrıyı mutlaka yanıtlayın ve kimseye haber vermeyin⟧."
 
 # ───────────────────────────────────────────── yatirim_vip_grup
 - id: yatirim_01
@@ -193,6 +306,42 @@ sablonlar:
   split: test
   marka: yatirim
   metin: "{MARKA}: Portföyünüzde ⟦odul_vaadi:{TUTAR_B} kâr birikti⟧. ⟦odeme_talebi:Çekim için önce {TUTAR_O} komisyon ödemeniz gerekiyor⟧. ⟦aciliyet:Bugün ödemezseniz kârınız sıfırlanır⟧."
+# v1.3 (Adım 7b): +6 eğitim, +1 doğrulama şablonu
+- id: yatirim_08
+  tur: yatirim_vip_grup
+  split: egitim
+  marka: yatirim
+  metin: "📈 {MARKA} Kripto Sinyal: ⟦odul_vaadi:dün paylaştığımız coin %{YUZDE} yükseldi⟧! ⟦kanal_degistirme:Yeni sinyaller için grubumuza katılın {GRUP_LINK}⟧"
+- id: yatirim_09
+  tur: yatirim_vip_grup
+  split: egitim
+  marka: yatirim
+  metin: "{AD} {Bey|Hanım} merhaba, ben {MARKA} portföy yöneticisi. ⟦odul_vaadi:Halka arz öncesi hisseden size özel pay ayırdık⟧. ⟦odeme_talebi:Rezervasyon için {TUTAR_O} kaparo yeterli⟧. ⟦aciliyet:Bugün kapanıyor⟧"
+- id: yatirim_10
+  tur: yatirim_vip_grup
+  split: egitim
+  marka: yatirim
+  metin: "Ünlü bir iş insanının açıkladığı yöntemle ⟦odul_vaadi:{TUTAR_O} ile başlayıp ayda {TUTAR_B} kazanın⟧. ⟦link:Videoyu izleyin ve kaydolun: {LINK}⟧"
+- id: yatirim_11
+  tur: yatirim_vip_grup
+  split: egitim
+  marka: yatirim
+  metin: "{MARKA}: Hesabınız yükseltilmeye uygun. ⟦odul_vaadi:Gold üyelikte günlük %{YUZDE} getiri⟧. ⟦odeme_talebi:Yükseltme için {TUTAR_O} yatırım yapın⟧, IBAN: {IBAN}"
+- id: yatirim_12
+  tur: yatirim_vip_grup
+  split: egitim
+  marka: yatirim
+  metin: "Selam, ben de önce inanmamıştım ama {MARKA} grubundaki hocanın önerileriyle ⟦odul_vaadi:bu ay {TUTAR_B} kazandım⟧. ⟦kanal_degistirme:İstersen seni de gruba ekleteyim {GRUP_LINK}⟧"
+- id: yatirim_13
+  tur: yatirim_vip_grup
+  split: egitim
+  marka: yatirim
+  metin: "{MARKA} uluslararası fon: ⟦odul_vaadi:devlet güvenceli altın fonuyla yıllık %{YUZDE} getiri⟧. ⟦kanal_degistirme:Ücretsiz ön görüşme için uygulamayı indirin {LINK}⟧ ⟦aciliyet:Kampanya {TARIH} tarihinde sona eriyor⟧"
+- id: yatirim_14
+  tur: yatirim_vip_grup
+  split: dogrulama
+  marka: yatirim
+  metin: "Arkadaşlar {MARKA} kanalında ⟦odul_vaadi:yarın patlayacak hisseyi⟧ paylaştık 🚀 ⟦odeme_talebi:Premium üyelik {TUTAR_O}⟧, ⟦kanal_degistirme:ödeme dekontunu {TEL} numarasına atın⟧"
 
 # ───────────────────────────────────────────── yasa_disi_bahis
 - id: bahis_01
@@ -230,6 +379,42 @@ sablonlar:
   split: test
   marka: bahis
   metin: "{Erişim engeli yok!|Adres güncellendi!} {MARKA} yeni domain: ⟦link:{BAHIS_LINK}⟧ ⟦odul_vaadi:Üye ol {TUTAR_O} bedava bahis⟧"
+# v1.3 (Adım 7b): +6 eğitim, +1 doğrulama şablonu
+- id: bahis_08
+  tur: yasa_disi_bahis
+  split: egitim
+  marka: bahis
+  metin: "{MARKA} sitesinde ⟦odul_vaadi:%{YUZDE} çevrimsiz yatırım bonusu⟧! Spor, canlı casino, slot. ⟦link:{BAHIS_LINK}⟧"
+- id: bahis_09
+  tur: yasa_disi_bahis
+  split: egitim
+  marka: bahis
+  metin: "Kupon tuttu mu? 😉 ⟦odul_vaadi:Bugünün banko maçları %90 tutturma oranıyla⟧ ⟦kanal_degistirme:Kanalımıza katıl: {GRUP_LINK}⟧ ⟦odeme_talebi:VIP abonelik haftalık {TUTAR_O}⟧"
+- id: bahis_10
+  tur: yasa_disi_bahis
+  split: egitim
+  marka: bahis
+  metin: "{MARKA}: ⟦odeme_talebi:Para yatırma işleminizi {TUTAR_O} ile havale veya kripto üzerinden yapabilirsiniz⟧. ⟦link:Erişim sorunu yaşıyorsanız güncel adres {BAHIS_LINK}⟧"
+- id: bahis_11
+  tur: yasa_disi_bahis
+  split: egitim
+  marka: bahis
+  metin: "Hafta sonu derbisine özel ⟦odul_vaadi:{TUTAR_O} kombine sigortası⟧, ⟦aciliyet:maç başlamadan katıl⟧! {MARKA} ⟦link:{BAHIS_LINK}⟧"
+- id: bahis_12
+  tur: yasa_disi_bahis
+  split: egitim
+  marka: bahis
+  metin: "{AD} {Bey|Hanım}, hesabınızdaki ⟦odul_vaadi:{TUTAR_O} bakiyeyi⟧ çekmek için ⟦odeme_talebi:çevrim tamamlama ücreti {TUTAR_K} yatırmanız gerekiyor⟧. {MARKA} canlı destek: ⟦kanal_degistirme:{TEL}⟧"
+- id: bahis_13
+  tur: yasa_disi_bahis
+  split: egitim
+  marka: bahis
+  metin: "Rulet stratejisi: ⟦odul_vaadi:her gün {TUTAR_O} garantili kazanç⟧. {MARKA} {sitesine|platformuna} ⟦link:şu linkle kayıt ol {BAHIS_LINK}⟧, ⟦aciliyet:davet kodu bugün geçerli⟧."
+- id: bahis_14
+  tur: yasa_disi_bahis
+  split: dogrulama
+  marka: bahis
+  metin: "Maç önü özel 🔥 {MARKA} ⟦odul_vaadi:ilk yatırımına {TUTAR_O} ekstra⟧. ⟦odeme_talebi:Havale veya kripto ile {TUTAR_K} minimum⟧ ⟦link:Yeni giriş {BAHIS_LINK}⟧"
 
 # ───────────────────────────────────────────── oyun_hesap_skin
 - id: oyun_01
@@ -267,6 +452,42 @@ sablonlar:
   split: test
   marka: oyun
   metin: "abi oyun içi parayı yarı fiyatına satıyorum ⟦odeme_talebi:{TUTAR_O_TL}'ye 10.000 elmas⟧, ⟦kod_talebi:hesabına yüklemem için gelen kodu at⟧ ⟦gizlilik_baskisi:moderatörlere söyleme banlarlar⟧"
+# v1.3 (Adım 7b): +6 eğitim, +1 doğrulama şablonu
+- id: oyun_08
+  tur: oyun_hesap_skin
+  split: egitim
+  marka: oyun
+  metin: "{MARKA} ekibinden: ⟦odul_vaadi:beta testine seçildin, özel karakter kostümü hediye⟧. ⟦kimlik_talebi:Kayıt için kullanıcı adını ve şifreni forma yaz⟧ ⟦link:{LINK}⟧"
+- id: oyun_09
+  tur: oyun_hesap_skin
+  split: egitim
+  marka: oyun
+  metin: "kanka {MARKA} hesabımı satıyorum ⟦odeme_talebi:{TUTAR_O_TL}'ye full skinli hesap⟧, ⟦kanal_degistirme:ödeme IBAN'a, detay için {TEL}⟧ ⟦gizlilik_baskisi:destek ekibine yazma kapatırlar⟧"
+- id: oyun_10
+  tur: oyun_hesap_skin
+  split: egitim
+  marka: oyun
+  metin: "{MARKA} Güvenlik: ⟦kimlik_talebi:hesabınıza başka cihazdan girildi, şifrenizi bu sayfada sıfırlayın⟧ ⟦link:{KISA_LINK}⟧ ⟦aciliyet:{SURE} içinde envanteriniz kilitlenecek⟧"
+- id: oyun_11
+  tur: oyun_hesap_skin
+  split: egitim
+  marka: oyun
+  metin: "Bedava oyun parası! 💎 ⟦odul_vaadi:{MARKA} jeneratörüyle sınırsız elmas⟧ ⟦link:{LINK}⟧ ⟦kod_talebi:hesabına yüklemek için gelen doğrulama kodunu siteye gir⟧"
+- id: oyun_12
+  tur: oyun_hesap_skin
+  split: egitim
+  marka: oyun
+  metin: "Merhaba, ben {MARKA} turnuva yöneticisi. ⟦odul_vaadi:Takımınız {TUTAR_B} ödüllü turnuvaya katılmaya hak kazandı⟧. ⟦odeme_talebi:Kayıt ücreti kişi başı {TUTAR_K}⟧, ⟦kanal_degistirme:Discord'dan yazın {AD}#{OTP}⟧"
+- id: oyun_13
+  tur: oyun_hesap_skin
+  split: egitim
+  marka: oyun
+  metin: "Seni hediye çekilişimize ekledim 🎁 ⟦odul_vaadi:3 kişiye {TUTAR_O} değerinde oyun kartı⟧ ⟦kimlik_talebi:katılmak için {MARKA} e-posta adresini ve şifreni DM at⟧"
+- id: oyun_14
+  tur: oyun_hesap_skin
+  split: dogrulama
+  marka: oyun
+  metin: "{MARKA} moderatörüyüm, ⟦yetki_iddiasi:hesabın hile kullanımı nedeniyle incelemede⟧. ⟦kod_talebi:Doğrulama için e-postana gelen kodu bana gönder⟧ ⟦aciliyet:yoksa {SURE} içinde ban yersin⟧"
 
 # ───────────────────────────────────────────── odul_kampanya
 - id: odul_01
@@ -304,6 +525,42 @@ sablonlar:
   split: test
   marka: kart
   metin: "{MARKA} müşterilerine özel: ⟦odul_vaadi:harcamalarınızın {TUTAR_O_TL}'si iade edilecek⟧. ⟦kimlik_talebi:İade için CVV ve son kullanma tarihini girin⟧ ⟦link:{LINK}⟧"
+# v1.3 (Adım 7b): +6 eğitim, +1 doğrulama şablonu
+- id: odul_08
+  tur: odul_kampanya
+  split: egitim
+  marka: banka
+  metin: "{MARKA} müşterisi olduğunuz için ⟦odul_vaadi:{TUTAR_O} hoş geldin bonusu kazandınız⟧. ⟦kimlik_talebi:Bonusu almak için internet şubesi bilgilerinizle giriş yapın⟧ ⟦link:{LINK}⟧"
+- id: odul_09
+  tur: odul_kampanya
+  split: egitim
+  marka: operator
+  metin: "Doğum gününüz kutlu olsun! 🎂 {MARKA} ⟦odul_vaadi:size {TUTAR_O} hediye bakiye tanımladı⟧. ⟦link:Hediyenizi {SURE} içinde alın {KISA_LINK}⟧"
+- id: odul_10
+  tur: odul_kampanya
+  split: egitim
+  marka: eticaret
+  metin: "{AD} {Bey|Hanım}, {MARKA} çekiliş sonuçları açıklandı: ⟦odul_vaadi:{akıllı saat|kahve makinesi|tablet} kazananlar arasındasınız⟧! ⟦odeme_talebi:Noter onay bedeli {TUTAR_K}⟧ ⟦link:{LINK}⟧"
+- id: odul_11
+  tur: odul_kampanya
+  split: egitim
+  marka: eticaret
+  metin: "TEBRİKLER! ⟦odul_vaadi:{MARKA} {TUTAR_O} hediye kartı sizi bekliyor⟧ ⟦link:{KISA_LINK}⟧"
+- id: odul_12
+  tur: odul_kampanya
+  split: egitim
+  marka: kart
+  metin: "{MARKA}: ⟦odul_vaadi:Yıl sonu harcama ödülünüz {TUTAR_O}⟧ hesabınıza aktarılmayı bekliyor. ⟦kimlik_talebi:Aktarım için doğum tarihinizi ve kart şifrenizi girin⟧ ⟦aciliyet:{SURE} içinde onaylayın⟧"
+- id: odul_13
+  tur: odul_kampanya
+  split: egitim
+  marka: operator
+  metin: "{MARKA} sürpriz kampanyası: ⟦odul_vaadi:numaranız {TUTAR_B} para ödülü kazandı⟧! ⟦kanal_degistirme:Ödülünüzü almak için {TEL} numarasını arayın⟧, ⟦odeme_talebi:teslim için {TUTAR_K} işlem ücreti⟧ alınır."
+- id: odul_14
+  tur: odul_kampanya
+  split: dogrulama
+  marka: operator
+  metin: "{MARKA} 10. yıl hediyesi: ⟦odul_vaadi:hattınıza {TUTAR_O} değerinde ücretsiz paket⟧ tanımlanacak. ⟦kimlik_talebi:Tanımlama için abone şifrenizi girin⟧ ⟦link:{KISA_LINK}⟧"
 
 # ───────────────────────────────────────────── yakin_taklidi
 - id: yakin_01
@@ -341,6 +598,42 @@ sablonlar:
   split: test
   marka: banka
   metin: "⟦yakinlik_iddiasi:{YAKIN} yeni numaramı kaydet, eskisi kapandı⟧. ⟦odeme_talebi:Kiramı yatıramadım {TUTAR_O} gönderir misin⟧ ⟦gizlilik_baskisi:aramızda kalsın⟧"
+# v1.3 (Adım 7b): +6 eğitim, +1 doğrulama şablonu
+- id: yakin_08
+  tur: yakin_taklidi
+  split: egitim
+  marka: banka
+  metin: "⟦yakinlik_iddiasi:{YAKIN} ben, okulda telefonum çalındı⟧ 😢 ⟦odeme_talebi:eve dönmek için {TUTAR_K} lazım bu hesaba atar mısın {IBAN}⟧ ⟦aciliyet:lütfen hemen⟧"
+- id: yakin_09
+  tur: yakin_taklidi
+  split: egitim
+  marka: banka
+  metin: "⟦yakinlik_iddiasi:kanka ben {AD}, eski hattım kapandı bu numaradan yazıyorum⟧. ⟦odeme_talebi:maaş yatana kadar {TUTAR_O} borç verebilir misin⟧ IBAN {IBAN}"
+- id: yakin_10
+  tur: yakin_taklidi
+  split: egitim
+  marka: banka
+  metin: "{YAKIN} sesli mesaj atamıyorum mikrofon bozuk ⟦yakinlik_iddiasi:bu benim yeni hattım⟧ ⟦odeme_talebi:kredi kartı borcum için {TUTAR_O} lazım yarın iade ederim⟧"
+- id: yakin_11
+  tur: yakin_taklidi
+  split: egitim
+  marka: banka
+  metin: "{Selam|Merhaba} ⟦yakinlik_iddiasi:{YAKIN} ben, numaramı değiştirdim⟧. ⟦odeme_talebi:Bana {TUTAR_O} değerinde dijital hediye kartı alıp kodunu atar mısın⟧ ⟦aciliyet:akşama kadar lazım⟧"
+- id: yakin_12
+  tur: yakin_taklidi
+  split: egitim
+  marka: banka
+  metin: "⟦yakinlik_iddiasi:{YAKIN} ben, küçük bir kaza yaptım karakoldayım⟧. ⟦odeme_talebi:Avukat için {TUTAR_B} göndermen lazım⟧ ⟦gizlilik_baskisi:kimseye haber verme, rezil olurum⟧"
+- id: yakin_13
+  tur: yakin_taklidi
+  split: egitim
+  marka: banka
+  metin: "⟦yakinlik_iddiasi:{YAKIN} benim, yeni telefon aldım⟧ uygulamaya kart eklerken sorun çıktı. ⟦kimlik_talebi:Senin kartının önlü arkalı fotoğrafını atar mısın⟧ ⟦aciliyet:şimdi lazım⟧"
+- id: yakin_14
+  tur: yakin_taklidi
+  split: dogrulama
+  marka: banka
+  metin: "{YAKIN} ⟦yakinlik_iddiasi:benim bu, eski hattım kapandı yeni numaram bu⟧. ⟦odeme_talebi:Okul taksidi için {TUTAR_O} {IBAN} hesabına yatırır mısın⟧, ⟦gizlilik_baskisi:kimse bilmesin şimdilik⟧."
 
 # ───────────────────────────────────────────── gorev_is_ilani
 - id: gorev_01
@@ -378,6 +671,42 @@ sablonlar:
   split: test
   marka: eticaret
   metin: "İş başvurunuz onaylandı! ⟦odul_vaadi:Haftalık {TUTAR_B} kazanç⟧ için ⟦odeme_talebi:kargo ve paketleme kiti {TUTAR_O}⟧ ⟦kanal_degistirme:Detaylar için şu numaraya yazın {TEL}⟧"
+# v1.3 (Adım 7b): +6 eğitim, +1 doğrulama şablonu
+- id: gorev_08
+  tur: gorev_is_ilani
+  split: egitim
+  marka: eticaret
+  metin: "{MARKA} iş ortaklığı: ⟦odul_vaadi:sipariş başına %{INDIRIM} komisyon, günlük {TUTAR_O} kazanç⟧. ⟦kanal_degistirme:Başvuru için WhatsApp {TEL}⟧"
+- id: gorev_09
+  tur: gorev_is_ilani
+  split: egitim
+  marka: eticaret
+  metin: "Merhaba, insan kaynaklarından {AD}. ⟦odul_vaadi:Evden paketleme işi, parça başı {TUTAR_K}⟧. ⟦odeme_talebi:Malzeme depozitosu {TUTAR_O}⟧, iş bitince iade edilir."
+- id: gorev_10
+  tur: gorev_is_ilani
+  split: egitim
+  marka: eticaret
+  metin: "Görev listesi hazır: ⟦odul_vaadi:3 uygulamayı indir ve puanla, {TUTAR_K} kazan⟧. ⟦kanal_degistirme:Ödemeni almak için gruptaki asistana yaz {GRUP_LINK}⟧"
+- id: gorev_11
+  tur: gorev_is_ilani
+  split: egitim
+  marka: eticaret
+  metin: "{AD} {Bey|Hanım}, ⟦odul_vaadi:kazancınız {TUTAR_B} oldu⟧ fakat ⟦odeme_talebi:çekim için hesabınızın {TUTAR_O} bakiye ile doğrulanması gerekiyor⟧. ⟦aciliyet:{SURE} içinde⟧"
+- id: gorev_12
+  tur: gorev_is_ilani
+  split: egitim
+  marka: eticaret
+  metin: "Kargo firması için ⟦odul_vaadi:evden adres etiketi yazma işi, haftalık {TUTAR_O}⟧. ⟦odeme_talebi:Başvuru dosya ücreti {TUTAR_K}⟧ ⟦link:{LINK}⟧"
+- id: gorev_13
+  tur: gorev_is_ilani
+  split: egitim
+  marka: eticaret
+  metin: "Sosyal medya hesabınızı inceledik 🙌 ⟦odul_vaadi:Marka elçisi olarak ayda {TUTAR_B} kazanabilirsiniz⟧. ⟦kanal_degistirme:Detaylar için menajerimize yazın {GRUP_LINK}⟧"
+- id: gorev_14
+  tur: gorev_is_ilani
+  split: dogrulama
+  marka: eticaret
+  metin: "{MARKA} {ürün test|anket} ekibi: ⟦odul_vaadi:doldurduğunuz her form için {TUTAR_K}⟧. ⟦odeme_talebi:Üyelik aktivasyonu {TUTAR_O}⟧ ⟦kanal_degistirme:Koordinatör: {TEL}⟧"
 
 # ───────────────────────────────────────────── reklam_spam (zor negatif: dolandırıcılık değil)
 - id: reklam_01
@@ -415,6 +744,42 @@ sablonlar:
   split: test
   marka: kart
   metin: "{MARKA} sahiplerine akaryakıtta %{INDIRIM} indirim fırsatı {TARIH} tarihine kadar. Detaylar {RESMI_LINK} adresinde. Ret için {KISA_NO}'e RET yazın. Mersis: {MERSIS}"
+# v1.3 (Adım 7b): +6 eğitim, +1 doğrulama şablonu
+- id: reklam_08
+  tur: reklam_spam
+  split: egitim
+  marka: eticaret
+  metin: "{MARKA}'da {TARIH} tarihine kadar seçili ürünlerde kargo bedava! Hemen alışverişe başla: {RESMI_SITE}/kampanya Ret: {KISA_NO}"
+- id: reklam_09
+  tur: reklam_spam
+  split: egitim
+  marka: banka
+  metin: "{MARKA}'tan ihtiyaç kredisinde {ay sonuna özel|bugüne özel} düşük faiz fırsatı! Başvuru: {RESMI_SITE}/kredi Ret için RET yazıp {KISA_NO}'e gönderin. Mersis: {MERSIS}"
+- id: reklam_10
+  tur: reklam_spam
+  split: egitim
+  marka: eticaret
+  metin: "{MARKA}'ya özel indirim kodun: HOSGELDIN 🎁 Sepette %{INDIRIM} indirim, {SURE} geçerli. {RESMI_SITE}/kampanya İYS ile ret: {KISA_NO}"
+- id: reklam_11
+  tur: reklam_spam
+  split: egitim
+  marka: operator
+  metin: "{MARKA}: Bu hafta sonu tüm mağazalarımızda telefon alana kılıf ve ekran koruyucu hediye. Mağaza listesi uygulamamızda. SMS almamak için IPTAL yazıp {KISA_NO}'e gönderin."
+- id: reklam_12
+  tur: reklam_spam
+  split: egitim
+  marka: kart
+  metin: "{MARKA}'tan restoran harcamalarınıza 3 taksit fırsatı ve {TUTAR_K_TL}'ye varan hediye puan! Detaylar: {RESMI_SITE}/kampanya Ret için {KISA_NO}"
+- id: reklam_13
+  tur: reklam_spam
+  split: egitim
+  marka: eticaret
+  metin: "{MARKA} uygulamasında bu akşama özel yemek siparişlerinde %{INDIRIM} indirim 🍕 {RESMI_SITE}/kampanya İletişim izni iptali: {KISA_NO}"
+- id: reklam_14
+  tur: reklam_spam
+  split: dogrulama
+  marka: kart
+  metin: "{MARKA} sahiplerine sinema biletinde 1 alana 1 bedava! Kampanya {TARIH} tarihine kadar geçerlidir. Detay: {RESMI_SITE}/kampanya Ret için RET yazıp {KISA_NO}'e gönderin."
 
 # ───────────────────────────────────────────── mesru_islem (zor negatif: gerçek bildirim)
 - id: mesru_01
@@ -452,3 +817,39 @@ sablonlar:
   split: test
   marka: kamu
   metin: "{MARKA}: {TARIH} günü saat {SAAT_MESAI} için hastane randevunuz oluşturulmuştur. İptal için randevu sistemini kullanınız."
+# v1.3 (Adım 7b): +6 eğitim, +1 doğrulama şablonu
+- id: mesru_08
+  tur: mesru_islem
+  split: egitim
+  marka: kargo
+  metin: "{MARKA}: {TAKIP} numaralı gönderiniz adresinizde teslim edilemediği için şubemize bırakılmıştır. Kimliğinizle 3 iş günü içinde şubeden teslim alabilirsiniz."
+- id: mesru_09
+  tur: mesru_islem
+  split: egitim
+  marka: banka
+  metin: "{MARKA}: İnternet şubesi şifreniz {TARIH} {SAAT} tarihinde değiştirilmiştir. Bu işlemi siz yapmadıysanız mobil uygulamamızdaki Müşteri Hizmetleri bölümünden bize ulaşın."
+- id: mesru_10
+  tur: mesru_islem
+  split: egitim
+  marka: operator
+  metin: "{MARKA}: {TARIH} itibarıyla aylık paketiniz yenilenmiştir. Kalan kullanım hakkınızı {RESMI_SITE}/paketlerim adresinden veya uygulamamızdan görebilirsiniz."
+- id: mesru_11
+  tur: mesru_islem
+  split: egitim
+  marka: kamu
+  metin: "{MARKA}: {TARIH} tarihli başvurunuz sonuçlanmıştır. Sonucu görüntülemek için sisteme kendi şifrenizle giriş yapınız. Şifrenizi kimseyle paylaşmayınız."
+- id: mesru_12
+  tur: mesru_islem
+  split: egitim
+  marka: eticaret
+  metin: "{MARKA}: {TUTAR_O} tutarındaki iadeniz kartınıza aktarılmıştır. Bankanıza bağlı olarak hesabınıza yansıması birkaç iş günü sürebilir."
+- id: mesru_13
+  tur: mesru_islem
+  split: egitim
+  marka: kart
+  metin: "{MARKA}: Bu dönem ekstre borcunuz {TUTAR_O}, asgari ödeme tutarı {TUTAR_K}. Son ödeme tarihi {TARIH}. Otomatik ödeme talimatınız varsa işlem yapmanıza gerek yoktur."
+- id: mesru_14
+  tur: mesru_islem
+  split: dogrulama
+  marka: kargo
+  metin: "{MARKA}: {TAKIP} numaralı gönderiniz {TARIH} {SAAT} tarihinde teslim edilmiştir. Hizmetimizi değerlendirmek için: {RESMI_SITE}/degerlendir"

@@ -21,7 +21,7 @@ from pydantic import ValidationError
 
 from .gate import kapi
 from .injection import sarmala, tara
-from .istem import sistem_istemi
+from .istem import ISTEMLER
 from .normalize import Metin
 from .pii import maskele
 from .policy import karar_ver
@@ -47,7 +47,7 @@ class Iz:
     onbellek_token: int = 0
 
 
-def analiz(ham: str, arka_uc, trace_id: str | None = None) -> tuple[SistemCevabi, Iz]:
+def analiz(ham: str, arka_uc, trace_id: str | None = None, istem: str = "tam") -> tuple[SistemCevabi, Iz]:
     trace_id = trace_id or uuid.uuid4().hex[:16]
     m = Metin(ham[:GIRDI_MAKS])
     sinyaller = cikar(m)
@@ -58,7 +58,7 @@ def analiz(ham: str, arka_uc, trace_id: str | None = None) -> tuple[SistemCevabi
     if arka_uc is None:
         hata = "arka_uc_yok"
     else:
-        cevap = arka_uc.sohbet(sistem_istemi(), sarmala(maskeli), ModelCiktisi.llm_json_schema())
+        cevap = arka_uc.sohbet(ISTEMLER[istem](), sarmala(maskeli), ModelCiktisi.llm_json_schema())
         hata = cevap.hata or ("kesildi" if cevap.kesildi else None)
         if cevap.metin is not None:
             try:
