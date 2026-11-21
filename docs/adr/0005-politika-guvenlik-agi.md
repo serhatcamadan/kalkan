@@ -20,3 +20,9 @@ TF-IDF meşru e-postaların yarısına alarm veriyor). Küçük bir LLM de yanı
 ## Bedeli
 - Güvenlik ağı meşru mesajlarda yanlış alarmı artırabilir (örn. meşru bir kampanyanın kısa linki). Meşru FPR'yi
   model ve politika katmanı için ayrı ayrı raporluyoruz, bu sayede bedel görünür kalıyor.
+
+## Ek — v1.1 (2026-11-21)
+Model `reklam_spam` dese bile **resmi olmayan bir bağlantı var ve yasal ret satırı (RET/İYS/MERSİS/iptal) yoksa → orta**.
+Tetikleyen: adversarial adv_21 (gpt-5.4-mini). Kural bir test örneğine bakılarak eklendiği için adv_21 artık kör değil;
+yeni kör örnekler Adım 9'da eklenecek. Politika değişiklikleri `eval/yeniden_puanla.py` ile model çağırmadan tüm
+sonuçlara uygulanır ve sonuç dosyasına `politika_surumu` yazılır.

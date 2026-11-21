@@ -1,5 +1,5 @@
 # KALKAN v6.0 · 2026-11-19
-.PHONY: eval-gpt-pilot eval-gpt eval-gpt-ekonomik sunucu-08 sunucu-2b eval-zs-08 eval-zs-2b eval eval-hizli rapor llm-paket llm-iceri teyit veri veri-istatistik incele golden dis-veri token-olc spike gguf-2b bench-mac bench test lint clean-spike
+.PHONY: yeniden-puanla eval-gpt-pilot eval-gpt eval-gpt-ekonomik sunucu-08 sunucu-2b eval-zs-08 eval-zs-2b eval eval-hizli rapor llm-paket llm-iceri teyit veri veri-istatistik incele golden dis-veri token-olc spike gguf-2b bench-mac bench test lint clean-spike
 spike:          ## Mac: Adım 1 dönüşüm spike'ı
 	bash training/spike/spike_convert.sh
 gguf-2b:        ## Mac: Qwen3.5-2B → .spike/gguf/C2B-Q4_K_M.gguf
@@ -65,3 +65,5 @@ eval-gpt:       ## SEÇENEK A (tam): golden 297 + adversarial 30 (≤ $0.42) ve 
 eval-gpt-ekonomik: ## SEÇENEK B: golden 150 (tür başına eşit, sabit) + adversarial 30 (≤ $0.24) ve OLTA 50 (≤ $0.10) ≈ $0.30
 	python -m eval.run_eval --model llm --etiket gpt-5.4-mini --byok --akil none --set golden adversarial --golden-limit 150 --butce-usd 0.24
 	python -m eval.run_eval --model llm --etiket gpt-5.4-mini --byok --akil none --set olta --limit 50 --butce-usd 0.10
+yeniden-puanla: ## politika değişince tüm LLM sonuçlarını model çağırmadan yeniden puanla ($0)
+	python -m eval.yeniden_puanla

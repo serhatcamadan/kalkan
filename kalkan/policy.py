@@ -1,4 +1,8 @@
-"""KALKAN · policy.py — risk ve öneri KODLA belirlenir                   v1 · 2026-11-20
+"""KALKAN · policy.py — risk ve öneri KODLA belirlenir                 v1.1 · 2026-11-21
+
+v1.1: "Reklam" diyen model + resmi olmayan link + yasal ret satırı yok → ORTA. Gerekçe taksonomide yazılı
+      (reklam_spam: "ret mekanizması içerir"; TR'de ticari iletide İYS/ret zorunlu). Tetikleyen: adversarial adv_21
+      (gpt-5.4-mini "reklam" dedi, kısa link vardı, düşük risk çıktı). Bu yüzden adv_21 artık KÖR DEĞİL.
 
 Model risk üretmez. Risk = f(tür, kapıdan geçen kanıt, deterministik sinyaller, enjeksiyon lekesi).
 Kırmızı çizgiler (testli):
@@ -13,6 +17,7 @@ from dataclasses import dataclass
 
 from .schema import DOLANDIRICILIK_DISI, DeterministikSinyal, DogrulanmisKanit, Risk, Tur
 
+POLITIKA_SURUMU = "1.1"
 GUCLU_SINYAL = {"marka_iceren_yabanci", "benzer_alan_adi", "punycode", "unicode_alan_adi", "gizli_karakter",
                 "gizlilik_ifadesi"}
 ORTA_SINYAL = {"kisa_link", "supheli_tld", "iban"}
@@ -62,7 +67,11 @@ def karar_ver(tur: Tur | None, kanitlar: list[DogrulanmisKanit], sinyaller: list
         return Karar(risk, f"{tur.value.upper()}", f"{MESAJ[risk.value]} {ONERI[tur.value]}", gerekce)
 
     # model dolandırıcılık DIŞI dedi → güvenlik ağı
-    if guclu or enjeksiyon or (orta and tur == Tur.mesru_islem and "kisa_link" in tipler):
+    resmi_olmayan_link = "link" in tipler and "resmi_alan_adi" not in tipler
+    reklam_ama_retsiz = tur == Tur.reklam_spam and resmi_olmayan_link and "ret_mekanizmasi" not in tipler
+    if reklam_ama_retsiz:
+        gerekce.append("reklam_dedi_ama_ret_yok_ve_resmi_olmayan_link")
+    if guclu or enjeksiyon or reklam_ama_retsiz or (orta and tur == Tur.mesru_islem and "kisa_link" in tipler):
         return Karar(Risk.orta, "CELISKI_DOGRULA",
                      f"{MESAJ['orta']} Bağlantıya tıklamadan veya bilgi paylaşmadan önce gönderenin resmi kanalından doğrulayın.",
                      gerekce + ["model_dolandiricilik_disi_dedi_ama_isaret_var"])

@@ -79,3 +79,11 @@ def test_golden_girdisi_ile_hat_ayni_metni_uretir():
         o = json.loads(satir)
         _, iz = analiz(o["metin"], None)
         assert iz.model_girdisi == o["model_girdisi"], o["id"]
+
+
+def test_politika_v11_retsiz_reklam_resmi_olmayan_link_orta():
+    """adv_21 bulgusu: model 'reklam' dese de ret satırı yok + resmi olmayan link → orta."""
+    reklam = Sahte({"kanitlar": [], "tur": "reklam_spam"})
+    s1, _ = analiz("TEBRİKLER Mercan Mobil'den 100 GB HEDİYE hemen al rb.gy/m3rc4n son gün", reklam)
+    s2, _ = analiz("Mavibank'ta kasım indirimi! Detay mavibank.com.tr Ret için RET yazıp 3434'e gönderin", reklam)
+    assert s1.risk == Risk.orta and s2.risk == Risk.dusuk

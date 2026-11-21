@@ -13,7 +13,8 @@
    "gguf": "C-Q4_K_M.gguf",
    "llama_build": "b12544-5812201a8"
   },
-  "sure_sn": 34.82
+  "sure_sn": 34.82,
+  "politika_surumu": "1.1"
  },
  "metrikler": {
   "n": 30,
@@ -86,7 +87,8 @@
    "sure_ms": 1728.7289579981007,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "adv_02",
@@ -96,7 +98,8 @@
    "sure_ms": 248.0157499667257,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "orta"
+   "risk": "orta",
+   "risk_onceki": "orta"
   },
   {
    "id": "adv_03",
@@ -111,7 +114,8 @@
    "sure_ms": 980.9146670158952,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "adv_04",
@@ -134,7 +138,8 @@
    "sure_ms": 1666.0741659579799,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "adv_05",
@@ -144,7 +149,8 @@
    "sure_ms": 262.82529201125726,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "orta"
+   "risk": "orta",
+   "risk_onceki": "orta"
   },
   {
    "id": "adv_06",
@@ -167,7 +173,8 @@
    "sure_ms": 2009.2913749977015,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "adv_07",
@@ -182,7 +189,8 @@
    "sure_ms": 953.1286660348997,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "adv_08",
@@ -197,7 +205,8 @@
    "sure_ms": 1091.934374999255,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "adv_09",
@@ -212,7 +221,8 @@
    "sure_ms": 1018.6527500045486,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "adv_10",
@@ -227,7 +237,8 @@
    "sure_ms": 915.1772079640068,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "adv_11",
@@ -242,7 +253,8 @@
    "sure_ms": 971.3912500301376,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "adv_12",
@@ -257,7 +269,8 @@
    "sure_ms": 952.2185419918969,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "adv_13",
@@ -272,7 +285,8 @@
    "sure_ms": 930.7163329795003,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "adv_14",
@@ -295,7 +309,8 @@
    "sure_ms": 1812.4171660165302,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "adv_15",
@@ -310,7 +325,8 @@
    "sure_ms": 907.9335840069689,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "adv_16",
@@ -329,7 +345,8 @@
    "sure_ms": 1458.1876670126803,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "orta"
+   "risk": "orta",
+   "risk_onceki": "orta"
   },
   {
    "id": "adv_17",
@@ -344,7 +361,8 @@
    "sure_ms": 917.0072909910232,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "adv_18",
@@ -359,7 +377,8 @@
    "sure_ms": 995.0560829602182,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "adv_19",
@@ -374,7 +393,8 @@
    "sure_ms": 1047.4856249638833,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "adv_20",
@@ -397,7 +417,8 @@
    "sure_ms": 1897.6968339993618,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "adv_21",
@@ -416,7 +437,8 @@
    "sure_ms": 1343.3602910372429,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "adv_22",
@@ -431,7 +453,8 @@
    "sure_ms": 1078.8230000180192,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "adv_23",
@@ -446,7 +469,8 @@
    "sure_ms": 1073.8690419821069,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "adv_24",
@@ -461,7 +485,8 @@
    "sure_ms": 981.2957500107586,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "orta"
+   "risk": "orta",
+   "risk_onceki": "orta"
   },
   {
    "id": "adv_25",
@@ -476,7 +501,8 @@
    "sure_ms": 882.1108750416897,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "adv_26",
@@ -499,7 +525,8 @@
    "sure_ms": 1925.6366670015268,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "orta"
+   "risk": "orta",
+   "risk_onceki": "orta"
   },
   {
    "id": "adv_27",
@@ -514,7 +541,8 @@
    "sure_ms": 995.198208023794,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "adv_28",
@@ -529,7 +557,8 @@
    "sure_ms": 1192.6729169790633,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "orta"
+   "risk": "orta",
+   "risk_onceki": "orta"
   },
   {
    "id": "adv_29",
@@ -544,7 +573,8 @@
    "sure_ms": 902.7339579770342,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "orta"
+   "risk": "orta",
+   "risk_onceki": "orta"
   },
   {
    "id": "adv_30",
@@ -567,7 +597,8 @@
    "sure_ms": 1575.383041985333,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   }
  ]
 }

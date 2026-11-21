@@ -8,7 +8,7 @@ include = ["kalkan*"]   # data/, training/, deploy/ … paket değil
 
 [project]
 name = "kalkan"
-version = "0.5.0"
+version = "0.6.0"
 description = "Türkçe dolandırıcılık mesajı analizcisi — kanıt önce, fail-closed"
 readme = "README.md"
 requires-python = ">=3.11"

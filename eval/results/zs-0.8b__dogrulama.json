@@ -13,7 +13,8 @@
    "gguf": "C-Q4_K_M.gguf",
    "llama_build": "b12544-5812201a8"
   },
-  "sure_sn": 256.6
+  "sure_sn": 256.6,
+  "politika_surumu": "1.1"
  },
  "metrikler": {
   "n": 198,
@@ -201,8 +202,6 @@
   "eslesme_p": 0.0208,
   "eslesme_r": 0.015,
   "eslesme_f1": 0.0174,
-  "kesilen_cevap": 0,
-  "ort_cikti_token": 106.9,
   "gurultuye_gore": {
    "(yok)": {
     "dogruluk": 0.192,
@@ -228,7 +227,9 @@
     "dogruluk": 0.185,
     "n": 27
    }
-  }
+  },
+  "kesilen_cevap": 0,
+  "ort_cikti_token": 106.9
  },
  "tahminler": [
   {
@@ -244,7 +245,8 @@
    "sure_ms": 1020.8852079813369,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-bahis_05-007",
@@ -263,7 +265,8 @@
    "sure_ms": 1401.7998750205152,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "orta"
+   "risk": "orta",
+   "risk_onceki": "orta"
   },
   {
    "id": "dog-bahis_05-002",
@@ -282,7 +285,8 @@
    "sure_ms": 1416.6203330387361,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "orta"
+   "risk": "orta",
+   "risk_onceki": "orta"
   },
   {
    "id": "dog-oyun_05-001",
@@ -297,7 +301,8 @@
    "sure_ms": 915.5389999505132,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-gorev_05-006",
@@ -316,7 +321,8 @@
    "sure_ms": 1330.7122500264086,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "orta"
+   "risk": "orta",
+   "risk_onceki": "orta"
   },
   {
    "id": "dog-reklam_05-016",
@@ -339,7 +345,8 @@
    "sure_ms": 1704.4488330138847,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-odul_05-011",
@@ -358,7 +365,8 @@
    "sure_ms": 1547.943582991138,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-bahis_05-017",
@@ -373,7 +381,8 @@
    "sure_ms": 860.1741249440238,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "orta"
+   "risk": "orta",
+   "risk_onceki": "orta"
   },
   {
    "id": "dog-reklam_05-004",
@@ -392,7 +401,8 @@
    "sure_ms": 1747.0721660065465,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-yakin_05-012",
@@ -407,7 +417,8 @@
    "sure_ms": 773.2290420099162,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "orta"
+   "risk": "orta",
+   "risk_onceki": "orta"
   },
   {
    "id": "dog-yatirim_05-014",
@@ -422,7 +433,8 @@
    "sure_ms": 1049.6677919873036,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-oyun_05-010",
@@ -437,7 +449,8 @@
    "sure_ms": 869.9191250489093,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-kurum_05-014",
@@ -452,7 +465,8 @@
    "sure_ms": 1049.3050829973072,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-kamu_05-013",
@@ -475,7 +489,8 @@
    "sure_ms": 2520.5102079780772,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-oyun_05-015",
@@ -490,7 +505,8 @@
    "sure_ms": 915.6787909450941,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-bahis_05-013",
@@ -509,7 +525,8 @@
    "sure_ms": 1183.1595829571597,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "orta"
+   "risk": "orta",
+   "risk_onceki": "orta"
   },
   {
    "id": "dog-oyun_05-017",
@@ -524,7 +541,8 @@
    "sure_ms": 825.3779580118135,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-yakin_05-007",
@@ -539,7 +557,8 @@
    "sure_ms": 972.0600410364568,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "orta"
+   "risk": "orta",
+   "risk_onceki": "orta"
   },
   {
    "id": "dog-bahis_05-012",
@@ -554,7 +573,8 @@
    "sure_ms": 858.2108750124462,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "orta"
+   "risk": "orta",
+   "risk_onceki": "orta"
   },
   {
    "id": "dog-odul_05-014",
@@ -573,7 +593,8 @@
    "sure_ms": 1372.059250017628,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-oyun_05-007",
@@ -588,7 +609,8 @@
    "sure_ms": 929.5766249997541,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-odul_05-016",
@@ -611,7 +633,8 @@
    "sure_ms": 1605.2446669782512,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-oyun_05-013",
@@ -626,7 +649,8 @@
    "sure_ms": 951.700208010152,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-yakin_05-002",
@@ -641,7 +665,8 @@
    "sure_ms": 750.5686249933206,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-reklam_05-002",
@@ -664,7 +689,8 @@
    "sure_ms": 1624.5793749694712,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-odul_05-012",
@@ -679,7 +705,8 @@
    "sure_ms": 999.6623329934664,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-kurum_05-012",
@@ -694,7 +721,8 @@
    "sure_ms": 929.011249972973,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-yakin_05-010",
@@ -709,7 +737,8 @@
    "sure_ms": 848.675666959025,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "orta"
+   "risk": "orta",
+   "risk_onceki": "orta"
   },
   {
    "id": "dog-yatirim_05-013",
@@ -724,7 +753,8 @@
    "sure_ms": 1107.4247080250643,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-odul_05-017",
@@ -739,7 +769,8 @@
    "sure_ms": 883.4733329713345,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-kurum_05-003",
@@ -754,7 +785,8 @@
    "sure_ms": 1017.4203750211746,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-yakin_05-021",
@@ -777,7 +809,8 @@
    "sure_ms": 2046.9287079758942,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "orta"
+   "risk": "orta",
+   "risk_onceki": "orta"
   },
   {
    "id": "dog-kargo_05-012",
@@ -800,7 +833,8 @@
    "sure_ms": 1704.7105410019867,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-yakin_05-009",
@@ -815,7 +849,8 @@
    "sure_ms": 955.4211249924265,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "orta"
+   "risk": "orta",
+   "risk_onceki": "orta"
   },
   {
    "id": "dog-bahis_05-003",
@@ -838,7 +873,8 @@
    "sure_ms": 1886.4288339973427,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "orta"
+   "risk": "orta",
+   "risk_onceki": "orta"
   },
   {
    "id": "dog-oyun_05-000",
@@ -853,7 +889,8 @@
    "sure_ms": 951.8870000028983,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-reklam_05-017",
@@ -876,7 +913,8 @@
    "sure_ms": 1679.0870410040952,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-bahis_05-016",
@@ -899,7 +937,8 @@
    "sure_ms": 2007.694000029005,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "orta"
+   "risk": "orta",
+   "risk_onceki": "orta"
   },
   {
    "id": "dog-mesru_05-008",
@@ -914,7 +953,8 @@
    "sure_ms": 851.2217499664985,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "dusuk"
+   "risk": "dusuk",
+   "risk_onceki": "dusuk"
   },
   {
    "id": "dog-kamu_05-006",
@@ -937,7 +977,8 @@
    "sure_ms": 2246.741665992886,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-bahis_05-008",
@@ -956,7 +997,8 @@
    "sure_ms": 1366.9973750365898,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "orta"
+   "risk": "orta",
+   "risk_onceki": "orta"
   },
   {
    "id": "dog-gorev_05-013",
@@ -971,7 +1013,8 @@
    "sure_ms": 1259.833958989475,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "orta"
+   "risk": "orta",
+   "risk_onceki": "orta"
   },
   {
    "id": "dog-kurum_05-000",
@@ -986,7 +1029,8 @@
    "sure_ms": 1091.6305829887278,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-yatirim_05-017",
@@ -1009,7 +1053,8 @@
    "sure_ms": 1783.5928340209648,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-yatirim_05-016",
@@ -1024,7 +1069,8 @@
    "sure_ms": 1110.1082079694606,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-gorev_05-001",
@@ -1039,7 +1085,8 @@
    "sure_ms": 836.4543750067241,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-yatirim_05-010",
@@ -1054,7 +1101,8 @@
    "sure_ms": 1024.8583330539986,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-kurum_05-010",
@@ -1069,7 +1117,8 @@
    "sure_ms": 1098.0521659948863,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-kamu_05-004",
@@ -1088,7 +1137,8 @@
    "sure_ms": 1473.8562920247205,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-bahis_05-014",
@@ -1107,7 +1157,8 @@
    "sure_ms": 1367.3802909906954,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "orta"
+   "risk": "orta",
+   "risk_onceki": "orta"
   },
   {
    "id": "dog-mesru_05-003",
@@ -1122,7 +1173,8 @@
    "sure_ms": 992.6809170283377,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-gorev_05-015",
@@ -1137,7 +1189,8 @@
    "sure_ms": 1104.7955420217477,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "orta"
+   "risk": "orta",
+   "risk_onceki": "orta"
   },
   {
    "id": "dog-mesru_05-009",
@@ -1152,7 +1205,8 @@
    "sure_ms": 992.9872499778867,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-kamu_05-002",
@@ -1171,7 +1225,8 @@
    "sure_ms": 1424.7961249784566,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-kurum_05-011",
@@ -1186,7 +1241,8 @@
    "sure_ms": 1115.0089160073549,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-mesru_05-011",
@@ -1201,7 +1257,8 @@
    "sure_ms": 967.1648330404423,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "orta"
+   "risk": "orta",
+   "risk_onceki": "orta"
   },
   {
    "id": "dog-oyun_05-011",
@@ -1216,7 +1273,8 @@
    "sure_ms": 904.7698330250569,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-odul_05-010",
@@ -1231,7 +1289,8 @@
    "sure_ms": 1046.8717080075294,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-gorev_05-017",
@@ -1250,7 +1309,8 @@
    "sure_ms": 1359.9129170179367,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-kurum_05-001",
@@ -1265,7 +1325,8 @@
    "sure_ms": 1090.9798329812475,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-oyun_05-006",
@@ -1280,7 +1341,8 @@
    "sure_ms": 898.6938750022091,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-mesru_05-013",
@@ -1295,7 +1357,8 @@
    "sure_ms": 884.0957499924116,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "dusuk"
+   "risk": "dusuk",
+   "risk_onceki": "dusuk"
   },
   {
    "id": "dog-kargo_05-016",
@@ -1318,7 +1381,8 @@
    "sure_ms": 1644.511374994181,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-mesru_05-010",
@@ -1333,7 +1397,8 @@
    "sure_ms": 916.6472500073723,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-gorev_05-014",
@@ -1348,7 +1413,8 @@
    "sure_ms": 1086.9924169965088,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "orta"
+   "risk": "orta",
+   "risk_onceki": "orta"
   },
   {
    "id": "dog-mesru_05-006",
@@ -1363,7 +1429,8 @@
    "sure_ms": 903.4511249628849,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-reklam_05-005",
@@ -1386,7 +1453,8 @@
    "sure_ms": 1593.4577920124866,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-oyun_05-004",
@@ -1401,7 +1469,8 @@
    "sure_ms": 956.2538330210373,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-yatirim_05-005",
@@ -1416,7 +1485,8 @@
    "sure_ms": 1112.5704169971868,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-gorev_05-004",
@@ -1431,7 +1501,8 @@
    "sure_ms": 923.3444579876959,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "orta"
+   "risk": "orta",
+   "risk_onceki": "orta"
   },
   {
    "id": "dog-odul_05-004",
@@ -1446,7 +1517,8 @@
    "sure_ms": 871.5391669538803,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-yatirim_05-006",
@@ -1461,7 +1533,8 @@
    "sure_ms": 1108.7050409987569,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-kamu_05-017",
@@ -1480,7 +1553,8 @@
    "sure_ms": 1407.135833054781,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-yakin_05-000",
@@ -1495,7 +1569,8 @@
    "sure_ms": 851.8487500259653,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "orta"
+   "risk": "orta",
+   "risk_onceki": "orta"
   },
   {
    "id": "dog-gorev_05-010",
@@ -1518,7 +1593,8 @@
    "sure_ms": 1707.5942090013996,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-yatirim_05-008",
@@ -1541,7 +1617,8 @@
    "sure_ms": 2275.8077919716015,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-yakin_05-019",
@@ -1564,7 +1641,8 @@
    "sure_ms": 1653.3542919787578,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "orta"
+   "risk": "orta",
+   "risk_onceki": "orta"
   },
   {
    "id": "dog-bahis_05-000",
@@ -1587,7 +1665,8 @@
    "sure_ms": 1811.1544589628465,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "orta"
+   "risk": "orta",
+   "risk_onceki": "orta"
   },
   {
    "id": "dog-odul_05-003",
@@ -1610,7 +1689,8 @@
    "sure_ms": 1837.509915989358,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-oyun_05-008",
@@ -1625,7 +1705,8 @@
    "sure_ms": 954.4191660243087,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-kamu_05-014",
@@ -1644,7 +1725,8 @@
    "sure_ms": 1474.9737919773906,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-kargo_05-017",
@@ -1667,7 +1749,8 @@
    "sure_ms": 1589.5201670355164,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-kargo_05-011",
@@ -1686,7 +1769,8 @@
    "sure_ms": 1761.019249970559,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-kurum_05-005",
@@ -1701,7 +1785,8 @@
    "sure_ms": 1020.2419580309652,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-odul_05-015",
@@ -1724,7 +1809,8 @@
    "sure_ms": 1678.1885420205072,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-mesru_05-017",
@@ -1739,7 +1825,8 @@
    "sure_ms": 919.549707963597,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-yakin_05-013",
@@ -1754,7 +1841,8 @@
    "sure_ms": 754.2041659471579,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-bahis_05-006",
@@ -1773,7 +1861,8 @@
    "sure_ms": 1323.9603330148384,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "orta"
+   "risk": "orta",
+   "risk_onceki": "orta"
   },
   {
    "id": "dog-kargo_05-013",
@@ -1788,7 +1877,8 @@
    "sure_ms": 1152.0629589795135,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-mesru_05-000",
@@ -1803,7 +1893,8 @@
    "sure_ms": 1059.695833013393,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-mesru_05-007",
@@ -1818,7 +1909,8 @@
    "sure_ms": 1008.6563749937341,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-yakin_05-004",
@@ -1833,7 +1925,8 @@
    "sure_ms": 844.0765830455348,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "orta"
+   "risk": "orta",
+   "risk_onceki": "orta"
   },
   {
    "id": "dog-kargo_05-007",
@@ -1848,7 +1941,8 @@
    "sure_ms": 1081.3283339957707,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-kargo_05-009",
@@ -1867,7 +1961,8 @@
    "sure_ms": 1294.8015829897486,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-yakin_05-008",
@@ -1882,7 +1977,8 @@
    "sure_ms": 838.4062920231372,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "orta"
+   "risk": "orta",
+   "risk_onceki": "orta"
   },
   {
    "id": "dog-kurum_05-006",
@@ -1901,7 +1997,8 @@
    "sure_ms": 1501.954499981366,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-kamu_05-009",
@@ -1920,7 +2017,8 @@
    "sure_ms": 1463.345666998066,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-kurum_05-008",
@@ -1935,7 +2033,8 @@
    "sure_ms": 1009.612166963052,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-yatirim_05-007",
@@ -1950,7 +2049,8 @@
    "sure_ms": 1111.1609999788925,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-kargo_05-006",
@@ -1973,7 +2073,8 @@
    "sure_ms": 1680.6511670001782,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-kargo_05-004",
@@ -1996,7 +2097,8 @@
    "sure_ms": 2527.8576660202816,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-kargo_05-015",
@@ -2019,7 +2121,8 @@
    "sure_ms": 2031.5601250040345,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-kargo_05-001",
@@ -2042,7 +2145,8 @@
    "sure_ms": 2093.51679100655,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-kargo_05-005",
@@ -2061,7 +2165,8 @@
    "sure_ms": 1761.0727080027573,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-kargo_05-003",
@@ -2080,7 +2185,8 @@
    "sure_ms": 1799.2369999992661,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-gorev_05-012",
@@ -2095,7 +2201,8 @@
    "sure_ms": 1094.47499999078,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "orta"
+   "risk": "orta",
+   "risk_onceki": "orta"
   },
   {
    "id": "dog-kamu_05-010",
@@ -2110,7 +2217,8 @@
    "sure_ms": 1078.0013340408914,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-bahis_05-009",
@@ -2129,7 +2237,8 @@
    "sure_ms": 1624.1730830515735,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-kamu_05-011",
@@ -2148,7 +2257,8 @@
    "sure_ms": 1546.8447500024922,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "orta"
+   "risk": "orta",
+   "risk_onceki": "orta"
   },
   {
    "id": "dog-kurum_05-007",
@@ -2163,7 +2273,8 @@
    "sure_ms": 1003.8347910158336,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-bahis_05-005",
@@ -2178,7 +2289,8 @@
    "sure_ms": 865.9869999974035,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "orta"
+   "risk": "orta",
+   "risk_onceki": "orta"
   },
   {
    "id": "dog-kurum_05-002",
@@ -2197,7 +2309,8 @@
    "sure_ms": 1591.9818339752965,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-mesru_05-016",
@@ -2212,7 +2325,8 @@
    "sure_ms": 1024.293792026583,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-mesru_05-005",
@@ -2227,7 +2341,8 @@
    "sure_ms": 944.912042003125,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-odul_05-009",
@@ -2250,7 +2365,8 @@
    "sure_ms": 1674.303209001664,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-reklam_05-008",
@@ -2273,7 +2389,8 @@
    "sure_ms": 1854.0087079745717,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-gorev_05-002",
@@ -2292,7 +2409,8 @@
    "sure_ms": 1498.6534579657018,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "orta"
+   "risk": "orta",
+   "risk_onceki": "orta"
   },
   {
    "id": "dog-kamu_05-016",
@@ -2315,7 +2433,8 @@
    "sure_ms": 1990.0261249858886,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-gorev_05-009",
@@ -2330,7 +2449,8 @@
    "sure_ms": 968.6130000045523,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "orta"
+   "risk": "orta",
+   "risk_onceki": "orta"
   },
   {
    "id": "dog-odul_05-006",
@@ -2353,7 +2473,8 @@
    "sure_ms": 1741.79900001036,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-kurum_05-013",
@@ -2368,7 +2489,8 @@
    "sure_ms": 1024.3046670220792,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-gorev_05-007",
@@ -2383,7 +2505,8 @@
    "sure_ms": 1133.3416670095176,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "orta"
+   "risk": "orta",
+   "risk_onceki": "orta"
   },
   {
    "id": "dog-kamu_05-003",
@@ -2406,7 +2529,8 @@
    "sure_ms": 1913.4051660075784,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-yatirim_05-000",
@@ -2429,7 +2553,8 @@
    "sure_ms": 1781.0737079707906,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-kurum_05-015",
@@ -2444,7 +2569,8 @@
    "sure_ms": 1054.2465000180528,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-reklam_05-013",
@@ -2467,7 +2593,8 @@
    "sure_ms": 1826.7403750214726,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-bahis_05-015",
@@ -2486,7 +2613,8 @@
    "sure_ms": 1428.1626669690013,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "orta"
+   "risk": "orta",
+   "risk_onceki": "orta"
   },
   {
    "id": "dog-reklam_05-014",
@@ -2509,7 +2637,8 @@
    "sure_ms": 1708.6354159982875,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-yatirim_05-003",
@@ -2524,7 +2653,8 @@
    "sure_ms": 1103.0925000086427,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-odul_05-013",
@@ -2539,7 +2669,8 @@
    "sure_ms": 936.1413749866188,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-odul_05-001",
@@ -2562,7 +2693,8 @@
    "sure_ms": 1974.7899170033634,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-yakin_05-001",
@@ -2577,7 +2709,8 @@
    "sure_ms": 871.9788339803927,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "orta"
+   "risk": "orta",
+   "risk_onceki": "orta"
   },
   {
    "id": "dog-gorev_05-003",
@@ -2592,7 +2725,8 @@
    "sure_ms": 1025.0442090327851,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "orta"
+   "risk": "orta",
+   "risk_onceki": "orta"
   },
   {
    "id": "dog-reklam_05-006",
@@ -2611,7 +2745,8 @@
    "sure_ms": 1263.753125036601,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-kurum_05-016",
@@ -2626,7 +2761,8 @@
    "sure_ms": 1209.6413749968633,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-oyun_05-009",
@@ -2645,7 +2781,8 @@
    "sure_ms": 1250.3570840344764,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-bahis_05-001",
@@ -2664,7 +2801,8 @@
    "sure_ms": 1259.4896670198068,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "orta"
+   "risk": "orta",
+   "risk_onceki": "orta"
   },
   {
    "id": "dog-oyun_05-003",
@@ -2679,7 +2817,8 @@
    "sure_ms": 933.8811250054277,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-reklam_05-003",
@@ -2702,7 +2841,8 @@
    "sure_ms": 1723.2427499839105,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-oyun_05-014",
@@ -2717,7 +2857,8 @@
    "sure_ms": 970.0228329747915,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-yatirim_05-012",
@@ -2740,7 +2881,8 @@
    "sure_ms": 1953.358082973864,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-odul_05-002",
@@ -2755,7 +2897,8 @@
    "sure_ms": 939.7196659701876,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-bahis_05-011",
@@ -2774,7 +2917,8 @@
    "sure_ms": 1585.2957920287736,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "orta"
+   "risk": "orta",
+   "risk_onceki": "orta"
   },
   {
    "id": "dog-odul_05-007",
@@ -2789,7 +2933,8 @@
    "sure_ms": 955.8140420122072,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-yatirim_05-002",
@@ -2804,7 +2949,8 @@
    "sure_ms": 1091.7052080039866,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-kamu_05-015",
@@ -2823,7 +2969,8 @@
    "sure_ms": 1443.2458330411464,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-kargo_05-008",
@@ -2842,7 +2989,8 @@
    "sure_ms": 1841.248209006153,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-kamu_05-007",
@@ -2861,7 +3009,8 @@
    "sure_ms": 1594.4822079618461,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-kamu_05-000",
@@ -2880,7 +3029,8 @@
    "sure_ms": 1389.2103749676608,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-gorev_05-005",
@@ -2895,7 +3045,8 @@
    "sure_ms": 1171.5242080390453,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "orta"
+   "risk": "orta",
+   "risk_onceki": "orta"
   },
   {
    "id": "dog-oyun_05-012",
@@ -2910,7 +3061,8 @@
    "sure_ms": 873.1956660049036,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-reklam_05-010",
@@ -2929,7 +3081,8 @@
    "sure_ms": 1235.9941669856198,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-gorev_05-008",
@@ -2944,7 +3097,8 @@
    "sure_ms": 1099.9488749657758,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "orta"
+   "risk": "orta",
+   "risk_onceki": "orta"
   },
   {
    "id": "dog-yatirim_05-001",
@@ -2959,7 +3113,8 @@
    "sure_ms": 1067.0405409764498,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-kurum_05-004",
@@ -2974,7 +3129,8 @@
    "sure_ms": 1074.4418340036646,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-oyun_05-016",
@@ -2997,7 +3153,8 @@
    "sure_ms": 1793.6666660243645,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-kamu_05-012",
@@ -3016,7 +3173,8 @@
    "sure_ms": 1492.1460410114378,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-reklam_05-012",
@@ -3035,7 +3193,8 @@
    "sure_ms": 1410.3984169778414,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-mesru_05-012",
@@ -3050,7 +3209,8 @@
    "sure_ms": 854.2576669715345,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-kurum_05-009",
@@ -3065,7 +3225,8 @@
    "sure_ms": 1058.2902499591,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-reklam_05-009",
@@ -3088,7 +3249,8 @@
    "sure_ms": 1763.2817080011591,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-gorev_05-000",
@@ -3103,7 +3265,8 @@
    "sure_ms": 1312.2972910059616,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "orta"
+   "risk": "orta",
+   "risk_onceki": "orta"
   },
   {
    "id": "dog-yatirim_05-015",
@@ -3126,7 +3289,8 @@
    "sure_ms": 1816.4790410082787,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-odul_05-005",
@@ -3141,7 +3305,8 @@
    "sure_ms": 983.9861249784008,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-yakin_05-020",
@@ -3156,7 +3321,8 @@
    "sure_ms": 812.9679589765146,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "orta"
+   "risk": "orta",
+   "risk_onceki": "orta"
   },
   {
    "id": "dog-mesru_05-001",
@@ -3171,7 +3337,8 @@
    "sure_ms": 757.8719170414843,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "dusuk"
+   "risk": "dusuk",
+   "risk_onceki": "dusuk"
   },
   {
    "id": "dog-gorev_05-011",
@@ -3186,7 +3353,8 @@
    "sure_ms": 1097.6359169580974,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "orta"
+   "risk": "orta",
+   "risk_onceki": "orta"
   },
   {
    "id": "dog-yakin_05-016",
@@ -3201,7 +3369,8 @@
    "sure_ms": 845.2368750004098,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "orta"
+   "risk": "orta",
+   "risk_onceki": "orta"
   },
   {
    "id": "dog-reklam_05-007",
@@ -3224,7 +3393,8 @@
    "sure_ms": 1740.735124971252,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-oyun_05-002",
@@ -3239,7 +3409,8 @@
    "sure_ms": 996.8800420174375,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-kargo_05-002",
@@ -3262,7 +3433,8 @@
    "sure_ms": 1736.0853750142269,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-reklam_05-015",
@@ -3285,7 +3457,8 @@
    "sure_ms": 1869.7854580241255,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-odul_05-000",
@@ -3300,7 +3473,8 @@
    "sure_ms": 969.6197500452399,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-kargo_05-010",
@@ -3323,7 +3497,8 @@
    "sure_ms": 1939.094707951881,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-bahis_05-004",
@@ -3342,7 +3517,8 @@
    "sure_ms": 1401.7473330022767,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "orta"
+   "risk": "orta",
+   "risk_onceki": "orta"
   },
   {
    "id": "dog-kargo_05-014",
@@ -3365,7 +3541,8 @@
    "sure_ms": 2154.7330830362625,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-yakin_05-006",
@@ -3380,7 +3557,8 @@
    "sure_ms": 845.3735000221059,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "orta"
+   "risk": "orta",
+   "risk_onceki": "orta"
   },
   {
    "id": "dog-mesru_05-004",
@@ -3395,7 +3573,8 @@
    "sure_ms": 752.9639590065926,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "dusuk"
+   "risk": "dusuk",
+   "risk_onceki": "dusuk"
   },
   {
    "id": "dog-gorev_05-016",
@@ -3410,7 +3589,8 @@
    "sure_ms": 932.8594579710625,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "orta"
+   "risk": "orta",
+   "risk_onceki": "orta"
   },
   {
    "id": "dog-mesru_05-015",
@@ -3425,7 +3605,8 @@
    "sure_ms": 791.351541003678,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-reklam_05-011",
@@ -3448,7 +3629,8 @@
    "sure_ms": 1677.7488749939948,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-yakin_05-015",
@@ -3463,7 +3645,8 @@
    "sure_ms": 838.7409159913659,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "orta"
+   "risk": "orta",
+   "risk_onceki": "orta"
   },
   {
    "id": "dog-reklam_05-000",
@@ -3486,7 +3669,8 @@
    "sure_ms": 1678.0124580254778,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-reklam_05-001",
@@ -3505,7 +3689,8 @@
    "sure_ms": 1295.4122920054942,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-oyun_05-005",
@@ -3520,7 +3705,8 @@
    "sure_ms": 1023.4397919848561,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-yakin_05-018",
@@ -3535,7 +3721,8 @@
    "sure_ms": 864.5972080412321,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "orta"
+   "risk": "orta",
+   "risk_onceki": "orta"
   },
   {
    "id": "dog-kamu_05-008",
@@ -3554,7 +3741,8 @@
    "sure_ms": 1439.7130000288598,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-yatirim_05-004",
@@ -3569,7 +3757,8 @@
    "sure_ms": 1102.4092909647152,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-mesru_05-014",
@@ -3584,7 +3773,8 @@
    "sure_ms": 768.8182079582475,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "dusuk"
+   "risk": "dusuk",
+   "risk_onceki": "dusuk"
   },
   {
    "id": "dog-yakin_05-014",
@@ -3603,7 +3793,8 @@
    "sure_ms": 1145.3756249975413,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "orta"
+   "risk": "orta",
+   "risk_onceki": "orta"
   },
   {
    "id": "dog-kargo_05-000",
@@ -3626,7 +3817,8 @@
    "sure_ms": 1859.086540993303,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-odul_05-008",
@@ -3645,7 +3837,8 @@
    "sure_ms": 1476.6021669493057,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-kamu_05-005",
@@ -3664,7 +3857,8 @@
    "sure_ms": 1518.081791989971,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-yatirim_05-011",
@@ -3687,7 +3881,8 @@
    "sure_ms": 2009.4813330215402,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-mesru_05-002",
@@ -3702,7 +3897,8 @@
    "sure_ms": 1032.7946250326931,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-kurum_05-017",
@@ -3717,7 +3913,8 @@
    "sure_ms": 1085.1617919979617,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-kamu_05-001",
@@ -3736,7 +3933,8 @@
    "sure_ms": 1449.5054169674404,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "yuksek"
+   "risk": "yuksek",
+   "risk_onceki": "yuksek"
   },
   {
    "id": "dog-bahis_05-010",
@@ -3755,7 +3953,8 @@
    "sure_ms": 1382.0572909899056,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "orta"
+   "risk": "orta",
+   "risk_onceki": "orta"
   }
  ]
 }

@@ -12,7 +12,9 @@ Elle yazılan yorumlar bu bölümün DIŞINA yazılır; `python -m eval.report` 
   sonuçları golden kadar ağırlık taşıyacak.
 - **Zero-shot (Adım 5):** 0.8B her şeye alarm veriyor (golden meşru FPR 1.00), 2B tür ayıramıyor (makro-F1 0.24) ve
   dış sette TF-IDF'in altında. Küçük model talimatla değil örnekle öğrenmeli → fine-tune (Adım 7).
-- Ayrıntı ve tahmin karneleri: `docs/adim-04-eval.md`, `docs/adim-05-pipeline.md`.
+- **gpt-5.4-mini (Adım 6):** golden 0.905, meşru FPR 0, kanıt eşleşme 0.77 → sorun istem değil ölçekti. OLTA'da 0.25:
+  kaçan oltalamalar meşru bülten gibi yazılmış, farkı bağlantı yaratıyor → metin-yalnız yaklaşımın tavanı (sınırlama).
+- Ayrıntı ve tahmin karneleri: `docs/adim-04-eval.md`, `docs/adim-05-pipeline.md`, `docs/adim-06-gpt.md`.
 
 <!-- OTOMATIK:BAS -->
 ## Golden test (297 örnek, şablon ve marka ayrık)
@@ -22,8 +24,8 @@ Elle yazılan yorumlar bu bölümün DIŞINA yazılır; `python -m eval.report` 
 | kural | 0.887 | 0.896 | 0.975 ✅ | 0.000 ✅ | 1.000 ✅ | 0.713 | 1.000 | 0.800 | 2.200 | 0.000 |
 | tfidf | 0.491 | 0.525 | 1.000 ✅ | 0.000 ✅ | — | — | 1.000 | 0.700 | 0.800 | 0.000 |
 | zs-0.8b | 0.128 | 0.195 | 1.000 ✅ | 1.000 ❌ | 0.482 ❌ | 0.106 | 1.000 | 1132.900 | 1958.500 | 0.000 |
-| zs-2b | 0.235 | 0.323 | 0.979 ✅ | 0.426 ❌ | 0.767 ❌ | 0.021 | 1.000 | 416.900 | 1015.800 | 0.000 |
-| gpt-5.4-mini | 0.904 | 0.909 | 0.996 ✅ | 0.000 ✅ | 0.964 ✅ | 0.770 | 1.000 | 1161.200 | 1385.900 | 1.199 |
+| zs-2b | 0.235 | 0.323 | 1.000 ✅ | 0.426 ❌ | 0.767 ❌ | 0.021 | 1.000 | 416.900 | 1015.800 | 0.000 |
+| gpt-5.4-mini | 0.904 | 0.909 | 1.000 ✅ | 0.000 ✅ | 0.964 ✅ | 0.770 | 1.000 | 1161.200 | 1385.900 | 1.199 |
 
 
 ## Doğrulama (ayar seti) ↔ golden farkı
@@ -45,8 +47,8 @@ Vekil ölçüt (politika kodu Adım 5'te): dolandırıcılık dışı tür = dü
 | kural | 1 ❌ | adv_23 (kanal) | 2/7 | 0.833 |
 | tfidf | 2 ❌ | adv_17 (hibrit), adv_19 (hibrit) | 3/7 | 0.900 |
 | zs-0.8b | 0 ✅ | — | 7/7 | 0.167 |
-| zs-2b | 2 ❌ | adv_21 (emoji), adv_23 (kanal) | 6/7 | 0.200 |
-| gpt-5.4-mini | 1 ❌ | adv_21 (emoji) | 0/7 | 0.967 |
+| zs-2b | 0 ✅ | — | 6/7 | 0.200 |
+| gpt-5.4-mini | 0 ✅ | — | 0/7 | 0.967 |
 
 
 ## Dış setler (ikili: dolandırıcılık mı?)
@@ -56,9 +58,9 @@ OLTA-TR sentetik oltalama e-postası, UCI gerçek spam/normal e-posta. İkisi de
 |---|---|---|---|---|---|---|
 | kural | 18305 | 0.197 | 0.195 | 825 | 0.395 | 0.321 |
 | tfidf | 18305 | 0.721 | 0.510 | 825 | 0.708 | 0.758 |
-| zs-0.8b | 300 | 0.995 | 0.992 | 300 | 1.000 | 0.967 |
-| zs-2b | 300 | 0.566 | 0.475 | 300 | 0.900 | 0.700 |
-| gpt-5.4-mini | 50 | 0.500 | 0.250 | — | — | — |
+| zs-0.8b | 300 | 1.000 | 1.000 | 300 | 1.000 | 0.967 |
+| zs-2b | 300 | 0.830 | 0.712 | 300 | 0.958 | 0.856 |
+| gpt-5.4-mini | 50 | 0.867 | 0.500 | — | — | — |
 
 
 ## En çok karışan tür çiftleri (golden)

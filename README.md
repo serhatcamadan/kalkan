@@ -18,8 +18,9 @@ küçük model · fine-tuned küçük model · gpt-5.4-mini.
 | 3 | Sentetik veri (1.991 örnek, 77 şablon) + şablon bazlı bölme + 30 adversarial + veri kartı | ✅ (golden: Gemini ön-eleme + insan teyidi) |
 | 4 | Eval düzeneği + kural (golden 0.89 / OLTA recall 0.20) ve TF-IDF (golden 0.49 / OLTA FPR 0.51) taban çizgileri | ✅ |
 | 5 | Tam pipeline (sinyal → maske → model → kapı → politika) + yerel zero-shot (0.8B makro-F1 0.13, 2B 0.24: fine-tune gerekçesi) | ✅ |
-| 6 | gpt-5.4-mini taban çizgisi (BYOK, bütçe korumalı) | 🔄 |
-| 7–12 | Veri, eval, pipeline, fine-tune, güvenlik, demo, VPS, yazım | ⏳ |
+| 6 | gpt-5.4-mini üst çizgisi (golden 0.905, OLTA 0.25; $0.47) + politika v1.1 | ✅ |
+| 7 | MLX LoRA fine-tune (0.8B, sonra 2B) | ⏳ |
+| 8–12 | Veri, eval, pipeline, fine-tune, güvenlik, demo, VPS, yazım | ⏳ |
 
 ## Hızlı başlangıç (şimdilik)
 ```bash

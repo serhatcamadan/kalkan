@@ -1,5 +1,6 @@
-"""KALKAN · signals.py — deterministik (kural tabanlı) sinyaller     v1.1 · 2026-11-20
+"""KALKAN · signals.py — deterministik (kural tabanlı) sinyaller     v1.2 · 2026-11-21
 
+v1.2: ret_mekanizmasi sinyali (politika v1.1 için).
 v1.1: adında "rn" olan marka karşılaştırması düzeltildi; marka.com.tr.sahte.top alt alan hilesi;
       gizli_karakter sinyali (adversarial set yakaladı).
 
@@ -21,6 +22,7 @@ Hiçbir link açılmaz/ziyaret edilmez; yalnızca metin olarak incelenir.
   paylasma_uyarisi        "kodu kimseyle paylaşmayın" → meşru bildirim işareti
   gizlilik_ifadesi        "kimseye söyleme", "bankayı arama" → dolandırıcılık işareti (yukarıdakinin zıddı)
   telefon                 telefon numarası (değer maskeli)
+  ret_mekanizmasi         "RET yazıp 3434'e", İYS, MERSİS, "iletişim izninizi iptal…" → yasal ticari ileti işareti
   gizli_karakter          HAM metinde sıfır genişlikli / yön değiştiren (RLO) karakter: meşru SMS'te olmaz
 """
 from __future__ import annotations
@@ -54,6 +56,7 @@ _OTP_BAGLAM = re.compile(r"\b(kod|kodu|kodunuz|sifre|sifreniz|sifresi|dogrulama|
 # İkisi yüzeyde benzer ama ANLAMLARI ZIT (ilki meşruiyet işareti, ikincisi dolandırıcılık işareti).
 _PAYLASMA = re.compile(r"(kod\w*|sifre\w*|parola\w*).{0,60}(kimse(yle|ye)|ucuncu kisi\w*).{0,30}(paylasma\w*|vermeyin\w*|iletmeyin\w*)"
                        r"|(kimse(yle|ye)).{0,30}(paylasma\w*).{0,40}(kod\w*|sifre\w*)")
+_RET = re.compile(r"\bret\b|iptal (yazip|edebilir\w*|icin)|\biys\b|mersis|iletisim izn\w*|abonelikten cik\w*|unsubscribe")
 _GIZLILIK = re.compile(r"kimseye (soyleme\w*|bahsetme\w*|anlatma\w*)|aramizda kalsin|"
                        r"banka\w* (haber verme\w*|arama\w*|gitme\w*)|polise (haber verme\w*|gitme\w*)")
 
@@ -173,6 +176,9 @@ def cikar(metin: Metin, tax: dict | None = None) -> list[DeterministikSinyal]:
 
     for m in _PAYLASMA.finditer(a):
         out.append(DeterministikSinyal(tip="paylasma_uyarisi", deger=_rakamsiz(k[m.start():m.end()]), bas=m.start(), bit=m.end()))
+    m = _RET.search(a)
+    if m:
+        out.append(DeterministikSinyal(tip="ret_mekanizmasi", deger=_rakamsiz(k[m.start():m.end()]), bas=m.start(), bit=m.end()))
     for m in _GIZLILIK.finditer(a):
         out.append(DeterministikSinyal(tip="gizlilik_ifadesi", deger=_rakamsiz(k[m.start():m.end()]), bas=m.start(), bit=m.end()))
 
