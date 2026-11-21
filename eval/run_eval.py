@@ -94,6 +94,7 @@ def main() -> None:
     ap.add_argument("--akil", default="none", help="reasoning_effort (BYOK): none|minimal|low|medium")
     ap.add_argument("--butce-usd", type=float, help="bu çalıştırmada harcanabilecek en fazla $ (aşılınca durur)")
     ap.add_argument("--pilot", type=int, help="her setin ilk N örneği (maliyet/süre ölçümü için)")
+    ap.add_argument("--golden-limit", type=int, help="golden'dan tür başına eşit, sabit tohumlu alt küme (pahalı modeller)")
     a = ap.parse_args()
 
     egitim = oku(KOK / "data/splits/egitim.jsonl")
@@ -133,6 +134,8 @@ def main() -> None:
             rows = oku(yol)
             if a.pilot:
                 rows = rows[: a.pilot]
+            if set_adi == "golden" and a.golden_limit:
+                rows = sorted(tabakali(rows, a.golden_limit, "tur"), key=lambda r: r["id"])
             if set_adi in ("olta", "uci"):
                 if a.limit:
                     rows = tabakali(rows, a.limit, "etiket")
@@ -150,6 +153,12 @@ def main() -> None:
             if len(rows) > 50:
                 print(" " * 40, end="\r")
             met = degerlendir(set_adi, rows, tahminler)
+            if getattr(model, "arka_uc", None) is not None:
+                met["uyarlamalar"] = list(model.arka_uc.notlar)
+                hatalar = [t.hata for t in tahminler if t.hata]
+                met["hata_sayisi"] = len(hatalar)
+                if hatalar:
+                    met["ornek_hata"] = hatalar[0][:200]
             if not rows:
                 continue
             if hasattr(model, "kesilen"):           # LLM: kesilen cevap ve ortalama çıktı token'ı
@@ -162,7 +171,8 @@ def main() -> None:
             sonuc = {
                 "meta": {"model": model_adi, "set": set_adi, "n": len(rows), "zaman": time.strftime("%Y-%m-%dT%H:%M:%S"),
                          "git": git_commit(), "veri_sha256": hashlib.sha256(yol.read_bytes()).hexdigest()[:16],
-                         "dis_set_limit": a.limit if set_adi in ("olta", "uci") else None, "hazirlik": hazirlik,
+                         "dis_set_limit": a.limit if set_adi in ("olta", "uci") else None,
+                         "golden_limit": a.golden_limit if set_adi == "golden" else None, "hazirlik": hazirlik,
                          "sure_sn": round(time.perf_counter() - t1, 2)},
                 "metrikler": {**met, **({"toplam_usd": round(sum(t.maliyet_usd for t in tahminler), 4)}
                                          if any(t.maliyet_usd for t in tahminler) else {})},
@@ -172,7 +182,8 @@ def main() -> None:
             (SONUC / f"{model_adi}__{set_adi}.json").write_text(json.dumps(sonuc, ensure_ascii=False, indent=1))
             ozet = {k: met.get(k) for k in ("makro_f1", "dogruluk", "dolandiricilik_recall", "mesru_fpr",
                                             "kapi_oncesi_gecerlilik", "eslesme_f1", "dusuk_risk_sizintisi",
-                                            "json_gecerlilik", "p95_ms", "kesilen_cevap", "ort_cikti_token") if k in met}
+                                            "json_gecerlilik", "p95_ms", "kesilen_cevap", "ort_cikti_token",
+                                            "hata_sayisi", "uyarlamalar") if k in met}
             print(f"  {set_adi:11s} n={len(rows):5d} {ozet}")
             if hasattr(model, "harcanan") and model.harcanan:
                 print(f"    💵 bu set ${sum(t.maliyet_usd for t in tahminler):.4f} · çalıştırma toplamı ${model.harcanan:.4f}")

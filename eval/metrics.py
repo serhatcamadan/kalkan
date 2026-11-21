@@ -32,6 +32,7 @@ class Tahmin:
     maliyet_usd: float = 0.0
     ham: str | None = None                # LLM ham çıktısı (yalnızca şema bozuksa, hata ayıklama için)
     risk: str | None = None               # politika kararı (yalnızca tam pipeline modellerinde)
+    hata: str | None = None               # arka uç / şema hatası (anahtar içermez)
 
     def sozluk(self) -> dict:
         return asdict(self)

@@ -25,6 +25,7 @@ class LLMModeli:
         self.arka_uc = OpenAIUyumlu(base_url, model=model, api_key=api_key, yerel=yerel, akil=akil)
         self.fiyat = fiyat                         # $/1M: (girdi, önbellekli girdi, çıktı)
         self.butce_usd, self.harcanan = butce_usd, 0.0
+        self.ardisik_http_hata = 0
         self.uyusmazlik = 0
         self.kesilen = 0
         self.cikti_token: list[int] = []
@@ -34,6 +35,7 @@ class LLMModeli:
 
     def hazirla(self, egitim, dogrulama) -> dict:
         bilgi = {"base_url": self.arka_uc.base_url, "model": self.arka_uc.model, "akil": self.arka_uc.akil,
+                 "uyarlamalar": self.arka_uc.notlar,
                  "fiyat_usd_1m": self.fiyat, "butce_usd": self.butce_usd}
         if self.arka_uc.yerel:
             try:
@@ -48,6 +50,13 @@ class LLMModeli:
 
     def tahmin(self, o: dict) -> Tahmin:
         sonuc, iz = analiz(o["metin"], self.arka_uc, trace_id=o.get("id"))
+        if iz.hata and iz.ham_cikti is None:      # cevap hiç gelmedi: HTTP hatası, bağlantı, zaman aşımı
+            self.ardisik_http_hata += 1
+            if self.ardisik_http_hata >= 3:      # aynı hatayı yüzlerce kez tekrarlamanın anlamı yok
+                raise SystemExit(f"⛔ Arka uç art arda 3 kez cevap vermedi, durduruldu:\n   {iz.hata}\n"
+                                 f"   uyarlamalar: {self.arka_uc.notlar or 'yok'}")
+        else:
+            self.ardisik_http_hata = 0
         if o.get("model_girdisi") not in (None, iz.model_girdisi):
             self.uyusmazlik += 1
         o["model_girdisi"] = iz.model_girdisi          # kanıt geçerliliği modelin GERÇEKTEN gördüğü metne göre
@@ -58,4 +67,5 @@ class LLMModeli:
         self.kesilen += iz.kesildi
         self.cikti_token.append(iz.cikti_token)
         return Tahmin(tur=iz.tur_ham, kanitlar=kanitlar, json_gecerli=iz.json_gecerli, sure_ms=iz.sure_ms,
-                      maliyet_usd=maliyet, ham=iz.ham_cikti if not iz.json_gecerli else None, risk=sonuc.risk.value)
+                      maliyet_usd=maliyet, ham=iz.ham_cikti if not iz.json_gecerli else None, risk=sonuc.risk.value,
+                      hata=iz.hata[:300] if iz.hata else None)

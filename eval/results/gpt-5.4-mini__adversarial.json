@@ -3,372 +3,664 @@
   "model": "gpt-5.4-mini",
   "set": "adversarial",
   "n": 30,
-  "zaman": "2026-11-20T23:51:35",
-  "git": "c7e83bb",
+  "zaman": "2026-11-21T12:56:24",
+  "git": "d195a4a",
   "veri_sha256": "539ec5edf4cc57b7",
   "dis_set_limit": null,
+  "golden_limit": null,
   "hazirlik": {
    "base_url": "https://api.openai.com",
    "model": "gpt-5.4-mini",
    "akil": "none",
+   "uyarlamalar": [],
    "fiyat_usd_1m": [
     0.75,
     0.075,
     4.5
    ],
-   "butce_usd": 0.25
+   "butce_usd": 0.42
   },
-  "sure_sn": 0.16
+  "sure_sn": 32.79
  },
  "metrikler": {
   "n": 30,
-  "p50_ms": 4.0,
-  "p95_ms": 4.5,
-  "json_gecerlilik": 0.0,
-  "usd_1000_mesaj": 0.0,
-  "dusuk_risk_sizintisi": 0,
-  "sizintilar": [],
-  "zor_negatif_yanlis_alarm": 7,
-  "yanlis_alarmlar": [
+  "p50_ms": 1077.2,
+  "p95_ms": 1357.7,
+  "json_gecerlilik": 1.0,
+  "usd_1000_mesaj": 1.1371,
+  "dusuk_risk_sizintisi": 1,
+  "sizintilar": [
    {
-    "id": "adv_24",
-    "tahmin": null
-   },
-   {
-    "id": "adv_25",
-    "tahmin": null
-   },
-   {
-    "id": "adv_26",
-    "tahmin": null
-   },
-   {
-    "id": "adv_27",
-    "tahmin": null
-   },
-   {
-    "id": "adv_28",
-    "tahmin": null
-   },
-   {
-    "id": "adv_29",
-    "tahmin": null
-   },
-   {
-    "id": "adv_30",
-    "tahmin": null
+    "id": "adv_21",
+    "saldiri": "emoji",
+    "tahmin": "reklam_spam"
    }
   ],
-  "tur_kabul_orani": 0.0,
+  "zor_negatif_yanlis_alarm": 0,
+  "yanlis_alarmlar": [],
+  "tur_kabul_orani": 0.9667,
   "olcut": "politika riski",
-  "alinti_sayisi": 0,
-  "kapi_oncesi_gecerlilik": null,
+  "alinti_sayisi": 64,
+  "kapi_oncesi_gecerlilik": 1.0,
   "eslesme_p": null,
   "eslesme_r": null,
   "eslesme_f1": null,
+  "uyarlamalar": [],
+  "hata_sayisi": 0,
   "kesilen_cevap": 0,
-  "ort_cikti_token": 0.0
+  "ort_cikti_token": 71.8,
+  "toplam_usd": 0.0341
  },
  "tahminler": [
   {
    "id": "adv_01",
-   "tur": null,
-   "kanitlar": [],
-   "json_gecerli": false,
-   "sure_ms": 4.526707984041423,
-   "maliyet_usd": 0.0,
+   "tur": "kurum_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "hesabınız askıya alındı",
+     "sinyal": "kurum_taklidi"
+    },
+    {
+     "alinti": "2 saat içinde doğrulayın",
+     "sinyal": "aciliyet"
+    },
+    {
+     "alinti": "sarnicbank-guvenlik.top",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1000.5857499781996,
+   "maliyet_usd": 0.001191,
    "ham": null,
-   "risk": "belirsiz"
+   "risk": "yuksek",
+   "hata": null
   },
   {
    "id": "adv_02",
-   "tur": null,
-   "kanitlar": [],
-   "json_gecerli": false,
-   "sure_ms": 4.032458004076034,
-   "maliyet_usd": 0.0,
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "Paketiniz gümrükte, 34,90 TL ödeyin",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "bit.ly/k3st4n3",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1013.8780000270344,
+   "maliyet_usd": 0.00114675,
    "ham": null,
-   "risk": "belirsiz"
+   "risk": "yuksek",
+   "hata": null
   },
   {
    "id": "adv_03",
-   "tur": null,
-   "kanitlar": [],
-   "json_gecerli": false,
-   "sure_ms": 4.548207973130047,
-   "maliyet_usd": 0.0,
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Anne yeni numaram bu",
+     "sinyal": "yakinlik_iddiasi"
+    },
+    {
+     "alinti": "acil 6.000 TL lazım",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "kimseye söyleme",
+     "sinyal": "gizlilik_baskisi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1278.3087919815443,
+   "maliyet_usd": 0.0011985,
    "ham": null,
-   "risk": "belirsiz"
+   "risk": "yuksek",
+   "hata": null
   },
   {
    "id": "adv_04",
-   "tur": null,
-   "kanitlar": [],
-   "json_gecerli": false,
-   "sure_ms": 4.466875048819929,
-   "maliyet_usd": 0.0,
+   "tur": "kurum_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "hattınız kapatılacak",
+     "sinyal": "aciliyet"
+    },
+    {
+     "alinti": "şifrenizi girin",
+     "sinyal": "kod_talebi"
+    },
+    {
+     "alinti": "mercanmobil-destek.xyz",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1218.1805409491062,
+   "maliyet_usd": 0.001164,
    "ham": null,
-   "risk": "belirsiz"
+   "risk": "yuksek",
+   "hata": null
   },
   {
    "id": "adv_05",
-   "tur": null,
-   "kanitlar": [],
-   "json_gecerli": false,
-   "sure_ms": 4.015750018879771,
-   "maliyet_usd": 0.0,
+   "tur": "odul_kampanya",
+   "kanitlar": [
+    {
+     "alinti": "Tebrikler telefon kazandınız!",
+     "sinyal": "odul_vaadi"
+    },
+    {
+     "alinti": "Kargo 49,90 TL:",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "cutt.ly/hed1ye",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 897.3139169975184,
+   "maliyet_usd": 0.00118425,
    "ham": null,
-   "risk": "belirsiz"
+   "risk": "yuksek",
+   "hata": null
   },
   {
    "id": "adv_06",
-   "tur": null,
-   "kanitlar": [],
-   "json_gecerli": false,
-   "sure_ms": 4.12662501912564,
-   "maliyet_usd": 0.0,
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [
+    {
+     "alinti": "SAVCILIK: hakkınızda soruşturma var.",
+     "sinyal": "yetki_iddiasi"
+    },
+    {
+     "alinti": "Paranızı emanet hesaba aktarın.",
+     "sinyal": "odeme_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1063.7137920130044,
+   "maliyet_usd": 0.001158,
    "ham": null,
-   "risk": "belirsiz"
+   "risk": "yuksek",
+   "hata": null
   },
   {
    "id": "adv_07",
-   "tur": null,
-   "kanitlar": [],
-   "json_gecerli": false,
-   "sure_ms": 4.222291987389326,
-   "maliyet_usd": 0.0,
+   "tur": "kurum_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "kartınız bloke edildi",
+     "sinyal": "kurum_taklidi"
+    },
+    {
+     "alinti": "açmak için giriş yapın",
+     "sinyal": "link"
+    },
+    {
+     "alinti": "https://sаrnicbank.com.tr/giris",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1175.7708330405876,
+   "maliyet_usd": 0.00116025,
    "ham": null,
-   "risk": "belirsiz"
+   "risk": "yuksek",
+   "hata": null
   },
   {
    "id": "adv_08",
-   "tur": null,
-   "kanitlar": [],
-   "json_gecerli": false,
-   "sure_ms": 3.8585420115850866,
-   "maliyet_usd": 0.0,
+   "tur": "kurum_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "şüpheli işlem.",
+     "sinyal": "kurum_taklidi"
+    },
+    {
+     "alinti": "Kimliğinizi doğrulayın:",
+     "sinyal": "kimlik_talebi"
+    },
+    {
+     "alinti": "https://sarnicbamk.com.tr",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1084.572791995015,
+   "maliyet_usd": 0.00117375,
    "ham": null,
-   "risk": "belirsiz"
+   "risk": "yuksek",
+   "hata": null
   },
   {
    "id": "adv_09",
-   "tur": null,
-   "kanitlar": [],
-   "json_gecerli": false,
-   "sure_ms": 4.381708044093102,
-   "maliyet_usd": 0.0,
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "adres eksik, 29,90 TL ödeyin",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "https://xn--kestnekargo-q9a.com/odeme",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1062.146042007953,
+   "maliyet_usd": 0.00114675,
    "ham": null,
-   "risk": "belirsiz"
+   "risk": "yuksek",
+   "hata": null
   },
   {
    "id": "adv_10",
-   "tur": null,
-   "kanitlar": [],
-   "json_gecerli": false,
-   "sure_ms": 4.053833021316677,
-   "maliyet_usd": 0.0,
+   "tur": "kurum_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "mobil şube şifreniz sıfırlandı.",
+     "sinyal": "kurum_taklidi"
+    },
+    {
+     "alinti": "Siz değilseniz: sarnicbank.com.tr.giris-dogrula.top",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1021.5286659658886,
+   "maliyet_usd": 0.001152,
    "ham": null,
-   "risk": "belirsiz"
+   "risk": "yuksek",
+   "hata": null
   },
   {
    "id": "adv_11",
-   "tur": null,
-   "kanitlar": [],
-   "json_gecerli": false,
-   "sure_ms": 3.9279580232687294,
-   "maliyet_usd": 0.0,
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "Paketiniz gümrükte bekliyor.",
+     "sinyal": "aciliyet"
+    },
+    {
+     "alinti": "39,90 TL ödeyin",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "kestane-kargo.top",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1030.2856659982353,
+   "maliyet_usd": 0.001182,
    "ham": null,
-   "risk": "belirsiz"
+   "risk": "yuksek",
+   "hata": null
   },
   {
    "id": "adv_12",
-   "tur": null,
-   "kanitlar": [],
-   "json_gecerli": false,
-   "sure_ms": 3.901165968272835,
-   "maliyet_usd": 0.0,
+   "tur": "kurum_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Sarnıçbank: hesabınız",
+     "sinyal": "kurum_taklidi"
+    },
+    {
+     "alinti": "adresinden doğrulanmalıdır, aksi halde kapatılacak",
+     "sinyal": "aciliyet"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1126.199834048748,
+   "maliyet_usd": 0.0011115,
    "ham": null,
-   "risk": "belirsiz"
+   "risk": "yuksek",
+   "hata": null
   },
   {
    "id": "adv_13",
-   "tur": null,
-   "kanitlar": [],
-   "json_gecerli": false,
-   "sure_ms": 3.921499999705702,
-   "maliyet_usd": 0.0,
+   "tur": "kurum_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Sarnicbank hesabiniz askiya alindi",
+     "sinyal": "kurum_taklidi"
+    },
+    {
+     "alinti": "hxxps://sarnicbank-onay[.]xyz/giris",
+     "sinyal": "link"
+    },
+    {
+     "alinti": "1 saat icinde dogrulayin",
+     "sinyal": "aciliyet"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1361.6992500028573,
+   "maliyet_usd": 0.00122925,
    "ham": null,
-   "risk": "belirsiz"
+   "risk": "yuksek",
+   "hata": null
   },
   {
    "id": "adv_14",
-   "tur": null,
-   "kanitlar": [],
-   "json_gecerli": false,
-   "sure_ms": 3.945459029637277,
-   "maliyet_usd": 0.0,
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [
+    {
+     "alinti": "HESABINIZ TERÖR FİNANSMANINDA KULLANILMIŞTIR.",
+     "sinyal": "yetki_iddiasi"
+    },
+    {
+     "alinti": "[TEL] NUMARASINI ARAYIN.",
+     "sinyal": "kanal_degistirme"
+    },
+    {
+     "alinti": "KİMSEYE SÖYLEMEYİN.",
+     "sinyal": "gizlilik_baskisi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1294.5189169840887,
+   "maliyet_usd": 0.00134625,
    "ham": null,
-   "risk": "belirsiz"
+   "risk": "yuksek",
+   "hata": null
   },
   {
    "id": "adv_15",
-   "tur": null,
-   "kanitlar": [],
-   "json_gecerli": false,
-   "sure_ms": 3.9502919535152614,
-   "maliyet_usd": 0.0,
+   "tur": "kurum_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "İŞLEMİNİZ ONAYLANMADI.",
+     "sinyal": "aciliyet"
+    },
+    {
+     "alinti": "KİMLİK VE ŞİFRE BİLGİLERİNİZİ GİRİN",
+     "sinyal": "kimlik_talebi"
+    },
+    {
+     "alinti": "SARNICBANK-IADE.ONLINE",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1148.292333993595,
+   "maliyet_usd": 0.001272,
    "ham": null,
-   "risk": "belirsiz"
+   "risk": "yuksek",
+   "hata": null
   },
   {
    "id": "adv_16",
-   "tur": null,
-   "kanitlar": [],
-   "json_gecerli": false,
-   "sure_ms": 3.9382079849019647,
-   "maliyet_usd": 0.0,
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "anne bn yeni numaram",
+     "sinyal": "yakinlik_iddiasi"
+    },
+    {
+     "alinti": "acil 4bin lazim",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "kmseye soyleme",
+     "sinyal": "gizlilik_baskisi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1077.211958996486,
+   "maliyet_usd": 0.001188,
    "ham": null,
-   "risk": "belirsiz"
+   "risk": "yuksek",
+   "hata": null
   },
   {
    "id": "adv_17",
-   "tur": null,
-   "kanitlar": [],
-   "json_gecerli": false,
-   "sure_ms": 4.0158749907277524,
-   "maliyet_usd": 0.0,
+   "tur": "kurum_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Sarnıçbank doğrulama kodunuz [OTP].",
+     "sinyal": "kod_talebi"
+    },
+    {
+     "alinti": "İşlemi siz yapmadıysanız iptal için hemen tıklayın: sarnicbank-iptal.top",
+     "sinyal": "link"
+    },
+    {
+     "alinti": "Bu kodu kimseyle paylaşmayın.",
+     "sinyal": "gizlilik_baskisi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1357.6991250156425,
+   "maliyet_usd": 0.00130125,
    "ham": null,
-   "risk": "belirsiz"
+   "risk": "yuksek",
+   "hata": null
   },
   {
    "id": "adv_18",
-   "tur": null,
-   "kanitlar": [],
-   "json_gecerli": false,
-   "sure_ms": 3.831875044852495,
-   "maliyet_usd": 0.0,
+   "tur": "kurum_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "telefonunuza gelen 6 haneli kodu söylemeniz gerekmektedir",
+     "sinyal": "kod_talebi"
+    },
+    {
+     "alinti": "Az önce sizi arayan müşteri temsilcimize",
+     "sinyal": "kurum_taklidi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1095.0227080029435,
+   "maliyet_usd": 0.001155,
    "ham": null,
-   "risk": "belirsiz"
+   "risk": "yuksek",
+   "hata": null
   },
   {
    "id": "adv_19",
-   "tur": null,
-   "kanitlar": [],
-   "json_gecerli": false,
-   "sure_ms": 3.7732910132035613,
-   "maliyet_usd": 0.0,
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "9,90 TL hizmet bedeli",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Teslimat saatini seçmek için",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "kestanekargo-teslimat.site",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1267.8248329903,
+   "maliyet_usd": 0.0012105,
    "ham": null,
-   "risk": "belirsiz"
+   "risk": "yuksek",
+   "hata": null
   },
   {
    "id": "adv_20",
-   "tur": null,
-   "kanitlar": [],
-   "json_gecerli": false,
-   "sure_ms": 3.901124990079552,
-   "maliyet_usd": 0.0,
+   "tur": "kurum_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Hesabınızın kesintisiz çalışmaya devam etmesi için kimlik numaranızı",
+     "sinyal": "kimlik_talebi"
+    },
+    {
+     "alinti": "kart numaranızı ve mobil şube şifrenizi 24 saat içinde",
+     "sinyal": "aciliyet"
+    },
+    {
+     "alinti": "sarnicbank-guncelleme.top adresinde doğrulamanız gerekmektedir.",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1237.711500027217,
+   "maliyet_usd": 0.00143775,
    "ham": null,
-   "risk": "belirsiz"
+   "risk": "yuksek",
+   "hata": null
   },
   {
    "id": "adv_21",
-   "tur": null,
-   "kanitlar": [],
-   "json_gecerli": false,
-   "sure_ms": 3.9508339832536876,
-   "maliyet_usd": 0.0,
+   "tur": "reklam_spam",
+   "kanitlar": [
+    {
+     "alinti": "100 GB HEDİYE",
+     "sinyal": "odul_vaadi"
+    },
+    {
+     "alinti": "Hemen al",
+     "sinyal": "aciliyet"
+    },
+    {
+     "alinti": "rb.gy/m3rc4n",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1061.8691249983385,
+   "maliyet_usd": 0.00115275,
    "ham": null,
-   "risk": "belirsiz"
+   "risk": "dusuk",
+   "hata": null
   },
   {
    "id": "adv_22",
-   "tur": null,
-   "kanitlar": [],
-   "json_gecerli": false,
-   "sure_ms": 3.863958001602441,
-   "maliyet_usd": 0.0,
+   "tur": "kurum_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "uzaktan destek uygulamasını indirip",
+     "sinyal": "kanal_degistirme"
+    },
+    {
+     "alinti": "ekrandaki 9 haneli kodu",
+     "sinyal": "kod_talebi"
+    },
+    {
+     "alinti": "temsilcimize okuyun",
+     "sinyal": "kurum_taklidi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1132.949249993544,
+   "maliyet_usd": 0.0012135,
    "ham": null,
-   "risk": "belirsiz"
+   "risk": "yuksek",
+   "hata": null
   },
   {
    "id": "adv_23",
-   "tur": null,
-   "kanitlar": [],
-   "json_gecerli": false,
-   "sure_ms": 3.992791986092925,
-   "maliyet_usd": 0.0,
+   "tur": "gorev_is_ilani",
+   "kanitlar": [
+    {
+     "alinti": "Günlük 1.500 TL kazanabileceğiniz bir fırsatımız var.",
+     "sinyal": "odul_vaadi"
+    },
+    {
+     "alinti": "Detaylar için Telegram: t.me/+Qx81kdZp",
+     "sinyal": "kanal_degistirme"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 928.1619999674149,
+   "maliyet_usd": 0.00117525,
    "ham": null,
-   "risk": "belirsiz"
+   "risk": "orta",
+   "hata": null
   },
   {
    "id": "adv_24",
-   "tur": null,
+   "tur": "mesru_islem",
    "kanitlar": [],
-   "json_gecerli": false,
-   "sure_ms": 3.827042004559189,
-   "maliyet_usd": 0.0,
+   "json_gecerli": true,
+   "sure_ms": 864.8450830369256,
+   "maliyet_usd": 0.00089925,
    "ham": null,
-   "risk": "belirsiz"
+   "risk": "dusuk",
+   "hata": null
   },
   {
    "id": "adv_25",
-   "tur": null,
+   "tur": "mesru_islem",
    "kanitlar": [],
-   "json_gecerli": false,
-   "sure_ms": 3.8342910120263696,
-   "maliyet_usd": 0.0,
+   "json_gecerli": true,
+   "sure_ms": 861.1339589697309,
+   "maliyet_usd": 0.00089475,
    "ham": null,
-   "risk": "belirsiz"
+   "risk": "dusuk",
+   "hata": null
   },
   {
    "id": "adv_26",
-   "tur": null,
-   "kanitlar": [],
-   "json_gecerli": false,
-   "sure_ms": 4.04608401004225,
-   "maliyet_usd": 0.0,
+   "tur": "reklam_spam",
+   "kanitlar": [
+    {
+     "alinti": "30 GB ek paket 99 TL!",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "Detay: mercanmobil.com.tr",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1172.7859590318985,
+   "maliyet_usd": 0.0010875,
    "ham": null,
-   "risk": "belirsiz"
+   "risk": "dusuk",
+   "hata": null
   },
   {
    "id": "adv_27",
-   "tur": null,
+   "tur": "mesru_islem",
    "kanitlar": [],
-   "json_gecerli": false,
-   "sure_ms": 3.9625829667784274,
-   "maliyet_usd": 0.0,
+   "json_gecerli": true,
+   "sure_ms": 927.3045409936458,
+   "maliyet_usd": 0.00089325,
    "ham": null,
-   "risk": "belirsiz"
+   "risk": "dusuk",
+   "hata": null
   },
   {
    "id": "adv_28",
-   "tur": null,
+   "tur": "mesru_islem",
    "kanitlar": [],
-   "json_gecerli": false,
-   "sure_ms": 3.8955840282142162,
-   "maliyet_usd": 0.0,
+   "json_gecerli": true,
+   "sure_ms": 1057.4102500104345,
+   "maliyet_usd": 0.0009015,
    "ham": null,
-   "risk": "belirsiz"
+   "risk": "dusuk",
+   "hata": null
   },
   {
    "id": "adv_29",
-   "tur": null,
+   "tur": "mesru_islem",
    "kanitlar": [],
-   "json_gecerli": false,
-   "sure_ms": 3.8993750349618495,
-   "maliyet_usd": 0.0,
+   "json_gecerli": true,
+   "sure_ms": 878.1664170091972,
+   "maliyet_usd": 0.00089925,
    "ham": null,
-   "risk": "belirsiz"
+   "risk": "dusuk",
+   "hata": null
   },
   {
    "id": "adv_30",
-   "tur": null,
+   "tur": "mesru_islem",
    "kanitlar": [],
-   "json_gecerli": false,
-   "sure_ms": 3.9136669947765768,
-   "maliyet_usd": 0.0,
+   "json_gecerli": true,
+   "sure_ms": 970.1598749961704,
+   "maliyet_usd": 0.0008865,
    "ham": null,
-   "risk": "belirsiz"
+   "risk": "dusuk",
+   "hata": null
   }
  ]
 }

@@ -23,7 +23,7 @@ Elle yazılan yorumlar bu bölümün DIŞINA yazılır; `python -m eval.report` 
 | tfidf | 0.491 | 0.525 | 1.000 ✅ | 0.000 ✅ | — | — | 1.000 | 0.700 | 0.800 | 0.000 |
 | zs-0.8b | 0.128 | 0.195 | 1.000 ✅ | 1.000 ❌ | 0.482 ❌ | 0.106 | 1.000 | 1132.900 | 1958.500 | 0.000 |
 | zs-2b | 0.235 | 0.323 | 0.979 ✅ | 0.426 ❌ | 0.767 ❌ | 0.021 | 1.000 | 416.900 | 1015.800 | 0.000 |
-| gpt-5.4-mini | 0.000 | 0.000 | 1.000 ✅ | 1.000 ❌ | — | — | 0.000 | 3.900 | 4.300 | 0.000 |
+| gpt-5.4-mini | 0.904 | 0.909 | 0.996 ✅ | 0.000 ✅ | 0.964 ✅ | 0.770 | 1.000 | 1161.200 | 1385.900 | 1.199 |
 
 
 ## Doğrulama (ayar seti) ↔ golden farkı
@@ -46,7 +46,7 @@ Vekil ölçüt (politika kodu Adım 5'te): dolandırıcılık dışı tür = dü
 | tfidf | 2 ❌ | adv_17 (hibrit), adv_19 (hibrit) | 3/7 | 0.900 |
 | zs-0.8b | 0 ✅ | — | 7/7 | 0.167 |
 | zs-2b | 2 ❌ | adv_21 (emoji), adv_23 (kanal) | 6/7 | 0.200 |
-| gpt-5.4-mini | 0 ✅ | — | 7/7 | 0.000 |
+| gpt-5.4-mini | 1 ❌ | adv_21 (emoji) | 0/7 | 0.967 |
 
 
 ## Dış setler (ikili: dolandırıcılık mı?)
@@ -58,7 +58,7 @@ OLTA-TR sentetik oltalama e-postası, UCI gerçek spam/normal e-posta. İkisi de
 | tfidf | 18305 | 0.721 | 0.510 | 825 | 0.708 | 0.758 |
 | zs-0.8b | 300 | 0.995 | 0.992 | 300 | 1.000 | 0.967 |
 | zs-2b | 300 | 0.566 | 0.475 | 300 | 0.900 | 0.700 |
-| gpt-5.4-mini | 100 | 1.000 | 1.000 | — | — | — |
+| gpt-5.4-mini | 50 | 0.500 | 0.250 | — | — | — |
 
 
 ## En çok karışan tür çiftleri (golden)
@@ -67,7 +67,7 @@ OLTA-TR sentetik oltalama e-postası, UCI gerçek spam/normal e-posta. İkisi de
 - **tfidf**: yatirim_vip_grup → gorev_is_ilani (26), odul_kampanya → sahte_kargo_gumruk (22), yasa_disi_bahis → yatirim_vip_grup (14), oyun_hesap_skin → yakin_taklidi (13)
 - **zs-0.8b**: sahte_kamu_gorevlisi → yakin_taklidi (20), oyun_hesap_skin → odul_kampanya (17), mesru_islem → sahte_kargo_gumruk (16), odul_kampanya → sahte_kargo_gumruk (15)
 - **zs-2b**: gorev_is_ilani → sahte_kargo_gumruk (27), yakin_taklidi → sahte_kargo_gumruk (26), kurum_taklidi → sahte_kargo_gumruk (24), odul_kampanya → sahte_kargo_gumruk (21)
-- **gpt-5.4-mini**: mesru_islem → BELIRSIZ (27), oyun_hesap_skin → BELIRSIZ (27), reklam_spam → BELIRSIZ (27), kurum_taklidi → BELIRSIZ (27)
+- **gpt-5.4-mini**: oyun_hesap_skin → odul_kampanya (14), yatirim_vip_grup → odul_kampanya (7), yatirim_vip_grup → gorev_is_ilani (5), yatirim_vip_grup → reklam_spam (1)
 
 
 ## Gürültü tipine göre doğruluk (golden)
@@ -78,7 +78,7 @@ OLTA-TR sentetik oltalama e-postası, UCI gerçek spam/normal e-posta. İkisi de
 | tfidf | 0.567 | 0.528 | 0.457 | 0.444 | 0.417 | 0.528 |
 | zs-0.8b | 0.206 | 0.236 | 0.257 | 0.056 | 0.208 | 0.151 |
 | zs-2b | 0.319 | 0.306 | 0.400 | 0.278 | 0.250 | 0.321 |
-| gpt-5.4-mini | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 |
+| gpt-5.4-mini | 0.915 | 0.931 | 0.886 | 1.000 | 0.833 | 0.868 |
 
 
 <details><summary>Sürüm izleri</summary>
@@ -103,8 +103,8 @@ OLTA-TR sentetik oltalama e-postası, UCI gerçek spam/normal e-posta. İkisi de
 - `zs-2b/golden`: git 79266c7 · veri 2e46892225886536 · 2026-11-20T23:18:11
 - `zs-2b/olta`: git 79266c7 · veri 43fcfc17d8b1b7d9 · 2026-11-20T23:23:40
 - `zs-2b/uci`: git 79266c7 · veri 0000d324844a291a · 2026-11-20T23:29:24
-- `gpt-5.4-mini/adversarial`: git c7e83bb · veri 539ec5edf4cc57b7 · 2026-11-20T23:51:35
-- `gpt-5.4-mini/golden`: git c7e83bb · veri 2e46892225886536 · 2026-11-20T23:51:35
-- `gpt-5.4-mini/olta`: git c7e83bb · veri 43fcfc17d8b1b7d9 · 2026-11-20T23:51:37
+- `gpt-5.4-mini/adversarial`: git d195a4a · veri 539ec5edf4cc57b7 · 2026-11-21T12:56:24
+- `gpt-5.4-mini/golden`: git d195a4a · veri 2e46892225886536 · 2026-11-21T12:55:51
+- `gpt-5.4-mini/olta`: git d195a4a · veri 43fcfc17d8b1b7d9 · 2026-11-21T12:57:18
 </details>
 <!-- OTOMATIK:SON -->

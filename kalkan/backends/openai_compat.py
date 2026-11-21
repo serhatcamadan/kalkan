@@ -1,6 +1,8 @@
 """KALKAN · backends/openai_compat.py — tek arka uç (ADR-0002)        v1.2 · 2026-11-20
 
 v1.1: max_tokens 200→384, finish_reason kaydı (kesilen cevap ayrı sayılır).
+v1.3: HTTP 400'de tek seferlik uyarlama: şema anahtar kelimesi reddedilirse sadeleştirilmiş şema (maxLength/maxItems/
+      minLength/title yok), reasoning_effort reddedilirse parametresiz tekrar. Uyarlama kalıcıdır ve `notlar`a yazılır.
 v1.2: BYOK/OpenAI dalı: max_completion_tokens, reasoning_effort, sıcaklık/tohum yok (akıl yürütme modelleri
       reddediyor); önbellekten gelen girdi token'ı ayrıca sayılır (maliyet).
 
@@ -36,12 +38,30 @@ class OpenAIUyumlu:
         self.base_url = base_url.rstrip("/")
         self.model, self.yerel, self.zaman_asimi, self.max_tokens = model, yerel, zaman_asimi, max_tokens
         self.akil = akil                    # reasoning_effort (yalnızca BYOK): none | minimal | low …
+        self.sade_sema = False
+        self.notlar: list[str] = []
         self.__anahtar = api_key            # isim karıştırma: dışarıdan kazara okunmasın
 
     def __repr__(self) -> str:              # anahtar asla görünmez
         return f"OpenAIUyumlu(base_url={self.base_url!r}, model={self.model!r}, yerel={self.yerel})"
 
     def sohbet(self, sistem: str, kullanici: str, sema: dict) -> Cevap:
+        c = self._sohbet(sistem, kullanici, sema)
+        if c.hata and c.hata.startswith("HTTP 400") and not self.yerel:
+            h = c.hata.lower()
+            if "reasoning" in h and self.akil:
+                self.notlar.append(f"reasoning_effort={self.akil} reddedildi → parametresiz")
+                self.akil = None
+                return self._sohbet(sistem, kullanici, sema)
+            if ("schema" in h or "json" in h or "invalid" in h) and not self.sade_sema:
+                self.notlar.append("şema reddedildi → sadeleştirilmiş şema (sınırları hat uygular)")
+                self.sade_sema = True
+                return self._sohbet(sistem, kullanici, sema)
+        return c
+
+    def _sohbet(self, sistem: str, kullanici: str, sema: dict) -> Cevap:
+        if self.sade_sema:
+            sema = _sadelestir(sema)
         govde = {"model": self.model,
                  "messages": [{"role": "system", "content": sistem}, {"role": "user", "content": kullanici}],
                  "response_format": {"type": "json_schema",
@@ -63,7 +83,7 @@ class OpenAIUyumlu:
             with urllib.request.urlopen(req, timeout=self.zaman_asimi) as r:
                 d = json.loads(r.read())
         except urllib.error.HTTPError as e:
-            return Cevap(None, f"HTTP {e.code}: {e.read()[:200].decode(errors='replace')}", (time.perf_counter() - t0) * 1000)
+            return Cevap(None, f"HTTP {e.code}: {e.read()[:400].decode(errors='replace')}", (time.perf_counter() - t0) * 1000)
         except Exception as e:  # noqa: BLE001  (zaman aşımı, bağlantı) → fail-closed üst katmanda
             return Cevap(None, f"{type(e).__name__}: {e}", (time.perf_counter() - t0) * 1000)
         u = d.get("usage", {})
@@ -72,3 +92,14 @@ class OpenAIUyumlu:
                      u.get("prompt_tokens", 0), u.get("completion_tokens", 0), {"timings": d.get("timings")},
                      kesildi=c.get("finish_reason") == "length",
                      onbellek_token=(u.get("prompt_tokens_details") or {}).get("cached_tokens", 0))
+
+
+_ATILACAK = {"maxLength", "minLength", "maxItems", "minItems", "title", "pattern", "format"}
+
+
+def _sadelestir(d):
+    if isinstance(d, dict):
+        return {k: _sadelestir(v) for k, v in d.items() if k not in _ATILACAK}
+    if isinstance(d, list):
+        return [_sadelestir(v) for v in d]
+    return d
