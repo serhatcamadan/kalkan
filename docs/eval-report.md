@@ -27,7 +27,9 @@ Elle yazılan yorumlar bu bölümün DIŞINA yazılır; `python -m eval.report` 
 | zs-2b | 0.235 | 0.323 | 1.000 ✅ | 0.426 ❌ | 0.767 ❌ | 0.021 | 1.000 | 416.900 | 1015.800 | 0.000 |
 | gpt-5.4-mini | 0.904 | 0.909 | 1.000 ✅ | 0.000 ✅ | 0.964 ✅ | 0.770 | 1.000 | 1161.200 | 1385.900 | 1.199 |
 | ft-0.8b-v2-Q8_0 | 0.507 | 0.552 | 1.000 ✅ | 0.296 ❌ | 0.970 ✅ | 0.793 | 1.000 | 1078.700 | 1338.500 | 0.000 |
-| katmanli | 0.845 | 0.855 | 0.984 ✅ | 0.259 ❌ | 1.000 ✅ | 0.787 | 1.000 | 1078.700 | 1338.500 | 0.000 |
+| ft-0.8b-v3-Q8_0 | 0.552 | 0.609 | 1.000 ✅ | 0.018 ✅ | 0.970 ✅ | 0.783 | 1.000 | 1301.000 | 1613.800 | 0.000 |
+| katmanli | 0.905 | 0.909 | 1.000 ✅ | 0.018 ✅ | 1.000 ✅ | 0.785 | 1.000 | 1301.000 | 1613.800 | 0.000 |
+| sistem-v3-Q8_0 | 0.905 | 0.909 | 1.000 ✅ | 0.018 ✅ | 0.970 ✅ | 0.783 | 1.000 | 1050.700 | 1264.300 | 0.000 |
 
 
 ## Doğrulama (ayar seti) ↔ golden farkı
@@ -40,7 +42,9 @@ Büyük düşüş = doğrulama setine aşırı uyum.
 | zs-0.8b | 0.131 | 0.128 | -0.003 |
 | zs-2b | 0.204 | 0.235 | +0.032 |
 | ft-0.8b-v2-Q8_0 | 0.594 | 0.507 | -0.087 |
-| katmanli | 0.737 | 0.845 | +0.108 |
+| ft-0.8b-v3-Q8_0 | 0.573 | 0.552 | -0.020 |
+| katmanli | 0.758 | 0.905 | +0.147 |
+| sistem-v3-Q8_0 | 0.758 | 0.905 | +0.147 |
 
 
 ## Adversarial (30 örnek)
@@ -54,7 +58,9 @@ Vekil ölçüt (politika kodu Adım 5'te): dolandırıcılık dışı tür = dü
 | zs-2b | 0 ✅ | — | 6/7 | 0.200 |
 | gpt-5.4-mini | 0 ✅ | — | 0/7 | 0.967 |
 | ft-0.8b-v2-Q8_0 | 0 ✅ | — | 6/7 | 0.400 |
-| katmanli | 0 ✅ | — | 4/7 | 0.767 |
+| ft-0.8b-v3-Q8_0 | 1 ❌ | adv_18 (hibrit) | 3/7 | 0.367 |
+| katmanli | 0 ✅ | — | 3/7 | 0.800 |
+| sistem-v3-Q8_0 | 0 ✅ | — | 3/7 | 0.800 |
 
 
 ## Dış setler (ikili: dolandırıcılık mı?)
@@ -68,7 +74,9 @@ OLTA-TR sentetik oltalama e-postası, UCI gerçek spam/normal e-posta. İkisi de
 | zs-2b | 300 | 0.830 | 0.712 | 300 | 0.958 | 0.856 |
 | gpt-5.4-mini | 50 | 0.867 | 0.500 | — | — | — |
 | ft-0.8b-v2-Q8_0 | 300 | 0.956 | 0.924 | 300 | 1.000 | 0.994 |
-| katmanli | 300 | 0.615 | 0.644 | 300 | 0.817 | 0.622 |
+| ft-0.8b-v3-Q8_0 | 300 | 0.995 | 0.983 | 300 | 0.925 | 0.978 |
+| katmanli | 300 | 0.665 | 0.542 | 300 | 0.558 | 0.511 |
+| sistem-v3-Q8_0 | 300 | 0.665 | 0.542 | 300 | 0.558 | 0.511 |
 
 
 ## En çok karışan tür çiftleri (golden)
@@ -79,7 +87,9 @@ OLTA-TR sentetik oltalama e-postası, UCI gerçek spam/normal e-posta. İkisi de
 - **zs-2b**: gorev_is_ilani → sahte_kargo_gumruk (27), yakin_taklidi → sahte_kargo_gumruk (26), kurum_taklidi → sahte_kargo_gumruk (24), odul_kampanya → sahte_kargo_gumruk (21)
 - **gpt-5.4-mini**: oyun_hesap_skin → odul_kampanya (14), yatirim_vip_grup → odul_kampanya (7), yatirim_vip_grup → gorev_is_ilani (5), yatirim_vip_grup → reklam_spam (1)
 - **ft-0.8b-v2-Q8_0**: yatirim_vip_grup → gorev_is_ilani (27), sahte_kargo_gumruk → sahte_kamu_gorevlisi (13), oyun_hesap_skin → odul_kampanya (13), kurum_taklidi → oyun_hesap_skin (10)
-- **katmanli**: oyun_hesap_skin → yakin_taklidi (13), gorev_is_ilani → sahte_kargo_gumruk (10), mesru_islem → sahte_kamu_gorevlisi (8), mesru_islem → oyun_hesap_skin (4)
+- **ft-0.8b-v3-Q8_0**: yatirim_vip_grup → gorev_is_ilani (23), yasa_disi_bahis → gorev_is_ilani (14), sahte_kargo_gumruk → kurum_taklidi (14), oyun_hesap_skin → odul_kampanya (12)
+- **katmanli**: oyun_hesap_skin → yakin_taklidi (13), gorev_is_ilani → sahte_kargo_gumruk (10), mesru_islem → odul_kampanya (1), yakin_taklidi → kurum_taklidi (1)
+- **sistem-v3-Q8_0**: oyun_hesap_skin → yakin_taklidi (13), gorev_is_ilani → sahte_kargo_gumruk (10), mesru_islem → odul_kampanya (1), yakin_taklidi → kurum_taklidi (1)
 
 
 ## Gürültü tipine göre doğruluk (golden)
@@ -92,6 +102,8 @@ OLTA-TR sentetik oltalama e-postası, UCI gerçek spam/normal e-posta. İkisi de
 | zs-2b | 0.319 | 0.306 | 0.400 | 0.278 | 0.250 | 0.321 |
 | gpt-5.4-mini | 0.915 | 0.931 | 0.886 | 1.000 | 0.833 | 0.868 |
 | ft-0.8b-v2-Q8_0 | 0.603 | 0.458 | 0.600 | 0.556 | 0.458 | 0.547 |
+| ft-0.8b-v3-Q8_0 | 0.695 | 0.472 | 0.571 | 0.444 | 0.583 | 0.642 |
+| sistem-v3-Q8_0 | 0.901 | 0.917 | 0.857 | 0.944 | 1.000 | 0.906 |
 
 
 <details><summary>Sürüm izleri</summary>
@@ -124,10 +136,20 @@ OLTA-TR sentetik oltalama e-postası, UCI gerçek spam/normal e-posta. İkisi de
 - `ft-0.8b-v2-Q8_0/golden`: git 7080361 · veri 2e46892225886536 · 2026-11-22T11:16:50
 - `ft-0.8b-v2-Q8_0/olta`: git 7080361 · veri 43fcfc17d8b1b7d9 · 2026-11-22T11:28:02
 - `ft-0.8b-v2-Q8_0/uci`: git 7080361 · veri 0000d324844a291a · 2026-11-22T11:36:25
-- `katmanli/adversarial`: git 7080361 · veri 539ec5edf4cc57b7 · 2026-11-22T11:20:59
-- `katmanli/dogrulama`: git 7080361 · veri d2b097bf4bf12685 · 2026-11-22T11:20:30
-- `katmanli/golden`: git 7080361 · veri 2e46892225886536 · 2026-11-22T11:16:50
-- `katmanli/olta`: git 7080361 · veri 43fcfc17d8b1b7d9 · 2026-11-22T11:28:02
-- `katmanli/uci`: git 7080361 · veri 0000d324844a291a · 2026-11-22T11:36:25
+- `ft-0.8b-v3-Q8_0/adversarial`: git 3929225 · veri 539ec5edf4cc57b7 · 2026-11-22T14:26:46
+- `ft-0.8b-v3-Q8_0/dogrulama`: git 3929225 · veri d2b097bf4bf12685 · 2026-11-22T14:26:26
+- `ft-0.8b-v3-Q8_0/golden`: git 3929225 · veri 2e46892225886536 · 2026-11-22T14:22:31
+- `ft-0.8b-v3-Q8_0/olta`: git 3929225 · veri 43fcfc17d8b1b7d9 · 2026-11-22T14:35:04
+- `ft-0.8b-v3-Q8_0/uci`: git 3929225 · veri 0000d324844a291a · 2026-11-22T14:43:50
+- `katmanli/adversarial`: git 3929225 · veri 539ec5edf4cc57b7 · 2026-11-22T14:26:46
+- `katmanli/dogrulama`: git 3929225 · veri d2b097bf4bf12685 · 2026-11-22T14:26:26
+- `katmanli/golden`: git 3929225 · veri 2e46892225886536 · 2026-11-22T14:22:31
+- `katmanli/olta`: git 3929225 · veri 43fcfc17d8b1b7d9 · 2026-11-22T14:35:04
+- `katmanli/uci`: git 3929225 · veri 0000d324844a291a · 2026-11-22T14:43:50
+- `sistem-v3-Q8_0/adversarial`: git 299b1e7 · veri 539ec5edf4cc57b7 · 2026-11-22T17:10:55
+- `sistem-v3-Q8_0/dogrulama`: git 299b1e7 · veri d2b097bf4bf12685 · 2026-11-22T17:10:38
+- `sistem-v3-Q8_0/golden`: git 299b1e7 · veri 2e46892225886536 · 2026-11-22T17:07:30
+- `sistem-v3-Q8_0/olta`: git 299b1e7 · veri 43fcfc17d8b1b7d9 · 2026-11-22T17:18:20
+- `sistem-v3-Q8_0/uci`: git 299b1e7 · veri 0000d324844a291a · 2026-11-22T17:26:32
 </details>
 <!-- OTOMATIK:SON -->

@@ -95,6 +95,7 @@ def main() -> None:
     ap.add_argument("--butce-usd", type=float, help="bu çalıştırmada harcanabilecek en fazla $ (aşılınca durur)")
     ap.add_argument("--pilot", type=int, help="her setin ilk N örneği (maliyet/süre ölçümü için)")
     ap.add_argument("--istem", default="tam", choices=["tam", "kisa"], help="fine-tune modelleri: kisa")
+    ap.add_argument("--katman", action="store_true", help="ürün yolu (ADR-0006): kural + model ikinci görüş")
     ap.add_argument("--golden-limit", type=int, help="golden'dan tür başına eşit, sabit tohumlu alt küme (pahalı modeller)")
     a = ap.parse_args()
 
@@ -115,7 +116,7 @@ def main() -> None:
                                   istem=a.istem)
                 del anahtar
             else:
-                model = LLMModeli(a.etiket, a.base_url, butce_usd=a.butce_usd, istem=a.istem)
+                model = LLMModeli(a.etiket, a.base_url, butce_usd=a.butce_usd, istem=a.istem, katman=a.katman)
             model_adi = a.etiket
         else:
             model = MODELLER[model_adi]()

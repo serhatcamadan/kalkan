@@ -1,5 +1,5 @@
 # KALKAN v7.0 · 2026-11-19
-.PHONY: egit-v3 loss-v3 kontrol-v3 sablon-paket-15 sablon-iceri-15 katmanli export-ft sunucu-ft gguf-parite gguf-parite-sema eval-ft sft-veri sablon-parite egit-08 loss kontrol-08 kontrol-08-it sablon-paket sablon-iceri egit-v2 loss-v2 kontrol-v2 kontrol-08-temel yeniden-puanla eval-gpt-pilot eval-gpt eval-gpt-ekonomik sunucu-08 sunucu-2b eval-zs-08 eval-zs-2b eval eval-hizli rapor llm-paket llm-iceri teyit veri veri-istatistik incele golden dis-veri token-olc spike gguf-2b bench-mac bench test lint clean-spike
+.PHONY: eval-sistem egit-v3 loss-v3 kontrol-v3 sablon-paket-15 sablon-iceri-15 katmanli export-ft sunucu-ft gguf-parite gguf-parite-sema eval-ft sft-veri sablon-parite egit-08 loss kontrol-08 kontrol-08-it sablon-paket sablon-iceri egit-v2 loss-v2 kontrol-v2 kontrol-08-temel yeniden-puanla eval-gpt-pilot eval-gpt eval-gpt-ekonomik sunucu-08 sunucu-2b eval-zs-08 eval-zs-2b eval eval-hizli rapor llm-paket llm-iceri teyit veri veri-istatistik incele golden dis-veri token-olc spike gguf-2b bench-mac bench test lint clean-spike
 spike:          ## Mac: Adım 1 dönüşüm spike'ı
 	bash training/spike/spike_convert.sh
 gguf-2b:        ## Mac: Qwen3.5-2B → .spike/gguf/C2B-Q4_K_M.gguf
@@ -51,11 +51,14 @@ sunucu-2b:
 DIS_LIMIT ?= 300
 
 # Adım 8 — fine-tune modeli: GGUF + parite + tam eval
-FTV  ?= v2
-IT_SEC ?= 600
+FTV  ?= v3
+IT_SEC ?= 450
 ADP  ?= training/adapters/ft-0.8b-$(FTV)-it$(IT_SEC)
 FTAD ?= kalkan-0.8b-$(FTV)
 Q    ?= Q8_0
+eval-sistem:    ## Adım 9a: ÜRÜN YOLU uçtan uca (servis, katman=True) · sunucu-ft FTV=v3 açıkken → sistem-v3-Q8_0
+	python -m eval.run_eval --model llm --etiket sistem-$(FTV)-$(Q) --istem kisa --katman --set golden dogrulama adversarial
+	python -m eval.run_eval --model llm --etiket sistem-$(FTV)-$(Q) --istem kisa --katman --set olta uci --limit $(DIS_LIMIT)
 katmanli:       ## Adım 8b: kural + ft katmanlı karar, çevrimdışı ($0) → eval/results/katmanli__*.json
 	python -m eval.katmanli --ft ft-0.8b-$(FTV)-$(Q)
 export-ft:      ## adaptör → .spike/gguf/$(FTAD)-{Q4_K_M,Q8_0}.gguf (B yolu, f32 birleştirme)

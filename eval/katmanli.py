@@ -1,4 +1,9 @@
-"""KALKAN · eval/katmanli.py — kural + ince ayarlı model, KATMANLI karar (çevrimdışı)      v1 · 2026-11-21
+"""KALKAN · eval/katmanli.py — kural + ince ayarlı model, KATMANLI karar (çevrimdışı)      v1.1 · 2026-11-22
+
+v1.1 (Adım 9a): ★ artık kalkan.katman.katmanla ile hesaplanır; hazırlık ve kural katmanı kalkan.service'ten
+      (hazirla, kural_karari). Ürünle AYNI kod → tests/test_katman.py servisi tekrar oynatıp eşitliği doğrular.
+      Kural katmanı ürün gibi kırpılmış girdinin (GIRDI_MAKS) sinyallerini kullanır; v1 tam metni kullanıyordu
+      (yalnızca 2000 karakteri aşan e-postalarda fark eder).
 🧪 python -m eval.katmanli [--ft ft-0.8b-v2-Q8_0]
 
 Hiçbir model yeniden çağrılmaz: ft tahminleri eval/results/<ft>__<set>.json'dan okunur, kural modeli yerelde
@@ -22,17 +27,12 @@ from __future__ import annotations
 import argparse
 import json
 
-from kalkan.gate import kapi
-from kalkan.injection import tara
-from kalkan.normalize import Metin
-from kalkan.pii import maskele
-from kalkan.policy import POLITIKA_SURUMU, TALEP, karar_ver
-from kalkan.schema import DOLANDIRICILIK_DISI, Kanit, Tur
-from kalkan.service import GIRDI_MAKS
-from kalkan.signals import cikar, maske_araliklari
+from kalkan.katman import katmanla
+from kalkan.policy import POLITIKA_SURUMU, karar_ver
+from kalkan.schema import DOLANDIRICILIK_DISI, Tur
+from kalkan.service import hazirla, kanitlari_dogrula, kural_karari
 
 from .metrics import Tahmin, degerlendir
-from .modeller.kural import KuralModeli
 from .run_eval import KOK
 from .yeniden_puanla import satirlar
 
@@ -42,24 +42,19 @@ VARYANTLAR = ["kural", "ft", "veya", "ve", "ikinci", "ikinci_talep"]
 SECILEN = "ikinci_talep"
 
 
-def karar(o: dict, t: dict) -> tuple[str, str | None, list]:
-    """(risk, tür, kapıdan geçen kanıtlar) — yeniden_puanla.puanla ile aynı hat."""
-    m = Metin(o["metin"][:GIRDI_MAKS])
-    sinyaller = cikar(m)
-    maskeli = maskele(m.kanonik, maske_araliklari(sinyaller)).metin
+def karar(h, t: dict) -> tuple[str, str | None, list, object]:
+    """(risk, tür, kapıdan geçen kanıtlar, Karar) — servisle aynı hat."""
     tur = Tur(t["tur"]) if t.get("tur") and t.get("json_gecerli", True) else None
-    kanitlar = []
-    for k in t.get("kanitlar", []) if tur else []:
-        try:
-            kanitlar.append(Kanit.model_validate(k))
-        except Exception:  # noqa: BLE001
-            pass
-    gecen, _ = kapi(kanitlar, maskeli)
-    return karar_ver(tur, gecen, sinyaller, tara(maskeli)).risk.value, (tur.value if tur else None), gecen
+    gecen, _ = kanitlari_dogrula(t.get("kanitlar", []) if tur else [], h.maskeli)
+    k = karar_ver(tur, gecen, h.sinyaller, h.enjeksiyon)
+    return k.risk.value, (tur.value if tur else None), gecen, k
 
 
 def birlestir(v: str, k: tuple, f: tuple) -> tuple[str, str | None]:
-    (kr, kt, _), (fr, ft, fk) = k, f
+    (kr, kt, kk, kkarar), (fr, ft, fk, _) = k, f
+    if v == SECILEN:          # ★: ürünle aynı fonksiyon
+        kat = katmanla(kkarar, Tur(kt), kk, Tur(ft) if ft else None, fk, model_cevap_verdi=ft is not None)
+        return kat.karar.risk.value, (kat.tur.value if kat.tur else None)
     if v == "kural":
         return kr, kt
     if v == "ft":
@@ -69,10 +64,7 @@ def birlestir(v: str, k: tuple, f: tuple) -> tuple[str, str | None]:
     if v == "ve":
         return (fr, ft) if SIRA[fr] < SIRA[kr] else (kr, kt)
     ft_dol = ft is not None and Tur(ft) not in DOLANDIRICILIK_DISI
-    yukselt = kr == "dusuk" and ft_dol and len(fk) >= 2
-    if v == "ikinci_talep":
-        yukselt = yukselt and any(x.sinyal.value in TALEP for x in fk)
-    return ("orta", ft) if yukselt else (kr, kt)
+    return ("orta", ft) if (kr == "dusuk" and ft_dol and len(fk) >= 2) else (kr, kt)      # "ikinci"
 
 
 def ozet(set_adi: str, m: dict) -> str:
@@ -88,7 +80,6 @@ def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--ft", default="ft-0.8b-v2-Q8_0")
     a = ap.parse_args()
-    kural = KuralModeli()
     print(f"katmanlı karar · politika {POLITIKA_SURUMU} · ft={a.ft} · ★ önceden seçilen: {SECILEN}\n")
     for set_adi in SETLER:
         yol = KOK / f"eval/results/{a.ft}__{set_adi}.json"
@@ -104,9 +95,10 @@ def main() -> None:
         sira, kk, ff = [], [], []
         for t in r["tahminler"]:
             o = rows[t["id"]]
-            kt = kural.tahmin(o).sozluk()
-            kk.append(karar(o, kt))
-            ff.append(karar(o, t))
+            h = hazirla(o["metin"])
+            kkarar, ktur, kgecen = kural_karari(h)
+            kk.append((kkarar.risk.value, ktur.value, kgecen, kkarar))
+            ff.append(karar(h, t))
             sira.append(o)
         print(f"{set_adi} (n={len(sira)})")
         for v in VARYANTLAR:

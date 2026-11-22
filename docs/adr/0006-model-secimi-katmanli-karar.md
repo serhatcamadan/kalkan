@@ -59,7 +59,7 @@ VPS (4 vCPU Xeon Platinum 8260, 6 GB, Q8_0, üretim istemi + şeması, 384 token
 - **İki sistem bakımı:** kural ve model ayrı ayrı güncellenmeli; katmanlı değerlendirme (`make katmanli`) her
   değişiklikte yeniden koşar ($0).
 
-## Uygulama
-`kalkan/service.py` şu an yalnızca model yolunu çalıştırıyor. Katmanlı karar Adım 9'da servise taşınacak:
-`eval/katmanli.py`'deki `birlestir("ikinci_talep", …)` mantığı `kalkan/policy.py`'ye, kural modeli
-`eval/modeller/kural.py`'den `kalkan/`'a. Davranış, değerlendirmeyle aynı kodu paylaşır (ölçülen = çalışan).
+## Uygulama (Adım 9a, 2026-11-22)
+`kalkan/katman.py::katmanla` (★ kuralları), `kalkan/kural.py` (kural katmanı), `kalkan/service.py::analiz(katman=True)`.
+`eval/katmanli.py` ★ aynı fonksiyonu çağırır; `tests/test_katman.py` kayıtlı model çıktılarını servise tekrar
+oynatıp eşitliği örnek örnek doğrular. Ek kural: kural "düşük" + model cevap yok → **belirsiz** (fail-closed).

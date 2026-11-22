@@ -20,8 +20,8 @@ from ..metrics import Tahmin
 class LLMModeli:
     def __init__(self, ad: str, base_url: str, model: str = "yerel", api_key: str | None = None, yerel: bool = True,
                  fiyat: tuple[float, float, float] = (0.0, 0.0, 0.0), akil: str | None = None,
-                 butce_usd: float | None = None, istem: str = "tam"):
-        self.ad, self.istem = ad, istem
+                 butce_usd: float | None = None, istem: str = "tam", katman: bool = False):
+        self.ad, self.istem, self.katman = ad, istem, katman
         self.arka_uc = OpenAIUyumlu(base_url, model=model, api_key=api_key, yerel=yerel, akil=akil)
         self.fiyat = fiyat                         # $/1M: (girdi, önbellekli girdi, çıktı)
         self.butce_usd, self.harcanan = butce_usd, 0.0
@@ -35,7 +35,7 @@ class LLMModeli:
 
     def hazirla(self, egitim, dogrulama) -> dict:
         bilgi = {"base_url": self.arka_uc.base_url, "model": self.arka_uc.model, "akil": self.arka_uc.akil,
-                 "uyarlamalar": self.arka_uc.notlar, "istem": self.istem,
+                 "uyarlamalar": self.arka_uc.notlar, "istem": self.istem, "katman": self.katman,
                  "fiyat_usd_1m": self.fiyat, "butce_usd": self.butce_usd}
         if self.arka_uc.yerel:
             try:
@@ -49,7 +49,7 @@ class LLMModeli:
         return bilgi
 
     def tahmin(self, o: dict) -> Tahmin:
-        sonuc, iz = analiz(o["metin"], self.arka_uc, trace_id=o.get("id"), istem=self.istem)
+        sonuc, iz = analiz(o["metin"], self.arka_uc, trace_id=o.get("id"), istem=self.istem, katman=self.katman)
         if iz.hata and iz.ham_cikti is None:      # cevap hiç gelmedi: HTTP hatası, bağlantı, zaman aşımı
             self.ardisik_http_hata += 1
             if self.ardisik_http_hata >= 3:      # aynı hatayı yüzlerce kez tekrarlamanın anlamı yok
@@ -66,6 +66,7 @@ class LLMModeli:
         kanitlar = [{"alinti": k.alinti, "sinyal": getattr(k.sinyal, "value", k.sinyal)} for k in iz.ham_kanitlar]
         self.kesilen += iz.kesildi
         self.cikti_token.append(iz.cikti_token)
-        return Tahmin(tur=iz.tur_ham, kanitlar=kanitlar, json_gecerli=iz.json_gecerli, sure_ms=iz.sure_ms,
+        tur = (sonuc.tur.value if sonuc.tur else None) if self.katman else iz.tur_ham   # katman: gösterilen tür
+        return Tahmin(tur=tur, kanitlar=kanitlar, json_gecerli=iz.json_gecerli, sure_ms=iz.sure_ms,
                       maliyet_usd=maliyet, ham=iz.ham_cikti if not iz.json_gecerli else None, risk=sonuc.risk.value,
                       hata=iz.hata[:300] if iz.hata else None)

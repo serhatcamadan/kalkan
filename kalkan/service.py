@@ -1,4 +1,8 @@
-"""KALKAN · service.py — uçtan uca analiz hattı                          v1 · 2026-11-20
+"""KALKAN · service.py — uçtan uca analiz hattı                          v1.1 · 2026-11-22
+
+v1.1 (Adım 9a): katman=True → ürün yolu (ADR-0006): kural birinci katman + model ikinci görüş (kalkan/katman.py).
+      katman=False → yalnızca model yolu (değerlendirmede modelin kendisini ölçmek için; v1 davranışı).
+      hazirla() ve kural_karari() eval/katmanli.py ile paylaşılır: ölçülen = çalışan.
 
   ham metin
    1 normalize    → kanonik (Metin)
@@ -22,10 +26,12 @@ from pydantic import ValidationError
 from .gate import kapi
 from .injection import sarmala, tara
 from .istem import ISTEMLER
+from .katman import katmanla
+from .kural import kural_ciktisi
 from .normalize import Metin
 from .pii import maskele
-from .policy import karar_ver
-from .schema import ALINTI_MAKS, KANIT_MAKS, Kanit, ModelCiktisi, SistemCevabi
+from .policy import Karar, karar_ver
+from .schema import ALINTI_MAKS, KANIT_MAKS, Kanit, ModelCiktisi, SistemCevabi, Tur
 from .signals import cikar, maske_araliklari
 
 GIRDI_MAKS = 2000
@@ -45,14 +51,54 @@ class Iz:
     ham_cikti: str | None
     kesildi: bool = False
     onbellek_token: int = 0
+    # katman=True (ürün yolu) ara durumları; katman=False'ta model kararı ve kural alanları boş kalır
+    kural_tur: str | None = None
+    kural_risk: str | None = None
+    model_risk: str | None = None
+    katman_kaynak: str | None = None
 
 
-def analiz(ham: str, arka_uc, trace_id: str | None = None, istem: str = "tam") -> tuple[SistemCevabi, Iz]:
-    trace_id = trace_id or uuid.uuid4().hex[:16]
+@dataclass
+class Hazir:
+    metin: Metin
+    sinyaller: list
+    maskeli: str
+    enjeksiyon: list[str]
+
+
+def hazirla(ham: str) -> Hazir:
+    """1–4: normalize → HAM metinden sinyal → PII/OTP maske → enjeksiyon taraması (modelden bağımsız, deterministik)."""
     m = Metin(ham[:GIRDI_MAKS])
     sinyaller = cikar(m)
     maskeli = maskele(m.kanonik, maske_araliklari(sinyaller)).metin
-    enjeksiyon = tara(maskeli)
+    return Hazir(m, sinyaller, maskeli, tara(maskeli))
+
+
+def kanitlari_dogrula(kanitlar: list[dict], maskeli: str) -> tuple[list, list]:
+    """Sözlük kanıtları şemaya çevirip kapıdan geçirir (bozuk öğe sessizce düşer)."""
+    gecerli = []
+    for k in kanitlar:
+        try:
+            gecerli.append(Kanit.model_validate(k))
+        except ValidationError:
+            pass
+    return kapi(gecerli, maskeli)
+
+
+def kural_karari(h: Hazir) -> tuple[Karar, Tur, list]:
+    """Birinci katman: kural modeli + aynı politika."""
+    c = kural_ciktisi(h.maskeli, {s.tip for s in h.sinyaller})
+    tur = Tur(c["tur"])
+    gecen, _ = kanitlari_dogrula(c["kanitlar"], h.maskeli)
+    return karar_ver(tur, gecen, h.sinyaller, h.enjeksiyon), tur, gecen
+
+
+def analiz(ham: str, arka_uc, trace_id: str | None = None, istem: str = "tam",
+           katman: bool = False) -> tuple[SistemCevabi, Iz]:
+    """Ürün yolu: analiz(ham, arka_uc, istem="kisa", katman=True)."""
+    trace_id = trace_id or uuid.uuid4().hex[:16]
+    h = hazirla(ham)
+    sinyaller, maskeli, enjeksiyon = h.sinyaller, h.maskeli, h.enjeksiyon
 
     tur, ham_kanitlar, json_gecerli, hata, cevap = None, [], False, None, None
     if arka_uc is None:
@@ -75,11 +121,18 @@ def analiz(ham: str, arka_uc, trace_id: str | None = None, istem: str = "tam") -
 
     gecen, dusen = kapi(ham_kanitlar if json_gecerli else [], maskeli)
     k = karar_ver(tur, gecen, sinyaller, enjeksiyon)
-    sonuc = SistemCevabi(trace_id=trace_id, risk=k.risk, tur=tur, kanitlar=gecen, sinyaller=sinyaller,
+    goster_tur, goster_kanit, ek = tur, gecen, {}
+    if katman:
+        kk, k_tur, k_kanit = kural_karari(h)
+        kat = katmanla(kk, k_tur, k_kanit, tur, gecen, model_cevap_verdi=json_gecerli)
+        ek = {"kural_tur": k_tur.value, "kural_risk": kk.risk.value, "model_risk": k.risk.value,
+              "katman_kaynak": kat.kaynak}
+        k, goster_tur, goster_kanit = kat.karar, kat.tur, kat.kanitlar
+    sonuc = SistemCevabi(trace_id=trace_id, risk=k.risk, tur=goster_tur, kanitlar=goster_kanit, sinyaller=sinyaller,
                          oneri_kodu=k.oneri_kodu, mesaj=k.mesaj, dusurulen_kanit=len(dusen))
     iz = Iz(maskeli, ham_kanitlar, tur.value if tur else None, json_gecerli, hata,
             cevap.sure_ms if cevap else 0.0, cevap.girdi_token if cevap else 0, cevap.cikti_token if cevap else 0,
-            cevap.metin if cevap else None, bool(cevap and cevap.kesildi), cevap.onbellek_token if cevap else 0)
+            cevap.metin if cevap else None, bool(cevap and cevap.kesildi), cevap.onbellek_token if cevap else 0, **ek)
     return sonuc, iz
 
 
