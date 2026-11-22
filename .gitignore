@@ -20,6 +20,11 @@ training/adapters/
 data/sft/
 training/logs/*.csv
 
+# Dış setlerin örnek bazlı sonuçları gerçek e-postalardan BİREBİR alıntı içerir (kanitlar) → yalnızca yerelde.
+# Metrikler docs/eval-report.md'de. Olay notu: docs/olay-2026-11-22-dis-set-alintilari.md
+eval/results/*__uci.json
+eval/results/*__olta.json
+
 # pip install -e . üretir
 *.egg-info/
 # kopyası docs/img/ altında

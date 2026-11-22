@@ -101,3 +101,10 @@ def test_golden_test_bolumuyle_tutarli():
         assert r["id"] in test, r["id"]
         if "metin" in r:
             assert r["metin"] == test[r["id"]]["metin"], r["id"]
+
+
+def test_dis_set_sonuclari_repoya_girmez():
+    """Dış set (UCI/OLTA) örnek sonuçları gerçek e-posta alıntısı taşır → .gitignore'da olmalı (olay 2026-11-22)."""
+    satirlar = (KOK / ".gitignore").read_text(encoding="utf-8").splitlines()
+    for kalip in ("eval/results/*__uci.json", "eval/results/*__olta.json", "data/external/*"):
+        assert kalip in satirlar, kalip
