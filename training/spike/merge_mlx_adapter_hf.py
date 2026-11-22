@@ -1,10 +1,13 @@
-"""KALKAN · Adım 1 · Yol B: MLX LoRA adaptörünü HF ağırlıklarına birleştir   v1 · 2026-11-18
+"""KALKAN · Adım 1 · Yol B: MLX LoRA adaptörünü HF ağırlıklarına birleştir   v1.1 · 2026-11-21
 
 Neden: `mlx_lm.fuse` çıktısı MLX'in iç düzenini (isimler, conv yerleşimi, norm ofseti)
 taşıyabilir; llama.cpp ise ORİJİNAL HF düzenini bekler. Bu script orijinal HF klasörünü
 olduğu gibi kopyalar ve yalnızca LoRA uygulanmış Linear ağırlıklarını değiştirir:
 
     W' = W + scale · (lora_a @ lora_b)ᵀ        (mlx LoRALinear: y = xWᵀ + scale·(x·A)·B)
+
+v1.1 (Adım 8): --dtype float32 → birleştirilen ağırlıklar bf16'ya geri yuvarlanmaz. LoRA farkı (|Δ| ~1e-4)
+bf16'nın ~3 anlamlı hanesinde kısmen silinebilir; f32 → GGUF F32 → Q4_K_M ile tek yuvarlama kalır.
 
 Kullanım:
   python merge_mlx_adapter_hf.py --base .spike/base --adapter .spike/adapters --out .spike/merged_hf
@@ -53,6 +56,8 @@ def main() -> None:
     ap.add_argument("--base", type=Path, required=True)
     ap.add_argument("--adapter", type=Path, required=True)
     ap.add_argument("--out", type=Path, required=True)
+    ap.add_argument("--dtype", choices=["keep", "float32"], default="keep",
+                    help="keep: tabanın dtype'ı (spike); float32: Δ yuvarlanmaz (Adım 8)")
     a = ap.parse_args()
 
     mods, scale, cfg = load_adapter(a.adapter)
@@ -95,14 +100,22 @@ def main() -> None:
             if la.shape[0] != in_dim or lb.shape[1] != out_dim:
                 raise SystemExit(f"Şekil uyuşmazlığı {hf_key}: W{tuple(w.shape)} A{tuple(la.shape)} B{tuple(lb.shape)}")
             delta = scale * (la.float() @ lb.float()).T
-            tensors[hf_key] = (w.float() + delta).to(w.dtype)
-            stats.append((hf_key, delta.abs().mean().item(), delta.abs().max().item()))
+            tensors[hf_key] = (w.float() + delta).to(w.dtype if a.dtype == "keep" else torch.float32)
+            # bf16'ya yuvarlansaydı Δ'nın ne kadarı bozulurdu? (göreli hata; 1.0 = Δ tamamen kaybolmuş gibi)
+            bf_hata = (((w.float() + delta).bfloat16().float() - w.float() - delta).norm() / delta.norm().clamp_min(1e-12)).item()
+            stats.append((hf_key, delta.abs().mean().item(), delta.abs().max().item(), bf_hata))
+        if a.dtype == "float32":   # karışık dtype yerine tüm tensörler f32: dönüştürücü tek tip görür
+            tensors = {k: (v.float() if v.is_floating_point() else v) for k, v in tensors.items()}
         meta.setdefault("format", "pt")
         save_file(tensors, str(a.out / sf.name), metadata=meta)
 
     print(f"birleştirilen ağırlık: {len(stats)}")
-    for k, mean, mx in stats[:8]:
-        print(f"  {k}: |Δ| ort={mean:.2e} maks={mx:.2e}")
+    for k, mean, mx, bh in stats[:8]:
+        print(f"  {k}: |Δ| ort={mean:.2e} maks={mx:.2e} bf16 göreli hata={bh:.2f}")
+    if stats:
+        hatalar = sorted(s[3] for s in stats)
+        print(f"bf16 yuvarlama Δ göreli hatası: medyan {hatalar[len(hatalar) // 2]:.2f} · maks {hatalar[-1]:.2f}"
+              f"  ({'float32 ile önlendi' if a.dtype == 'float32' else 'bu çıktıda VAR'})")
     if stats and max(s[2] for s in stats) == 0.0:
         print("UYARI: tüm Δ=0 → lora_b sıfır kalmış (eğitim adımı uygulanmamış olabilir).")
     (a.out / "kalkan_merge.json").write_text(json.dumps(

@@ -1,5 +1,5 @@
 # KALKAN v7.0 · 2026-11-19
-.PHONY: sft-veri sablon-parite egit-08 loss kontrol-08 kontrol-08-it sablon-paket sablon-iceri egit-v2 loss-v2 kontrol-v2 kontrol-08-temel yeniden-puanla eval-gpt-pilot eval-gpt eval-gpt-ekonomik sunucu-08 sunucu-2b eval-zs-08 eval-zs-2b eval eval-hizli rapor llm-paket llm-iceri teyit veri veri-istatistik incele golden dis-veri token-olc spike gguf-2b bench-mac bench test lint clean-spike
+.PHONY: export-ft sunucu-ft gguf-parite gguf-parite-sema eval-ft sft-veri sablon-parite egit-08 loss kontrol-08 kontrol-08-it sablon-paket sablon-iceri egit-v2 loss-v2 kontrol-v2 kontrol-08-temel yeniden-puanla eval-gpt-pilot eval-gpt eval-gpt-ekonomik sunucu-08 sunucu-2b eval-zs-08 eval-zs-2b eval eval-hizli rapor llm-paket llm-iceri teyit veri veri-istatistik incele golden dis-veri token-olc spike gguf-2b bench-mac bench test lint clean-spike
 spike:          ## Mac: Adım 1 dönüşüm spike'ı
 	bash training/spike/spike_convert.sh
 gguf-2b:        ## Mac: Qwen3.5-2B → .spike/gguf/C2B-Q4_K_M.gguf
@@ -49,6 +49,22 @@ sunucu-08:      ## Adım 5: Qwen3.5-0.8B zero-shot (ayrı terminalde açık kals
 sunucu-2b:
 	$(LLAMA_SERVER) -m .spike/gguf/C2B-Q4_K_M.gguf $(SUNUCU_ARG)
 DIS_LIMIT ?= 300
+
+# Adım 8 — fine-tune modeli: GGUF + parite + tam eval
+ADP  ?= training/adapters/ft-0.8b-v2-it600
+FTAD ?= kalkan-0.8b-v2
+Q    ?= Q4_K_M
+export-ft:      ## adaptör → .spike/gguf/$(FTAD)-{Q4_K_M,Q8_0}.gguf (B yolu, f32 birleştirme)
+	bash training/export_gguf.sh $(ADP) $(FTAD)
+sunucu-ft:      ## ayrı terminalde açık kalsın: make sunucu-ft Q=Q8_0 | Q=Q4_K_M
+	$(LLAMA_SERVER) -m .spike/gguf/$(FTAD)-$(Q).gguf $(SUNUCU_ARG)
+gguf-parite:    ## sunucu-ft açıkken; Q, sunucudaki ile AYNI olmalı
+	python training/gguf_parite.py --etiket $(Q)
+gguf-parite-sema:
+	python training/gguf_parite.py --etiket $(Q) --sema
+eval-ft:        ## sunucu-ft açıkken, AYNI Q ile: make eval-ft Q=Q8_0 → sonuç adı ft-0.8b-v2-Q8_0
+	python -m eval.run_eval --model llm --etiket ft-0.8b-v2-$(Q) --istem kisa --set golden dogrulama adversarial
+	python -m eval.run_eval --model llm --etiket ft-0.8b-v2-$(Q) --istem kisa --set olta uci --limit $(DIS_LIMIT)
 eval-zs-08:     ## sunucu-08 açıkken: golden + doğrulama + adversarial + dış setler (örneklem)
 	python -m eval.run_eval --model llm --etiket zs-0.8b --set golden dogrulama adversarial
 	python -m eval.run_eval --model llm --etiket zs-0.8b --set olta uci --limit $(DIS_LIMIT)
