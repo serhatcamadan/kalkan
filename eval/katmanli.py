@@ -36,7 +36,7 @@ from .metrics import Tahmin, degerlendir
 from .run_eval import KOK
 from .yeniden_puanla import satirlar
 
-SETLER = ["golden", "dogrulama", "adversarial", "olta", "uci"]
+SETLER = ["golden", "dogrulama", "adversarial", "kor", "olta", "uci"]
 SIRA = {"dusuk": 0, "orta": 1, "belirsiz": 1, "yuksek": 2}
 VARYANTLAR = ["kural", "ft", "veya", "ve", "ikinci", "ikinci_talep"]
 SECILEN = "ikinci_talep"
@@ -45,15 +45,16 @@ SECILEN = "ikinci_talep"
 def karar(h, t: dict) -> tuple[str, str | None, list, object]:
     """(risk, tür, kapıdan geçen kanıtlar, Karar) — servisle aynı hat."""
     tur = Tur(t["tur"]) if t.get("tur") and t.get("json_gecerli", True) else None
-    gecen, _ = kanitlari_dogrula(t.get("kanitlar", []) if tur else [], h.maskeli)
+    gecen, _ = kanitlari_dogrula(t.get("kanitlar", []) if tur else [], h.model_girdisi)
     k = karar_ver(tur, gecen, h.sinyaller, h.enjeksiyon)
     return k.risk.value, (tur.value if tur else None), gecen, k
 
 
-def birlestir(v: str, k: tuple, f: tuple) -> tuple[str, str | None]:
+def birlestir(v: str, k: tuple, f: tuple, kirpildi: bool = False) -> tuple[str, str | None]:
     (kr, kt, kk, kkarar), (fr, ft, fk, _) = k, f
     if v == SECILEN:          # ★: ürünle aynı fonksiyon
-        kat = katmanla(kkarar, Tur(kt), kk, Tur(ft) if ft else None, fk, model_cevap_verdi=ft is not None)
+        kat = katmanla(kkarar, Tur(kt), kk, Tur(ft) if ft else None, fk, model_cevap_verdi=ft is not None,
+                       girdi_kirpildi=kirpildi)
         return kat.karar.risk.value, (kat.tur.value if kat.tur else None)
     if v == "kural":
         return kr, kt
@@ -71,7 +72,7 @@ def ozet(set_adi: str, m: dict) -> str:
     if set_adi in ("olta", "uci"):
         r, f = m["dolandiricilik_recall"], m["mesru_fpr"]
         return f"recall {r:.3f} · FPR {f:.3f} · ayırt {r - f:+.3f}"
-    if set_adi == "adversarial":
+    if set_adi in ("adversarial", "kor"):
         return f"sızıntı {m['dusuk_risk_sizintisi']} · zor negatif yanlış alarm {m['zor_negatif_yanlis_alarm']}"
     return f"F1 {m['makro_f1']:.3f} · recall {m['dolandiricilik_recall']:.3f} · FPR {m['mesru_fpr']:.3f}"
 
@@ -92,19 +93,20 @@ def main() -> None:
         if eksik:   # sonuç dosyası eski veri sürümünden (ör. şablonlar sonradan değişti) → karşılaştırma geçersiz
             print(f"– {set_adi}: {len(eksik)} tahmin güncel veride yok (ör. {eksik[0]}); {a.ft} bu sette yeniden çalıştırılmalı")
             continue
-        sira, kk, ff = [], [], []
+        sira, kk, ff, kirp = [], [], [], []
         for t in r["tahminler"]:
             o = rows[t["id"]]
             h = hazirla(o["metin"])
             kkarar, ktur, kgecen = kural_karari(h)
             kk.append((kkarar.risk.value, ktur.value, kgecen, kkarar))
             ff.append(karar(h, t))
+            kirp.append(h.kirpildi)
             sira.append(o)
         print(f"{set_adi} (n={len(sira)})")
         for v in VARYANTLAR:
             tah = []
-            for k, f, t in zip(kk, ff, r["tahminler"]):
-                risk, tur = birlestir(v, k, f)
+            for k, f, t, kp in zip(kk, ff, r["tahminler"], kirp):
+                risk, tur = birlestir(v, k, f, kp)
                 kanit = [x.model_dump(mode="json") for x in f[2]] if v != "kural" else []
                 tah.append(Tahmin(tur=tur, kanitlar=kanit, risk=risk, sure_ms=t.get("sure_ms", 0.0)))
             m = degerlendir(set_adi, sira, tah)

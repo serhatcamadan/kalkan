@@ -1,5 +1,8 @@
-"""KALKAN · backends/openai_compat.py — tek arka uç (ADR-0002)        v1.2 · 2026-11-20
+"""KALKAN · backends/openai_compat.py — tek arka uç (ADR-0002)        v1.4 · 2026-11-22
 
+v1.4 (Adım 9b): hata metinleri anahtardan temizlenir (sağlayıcı gövdesi anahtarı yankılasa bile); anahtar _Gizli
+      sarmalayıcıda: vars()/__dict__/str/repr/pickle onu göstermez (test bunu yakaladı: isim karıştırma vars()'a
+      karşı koruma sağlamıyordu). Kasıtlı okuma hâlâ mümkün; amaç KAZARA sızıntıyı (hata ayıklama dökümü, log) önlemek.
 v1.1: max_tokens 200→384, finish_reason kaydı (kesilen cevap ayrı sayılır).
 v1.3: HTTP 400'de tek seferlik uyarlama: şema anahtar kelimesi reddedilirse sadeleştirilmiş şema (maxLength/maxItems/
       minLength/title yok), reasoning_effort reddedilirse parametresiz tekrar. Uyarlama kalıcıdır ve `notlar`a yazılır.
@@ -14,6 +17,7 @@ Hem yerel llama-server hem BYOK (OpenAI uyumlu sağlayıcı) aynı istemciyle ko
 from __future__ import annotations
 
 import json
+import re
 import time
 import urllib.error
 import urllib.request
@@ -32,6 +36,25 @@ class Cevap:
     onbellek_token: int = 0               # girdinin önbellekten gelen kısmı (OpenAI: %90 indirimli)
 
 
+class _Gizli:
+    """Değeri yalnızca .deger() ile verir; her türlü dökümde '<gizli>' görünür, serileştirilemez."""
+    __slots__ = ("_d",)
+
+    def __init__(self, d: str):
+        self._d = d
+
+    def deger(self) -> str:
+        return self._d
+
+    def __repr__(self) -> str:
+        return "<gizli>"
+
+    __str__ = __repr__
+
+    def __reduce__(self):
+        raise TypeError("gizli değer serileştirilemez")
+
+
 class OpenAIUyumlu:
     def __init__(self, base_url: str, model: str = "yerel", api_key: str | None = None, yerel: bool = True,
                  zaman_asimi: float = 30.0, max_tokens: int = 384, akil: str | None = None):
@@ -40,10 +63,18 @@ class OpenAIUyumlu:
         self.akil = akil                    # reasoning_effort (yalnızca BYOK): none | minimal | low …
         self.sade_sema = False
         self.notlar: list[str] = []
-        self.__anahtar = api_key            # isim karıştırma: dışarıdan kazara okunmasın
+        self.__anahtar = _Gizli(api_key) if api_key else None   # vars()/repr/log'da görünmez
 
     def __repr__(self) -> str:              # anahtar asla görünmez
         return f"OpenAIUyumlu(base_url={self.base_url!r}, model={self.model!r}, yerel={self.yerel})"
+
+    def _temizle(self, metin: str) -> str:
+        """Sağlayıcı hata gövdesini aynen döndürebilir (bazıları isteği/anahtarı yankılar): anahtar ve
+        'sk-…' / 'Bearer …' biçimli her şey maskelenir. Hata metni Iz'e, sonuç dosyasına ve ekrana gider."""
+        if self.__anahtar:
+            metin = metin.replace(self.__anahtar.deger(), "***")
+        metin = re.sub(r"Bearer\s+\S+", "Bearer ***", metin)
+        return re.sub(r"\bsk-[A-Za-z0-9_\-]{8,}", "sk-***", metin)
 
     def sohbet(self, sistem: str, kullanici: str, sema: dict) -> Cevap:
         c = self._sohbet(sistem, kullanici, sema)
@@ -75,7 +106,7 @@ class OpenAIUyumlu:
                 govde["reasoning_effort"] = self.akil
         basliklar = {"Content-Type": "application/json"}
         if self.__anahtar:
-            basliklar["Authorization"] = f"Bearer {self.__anahtar}"
+            basliklar["Authorization"] = f"Bearer {self.__anahtar.deger()}"
         req = urllib.request.Request(f"{self.base_url}/v1/chat/completions", data=json.dumps(govde).encode(),
                                      headers=basliklar, method="POST")
         t0 = time.perf_counter()
@@ -83,9 +114,10 @@ class OpenAIUyumlu:
             with urllib.request.urlopen(req, timeout=self.zaman_asimi) as r:
                 d = json.loads(r.read())
         except urllib.error.HTTPError as e:
-            return Cevap(None, f"HTTP {e.code}: {e.read()[:400].decode(errors='replace')}", (time.perf_counter() - t0) * 1000)
+            govde_hata = e.read()[:400].decode(errors="replace")
+            return Cevap(None, self._temizle(f"HTTP {e.code}: {govde_hata}"), (time.perf_counter() - t0) * 1000)
         except Exception as e:  # noqa: BLE001  (zaman aşımı, bağlantı) → fail-closed üst katmanda
-            return Cevap(None, f"{type(e).__name__}: {e}", (time.perf_counter() - t0) * 1000)
+            return Cevap(None, self._temizle(f"{type(e).__name__}: {e}"), (time.perf_counter() - t0) * 1000)
         u = d.get("usage", {})
         c = d["choices"][0]
         return Cevap(c["message"].get("content"), None, (time.perf_counter() - t0) * 1000,

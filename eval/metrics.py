@@ -139,7 +139,7 @@ def degerlendir(set_adi: str, ornekler: list[dict], tahminler: list[Tahmin]) -> 
         altin = [o["etiket"] in ("dolandiricilik", "spam") for o in ornekler]
         out.update(ikili_metrikler(altin, [alarm(t) for t in tahminler]))
         return out
-    if set_adi == "adversarial":
+    if set_adi in ("adversarial", "kor"):
         sizinti, yanlis_alarm, tur_kabul = [], [], 0
         for o, t in zip(ornekler, tahminler):
             if o["asla_dusuk"] and not alarm(t):

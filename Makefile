@@ -1,5 +1,5 @@
 # KALKAN v7.0 · 2026-11-19
-.PHONY: eval-sistem egit-v3 loss-v3 kontrol-v3 sablon-paket-15 sablon-iceri-15 katmanli export-ft sunucu-ft gguf-parite gguf-parite-sema eval-ft sft-veri sablon-parite egit-08 loss kontrol-08 kontrol-08-it sablon-paket sablon-iceri egit-v2 loss-v2 kontrol-v2 kontrol-08-temel yeniden-puanla eval-gpt-pilot eval-gpt eval-gpt-ekonomik sunucu-08 sunucu-2b eval-zs-08 eval-zs-2b eval eval-hizli rapor llm-paket llm-iceri teyit veri veri-istatistik incele golden dis-veri token-olc spike gguf-2b bench-mac bench test lint clean-spike
+.PHONY: eval-kor kor-ozet eval-sistem egit-v3 loss-v3 kontrol-v3 sablon-paket-15 sablon-iceri-15 katmanli export-ft sunucu-ft gguf-parite gguf-parite-sema eval-ft sft-veri sablon-parite egit-08 loss kontrol-08 kontrol-08-it sablon-paket sablon-iceri egit-v2 loss-v2 kontrol-v2 kontrol-08-temel yeniden-puanla eval-gpt-pilot eval-gpt eval-gpt-ekonomik sunucu-08 sunucu-2b eval-zs-08 eval-zs-2b eval eval-hizli rapor llm-paket llm-iceri teyit veri veri-istatistik incele golden dis-veri token-olc spike gguf-2b bench-mac bench test lint clean-spike
 spike:          ## Mac: Adım 1 dönüşüm spike'ı
 	bash training/spike/spike_convert.sh
 gguf-2b:        ## Mac: Qwen3.5-2B → .spike/gguf/C2B-Q4_K_M.gguf
@@ -56,6 +56,13 @@ IT_SEC ?= 450
 ADP  ?= training/adapters/ft-0.8b-$(FTV)-it$(IT_SEC)
 FTAD ?= kalkan-0.8b-$(FTV)
 Q    ?= Q8_0
+eval-kor:       ## Adım 9b: KÖR saldırı seti, BİR KEZ (sunucu-ft açıkken) · kural, tfidf, ft tek başına, sistem
+	python -m eval.run_eval --set kor
+	python -m eval.run_eval --model llm --etiket ft-0.8b-$(FTV)-$(Q) --istem kisa --set kor
+	python -m eval.run_eval --model llm --etiket sistem-$(FTV)-$(Q) --istem kisa --katman --set kor adversarial
+	$(MAKE) --no-print-directory kor-ozet
+kor-ozet:       ## kör set: hangi saldırı sızdı, hangi meşru alarm aldı (metin yok, yalnızca id + saldırı türü)
+	python -c "import json,glob; [print(f.split('/')[-1][:-10].ljust(18), 'sızıntı', [(x['id'], x['saldiri']) for x in d['metrikler']['sizintilar']], '· yanlış alarm', [x['id'] for x in d['metrikler']['yanlis_alarmlar']]) for f in sorted(glob.glob('eval/results/*__kor.json')) for d in [json.load(open(f))]]"
 eval-sistem:    ## Adım 9a: ÜRÜN YOLU uçtan uca (servis, katman=True) · sunucu-ft FTV=v3 açıkken → sistem-v3-Q8_0
 	python -m eval.run_eval --model llm --etiket sistem-$(FTV)-$(Q) --istem kisa --katman --set golden dogrulama adversarial
 	python -m eval.run_eval --model llm --etiket sistem-$(FTV)-$(Q) --istem kisa --katman --set olta uci --limit $(DIS_LIMIT)

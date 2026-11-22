@@ -29,3 +29,6 @@ eval/results/*__olta.json
 *.egg-info/
 # kopyası docs/img/ altında
 training/logs/*.png
+
+# denetim kaydı (metinsiz, yine de yerelde)
+logs/

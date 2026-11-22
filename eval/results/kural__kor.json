@@ -1,0 +1,413 @@
+{
+ "meta": {
+  "model": "kural",
+  "set": "kor",
+  "n": 20,
+  "zaman": "2026-11-22T17:44:02",
+  "git": "a04927b",
+  "veri_sha256": "55a4706571174015",
+  "dis_set_limit": null,
+  "golden_limit": null,
+  "hazirlik": {},
+  "sure_sn": 0.05
+ },
+ "metrikler": {
+  "n": 20,
+  "p50_ms": 1.6,
+  "p95_ms": 4.7,
+  "json_gecerlilik": 1.0,
+  "usd_1000_mesaj": 0.0,
+  "dusuk_risk_sizintisi": 3,
+  "sizintilar": [
+   {
+    "id": "kor_09",
+    "saldiri": "gizlenmis_link",
+    "tahmin": "mesru_islem"
+   },
+   {
+    "id": "kor_10",
+    "saldiri": "buyuk_harf_ascii",
+    "tahmin": "mesru_islem"
+   },
+   {
+    "id": "kor_13",
+    "saldiri": "cok_satir",
+    "tahmin": "mesru_islem"
+   }
+  ],
+  "zor_negatif_yanlis_alarm": 1,
+  "yanlis_alarmlar": [
+   {
+    "id": "kor_17",
+    "tahmin": "kurum_taklidi"
+   }
+  ],
+  "tur_kabul_orani": 0.75,
+  "olcut": "vekil: dolandırıcılık-dışı tür = düşük risk",
+  "alinti_sayisi": 31,
+  "kapi_oncesi_gecerlilik": 1.0,
+  "eslesme_p": null,
+  "eslesme_r": null,
+  "eslesme_f1": null
+ },
+ "tahminler": [
+  {
+   "id": "kor_01",
+   "tur": "kurum_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Şifrenizi 2 saat içinde sarnicbank-onay",
+     "sinyal": "kimlik_talebi"
+    },
+    {
+     "alinti": "Sarnıçbank: hesabınız askıya alındı",
+     "sinyal": "kurum_taklidi"
+    },
+    {
+     "alinti": "sarnicbank-onay.top",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 12.543917051516473,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": null,
+   "hata": null
+  },
+  {
+   "id": "kor_02",
+   "tur": "yakin_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Anne bu yeni numaram",
+     "sinyal": "yakinlik_iddiasi"
+    },
+    {
+     "alinti": "500 TL lazım [IBAN] hesabına atar mısın",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "kimseye söyleme",
+     "sinyal": "gizlilik_baskisi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 4.6700830571353436,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": null,
+   "hata": null
+  },
+  {
+   "id": "kor_03",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "29,90 TL ödeme yapın kstn",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "kstn.click/odeme",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1.105832983739674,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": null,
+   "hata": null
+  },
+  {
+   "id": "kor_04",
+   "tur": "yatirim_vip_grup",
+   "kanitlar": [
+    {
+     "alinti": "VIP kripto grubumuzda haftalık %60 garanti kazanç",
+     "sinyal": "odul_vaadi"
+    },
+    {
+     "alinti": "katılım için t.me/kazanc_vip",
+     "sinyal": "kanal_degistirme"
+    },
+    {
+     "alinti": "t.me/kazanc_vip",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1.0134169133380055,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": null,
+   "hata": null
+  },
+  {
+   "id": "kor_14",
+   "tur": "kurum_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Hattınızın kapanmaması için kimlik bilgilerinizi mercan-mobil",
+     "sinyal": "kimlik_talebi"
+    },
+    {
+     "alinti": "mercan-mobil.info/dogrula",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1.795249991118908,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": null,
+   "hata": null
+  },
+  {
+   "id": "kor_05",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "Kestane Kаrgo: teslimat için 19,90 TL eksik ücret var",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "kestanekаrgo.com/ode",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1.7861670348793268,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": null,
+   "hata": null
+  },
+  {
+   "id": "kor_06",
+   "tur": "kurum_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "şifrenizi sarnicbank-guvenli",
+     "sinyal": "kimlik_talebi"
+    },
+    {
+     "alinti": "Sarnıçbank: hesabınızda olağandışı giriş var",
+     "sinyal": "kurum_taklidi"
+    },
+    {
+     "alinti": "sarnicbank-guvenli.top",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1.9187080906704068,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": null,
+   "hata": null
+  },
+  {
+   "id": "kor_07",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [
+    {
+     "alinti": "Emniyet Müdürlüğü: adınıza açılmış hesaplar soruşturmada",
+     "sinyal": "yetki_iddiasi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.2074160147458315,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": null,
+   "hata": null
+  },
+  {
+   "id": "kor_08",
+   "tur": "kurum_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "a] destek [nokta] top adresine kart bilgilerinizi girin",
+     "sinyal": "kimlik_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.21770794410258532,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": null,
+   "hata": null
+  },
+  {
+   "id": "kor_09",
+   "tur": "mesru_islem",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 0.1740839798003435,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": null,
+   "hata": null
+  },
+  {
+   "id": "kor_10",
+   "tur": "mesru_islem",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 0.19754201639443636,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": null,
+   "hata": null
+  },
+  {
+   "id": "kor_11",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "Gümrük ücreti 39,90 TL",
+     "sinyal": "odeme_talebi"
+    },
+    {
+     "alinti": "kstn-kargo.info/pay",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1.3912919675931334,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": null,
+   "hata": null
+  },
+  {
+   "id": "kor_12",
+   "tur": "yasa_disi_bahis",
+   "kanitlar": [
+    {
+     "alinti": "Tanımlamak için kart bilgilerinizi sarnic-bonus",
+     "sinyal": "kimlik_talebi"
+    },
+    {
+     "alinti": "Sarnıçbank'tan size özel 500 TL bonus",
+     "sinyal": "odul_vaadi"
+    },
+    {
+     "alinti": "sarnic-bonus.site",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1.5944169135764241,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": null,
+   "hata": null
+  },
+  {
+   "id": "kor_13",
+   "tur": "mesru_islem",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 0.1729999203234911,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": null,
+   "hata": null
+  },
+  {
+   "id": "kor_15",
+   "tur": "kurum_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "top) şifreniz olmadan işlem yapamazsınız",
+     "sinyal": "kimlik_talebi"
+    },
+    {
+     "alinti": "sarnicbank.com.tr",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 3.130582976154983,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": null,
+   "hata": null
+  },
+  {
+   "id": "kor_16",
+   "tur": "kurum_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Sarnıçbank: hesabınızı doğrulayın sarnicbank",
+     "sinyal": "kimlik_talebi"
+    },
+    {
+     "alinti": "top aksi halde hesabınız kapatılacak",
+     "sinyal": "kurum_taklidi"
+    },
+    {
+     "alinti": "sarnicbank.com.tr.hesap-dogrula.top",
+     "sinyal": "link"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1.7276250291615725,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": null,
+   "hata": null
+  },
+  {
+   "id": "kor_17",
+   "tur": "kurum_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Sarnıçbank tek kullanımlık şifreniz: [OTP]",
+     "sinyal": "kimlik_talebi"
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 0.24420791305601597,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": null,
+   "hata": null
+  },
+  {
+   "id": "kor_18",
+   "tur": "mesru_islem",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 1.6886669909581542,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": null,
+   "hata": null
+  },
+  {
+   "id": "kor_19",
+   "tur": "mesru_islem",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 0.2787080593407154,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": null,
+   "hata": null
+  },
+  {
+   "id": "kor_20",
+   "tur": "mesru_islem",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 3.935334039852023,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": null,
+   "hata": null
+  }
+ ]
+}

@@ -54,6 +54,89 @@ aynı zayıflığın saldırgan tarafı.
 `sahte_kamu_gorevlisi` (yanlış), kural `sahte_kargo_gumruk` (doğru) → kullanıcı kuralın türünü ve modelin
 kapıdan geçen alıntılarını görür; risk yüksek, kaynak "kural". 708 ms.
 
-## 9b — güvenlik (sonraki mesaj)
-Kör adversarial örnekler, 2.000 karakter kırpma saldırısı, BYOK anahtarı log testi, denetim kaydı (metinsiz),
-hız sınırı (API ile Adım 10'da).
+## 9b — güvenlik
+
+### 1. Kırpma saldırısı (service v1.2, katman v1.1)
+**Açık:** `hazirla()` ham metni 2.000 karakterde kesiyordu; sinyaller, maske, enjeksiyon taraması ve (9a'dan beri)
+kural katmanı da kesilmiş metni görüyordu. 2.000 karakter zararsız metin + sonda dolandırıcılık → hiçbir katman
+görmez → "düşük". 9a'daki UCI bulgusu (kural ayırt +0.120 → +0.050) aynı açığın ölçümdeki izi.
+**Düzeltme:**
+- Ham metin `HAM_MAKS` = 10.000 karaktere kadar okunur. Sinyaller, maske, enjeksiyon taraması ve **kural katmanı
+  metnin tamamında**; **model** yalnızca ilk 2.000 karakteri (maskeli) görür. Model kanıtları modelin gördüğü
+  metne karşı doğrulanır.
+- **Kural 0 (katman v1.1):** model metnin tamamını göremediyse sonuç "düşük" olamaz → `KIRPILDI_DIKKAT` (belirsiz).
+  `SistemCevabi.girdi_kirpildi` kullanıcıya da gösterilir.
+- **Bedeli:** 2.000 karakteri aşan meşru mesajlar artık hep alarm (belirsiz). SMS/WhatsApp için nadir; e-posta zaten
+  kapsam dışı (ADR-0006). OLTA/UCI FPR'si bu yüzden yükselir: bilinçli.
+
+### 2. BYOK anahtarı (openai_compat v1.4)
+- Hata metinleri anahtardan, `Bearer …` ve `sk-…` kalıplarından temizlenir (en kötü durum: sağlayıcı 401
+  gövdesinde başlıkları aynen yankılar; test bunu sahte sunucuyla canlandırır).
+- **Test bir açık buldu:** anahtar isim karıştırmalı bir alanda (`self.__anahtar`) tutuluyordu; `repr` gizliyordu
+  ama `vars(arka_uc)` anahtarı **düz metin** gösteriyordu (hata ayıklama dökümleri, bazı log kütüphaneleri bunu
+  yapar). Artık `_Gizli` sarmalayıcıda: `vars`/`str`/`repr` → `<gizli>`, `pickle` → hata.
+- Test, anahtarı şu yerlerin hiçbirinde bulamamalı: repr, vars, hata, Iz, SistemCevabi, denetim satırı ve dosyası,
+  ekran çıktısı.
+
+### 3. Metinsiz denetim kaydı (`kalkan/denetim.py`)
+Her analiz için bir JSONL satırı: zaman, trace_id, sürümler (kalkan/politika/katman), risk, tür, öneri kodu,
+katman kaynağı, kural ve model riski, sinyal TÜRLERİ, kanıt SİNYALLERİ, girdi uzunluğu, kırpıldı mı, süre,
+hata TÜRÜ ve `metin_ozeti` = HMAC-SHA256(tuz, ham)[:16].
+- **İçermez:** mesaj, alıntılar, model ham çıktısı, hata metni (şema hatası model çıktısından parça taşıyabilir).
+- Tuz `KALKAN_DENETIM_TUZ`'dan; yoksa süreç başına rastgele. Tuzsuz bir özet kısa SMS'ler için sözlükle geri
+  çözülebilirdi.
+- Dosya 0600. CLI: `python -m kalkan --denetim logs/denetim.jsonl "…"`. API (Adım 10) her istekte yazar.
+- Test: adversarial ve kör setin her mesajı için, model mesajdan birebir alıntı yapsa bile denetim satırında
+  mesajdan 10 karakterlik hiçbir pencere geçmemeli.
+
+### 4. Kör saldırı seti (`data/adversarial/kor.yaml`, 20 örnek)
+16 saldırı + 4 zor negatif. Saldırı türleri: kırpma (2), yeni enjeksiyon biçimleri (3: sahte "kalkan_cikti"
+başlığı, "önceki kurallar iptal", sahte "Kalkan doğrulaması ✅"), homoglif (Kiril "а"), kelime içine sıfır
+genişlikli boşluk, harfleri bölünmüş "k o d u", "[nokta]" ile gizlenmiş link, boşluklu/emoji'li kısa link,
+BÜYÜK HARF + ASCII, İngilizce-Türkçe karışım, **ret satırlı sahte reklam** (politika v1.1'in reklam kuralını
+atlatmaya çalışır), çok satırlı WhatsApp, markdown link (görünen resmi alan, giden sahte), alt alan hilesi.
+Zor negatifler: meşru tek kullanımlık şifre, meşru kargo takip linki, meşru fatura, 2.000+ karakterlik meşru bülten.
+**Kural:** bir kez ölçülür; sonuca bakarak kural, politika veya veri değiştirilirse o örnek `kor: false` olur.
+kor_01/02/20 kırpma düzeltmesiyle birlikte yazıldığı için baştan `kor: false`. Sonuçlara ben de ölçümden önce bakmadım.
+
+### Tahminler (kör set, ölçmeden önce)
+| # | Tahmin |
+|---|---|
+| G1 | Sistem (katmanlı) kör sızıntı: **≤ 2 / 16**; en olası: kor_08 ("[nokta]"), kor_09 (boşluklu kısa link) |
+| G2 | Kural tek başına: sızıntı **≥ 3** (bölünmüş kelime, gizlenmiş link, İngilizce karışım) |
+| G3 | ft tek başına: sızıntı ≤ 2 ama zor negatiflerde ≥ 1 yanlış alarm |
+| G4 | Sistem zor negatif: kor_17/18/19 temiz; kor_20 bilinçli belirsiz → yanlış alarm **1/4** |
+| G5 | Mevcut adversarial (30) sistemde sızıntı 0 kalır |
+
+### Sonuçlar (kör set, tek ölçüm · 2026-11-22)
+| model | kör sızıntı (16 saldırı) | sızanlar | zor negatif yanlış alarm (4) |
+|---|---|---|---|
+| kural | 3 | kor_09 boşluklu kısa link, kor_10 BÜYÜK HARF+ASCII, kor_13 çok satırlı WhatsApp | kor_17 |
+| TF-IDF | 1 | kor_12 ret satırlı sahte reklam | – |
+| ft-v3 tek başına | 2 | kor_08 "[nokta]" link, kor_12 sahte reklam | kor_20 |
+| **sistem (★ katmanlı)** | **2** | **kor_10, kor_13** | kor_17, kor_20 |
+
+Mevcut adversarial (30) sistemde sızıntı **0** (G5 ✅). Keşif varyantları (karar ★'la): `veya` 0 sızıntı / 2 alarm,
+`ikinci` (talep şartsız) 1 / 2.
+
+**Karne:** G1 ◐ sayı tuttu (2 ≤ 2) ama adaylar yanlış: kor_08/09'u model ve kural birbirini tamamlayarak yakaladı,
+sızanlar kor_10/13 · G2 ✅ (kural 3) · G3 ✅ (ft 2 sızıntı, 1 yanlış alarm) · G4 ❌ (2/4: meşru OTP kor_17'ye kural
+alarm verdi) · G5 ✅.
+
+**Kök nedenler (sızan iki örnek de aynı mekanizma):**
+- Kural ikisini de "meşru" sandı: kor_10'da link yok, Türkçe karakter yok, "NUMARAYI ARAYIN" kanal sözlüğünde yok;
+  kor_13'te tutar "TL"siz, talep fiili ("at", "gönder") yok, yalnızca IBAN var.
+- Model ikisinde de dolandırıcılık dedi (ft tek başına ikisini de yakaladı), ama kanıtları arasında ödeme/kod/kimlik
+  **talebi** yoktu → ★'ın talep şartı yükseltmeyi engelledi. Talep şartı golden'da FPR'yi korumak için konmuştu;
+  bedeli burada görünür oldu.
+- kor_13'te deterministik **IBAN sinyali vardı** ama politika IBAN'ı yalnızca reklam/kısa link yolunda kullanıyor:
+  "meşru" denen ve IBAN içeren mesaj yükseltilmiyor. Sentetik verilerde meşru + IBAN **hiç yok** (test 0/54,
+  doğrulama 0/36, eğitim 0/600): yani bu boşluk hiçbir ölçümde görünemezdi.
+- kor_17 (meşru OTP → alarm): kuralın "şifre" kalıbı talep sayılıyor; "paylaşmayın" istisnası talep varsa devreye
+  girmiyor. v2 modelin 8b'deki hatasının kural tarafındaki aynısı.
+
+**Denetim satırı** (CLI örneği): mesajdan kelime yok; yalnızca sinyal türleri (`kisa_link`, `link`, `tutar`),
+kanıt sinyalleri, uzunluk (48), HMAC özeti ✅.
+
+İstek alan bir uç nokta henüz yok; API ile birlikte Adım 10'da (IP başına + toplam eşzamanlılık; llama-server
+`-np 1` olduğu için kuyruk sınırı da).

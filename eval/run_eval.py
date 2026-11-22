@@ -45,6 +45,7 @@ SETLER = {
     "golden": "data/golden/golden.jsonl",
     "dogrulama": "data/splits/dogrulama.jsonl",
     "adversarial": "data/adversarial/adversarial.jsonl",
+    "kor": "data/adversarial/kor.jsonl",            # Adım 9b: kör saldırı seti (bir kez ölçülür)
     "olta": "data/external/olta_tr.jsonl",
     "uci": "data/external/uci_trspam.jsonl",
 }

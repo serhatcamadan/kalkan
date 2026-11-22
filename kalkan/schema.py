@@ -136,6 +136,7 @@ class SistemCevabi(BaseModel):
     oneri_kodu: str
     mesaj: str
     dusurulen_kanit: int = 0          # kapıdan geçemeyen alıntı sayısı (şeffaflık)
+    girdi_kirpildi: bool = False      # model metnin tamamını göremedi (Adım 9b)
 
     @field_validator("mesaj")
     @classmethod

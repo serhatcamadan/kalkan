@@ -1,4 +1,9 @@
-"""KALKAN · service.py — uçtan uca analiz hattı                          v1.1 · 2026-11-22
+"""KALKAN · service.py — uçtan uca analiz hattı                          v1.2 · 2026-11-22
+
+v1.2 (Adım 9b, kırpma saldırısı): girdi HAM_MAKS (10.000) karaktere kadar okunur. Deterministik sinyaller,
+      maske, enjeksiyon taraması ve KURAL katmanı metnin tamamında; MODEL ilk GIRDI_MAKS (2.000) karakteri görür.
+      Önceden ilk 2.000 karakterden sonrası hiç görülmüyordu: dolandırıcılık uzun zararsız bir metnin arkasına
+      saklanabiliyordu. Kırpılan girdi "düşük" alamaz (kalkan/katman.py kural 0).
 
 v1.1 (Adım 9a): katman=True → ürün yolu (ADR-0006): kural birinci katman + model ikinci görüş (kalkan/katman.py).
       katman=False → yalnızca model yolu (değerlendirmede modelin kendisini ölçmek için; v1 davranışı).
@@ -34,7 +39,8 @@ from .policy import Karar, karar_ver
 from .schema import ALINTI_MAKS, KANIT_MAKS, Kanit, ModelCiktisi, SistemCevabi, Tur
 from .signals import cikar, maske_araliklari
 
-GIRDI_MAKS = 2000
+GIRDI_MAKS = 2000      # modelin gördüğü (maskeli) metin
+HAM_MAKS = 10000       # okunan ham metin; ötesi atılır ve girdi_kirpildi işaretlenir
 
 
 @dataclass
@@ -62,16 +68,19 @@ class Iz:
 class Hazir:
     metin: Metin
     sinyaller: list
-    maskeli: str
+    maskeli: str              # metnin TAMAMI (≤ HAM_MAKS), maskeli: kural katmanı ve enjeksiyon taraması
     enjeksiyon: list[str]
+    model_girdisi: str = ""   # maskeli[:GIRDI_MAKS]: model bunu görür, model kanıtları buna karşı doğrulanır
+    kirpildi: bool = False    # model metnin tamamını göremedi (ya da ham HAM_MAKS'ı aştı)
 
 
 def hazirla(ham: str) -> Hazir:
     """1–4: normalize → HAM metinden sinyal → PII/OTP maske → enjeksiyon taraması (modelden bağımsız, deterministik)."""
-    m = Metin(ham[:GIRDI_MAKS])
+    m = Metin(ham[:HAM_MAKS])
     sinyaller = cikar(m)
     maskeli = maskele(m.kanonik, maske_araliklari(sinyaller)).metin
-    return Hazir(m, sinyaller, maskeli, tara(maskeli))
+    kirpildi = len(ham) > HAM_MAKS or len(maskeli) > GIRDI_MAKS
+    return Hazir(m, sinyaller, maskeli, tara(maskeli), maskeli[:GIRDI_MAKS], kirpildi)
 
 
 def kanitlari_dogrula(kanitlar: list[dict], maskeli: str) -> tuple[list, list]:
@@ -98,7 +107,7 @@ def analiz(ham: str, arka_uc, trace_id: str | None = None, istem: str = "tam",
     """Ürün yolu: analiz(ham, arka_uc, istem="kisa", katman=True)."""
     trace_id = trace_id or uuid.uuid4().hex[:16]
     h = hazirla(ham)
-    sinyaller, maskeli, enjeksiyon = h.sinyaller, h.maskeli, h.enjeksiyon
+    sinyaller, maskeli, enjeksiyon = h.sinyaller, h.model_girdisi, h.enjeksiyon   # model yolu: modelin gördüğü
 
     tur, ham_kanitlar, json_gecerli, hata, cevap = None, [], False, None, None
     if arka_uc is None:
@@ -124,12 +133,12 @@ def analiz(ham: str, arka_uc, trace_id: str | None = None, istem: str = "tam",
     goster_tur, goster_kanit, ek = tur, gecen, {}
     if katman:
         kk, k_tur, k_kanit = kural_karari(h)
-        kat = katmanla(kk, k_tur, k_kanit, tur, gecen, model_cevap_verdi=json_gecerli)
+        kat = katmanla(kk, k_tur, k_kanit, tur, gecen, model_cevap_verdi=json_gecerli, girdi_kirpildi=h.kirpildi)
         ek = {"kural_tur": k_tur.value, "kural_risk": kk.risk.value, "model_risk": k.risk.value,
               "katman_kaynak": kat.kaynak}
         k, goster_tur, goster_kanit = kat.karar, kat.tur, kat.kanitlar
     sonuc = SistemCevabi(trace_id=trace_id, risk=k.risk, tur=goster_tur, kanitlar=goster_kanit, sinyaller=sinyaller,
-                         oneri_kodu=k.oneri_kodu, mesaj=k.mesaj, dusurulen_kanit=len(dusen))
+                         oneri_kodu=k.oneri_kodu, mesaj=k.mesaj, dusurulen_kanit=len(dusen), girdi_kirpildi=h.kirpildi)
     iz = Iz(maskeli, ham_kanitlar, tur.value if tur else None, json_gecerli, hata,
             cevap.sure_ms if cevap else 0.0, cevap.girdi_token if cevap else 0, cevap.cikti_token if cevap else 0,
             cevap.metin if cevap else None, bool(cevap and cevap.kesildi), cevap.onbellek_token if cevap else 0, **ek)

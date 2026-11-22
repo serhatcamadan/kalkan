@@ -1,4 +1,4 @@
-"""KALKAN · Adım 3 · sentetik veri üretici                          v1.5 · 2026-11-22
+"""KALKAN · Adım 3 · sentetik veri üretici                          v1.6 · 2026-11-22
 
 v1.1: TUTAR_*_TL ve INDIRIM slotları (Türkçe ek uyumu, gerçekçi indirim oranı).
 v1.2: ÖRNEK BAŞINA tohum ve kararlı id ("tes-yakin_06-003"): bir şablonu düzeltmek diğer şablonların
@@ -253,12 +253,17 @@ def ornek_uret(sablon: dict, split: str, r: random.Random, tax: dict, havuzlar: 
             "hedef": hedef.model_dump(mode="json")}
 
 
-def adversarial_uret(tax: dict) -> list[dict]:
-    kaynak = yaml.safe_load(open(KOK / "data/adversarial/adversarial.yaml", encoding="utf-8"))
+def adversarial_uret(tax: dict, ad: str = "adversarial") -> list[dict]:
+    """data/adversarial/<ad>.yaml → jsonl. v1.6: dolgu/dolgu_tekrar (öne) ve dolgu_sona (sona): kırpma örnekleri."""
+    kaynak = yaml.safe_load(open(KOK / f"data/adversarial/{ad}.yaml", encoding="utf-8"))
     out = []
     for a in kaynak["ornekler"]:
-        m = Metin(a["metin"])
-        out.append({**a, "split": "adversarial",
+        a = dict(a)
+        n = a.pop("dolgu_tekrar", 0)
+        metin = a.pop("dolgu", "") * n + a["metin"] + a.pop("dolgu_sona", "") * n
+        a["metin"] = metin
+        m = Metin(metin)
+        out.append({**a, "split": ad,
                     "model_girdisi": maskele(m.kanonik, maske_araliklari(cikar(m, tax))).metin})
     return out
 
@@ -320,6 +325,11 @@ def main() -> None:
         for o in adv:
             f.write(json.dumps(o, ensure_ascii=False) + "\n")
     print(f"adversarial {len(adv):4d} örnek")
+    kor = adversarial_uret(tax, "kor")
+    with open(KOK / "data/adversarial/kor.jsonl", "w", encoding="utf-8") as f:
+        for o in kor:
+            f.write(json.dumps(o, ensure_ascii=False) + "\n")
+    print(f"kör         {len(kor):4d} örnek")
     rapor["uretilen"]["adversarial"] = len(adv)
     rapor["dusurulen"] = dict(rapor["dusurulen"])
     (out_dir / "uretim_raporu.json").write_text(json.dumps(rapor, ensure_ascii=False, indent=1))

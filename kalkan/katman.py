@@ -1,9 +1,10 @@
-"""KALKAN · katman.py — katmanlı karar: kural birinci, model ikinci görüş (ADR-0006)   v1 · 2026-11-22
+"""KALKAN · katman.py — katmanlı karar: kural birinci, model ikinci görüş (ADR-0006)   v1.1 · 2026-11-22
 
 Tek kaynak: hem ürün (kalkan.service.analiz, katman=True) hem değerlendirme (eval/katmanli.py ★) bu fonksiyonu
 çağırır. Golden'da ölçülen karar = VPS'te çalışan karar (tests/test_katman.py tekrar oynatarak doğrular).
 
 Kurallar (★ ikinci_talep, golden GÖRÜLMEDEN seçildi):
+  0. (v1.1, Adım 9b) Model metnin tamamını göremediyse (girdi_kirpildi) sonuç DÜŞÜK olamaz → en az BELİRSİZ.
   1. Kural (+ politika v1.1) ORTA/YÜKSEK/BELİRSİZ → o karar kalır. Model riski ASLA düşüremez.
   2. Kural DÜŞÜK ve model cevap veremedi (bağlantı, zaman aşımı, bozuk şema) → BELİRSİZ (fail-closed, ADR-0005):
      ürün "düşük" demek için iki katmanın da onayını ister.
@@ -19,7 +20,7 @@ from dataclasses import dataclass
 from .policy import MESAJ, ONERI, TALEP, Karar
 from .schema import DOLANDIRICILIK_DISI, DogrulanmisKanit, Risk, Tur
 
-KATMAN_SURUMU = "1"          # ADR-0006 · ikinci_talep
+KATMAN_SURUMU = "1.1"        # ADR-0006 · ikinci_talep + kırpılan girdi düşük alamaz
 MIN_KANIT = 2
 
 
@@ -32,7 +33,21 @@ class KatmanKarari:
 
 
 def katmanla(kural: Karar, kural_tur: Tur | None, kural_kanit: list[DogrulanmisKanit],
-             model_tur: Tur | None, model_kanit: list[DogrulanmisKanit], model_cevap_verdi: bool) -> KatmanKarari:
+             model_tur: Tur | None, model_kanit: list[DogrulanmisKanit], model_cevap_verdi: bool,
+             girdi_kirpildi: bool = False) -> KatmanKarari:
+    k = _katmanla(kural, kural_tur, kural_kanit, model_tur, model_kanit, model_cevap_verdi)
+    if girdi_kirpildi and k.karar.risk == Risk.dusuk:
+        return KatmanKarari(Karar(Risk.belirsiz, "KIRPILDI_DIKKAT", MESAJ_KIRPILDI, k.karar.gerekce + ["girdi_kirpildi"]),
+                            k.tur, k.kanitlar, "kirpildi")
+    return k
+
+
+MESAJ_KIRPILDI = ("Mesaj çok uzun olduğu için tamamı incelenemedi. Dikkatli olun: bağlantıya tıklamayın, kod veya "
+                  "ödeme paylaşmayın; emin değilseniz gönderen kurumu resmi kanalından arayın.")
+
+
+def _katmanla(kural: Karar, kural_tur: Tur | None, kural_kanit: list[DogrulanmisKanit],
+              model_tur: Tur | None, model_kanit: list[DogrulanmisKanit], model_cevap_verdi: bool) -> KatmanKarari:
     goster = model_kanit or kural_kanit
     if kural.risk != Risk.dusuk:
         return KatmanKarari(kural, kural_tur, goster, "kural")

@@ -69,10 +69,10 @@ def _tekrar_oyna(kayit: dict):
         if o is None:
             pytest.skip("sonuç dosyası güncel veriyle eşleşmiyor")
         h = hazirla(o["metin"])
-        harita[sarmala(h.maskeli)] = (json.dumps({"kanitlar": t["kanitlar"], "tur": t["tur"]}, ensure_ascii=False)
+        harita[sarmala(h.model_girdisi)] = (json.dumps({"kanitlar": t["kanitlar"], "tur": t["tur"]}, ensure_ascii=False)
                                       if t.get("json_gecerli", True) and t.get("tur") else "BOZUK")
         kk, kt, kg = kural_karari(h)
-        beklenen[t["id"]] = birlestir(SECILEN, (kk.risk.value, kt.value, kg, kk), karar(h, t))[0]
+        beklenen[t["id"]] = birlestir(SECILEN, (kk.risk.value, kt.value, kg, kk), karar(h, t), h.kirpildi)[0]
     arka = Tekrar(harita)
     farkli, kaynak = [], {}
     for i, o in rows.items():
@@ -99,7 +99,7 @@ def test_servis_eval_ile_ayni_karari_verir_sentetik():
         t["json_gecerli"] = True
         x = r.random()
         if x < 0.25:                      # model dolandırıcılık + mesajda birebir geçen 2 kanıt (biri talep)
-            mg = hazirla(rows[t["id"]]["metin"]).maskeli
+            mg = hazirla(rows[t["id"]]["metin"]).model_girdisi
             t["tur"] = "sahte_kargo_gumruk"
             t["kanitlar"] = [{"alinti": mg[:12], "sinyal": "odeme_talebi"}, {"alinti": mg[12:24], "sinyal": "link"}]
         elif x < 0.35:                    # model bozuk cevap → fail-closed yolu
