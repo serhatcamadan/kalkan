@@ -26,3 +26,10 @@ Model `reklam_spam` dese bile **resmi olmayan bir bağlantı var ve yasal ret sa
 Tetikleyen: adversarial adv_21 (gpt-5.4-mini). Kural bir test örneğine bakılarak eklendiği için adv_21 artık kör değil;
 yeni kör örnekler Adım 9'da eklenecek. Politika değişiklikleri `eval/yeniden_puanla.py` ile model çağırmadan tüm
 sonuçlara uygulanır ve sonuç dosyasına `politika_surumu` yazılır.
+
+## Ek — sınır (2026-11-22, Adım 8b)
+Kapı bir alıntının maskeli mesajda **birebir geçtiğini** doğrular; alıntıya verilen **sinyal etiketinin doğru olduğunu**
+doğrulamaz. Adım 8b'de ince ayarlı v2, meşru onay kodu ve fatura cümlelerini `kod_talebi` / `odeme_talebi` diye
+alıntıladı; kanıt şartı yanlış alarmı yalnızca 0.296 → 0.259 indirdi. v3'te (sınıf dengesi) büyük ölçüde düzeldi,
+ama mimari bir garanti değil: politika model etiketlerine yalnızca **yükseltme** yetkisi verir, düşürme yetkisi
+vermez (ADR-0006).

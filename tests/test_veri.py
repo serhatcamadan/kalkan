@@ -47,9 +47,18 @@ def test_model_girdisinde_ham_pii_yok(veri):
 
 
 def test_tur_dengesi(veri):
+    """Ölçüm setleri tür başına eşit; eğitimde TUR_AGIRLIK (Adım 8c: meşru/reklam ×3 → %40 meşru)."""
     from collections import Counter
+    from tools.veri_uret import TUR_AGIRLIK
+    for sp in ("dogrulama", "test"):
+        c = Counter(r["tur"] for r in veri[sp])
+        assert len(c) == 11 and max(c.values()) - min(c.values()) <= 2, sp
     c = Counter(r["tur"] for r in veri["egitim"])
-    assert len(c) == 11 and max(c.values()) - min(c.values()) <= 2
+    w = TUR_AGIRLIK["egitim"]
+    birim = {t: n / w.get(t, 1) for t, n in c.items()}
+    assert len(c) == 11 and max(birim.values()) - min(birim.values()) <= 2
+    mesru = (c["mesru_islem"] + c["reklam_spam"]) / sum(c.values())
+    assert 0.35 <= mesru <= 0.45
 
 
 def test_havuz_markalari_taksonomide():

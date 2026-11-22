@@ -1,4 +1,4 @@
-"""KALKAN · Adım 7b · yeni şablonların LLM ön-incelemesi (Gemini)       v1 · 2026-11-21
+"""KALKAN · Adım 7b · yeni şablonların LLM ön-incelemesi (Gemini)       v1.1 · 2026-11-22
 
 Golden incelemesinin (tools/llm_inceleme.py) şablon düzeyindeki karşılığı: hata ŞABLONDA ise her örneğe yayılır,
 o yüzden örnek değil şablon incelenir. Her yeni şablon (v1.3, numara ≥ 08) için 2 üretilmiş örnek gösterilir.
@@ -6,7 +6,8 @@ Veri tamamen sentetiktir. ⚠️ data/external/ ASLA bu yolla dışarı gönderi
 
 1) python tools/sablon_inceleme.py disari  → data/templates/inceleme/paket.md   (Gemini'ye yükle)
    Cevabı data/templates/inceleme/cevap.json olarak kaydet.
-2) python tools/sablon_inceleme.py iceri   → kararlar.jsonl + işaretlenenlerin listesi (insan bunlara bakar)
+   --ilk 15 → yalnızca numarası ≥ 15 olan şablonlar (Adım 8c: yeni meşru/reklam)
+2) python tools/sablon_inceleme.py iceri [--ilk 15]   → kararlar.jsonl + işaretlenenlerin listesi (insan bunlara bakar)
 """
 import json
 import re
@@ -124,4 +125,11 @@ def iceri() -> None:
 
 
 if __name__ == "__main__":
-    {"disari": disari, "iceri": iceri}[sys.argv[1] if len(sys.argv) > 1 else "disari"]()
+    arg = sys.argv[1:]
+    if "--ilk" in arg:
+        i = arg.index("--ilk")
+        ILK_YENI = int(arg[i + 1])
+        del arg[i:i + 2]
+        ek = f"_{ILK_YENI}"   # önceki turun dosyaları korunur: paket_15.md, cevap_15.json, kararlar_15.jsonl
+        PAKET, CEVAP, KARAR = DIZIN / f"paket{ek}.md", DIZIN / f"cevap{ek}.json", DIZIN / f"kararlar{ek}.jsonl"
+    {"disari": disari, "iceri": iceri}[arg[0] if arg else "disari"]()

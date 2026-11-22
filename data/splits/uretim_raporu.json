@@ -1,10 +1,10 @@
 {
  "tohum": 20261120,
  "dusurulen": {
-  "tekrar": 90
+  "tekrar": 88
  },
  "uretilen": {
-  "egitim": 1496,
+  "egitim": 1500,
   "dogrulama": 198,
   "test": 297,
   "adversarial": 30

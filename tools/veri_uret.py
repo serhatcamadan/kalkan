@@ -1,4 +1,4 @@
-"""KALKAN · Adım 3 · sentetik veri üretici                          v1.4 · 2026-11-21
+"""KALKAN · Adım 3 · sentetik veri üretici                          v1.5 · 2026-11-22
 
 v1.1: TUTAR_*_TL ve INDIRIM slotları (Türkçe ek uyumu, gerçekçi indirim oranı).
 v1.2: ÖRNEK BAŞINA tohum ve kararlı id ("tes-yakin_06-003"): bir şablonu düzeltmek diğer şablonların
@@ -20,6 +20,7 @@ Kurallar
   • Doğrulanamayan örnek (maskeli alıntı maskeli metinde yok, şema hatası) SESSİZCE değil, sayılarak düşürülür.
   • Telefonlar 0599/0850 999 aralığından, IBAN'lar banka kodu 99999 ile üretilir (tahsisli olmaması amaçlanmıştır).
 v1.4: {RESMI_SITE} slotu (yol şablonda). Mevcut şablonların RNG sırası değişmez → test.jsonl aynı.
+v1.5: TUR_AGIRLIK (yalnızca eğitim): meşru/reklam ×3 → eğitimde %40 meşru (önce %18). Doğrulama/test eşit kalır.
 """
 from __future__ import annotations
 
@@ -43,6 +44,9 @@ from kalkan.schema import ALINTI_MAKS, ModelCiktisi, Sinyal  # noqa: E402
 from kalkan.signals import cikar, maske_araliklari  # noqa: E402
 
 HEDEF_SAYI = {"egitim": 1500, "dogrulama": 200, "test": 300}
+# Adım 8c: ft modeli "emin değilsem dolandırıcılık" önseli öğrendi (eğitimde yalnızca %18 meşru). Yalnızca EĞİTİM
+# bölümünde meşru/reklam ağırlığı ×3 → 1500 = 9×100 dolandırıcılık + 2×300 meşru/reklam (%40). Ölçüm setleri eşit.
+TUR_AGIRLIK = {"egitim": {"mesru_islem": 3, "reklam_spam": 3}}
 TOHUM = 20261120
 ISARET = re.compile(r"⟦([a-z_]+):(.*?)⟧", re.S)
 SPIN = re.compile(r"\{([^{}]*\|[^{}]*)\}")
@@ -279,9 +283,10 @@ def main() -> None:
     for split, hedef_n in HEDEF_SAYI.items():
         grup = [s for s in sablonlar if s["split"] == split]
         turler = sorted({s["tur"] for s in grup})
-        tur_basi = hedef_n // len(turler)
+        agirlik = {t: TUR_AGIRLIK.get(split, {}).get(t, 1) for t in turler}
         satirlar, gorulen = [], set()
         for tur in turler:
+            tur_basi = hedef_n * agirlik[tur] // sum(agirlik.values())
             tsab = [s for s in grup if s["tur"] == tur]
             kota = {s["id"]: tur_basi // len(tsab) + (i < tur_basi % len(tsab)) for i, s in enumerate(tsab)}
             for s in tsab:

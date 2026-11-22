@@ -84,7 +84,7 @@ for i, (r, m) in enumerate(zip(rows, meta), 1):
 
 n, sure = len(rows), time.perf_counter() - t0
 fark = dogru / n - mlx_dogru / n
-gecti = uyum / n >= (0.98 if a.etiket.upper().startswith("Q8") else 0.95) and abs(fark) <= 0.03
+gecti = uyum / n >= (0.98 if "Q8" in a.etiket.upper() else 0.95) and abs(fark) <= 0.03
 print(f"\nGGUF {a.etiket}{' + şema' if a.sema else ''} ↔ MLX {a.mlx} · doğrulama n={n} · {sure:.0f} sn ({sure / n:.2f} sn/mesaj)")
 print(f"  tür uyumu (MLX ile aynı)   {uyum}/{n} = {uyum / n:.3f}")
 print(f"  tür doğruluğu  GGUF {dogru / n:.3f} · MLX {mlx_dogru / n:.3f} · fark {fark:+.3f}")
@@ -95,7 +95,8 @@ if farklar:
     print("  farklı tahminler (şablon, MLX → GGUF):")
     for (sid, mt, gt), c in farklar.most_common(8):
         print(f"    {sid:12s} {mt} → {gt}  ×{c}")
-print(f"KARAR: {'✅ PARİTE' if gecti else '❌ PARİTE YOK'}  (uyum eşiği {'0.98' if a.etiket.upper().startswith('Q8') else '0.95'}, |fark| ≤ 0.03)")
+esik = 0.98 if "Q8" in a.etiket.upper() else 0.95
+print(f"KARAR: {'✅ PARİTE' if gecti else '❌ PARİTE YOK'}  (uyum eşiği {esik}, |fark| ≤ 0.03)")
 cikis = KOK / f"training/logs/parite__{a.etiket}{'_sema' if a.sema else ''}.json"
 cikis.write_text(json.dumps({"etiket": a.etiket, "sema": a.sema, "mlx": a.mlx, "n": n, "uyum": uyum / n,
                              "gguf_tur": dogru / n, "mlx_tur": mlx_dogru / n, "json": gecerli / n,

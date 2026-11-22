@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-# KALKAN · VPS benchmark başlatıcı                                v2.1 · 2026-11-19
+# KALKAN · VPS benchmark başlatıcı                                v2.2 · 2026-11-22
+# v2.2: bench_vps.py --istem kisa + uretim/uretim_cachesiz senaryoları (384 token, üretimle aynı)
 # v2.1: python3 -u → çıktı tee ile anında ekrana düşer (v2 tamponluyordu)
 # 🧪 KESİN DENE — temiz Ubuntu 24.04 VPS'te.
 # v2: Ollama yerine llama.cpp'nin llama-server'ı (ADR-0002). Mac'teki spike ile AYNI commit derlenir.

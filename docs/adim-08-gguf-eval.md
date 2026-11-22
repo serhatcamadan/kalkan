@@ -138,3 +138,97 @@ OLTA'da ★ kuraldan kötü; UCI'deki +0.195 FPR 0.62 ile kullanılamaz ve UCI z
 **Kök neden adayı: sınıf dengesizliği.** Eğitimde 11 türün 9'u dolandırıcılık: örneklerin yalnızca %18'i meşru/reklam
 (272/1496). Model "emin değilsem dolandırıcılık" önselini öğrenmiş: doğrulama ve golden'da hiç dolandırıcılık
 kaçırmayıp meşruların üçte birine alarm vermesi bununla tutarlı. Gerçek dünyada oran tam tersi (meşru çoğunlukta).
+
+## Adım 8c — sınıf dengesi (v3): tek ve son deney
+
+**Hipotez:** ft modelinin meşruların ~%30'una alarm vermesi, eğitimdeki %18 meşru oranından öğrenilmiş
+"emin değilsem dolandırıcılık" önselidir. **Tek değişken:** veri. Ayarlar v2 ile aynı (`lora_v3.yaml`).
+
+| | v2 | v3 |
+|---|---|---|
+| eğitimde meşru + reklam | 272 / 1496 (%18) | **600 / 1500 (%40)**: tür başına 300, dolandırıcılık türü başına 100 |
+| meşru eğitim şablonu | 10 | **20** (+10) |
+| reklam eğitim şablonu | 10 | **16** (+6) |
+| doğrulama / test | değişmedi (tür başına eşit; test.jsonl sha256 aynı) | |
+
+Yeni meşru şablonlar bilinçli tuzaktır: ft'nin `kod_talebi` / `odeme_talebi` diye yanlış etiketlediği kelimeleri
+içerir ama talep içermez (onay kodu bildirimi, "faturanız ödenmiştir", sipariş/ödeme alındı, maaş yattı, kart
+gönderildi, yeni cihaz bildirimi). Reklamlarda "KATIL yazıp gönderin" gibi meşru eylem çağrıları var.
+
+**Durma kriteri (önceden):** v3 en iyi kontrol noktası → Q8_0 → tam sistem **golden'da FPR ≤ 0.05 ve recall ≥ 0.95**
+→ model sisteme girer (tek başına ya da katmanlı ★). Tutmazsa deneyler kapanır: ADR-0006 = kural + sinyal + politika
+birinci katman, gpt-5.4-mini BYOK isteğe bağlı, ft-0.8b negatif sonuç olarak raporlanır. Başka eğitim yapılmaz.
+Kontrol noktası seçimi yine doğrulamada: önce **yanlış alarm**, eşitlikte kaçan, sonra tür doğruluğu.
+
+### Tahminler (eğitimden önce)
+| # | Tahmin |
+|---|---|
+| D1 | Doğrulamada (tür düzeyi) yanlış alarm %50 → **≤ %20**; kaçan ≤ %5 |
+| D2 | Doğrulama tür doğruluğu ~0.60 civarında kalır (dengesizlik tür karışıklığını çözmez) |
+| D3 | Golden tam sistem (Q8): FPR **0.05–0.15**, recall ≥ 0.95 → durma kriterini kıl payı **geçemez** (%35 geçer) |
+| D4 | Katmanlı ★ golden FPR ≤ 0.05 (kuralın 0'ına ft'nin daha az yükseltmesi eklenir) |
+
+### Sonuçlar
+
+**Kontrol noktaları (MLX, doğrulama 198, tür düzeyi):**
+| | tür | kaçan | yanlış alarm | tam şablon | val kaybı |
+|---|---|---|---|---|---|
+| v2-it600 (kıyas) | 0.616 | 4/162 | 18/36 = %50 | 10/22 | 0.127 |
+| v3-it300 | 0.429 | 19 | 5 | 7/22 | 0.135 |
+| **v3-it450** ← seçilen | 0.641 | **4** | **0** | **13/22** | **0.126** |
+| v3-it600 | 0.657 | 6 | 0 | 12/22 | 0.127 |
+| v3-it750 | 0.667 | 6 | 0 | 12/22 | 0.129 |
+
+Seçim kuralı (önceden): yanlış alarm → kaçan → tür. 450/600/750 yanlış alarmda eşit (0); kaçan 4 < 6 → **it450**.
+Ayrıca 600/750'de `kurum_14` (sahte iade) yine mesru_islem'e gidiyor; 450'de odul_kampanya (alarm verilir).
+
+**Parite (Q8_0):** uyum 195/198 = 0.985 ✅, tür 0.646 vs MLX 0.641. İlginç yan bulgu: gramersiz üretimde bir
+`kargo_05` örneğinde MLX de GGUF da **taksonomide olmayan tür adı** uydurdu ("sahte_kojistik_…", marka adındaki
+"Lojistik"ten). Çalışma anında JSON şeması türü enum ile kısıtladığı için bu imkânsız; gramerin neden zorunlu
+olduğunun somut örneği.
+
+**Tam sistem (ft-0.8b-v3-it450, Q8_0, kısa istem, şema + kapı + politika v1.1):**
+| set | n | makro-F1 | recall | meşru FPR | kanıt (kapı öncesi) | eşleşme F1 | p95 ms (Mac) |
+|---|---|---|---|---|---|---|---|
+| golden | 297 | 0.552 | **1.000** | **0.019** (1/54) | 0.970 | 0.783 | 1.614 |
+| doğrulama | 198 | 0.573 | 0.982 | 0.056 (2/36) | 0.914 | 0.787 | 1.672 |
+| adversarial | 30 | – | – | – | 0.849 | – | sızıntı **1** |
+| OLTA | 300 | – | 0.995 | 0.983 | – | – | 1.950 |
+| UCI | 300 | – | 0.925 | 0.978 | – | – | 2.538 |
+
+**Katmanlı (★ ikinci_talep, önceden seçilen):**
+| set | kural | ft-v3 | ★ ikinci_talep |
+|---|---|---|---|
+| golden F1 / recall / FPR | 0.887 / 0.975 / 0.000 | 0.552 / 1.000 / 0.018 | **0.905 / 1.000 / 0.018** |
+| doğrulama F1 / recall / FPR | 0.722 / 0.889 / 0.056 | 0.573 / 0.982 / 0.056 | 0.758 / 0.963 / 0.056 |
+| adversarial sızıntı / zor negatif | 0 / 2 | 1 / 3 | **0** / 3 |
+| OLTA ayırt (recall − FPR) | +0.096 | +0.011 | **+0.122** |
+| UCI ayırt | +0.120 | −0.053 | +0.036 |
+
+**Karne:** D1 ✅ (yanlış alarm %50 → %0) · D2 ✅ (tür ~0.64) · D3 ❌ ama iyi yönde: golden FPR 0.019, durma kriterini
+**geçti** (tahmin: kıl payı geçemez) · D4 ✅ (★ FPR 0.018 ≤ 0.05).
+
+**Durma kriteri: ✅ GEÇTİ.** ft-v3 tek başına da geçiyor (recall 1.000, FPR 0.019); ★ katmanlı aynı recall/FPR'de
+tür F1'ini 0.552 → **0.905** taşıyor (türü kural veriyor, model kuralın kaçırdığını yakalıyor) ve adversarial
+sızıntıyı 1 → **0** indiriyor. Golden'da ★ = gpt-5.4-mini (0.905, FPR 0) düzeyi, **tamamen yerel ve $0**.
+
+**Dürüst sınırlar:**
+- FPR 54 meşru mesajdan 1 yanlış alarm; %95 Wilson aralığı ≈ **[0.003, 0.098]**. "≤ 0.05" nokta tahmini;
+  üst sınır 0.05'in üstünde. Daha fazla meşru örnekle (ör. gerçek, izinli SMS) daraltılmalı.
+- Golden sentetik; kural ve şablonlar aynı elden. Gerçek dağılım vekili OLTA'da ★ kuraldan yalnızca biraz iyi
+  (+0.122 vs +0.096) ve e-postada model hâlâ neredeyse her şeye alarm veriyor → **e-posta kapsam dışı** (README).
+- ★ ile `ikinci` golden'da aynı: talep şartı burada fark yaratmadı; seçim önceden yapıldığı için ★ korunuyor.
+
+### VPS gecikmesi (karar kuralının son maddesi)
+İlk koşu (bench v2.1) "KALDI" dedi: Adım 1 istemi + 96 token tavanı → %40 kesilme = %40 bozuk JSON. Ölçüm hatası,
+model değil. bench v2.2 üretimle aynı istem, şema (tür enum'u) ve 384 token tavanıyla:
+
+| Q8_0, 4 thread, 20 koşu | p50 | p95 | üretim tok/s | prompt tok/s | JSON | kesilme | RSS |
+|---|---|---|---|---|---|---|---|
+| önbellekli (sistem istemi) | 4,43 sn | **6,16 sn** | 21,1 | 108 | %100 | %0 | 1,08 GB |
+| önbelleksiz | 5,96 sn | **7,40 sn** | 20,7 | 122 | %100 | %0 | 1,08 GB |
+
+Kıyas (v2.1, 96 token, aynı donanım): Q4_K_M p95 4,2 / 5,8 sn, ~%25 daha hızlı. Q8'in doğruluk avantajı bu farka değer.
+Tahmin (p95 önbelleksiz ~9 sn) → 7,4 sn. Not: VPS sağlayıcı tarafından E5-2699 v4 → Xeon Platinum 8260'a taşınmış.
+
+**Sonuç: karar kuralının tüm maddeleri ✅ → ADR-0006** (kural birinci katman + ft-0.8b-v3 Q8_0 ikinci görüş).

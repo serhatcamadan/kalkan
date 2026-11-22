@@ -1,0 +1,37 @@
+# KALKAN · Adım 7 · MLX LoRA yapılandırması (Qwen3.5-0.8B, v3)       v3 · 2026-11-22
+# v3 (Adım 8c): v2 ile AYNI ayarlar; tek değişken veri: eğitimde %40 meşru/reklam (önce %18), şablon v1.5.
+# v2 (Adım 7b): şablon v1.3 (tür başına 10 eğitim şablonu). v1 bulgusu: doğrulama kaybı ~300. iterde dipte,
+#     sonrası ezber → ~1 epoch (750 iter, batch 2). Ara kayıtlar 150'de bir; seçim GERÇEK metrikle (make kontrol-v2).
+# Çalıştır: make egit-v3   (→ training/train.sh training/lora_v3.yaml)
+# Seçimlerin gerekçesi docs/adim-07-finetune.md'de. Değiştirirsen adapter_path'i de değiştir (v2, v3…).
+model: ".spike/base"                 # bf16 HF checkpoint (spike'ta indirilen, model_sha versions.lock'ta)
+train: true
+data: "data/sft"
+fine_tune_type: lora
+optimizer: adamw
+seed: 42
+
+num_layers: -1                       # tüm katmanlar (0.8B küçük; kapasite lazım)
+lora_parameters:
+  rank: 16
+  scale: 10.0
+  dropout: 0.05
+
+batch_size: 2                        # v1.1: 4 → OOM (sözlük ~248k: logit tensörü batch×uzunluk×248k)
+iters: 750                           # 1.496 / 2 = 748 iter ≈ 1 epoch (v1: 2 epoch → ezber)
+learning_rate: 5.0e-5
+lr_schedule:
+  name: cosine_decay
+  warmup: 30
+  warmup_init: 1.0e-7
+  arguments: [5.0e-5, 750, 1.0e-6]
+
+mask_prompt: true                    # kayıp yalnızca asistan cevabında (sablon_parite.py ile doğrulanır)
+max_seq_length: 1024
+grad_checkpoint: true                # v1.1: aktivasyonları saklamak yerine yeniden hesapla (~%25 yavaş, çok daha az bellek)
+
+steps_per_report: 10
+steps_per_eval: 150                  # 5 ölçüm (tam doğrulama ~55 sn)
+val_batches: -1                      # doğrulamanın tamamı (198 örnek)
+save_every: 150
+adapter_path: "training/adapters/ft-0.8b-v3"

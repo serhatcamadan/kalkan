@@ -1,4 +1,5 @@
-# KALKAN · sentetik mesaj şablonları                               v1.4 · 2026-11-21
+# KALKAN · sentetik mesaj şablonları                               v1.5 · 2026-11-22
+# v1.5: Adım 8c sınıf dengesi: +10 meşru, +6 reklam eğitim şablonu (eğitim ağırlığı tools/veri_uret.py TUR_AGIRLIK).
 # v1.4: Gemini şablon incelemesi (69 doğru / 7 düzelt / 1 çıkar): kamu_09 yeniden yazıldı (SMS'e uygun), kamu_12/14
 #       sesli arama ifadeleri, mesru_13 tarih çelişkisi, yeni şablonlarda {RESMI_SITE}/<anlamlı yol>.
 # v1.3: Adım 7b şablon çeşitliliği: tür başına eğitim 4→10, doğrulama 1→2 şablon. TEST ŞABLONLARINA DOKUNULMADI
@@ -780,6 +781,37 @@ sablonlar:
   split: dogrulama
   marka: kart
   metin: "{MARKA} sahiplerine sinema biletinde 1 alana 1 bedava! Kampanya {TARIH} tarihine kadar geçerlidir. Detay: {RESMI_SITE}/kampanya Ret için RET yazıp {KISA_NO}'e gönderin."
+# v1.5 (Adım 8c): sınıf dengesi; bilinçli tuzak: kod/ödeme/kimlik/şifre kelimesi geçen ama TALEP İÇERMEYEN meşru
+- id: reklam_15
+  tur: reklam_spam
+  split: egitim
+  marka: operator
+  metin: "{MARKA} size özel: aylık 20 GB internet paketine geçin, ilk ay {TUTAR_K_TL}! Detay: {RESMI_SITE}/kampanya Ret için IPTAL yazıp {KISA_NO}'e gönderin."
+- id: reklam_16
+  tur: reklam_spam
+  split: egitim
+  marka: kart
+  metin: "{MARKA} ile market alışverişlerinde %{INDIRIM} puan fırsatı {TARIH} tarihine kadar! Katılım için KATIL yazıp {KISA_NO}'e gönderin. Ret: {KISA_NO}"
+- id: reklam_17
+  tur: reklam_spam
+  split: egitim
+  marka: eticaret
+  metin: "{MARKA} Efsane Günler başladı! Elektronikte {TUTAR_O_TL}'ye varan indirim ve 9 taksit. {RESMI_SITE}/kampanya İletişim izninizi {KISA_NO} ile iptal edebilirsiniz."
+- id: reklam_18
+  tur: reklam_spam
+  split: egitim
+  marka: kart
+  metin: "{MARKA}: Akaryakıt alımlarınızda {TARIH} tarihine kadar {TUTAR_K} hediye puan. Kampanya koşulları: {RESMI_SITE}/kampanya Ret: {KISA_NO}"
+- id: reklam_19
+  tur: reklam_spam
+  split: egitim
+  marka: eticaret
+  metin: "{MARKA} üyesi olduğun için teşekkürler 💛 Bu hafta sepette ek %{INDIRIM} indirim kodun: TESEKKUR. Mersis: {MERSIS} Ret: {KISA_NO}"
+- id: reklam_20
+  tur: reklam_spam
+  split: egitim
+  marka: operator
+  metin: "{MARKA}: Yeni sezon telefonlarda eski cihazını getir, {TUTAR_O_TL}'ye varan değer kazan. Mağazalarımızda. SMS almamak için IPTAL yazıp {KISA_NO}'e gönderin."
 
 # ───────────────────────────────────────────── mesru_islem (zor negatif: gerçek bildirim)
 - id: mesru_01
@@ -853,3 +885,54 @@ sablonlar:
   split: dogrulama
   marka: kargo
   metin: "{MARKA}: {TAKIP} numaralı gönderiniz {TARIH} {SAAT} tarihinde teslim edilmiştir. Hizmetimizi değerlendirmek için: {RESMI_SITE}/degerlendir"
+# v1.5 (Adım 8c): sınıf dengesi; bilinçli tuzak: kod/ödeme/kimlik/şifre kelimesi geçen ama TALEP İÇERMEYEN meşru
+- id: mesru_15
+  tur: mesru_islem
+  split: egitim
+  marka: banka
+  metin: "{MARKA}: {TUTAR_O} tutarındaki havale talimatınızı onaylamak için tek kullanımlık şifreniz {OTP}. Bu şifreyi kimseyle paylaşmayın; {MARKA} sizden şifre istemez."
+- id: mesru_16
+  tur: mesru_islem
+  split: egitim
+  marka: eticaret
+  metin: "{MARKA}: Siparişiniz alındı, sipariş tutarı {TUTAR_O}. Kargoya verildiğinde size bilgi vereceğiz. Siparişlerim: {RESMI_SITE}/siparislerim"
+- id: mesru_17
+  tur: mesru_islem
+  split: egitim
+  marka: operator
+  metin: "{MARKA}: {TARIH} son ödeme tarihli {TUTAR_K} tutarındaki faturanız ödenmiştir. Teşekkür ederiz."
+- id: mesru_18
+  tur: mesru_islem
+  split: egitim
+  marka: kamu
+  metin: "{MARKA}: {TARIH} tarihli randevunuz oluşturulmuştur. Randevuya kimlik belgenizle gelmeniz gerekmektedir. İptal için kendi hesabınızdan işlem yapabilirsiniz."
+- id: mesru_19
+  tur: mesru_islem
+  split: egitim
+  marka: kart
+  metin: "{MARKA}: Kartınızla yapılan {TUTAR_O} tutarındaki internet alışverişi için doğrulama kodunuz {OTP}. Bu işlemi siz yapmıyorsanız kodu girmeyin ve kimseyle paylaşmayın."
+- id: mesru_20
+  tur: mesru_islem
+  split: egitim
+  marka: banka
+  metin: "{MARKA}: Maaşınız {TUTAR_B} olarak hesabınıza yatırılmıştır. İyi günlerde kullanın."
+- id: mesru_21
+  tur: mesru_islem
+  split: egitim
+  marka: kargo
+  metin: "{MARKA}: {TAKIP} numaralı gönderiniz yarın gün içinde teslim edilecektir. Adresinizde olamayacaksanız {RESMI_SITE}/teslimat sayfasından teslimat gününü değiştirebilirsiniz."
+- id: mesru_22
+  tur: mesru_islem
+  split: egitim
+  marka: eticaret
+  metin: "{MARKA}: {TUTAR_O} tutarındaki ödemeniz alınmıştır. Faturanıza {RESMI_SITE}/faturalarim adresinden ulaşabilirsiniz."
+- id: mesru_23
+  tur: mesru_islem
+  split: egitim
+  marka: operator
+  metin: "{MARKA}: Hattınıza {TARIH} tarihinde yeni bir cihaz tanımlandı. Bu işlem size ait değilse kimliğinizle en yakın mağazamıza başvurun."
+- id: mesru_24
+  tur: mesru_islem
+  split: egitim
+  marka: banka
+  metin: "{MARKA}: Kredi kartı başvurunuz onaylanmıştır. Kartınız birkaç iş günü içinde kayıtlı adresinize gönderilecek; teslim aldığınızda mobil uygulamamızdan aktifleştirebilirsiniz."

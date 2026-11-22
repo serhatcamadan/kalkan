@@ -1,9 +1,9 @@
-# Veri kartı — Kalkan sentetik Türkçe dolandırıcılık mesajları · v1.3 · 2026-11-21
+# Veri kartı — Kalkan sentetik Türkçe dolandırıcılık mesajları · v1.5 · 2026-11-22
 
 ## Özet
 | Bölüm | Örnek | Şablon | Marka havuzu | Amaç |
 |---|---|---|---|---|
-| egitim | 1.496 | 110 | 16 | Fine-tune (Adım 7) |
+| egitim | 1.500 | 126 | 16 | Fine-tune (Adım 7–8c); %40 meşru/reklam |
 | dogrulama | 198 | 22 | 7 | Kontrol noktası seçimi |
 | test | 297 | 22 | 11 | Golden set: 150'si LLM (Gemini) ile denetlendi, 20'si insan teyitli |
 | adversarial | 30 | elle | 3 (ayrı) | Saldırı ve zor negatif ölçümü, eğitimde YOK |
@@ -11,7 +11,8 @@
 11 tür, eğitimde her tür 136 örnek (dengeli). Üretim deterministik: `python tools/veri_uret.py` (tohum 20261120).
 
 ## Nasıl üretildi?
-1. **154 şablon** (`data/templates/sablonlar.yaml` v1.3), tür başına 14: 10 eğitim, 2 doğrulama, 2 test.
+1. **170 şablon** (`data/templates/sablonlar.yaml` v1.5): dolandırıcılık türü başına 10 eğitim; meşru 20, reklam 16
+   eğitim şablonu; her tür 2 doğrulama, 2 test. v1.5 (Adım 8c): eğitimde meşru/reklam ağırlığı ×3 (%18 → %40).
    v1.2'de 4/1/2 idi; Adım 7'de 4 kalıptan genelleme olmadığı görülünce eğitim/doğrulama genişletildi, test ŞABLONLARINA
    dokunulmadı (test.jsonl sha256 aynı; golden geçerli). Ayrıntı: `docs/adim-07-finetune.md` → Adım 7b. `{a|b}` varyasyonları ve
    `{SLOT}` doldurma (tutar, süre, link, IBAN, telefon, ad…).
