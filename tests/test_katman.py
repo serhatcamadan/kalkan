@@ -130,3 +130,29 @@ def test_kural_paketi_eski_sonuclarla_ayni():
     for t in r["tahminler"]:
         y = km.tahmin(rows[t["id"]])
         assert (y.tur, y.kanitlar) == (t["tur"], t["kanitlar"]), t["id"]
+
+
+def test_yeniden_puanla_katmanli_servisle_ayni():
+    """v1.1 hatasının testi: katmanlı sonuç yeniden puanlanırken servisle AYNI hat kullanılmalı."""
+    from eval.yeniden_puanla import puanla
+    yol = KOK / "data/splits/test.jsonl"
+    if not yol.exists():
+        pytest.skip("test.jsonl yok")
+    rows = [json.loads(x) for x in open(yol, encoding="utf-8")][::10]
+    for i, o in enumerate(rows):
+        from kalkan.service import hazirla
+        mg = hazirla(o["metin"]).model_girdisi
+        cikti = ({"kanitlar": [{"alinti": mg[:12], "sinyal": "odeme_talebi"}, {"alinti": mg[12:24], "sinyal": "link"}],
+                  "tur": "sahte_kargo_gumruk"} if i % 2 else {"kanitlar": [], "tur": "mesru_islem"})
+        s, _ = analiz(o["metin"], Tekrar({}) if i % 7 == 0 else _Sabit(cikti), istem="kisa", katman=True)
+        t = {"model_tur": None if i % 7 == 0 else cikti["tur"], "kanitlar": [] if i % 7 == 0 else cikti["kanitlar"],
+             "json_gecerli": i % 7 != 0}
+        assert puanla(dict(o), t, katman=True) == s.risk.value, o["id"]
+
+
+class _Sabit:
+    def __init__(self, c):
+        self.c = c
+
+    def sohbet(self, sistem, kullanici, sema):
+        return Cevap(json.dumps(self.c, ensure_ascii=False))

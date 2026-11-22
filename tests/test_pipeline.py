@@ -87,3 +87,10 @@ def test_politika_v11_retsiz_reklam_resmi_olmayan_link_orta():
     s1, _ = analiz("TEBRİKLER Mercan Mobil'den 100 GB HEDİYE hemen al rb.gy/m3rc4n son gün", reklam)
     s2, _ = analiz("Mavibank'ta kasım indirimi! Detay mavibank.com.tr Ret için RET yazıp 3434'e gönderin", reklam)
     assert s1.risk == Risk.orta and s2.risk == Risk.dusuk
+
+
+def test_meşru_denen_ibanli_mesaj_orta():
+    """Politika v1.2: kurumlar SMS'le IBAN'a para istemez; model 'meşru' dese bile ORTA (kör set kor_13)."""
+    s, _ = analiz("Selam\nben Elif\nnumaram değişti\nacil 2.500 lazım\nTR33 0006 1005 1978 6457 8413 26",
+                  Sahte({"kanitlar": [], "tur": "mesru_islem"}))
+    assert s.risk == Risk.orta and s.oneri_kodu == "CELISKI_DOGRULA"

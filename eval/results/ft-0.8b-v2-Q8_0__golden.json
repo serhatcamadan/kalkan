@@ -23,7 +23,8 @@
    "gguf": "kalkan-0.8b-v2-Q8_0.gguf",
    "llama_build": "b12544-5812201a8"
   },
-  "sure_sn": 296.05
+  "sure_sn": 296.05,
+  "politika_surumu": "1.2"
  },
  "metrikler": {
   "n": 297,
@@ -214,10 +215,6 @@
   "eslesme_p": 0.7977,
   "eslesme_r": 0.7877,
   "eslesme_f1": 0.7927,
-  "uyarlamalar": [],
-  "hata_sayisi": 0,
-  "kesilen_cevap": 0,
-  "ort_cikti_token": 80.6,
   "gurultuye_gore": {
    "(yok)": {
     "dogruluk": 0.603,
@@ -243,7 +240,11 @@
     "dogruluk": 0.547,
     "n": 53
    }
-  }
+  },
+  "uyarlamalar": [],
+  "hata_sayisi": 0,
+  "kesilen_cevap": 0,
+  "ort_cikti_token": 80.6
  },
  "tahminler": [
   {
@@ -268,7 +269,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-oyun_07-002",
@@ -288,7 +290,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-reklam_06-000",
@@ -299,7 +302,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "dusuk",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "dusuk"
   },
   {
    "id": "tes-mesru_07-010",
@@ -310,7 +314,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "dusuk",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "dusuk"
   },
   {
    "id": "tes-kurum_06-004",
@@ -330,7 +335,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-reklam_07-011",
@@ -341,7 +347,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "dusuk",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "dusuk"
   },
   {
    "id": "tes-kargo_07-005",
@@ -365,7 +372,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-reklam_07-010",
@@ -376,7 +384,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "dusuk",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "dusuk"
   },
   {
    "id": "tes-yatirim_06-003",
@@ -396,7 +405,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "orta",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "orta"
   },
   {
    "id": "tes-bahis_06-000",
@@ -420,7 +430,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-bahis_07-006",
@@ -440,7 +451,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "orta",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "orta"
   },
   {
    "id": "tes-mesru_07-006",
@@ -451,7 +463,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "dusuk",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "dusuk"
   },
   {
    "id": "tes-gorev_07-002",
@@ -471,7 +484,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "orta",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "orta"
   },
   {
    "id": "tes-gorev_06-008",
@@ -495,7 +509,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-reklam_06-007",
@@ -506,7 +521,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "dusuk",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "dusuk"
   },
   {
    "id": "tes-oyun_06-001",
@@ -530,7 +546,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-kargo_06-008",
@@ -554,7 +571,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-odul_07-002",
@@ -578,7 +596,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-mesru_07-003",
@@ -589,7 +608,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "dusuk",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "dusuk"
   },
   {
    "id": "tes-kargo_07-009",
@@ -613,7 +633,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-reklam_06-003",
@@ -624,7 +645,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "dusuk",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "dusuk"
   },
   {
    "id": "tes-yatirim_07-012",
@@ -648,7 +670,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-yatirim_07-006",
@@ -672,7 +695,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-kurum_07-005",
@@ -696,7 +720,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-kamu_06-005",
@@ -720,7 +745,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-yakin_06-003",
@@ -744,7 +770,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-yatirim_07-010",
@@ -768,7 +795,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-yakin_06-013",
@@ -792,7 +820,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-yakin_07-011",
@@ -816,7 +845,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-yakin_07-007",
@@ -840,7 +870,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-gorev_06-006",
@@ -864,7 +895,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-kamu_06-009",
@@ -888,7 +920,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-mesru_06-007",
@@ -912,7 +945,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-odul_06-006",
@@ -936,7 +970,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-oyun_06-009",
@@ -960,7 +995,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-kamu_07-010",
@@ -980,7 +1016,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "orta",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "orta"
   },
   {
    "id": "tes-yatirim_06-006",
@@ -1000,7 +1037,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "orta",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "orta"
   },
   {
    "id": "tes-kurum_06-012",
@@ -1024,7 +1062,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-bahis_07-004",
@@ -1044,7 +1083,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "orta",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "orta"
   },
   {
    "id": "tes-bahis_06-011",
@@ -1068,7 +1108,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-kurum_07-010",
@@ -1092,7 +1133,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-odul_06-004",
@@ -1116,7 +1158,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-kargo_06-004",
@@ -1140,7 +1183,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-yatirim_07-005",
@@ -1164,7 +1208,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-kurum_07-007",
@@ -1188,7 +1233,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-reklam_06-013",
@@ -1199,7 +1245,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "dusuk",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "dusuk"
   },
   {
    "id": "tes-mesru_07-012",
@@ -1210,7 +1257,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "dusuk",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "dusuk"
   },
   {
    "id": "tes-mesru_07-004",
@@ -1221,7 +1269,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "dusuk",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "dusuk"
   },
   {
    "id": "tes-bahis_06-001",
@@ -1245,7 +1294,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-gorev_07-011",
@@ -1265,7 +1315,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "orta",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "orta"
   },
   {
    "id": "tes-yakin_06-007",
@@ -1289,7 +1340,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-gorev_07-006",
@@ -1309,7 +1361,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "orta",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "orta"
   },
   {
    "id": "tes-kurum_07-004",
@@ -1333,7 +1386,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-gorev_07-012",
@@ -1353,7 +1407,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "orta",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "orta"
   },
   {
    "id": "tes-kamu_07-002",
@@ -1377,7 +1432,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "orta",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "orta"
   },
   {
    "id": "tes-yakin_07-005",
@@ -1401,7 +1457,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-kargo_06-005",
@@ -1425,7 +1482,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-bahis_06-008",
@@ -1449,7 +1507,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-kargo_07-012",
@@ -1473,7 +1532,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-gorev_07-007",
@@ -1493,7 +1553,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "orta",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "orta"
   },
   {
    "id": "tes-mesru_06-009",
@@ -1504,7 +1565,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "dusuk",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "dusuk"
   },
   {
    "id": "tes-kargo_07-002",
@@ -1528,7 +1590,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-gorev_06-009",
@@ -1552,7 +1615,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-gorev_06-004",
@@ -1576,7 +1640,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-yakin_06-008",
@@ -1600,7 +1665,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-gorev_07-004",
@@ -1620,7 +1686,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "orta",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "orta"
   },
   {
    "id": "tes-kurum_06-003",
@@ -1640,7 +1707,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-mesru_06-004",
@@ -1664,7 +1732,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-bahis_06-003",
@@ -1688,7 +1757,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-mesru_06-012",
@@ -1712,7 +1782,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-bahis_06-009",
@@ -1736,7 +1807,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-odul_07-000",
@@ -1760,7 +1832,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-yatirim_06-012",
@@ -1784,7 +1857,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-gorev_07-008",
@@ -1804,7 +1878,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "orta",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "orta"
   },
   {
    "id": "tes-odul_06-011",
@@ -1828,7 +1903,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-mesru_07-009",
@@ -1839,7 +1915,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "dusuk",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "dusuk"
   },
   {
    "id": "tes-oyun_07-004",
@@ -1859,7 +1936,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-yakin_06-006",
@@ -1883,7 +1961,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-gorev_06-005",
@@ -1907,7 +1986,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-kurum_06-005",
@@ -1931,7 +2011,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-gorev_06-007",
@@ -1955,7 +2036,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-kamu_07-005",
@@ -1975,7 +2057,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "orta",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "orta"
   },
   {
    "id": "tes-odul_07-009",
@@ -1999,7 +2082,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-kamu_06-018",
@@ -2023,7 +2107,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-yakin_06-004",
@@ -2047,7 +2132,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-kargo_07-011",
@@ -2071,7 +2157,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-kargo_06-006",
@@ -2095,7 +2182,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-reklam_07-001",
@@ -2106,7 +2194,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "dusuk",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "dusuk"
   },
   {
    "id": "tes-kargo_06-001",
@@ -2130,7 +2219,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-bahis_06-005",
@@ -2154,7 +2244,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-kargo_06-012",
@@ -2178,7 +2269,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-bahis_06-010",
@@ -2202,7 +2294,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-reklam_07-007",
@@ -2213,7 +2306,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "dusuk",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "dusuk"
   },
   {
    "id": "tes-odul_07-001",
@@ -2237,7 +2331,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-reklam_06-011",
@@ -2248,7 +2343,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "dusuk",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "dusuk"
   },
   {
    "id": "tes-kamu_07-008",
@@ -2268,7 +2364,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "orta",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "orta"
   },
   {
    "id": "tes-bahis_07-011",
@@ -2288,7 +2385,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-yatirim_06-001",
@@ -2308,7 +2406,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "orta",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "orta"
   },
   {
    "id": "tes-mesru_06-013",
@@ -2332,7 +2431,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-yakin_06-002",
@@ -2356,7 +2456,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-kamu_06-017",
@@ -2380,7 +2481,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-kurum_07-011",
@@ -2404,7 +2506,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-yatirim_07-001",
@@ -2428,7 +2531,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-odul_06-010",
@@ -2452,7 +2556,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-yakin_06-012",
@@ -2476,7 +2581,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-odul_07-004",
@@ -2500,7 +2606,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-oyun_07-012",
@@ -2524,7 +2631,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-reklam_06-012",
@@ -2535,7 +2643,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "dusuk",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "dusuk"
   },
   {
    "id": "tes-oyun_06-004",
@@ -2559,7 +2668,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-gorev_06-000",
@@ -2583,7 +2693,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-kargo_07-006",
@@ -2607,7 +2718,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-kamu_07-007",
@@ -2631,7 +2743,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "orta",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "orta"
   },
   {
    "id": "tes-kargo_06-013",
@@ -2655,7 +2768,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-oyun_07-011",
@@ -2679,7 +2793,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-kargo_07-001",
@@ -2703,7 +2818,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-odul_06-003",
@@ -2727,7 +2843,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-reklam_06-004",
@@ -2738,7 +2855,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "dusuk",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "dusuk"
   },
   {
    "id": "tes-kurum_07-002",
@@ -2762,7 +2880,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-mesru_07-005",
@@ -2773,7 +2892,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "dusuk",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "dusuk"
   },
   {
    "id": "tes-yakin_06-010",
@@ -2797,7 +2917,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-kamu_06-000",
@@ -2821,7 +2942,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-gorev_06-002",
@@ -2845,7 +2967,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-kamu_07-004",
@@ -2865,7 +2988,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "orta",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "orta"
   },
   {
    "id": "tes-kargo_06-007",
@@ -2889,7 +3013,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-gorev_06-013",
@@ -2913,7 +3038,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-mesru_06-001",
@@ -2937,7 +3063,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-yakin_07-000",
@@ -2961,7 +3088,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-reklam_07-009",
@@ -2972,7 +3100,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "dusuk",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "dusuk"
   },
   {
    "id": "tes-yakin_07-002",
@@ -2992,7 +3121,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-kurum_06-006",
@@ -3016,7 +3146,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-bahis_07-012",
@@ -3027,7 +3158,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "orta",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "orta"
   },
   {
    "id": "tes-oyun_06-002",
@@ -3051,7 +3183,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-gorev_07-010",
@@ -3071,7 +3204,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "orta",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "orta"
   },
   {
    "id": "tes-reklam_06-006",
@@ -3082,7 +3216,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "dusuk",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "dusuk"
   },
   {
    "id": "tes-yatirim_07-008",
@@ -3106,7 +3241,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-kamu_06-027",
@@ -3130,7 +3266,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-oyun_06-010",
@@ -3154,7 +3291,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-odul_07-008",
@@ -3178,7 +3316,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-oyun_07-000",
@@ -3198,7 +3337,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-bahis_07-010",
@@ -3218,7 +3358,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "orta",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "orta"
   },
   {
    "id": "tes-yatirim_07-000",
@@ -3242,7 +3383,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-odul_07-011",
@@ -3266,7 +3408,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-oyun_06-003",
@@ -3286,7 +3429,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "orta",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "orta"
   },
   {
    "id": "tes-yakin_06-001",
@@ -3310,7 +3454,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-yakin_07-003",
@@ -3334,7 +3479,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-reklam_06-001",
@@ -3345,7 +3491,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "dusuk",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "dusuk"
   },
   {
    "id": "tes-gorev_06-011",
@@ -3369,7 +3516,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-odul_06-005",
@@ -3393,7 +3541,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-gorev_07-003",
@@ -3413,7 +3562,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "orta",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "orta"
   },
   {
    "id": "tes-kamu_07-012",
@@ -3433,7 +3583,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "orta",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "orta"
   },
   {
    "id": "tes-yatirim_07-007",
@@ -3457,7 +3608,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-yatirim_06-004",
@@ -3481,7 +3633,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-oyun_06-005",
@@ -3505,7 +3658,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-odul_06-001",
@@ -3529,7 +3683,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-oyun_06-012",
@@ -3549,7 +3704,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "orta",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "orta"
   },
   {
    "id": "tes-gorev_07-009",
@@ -3569,7 +3725,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "orta",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "orta"
   },
   {
    "id": "tes-reklam_06-002",
@@ -3580,7 +3737,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "dusuk",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "dusuk"
   },
   {
    "id": "tes-oyun_07-008",
@@ -3604,7 +3762,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-mesru_07-007",
@@ -3615,7 +3774,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "orta",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "orta"
   },
   {
    "id": "tes-bahis_07-009",
@@ -3626,7 +3786,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "orta",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "orta"
   },
   {
    "id": "tes-kurum_07-006",
@@ -3650,7 +3811,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-oyun_06-008",
@@ -3670,7 +3832,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "orta",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "orta"
   },
   {
    "id": "tes-odul_06-007",
@@ -3694,7 +3857,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-kargo_07-000",
@@ -3718,7 +3882,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-bahis_06-012",
@@ -3742,7 +3907,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-yakin_07-008",
@@ -3766,7 +3932,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-yatirim_06-002",
@@ -3786,7 +3953,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "orta",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "orta"
   },
   {
    "id": "tes-yakin_07-001",
@@ -3810,7 +3978,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-yatirim_06-011",
@@ -3834,7 +4003,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-oyun_06-013",
@@ -3858,7 +4028,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-oyun_07-006",
@@ -3878,7 +4049,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-kargo_06-002",
@@ -3902,7 +4074,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-reklam_07-008",
@@ -3913,7 +4086,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "dusuk",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "dusuk"
   },
   {
    "id": "tes-yatirim_07-009",
@@ -3937,7 +4111,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-mesru_07-002",
@@ -3957,7 +4132,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "orta",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "orta"
   },
   {
    "id": "tes-yatirim_06-008",
@@ -3981,7 +4157,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-kargo_06-010",
@@ -4005,7 +4182,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-odul_07-003",
@@ -4029,7 +4207,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-odul_06-008",
@@ -4053,7 +4232,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-odul_07-012",
@@ -4077,7 +4257,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-oyun_07-001",
@@ -4101,7 +4282,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-kamu_06-002",
@@ -4125,7 +4307,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-yakin_06-009",
@@ -4149,7 +4332,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-yatirim_06-010",
@@ -4173,7 +4357,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-bahis_06-002",
@@ -4197,7 +4382,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-bahis_07-003",
@@ -4217,7 +4403,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "orta",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "orta"
   },
   {
    "id": "tes-kurum_07-000",
@@ -4241,7 +4428,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-kargo_07-004",
@@ -4265,7 +4453,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-oyun_07-010",
@@ -4289,7 +4478,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-kamu_06-007",
@@ -4313,7 +4503,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-odul_07-010",
@@ -4337,7 +4528,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-mesru_07-000",
@@ -4348,7 +4540,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "dusuk",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "dusuk"
   },
   {
    "id": "tes-oyun_06-007",
@@ -4372,7 +4565,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-bahis_06-006",
@@ -4396,7 +4590,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-yakin_06-000",
@@ -4420,7 +4615,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-mesru_06-000",
@@ -4444,7 +4640,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-odul_07-005",
@@ -4468,7 +4665,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-yatirim_07-002",
@@ -4492,7 +4690,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-kurum_07-003",
@@ -4516,7 +4715,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-mesru_06-003",
@@ -4540,7 +4740,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-yakin_07-006",
@@ -4564,7 +4765,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-bahis_06-004",
@@ -4588,7 +4790,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-kamu_07-001",
@@ -4608,7 +4811,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "orta",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "orta"
   },
   {
    "id": "tes-kamu_06-022",
@@ -4632,7 +4836,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-yatirim_06-005",
@@ -4656,7 +4861,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-mesru_06-011",
@@ -4680,7 +4886,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-kamu_06-001",
@@ -4704,7 +4911,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-kargo_06-011",
@@ -4728,7 +4936,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-kamu_07-003",
@@ -4748,7 +4957,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-kurum_06-009",
@@ -4772,7 +4982,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-odul_06-009",
@@ -4792,7 +5003,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-kargo_07-003",
@@ -4816,7 +5028,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-kargo_07-007",
@@ -4840,7 +5053,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-oyun_07-009",
@@ -4860,7 +5074,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-kurum_07-008",
@@ -4884,7 +5099,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-kurum_06-011",
@@ -4908,7 +5124,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-gorev_06-001",
@@ -4932,7 +5149,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-kurum_06-010",
@@ -4956,7 +5174,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-yatirim_07-004",
@@ -4980,7 +5199,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-mesru_07-001",
@@ -5000,7 +5220,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-oyun_06-011",
@@ -5024,7 +5245,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-bahis_07-002",
@@ -5044,7 +5266,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "orta",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "orta"
   },
   {
    "id": "tes-yatirim_06-013",
@@ -5064,7 +5287,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "orta",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "orta"
   },
   {
    "id": "tes-kamu_06-024",
@@ -5088,7 +5312,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-reklam_06-009",
@@ -5099,7 +5324,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "dusuk",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "dusuk"
   },
   {
    "id": "tes-oyun_06-000",
@@ -5123,7 +5349,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-kargo_07-010",
@@ -5147,7 +5374,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-reklam_07-004",
@@ -5158,7 +5386,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "dusuk",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "dusuk"
   },
   {
    "id": "tes-gorev_07-001",
@@ -5178,7 +5407,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "orta",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "orta"
   },
   {
    "id": "tes-oyun_07-007",
@@ -5198,7 +5428,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-kurum_06-008",
@@ -5222,7 +5453,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-yakin_07-012",
@@ -5246,7 +5478,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-bahis_07-005",
@@ -5266,7 +5499,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "orta",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "orta"
   },
   {
    "id": "tes-kurum_06-002",
@@ -5286,7 +5520,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-reklam_07-005",
@@ -5297,7 +5532,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "dusuk",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "dusuk"
   },
   {
    "id": "tes-yatirim_07-011",
@@ -5321,7 +5557,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-kurum_06-000",
@@ -5341,7 +5578,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-kamu_07-006",
@@ -5365,7 +5603,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "orta",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "orta"
   },
   {
    "id": "tes-bahis_07-007",
@@ -5385,7 +5624,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-mesru_06-002",
@@ -5409,7 +5649,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-yatirim_06-009",
@@ -5429,7 +5670,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "orta",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "orta"
   },
   {
    "id": "tes-kargo_06-000",
@@ -5453,7 +5695,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-yakin_06-005",
@@ -5477,7 +5720,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-odul_07-007",
@@ -5501,7 +5745,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-reklam_06-008",
@@ -5512,7 +5757,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "dusuk",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "dusuk"
   },
   {
    "id": "tes-bahis_07-001",
@@ -5532,7 +5778,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-reklam_06-010",
@@ -5543,7 +5790,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "dusuk",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "dusuk"
   },
   {
    "id": "tes-mesru_07-008",
@@ -5554,7 +5802,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "dusuk",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "dusuk"
   },
   {
    "id": "tes-kurum_06-001",
@@ -5578,7 +5827,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-mesru_06-010",
@@ -5602,7 +5852,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-gorev_07-000",
@@ -5622,7 +5873,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "orta",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "orta"
   },
   {
    "id": "tes-bahis_07-000",
@@ -5642,7 +5894,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "orta",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "orta"
   },
   {
    "id": "tes-kurum_07-012",
@@ -5666,7 +5919,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-yatirim_06-007",
@@ -5686,7 +5940,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "orta",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "orta"
   },
   {
    "id": "tes-kurum_07-001",
@@ -5710,7 +5965,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-kargo_07-008",
@@ -5734,7 +5990,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-kamu_07-009",
@@ -5754,7 +6011,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "orta",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "orta"
   },
   {
    "id": "tes-mesru_07-011",
@@ -5765,7 +6023,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "dusuk",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "dusuk"
   },
   {
    "id": "tes-oyun_06-006",
@@ -5789,7 +6048,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-kargo_06-003",
@@ -5813,7 +6073,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-bahis_06-007",
@@ -5837,7 +6098,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-mesru_06-006",
@@ -5861,7 +6123,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-bahis_07-008",
@@ -5881,7 +6144,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-reklam_06-005",
@@ -5892,7 +6156,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "dusuk",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "dusuk"
   },
   {
    "id": "tes-reklam_07-006",
@@ -5903,7 +6168,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "dusuk",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "dusuk"
   },
   {
    "id": "tes-kamu_06-003",
@@ -5927,7 +6193,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-yakin_07-004",
@@ -5951,7 +6218,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-mesru_06-005",
@@ -5975,7 +6243,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-odul_06-012",
@@ -5999,7 +6268,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-kamu_07-011",
@@ -6019,7 +6289,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-odul_06-013",
@@ -6043,7 +6314,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-gorev_06-010",
@@ -6067,7 +6339,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-kurum_06-013",
@@ -6087,7 +6360,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-reklam_07-000",
@@ -6098,7 +6372,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "dusuk",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "dusuk"
   },
   {
    "id": "tes-yatirim_06-000",
@@ -6118,7 +6393,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "orta",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "orta"
   },
   {
    "id": "tes-kamu_06-010",
@@ -6142,7 +6418,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-gorev_07-005",
@@ -6162,7 +6439,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "orta",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "orta"
   },
   {
    "id": "tes-yakin_07-010",
@@ -6186,7 +6464,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-oyun_07-005",
@@ -6210,7 +6489,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-yatirim_07-003",
@@ -6234,7 +6514,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-yakin_06-011",
@@ -6258,7 +6539,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-kargo_06-009",
@@ -6282,7 +6564,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-kamu_07-000",
@@ -6302,7 +6585,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "orta",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "orta"
   },
   {
    "id": "tes-kurum_07-009",
@@ -6326,7 +6610,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-yakin_07-009",
@@ -6350,7 +6635,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-gorev_06-012",
@@ -6374,7 +6660,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-reklam_07-002",
@@ -6385,7 +6672,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "dusuk",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "dusuk"
   },
   {
    "id": "tes-kurum_06-007",
@@ -6409,7 +6697,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-oyun_07-003",
@@ -6429,7 +6718,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-kamu_06-016",
@@ -6453,7 +6743,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-odul_06-000",
@@ -6477,7 +6768,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-bahis_06-013",
@@ -6501,7 +6793,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-odul_06-002",
@@ -6525,7 +6818,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-reklam_07-003",
@@ -6536,7 +6830,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "dusuk",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "dusuk"
   },
   {
    "id": "tes-gorev_06-003",
@@ -6560,7 +6855,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-odul_07-006",
@@ -6584,7 +6880,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "yuksek"
   },
   {
    "id": "tes-reklam_07-012",
@@ -6595,7 +6892,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "dusuk",
-   "hata": null
+   "hata": null,
+   "risk_onceki": "dusuk"
   }
  ]
 }

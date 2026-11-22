@@ -33,3 +33,11 @@ doğrulamaz. Adım 8b'de ince ayarlı v2, meşru onay kodu ve fatura cümlelerin
 alıntıladı; kanıt şartı yanlış alarmı yalnızca 0.296 → 0.259 indirdi. v3'te (sınıf dengesi) büyük ölçüde düzeldi,
 ama mimari bir garanti değil: politika model etiketlerine yalnızca **yükseltme** yetkisi verir, düşürme yetkisi
 vermez (ADR-0006).
+
+## Ek — v1.2 (2026-11-22, Adım 9b)
+Model veya kural "meşru/reklam" dese bile **mesajda IBAN varsa → orta** (`CELISKI_DOGRULA`). Kurumlar SMS/WhatsApp ile
+bir IBAN'a para göndermenizi istemez. Tetikleyen: kör set kor_13 (kural "meşru" dedi; model doğru buldu ama talep
+kanıtı alıntılamadığı için ★ yükseltmedi). kor_13 artık kör değil. **Bedeli ölçülmemiş:** sentetik setlerde IBAN'lı
+meşru mesaj yok; arkadaş arası "IBAN'ım şu" mesajı (kor_23, kural ile birlikte yazıldı) alarm alır, bilinçli.
+Bilinçli olarak düzeltilmeyenler (kör örneğe bakıp regex ayarlamak olurdu): kor_10 (BÜYÜK HARF + ASCII + "numarayı
+arayın"), kor_17 (meşru OTP'de "şifre" kelimesi kuralda talep sayılıyor).

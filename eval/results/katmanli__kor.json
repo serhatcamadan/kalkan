@@ -25,11 +25,11 @@
    "llama_build": "b12544-5812201a8"
   },
   "sure_sn": 13.86,
+  "politika_surumu": "1.2",
   "katmanli": {
    "ft": "ft-0.8b-v3-Q8_0",
    "varyant": "ikinci_talep"
-  },
-  "politika_surumu": "1.1"
+  }
  },
  "metrikler": {
   "n": 20,
@@ -37,16 +37,11 @@
   "p95_ms": 1365.2,
   "json_gecerlilik": 1.0,
   "usd_1000_mesaj": 0.0,
-  "dusuk_risk_sizintisi": 2,
+  "dusuk_risk_sizintisi": 1,
   "sizintilar": [
    {
     "id": "kor_10",
     "saldiri": "buyuk_harf_ascii",
-    "tahmin": "mesru_islem"
-   },
-   {
-    "id": "kor_13",
-    "saldiri": "cok_satir",
     "tahmin": "mesru_islem"
    }
   ],
@@ -86,7 +81,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "model_tur": null
   },
   {
    "id": "kor_02",
@@ -116,7 +112,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "model_tur": null
   },
   {
    "id": "kor_03",
@@ -127,7 +124,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "model_tur": null
   },
   {
    "id": "kor_04",
@@ -157,7 +155,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "orta",
-   "hata": null
+   "hata": null,
+   "model_tur": null
   },
   {
    "id": "kor_14",
@@ -187,7 +186,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "model_tur": null
   },
   {
    "id": "kor_05",
@@ -198,7 +198,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "model_tur": null
   },
   {
    "id": "kor_06",
@@ -222,7 +223,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "model_tur": null
   },
   {
    "id": "kor_07",
@@ -252,7 +254,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "orta",
-   "hata": null
+   "hata": null,
+   "model_tur": null
   },
   {
    "id": "kor_08",
@@ -263,7 +266,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "model_tur": null
   },
   {
    "id": "kor_09",
@@ -293,7 +297,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "orta",
-   "hata": null
+   "hata": null,
+   "model_tur": null
   },
   {
    "id": "kor_10",
@@ -323,7 +328,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "dusuk",
-   "hata": null
+   "hata": null,
+   "model_tur": null
   },
   {
    "id": "kor_11",
@@ -347,7 +353,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "model_tur": null
   },
   {
    "id": "kor_12",
@@ -358,7 +365,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "model_tur": null
   },
   {
    "id": "kor_13",
@@ -375,8 +383,9 @@
    "sure_ms": 930.0234580878168,
    "maliyet_usd": 0.0,
    "ham": null,
-   "risk": "dusuk",
-   "hata": null
+   "risk": "orta",
+   "hata": null,
+   "model_tur": null
   },
   {
    "id": "kor_15",
@@ -387,7 +396,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "model_tur": null
   },
   {
    "id": "kor_16",
@@ -398,7 +408,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "model_tur": null
   },
   {
    "id": "kor_17",
@@ -409,7 +420,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "model_tur": null
   },
   {
    "id": "kor_18",
@@ -420,7 +432,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "dusuk",
-   "hata": null
+   "hata": null,
+   "model_tur": null
   },
   {
    "id": "kor_19",
@@ -431,7 +444,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "dusuk",
-   "hata": null
+   "hata": null,
+   "model_tur": null
   },
   {
    "id": "kor_20",
@@ -461,7 +475,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "orta",
-   "hata": null
+   "hata": null,
+   "model_tur": null
   }
  ]
 }

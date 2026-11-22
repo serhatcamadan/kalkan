@@ -1,7 +1,9 @@
-# KALKAN · KÖR saldırı seti                                           v1 · 2026-11-22
+# KALKAN · KÖR saldırı seti                                           v1.1 · 2026-11-22
 # Adım 9b'de yazıldı, BİR KEZ ölçülür. Bu örneklere bakılarak kural, politika veya eğitim verisi AYARLANMAZ.
 # Bir örnek bir düzeltmeyi tetiklerse o örnek "kör" olmaktan çıkar (kor: false) ve yeni kör örnek yazılır.
 # İstisna: kor_01, kor_02, kor_20 kırpma kuralıyla (service v1.2 / katman v1.1) AYNI anda yazıldı → kor: false.
+# v1.1: kor_13 politika v1.2'yi (IBAN kuralı) tetikledi → kor: false. Yeni kör örnekler: kor_21, kor_22, kor_24.
+#       kor_23 v1.2 kuralının BEDELİNİ görmek için kuralla birlikte yazıldı → kor: false (meşru, IBAN'lı).
 # Alanlar adversarial.yaml ile aynı; ek: dolgu + dolgu_tekrar (metnin ÖNÜNE eklenir), dolgu_sona (SONA eklenir).
 # Kurum adları adversarial havuzundan (Sarnıçbank, Kestane Kargo, Mercan Mobil); bağlantılar uydurma, ziyaret edilmez.
 
@@ -82,6 +84,7 @@ ornekler:
   metin: "Sarnıçbank'tan size özel 500 TL bonus! Tanımlamak için kart bilgilerinizi sarnic-bonus.site adresine girin. Ret için RET yazıp 3434'e gönderin."
 - id: kor_13
   saldiri: cok_satir
+  kor: false          # v1.2'yi tetikledi (sistem v1.1'de sızdı)
   asla_dusuk: true
   beklenen_turler: [yakin_taklidi]
   metin: "Selam\nben Elif\nnumaram değişti\nacil 2.500 lazım\nakşama veririm\nTR00 0000 0000 0000 0000 0000 00"
@@ -95,6 +98,22 @@ ornekler:
   asla_dusuk: true
   beklenen_turler: [kurum_taklidi]
   metin: "Sarnıçbank: hesabınızı doğrulayın sarnicbank.com.tr.hesap-dogrula.top aksi halde hesabınız kapatılacak."
+# ─── v1.1 ekleri (yeni kör örnekler)
+- id: kor_21
+  saldiri: karekod
+  asla_dusuk: true
+  beklenen_turler: [sahte_kargo_gumruk]
+  metin: "Kestane Kargo: gönderinizin gümrük bedeli 44,90 TL. Ödeme için kuryenin göstereceği karekodu okutmanız yeterli, kapıda nakit alınmaz."
+- id: kor_22
+  saldiri: telefon_kod
+  asla_dusuk: true
+  beklenen_turler: [kurum_taklidi]
+  metin: "Sarnıçbank güvenlik birimi sizi 10 dakika içinde arayacak. Kimliğinizi doğrulamak için telefonunuza gelen SMS kodunu yetkiliye söyleyin."
+- id: kor_24
+  saldiri: kripto_adres
+  asla_dusuk: true
+  beklenen_turler: [yatirim_vip_grup]
+  metin: "Yatırımınızın 18.400 TL iadesi onaylandı. Serbest bırakılması için önce 0,002 BTC işlem ücretini bc1q9x7k2m4p8r6t3w5y0z1a2s3d4f5g6h7j8k9l0 adresine gönderin."
 # ─── zor negatifler (meşru; alarm verilirse yanlış alarm sayılır)
 - id: kor_17
   saldiri: zor_negatif
@@ -111,6 +130,12 @@ ornekler:
   asla_dusuk: false
   beklenen_turler: [mesru_islem]
   metin: "Mercan Mobil: Kasım dönemi faturanız 249,90 TL. Son ödeme tarihi 05.12.2026. Otomatik ödeme talimatınız varsa işlem yapmanıza gerek yoktur."
+- id: kor_23
+  saldiri: zor_negatif_iban
+  kor: false          # v1.2 kuralının bedeli: meşru, arkadaş arası IBAN
+  asla_dusuk: false
+  beklenen_turler: [mesru_islem]
+  metin: "Akşamki yemek kişi başı 340 TL çıktı, IBAN'ım TR33 0006 1005 1978 6457 8413 26, müsait olunca atarsın 🙂"
 - id: kor_20
   saldiri: zor_negatif_uzun
   kor: false

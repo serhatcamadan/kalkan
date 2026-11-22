@@ -69,4 +69,4 @@ class LLMModeli:
         tur = (sonuc.tur.value if sonuc.tur else None) if self.katman else iz.tur_ham   # katman: gösterilen tür
         return Tahmin(tur=tur, kanitlar=kanitlar, json_gecerli=iz.json_gecerli, sure_ms=iz.sure_ms,
                       maliyet_usd=maliyet, ham=iz.ham_cikti if not iz.json_gecerli else None, risk=sonuc.risk.value,
-                      hata=iz.hata[:300] if iz.hata else None)
+                      hata=iz.hata[:300] if iz.hata else None, model_tur=iz.tur_ham if self.katman else None)

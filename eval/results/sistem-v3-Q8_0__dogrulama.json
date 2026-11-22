@@ -24,7 +24,8 @@
    "gguf": "kalkan-0.8b-v3-Q8_0.gguf",
    "llama_build": "b12544-5812201a8"
   },
-  "sure_sn": 187.97
+  "sure_sn": 187.97,
+  "politika_surumu": "1.1"
  },
  "metrikler": {
   "n": 198,
@@ -207,10 +208,6 @@
   "eslesme_p": 0.7978,
   "eslesme_r": 0.7756,
   "eslesme_f1": 0.7866,
-  "uyarlamalar": [],
-  "hata_sayisi": 0,
-  "kesilen_cevap": 0,
-  "ort_cikti_token": 77.9,
   "gurultuye_gore": {
    "(yok)": {
     "dogruluk": 0.769,
@@ -236,7 +233,11 @@
     "dogruluk": 0.762,
     "n": 21
    }
-  }
+  },
+  "uyarlamalar": [],
+  "hata_sayisi": 0,
+  "kesilen_cevap": 0,
+  "ort_cikti_token": 77.9
  },
  "tahminler": [
   {

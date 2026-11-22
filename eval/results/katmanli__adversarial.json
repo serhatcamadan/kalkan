@@ -24,11 +24,11 @@
    "llama_build": "b12544-5812201a8"
   },
   "sure_sn": 20.27,
+  "politika_surumu": "1.2",
   "katmanli": {
    "ft": "ft-0.8b-v3-Q8_0",
    "varyant": "ikinci_talep"
-  },
-  "politika_surumu": "1.1"
+  }
  },
  "metrikler": {
   "n": 30,
@@ -84,7 +84,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "model_tur": null
   },
   {
    "id": "adv_02",
@@ -95,7 +96,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "model_tur": null
   },
   {
    "id": "adv_03",
@@ -125,7 +127,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "model_tur": null
   },
   {
    "id": "adv_04",
@@ -149,7 +152,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "model_tur": null
   },
   {
    "id": "adv_05",
@@ -160,7 +164,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "model_tur": null
   },
   {
    "id": "adv_06",
@@ -190,7 +195,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "model_tur": null
   },
   {
    "id": "adv_07",
@@ -201,7 +207,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "model_tur": null
   },
   {
    "id": "adv_08",
@@ -212,7 +219,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "model_tur": null
   },
   {
    "id": "adv_09",
@@ -223,7 +231,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "model_tur": null
   },
   {
    "id": "adv_10",
@@ -234,7 +243,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "model_tur": null
   },
   {
    "id": "adv_11",
@@ -245,7 +255,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "model_tur": null
   },
   {
    "id": "adv_12",
@@ -256,7 +267,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "model_tur": null
   },
   {
    "id": "adv_13",
@@ -280,7 +292,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "model_tur": null
   },
   {
    "id": "adv_14",
@@ -291,7 +304,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "model_tur": null
   },
   {
    "id": "adv_15",
@@ -302,7 +316,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "model_tur": null
   },
   {
    "id": "adv_16",
@@ -332,7 +347,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "orta",
-   "hata": null
+   "hata": null,
+   "model_tur": null
   },
   {
    "id": "adv_17",
@@ -343,7 +359,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "model_tur": null
   },
   {
    "id": "adv_18",
@@ -354,7 +371,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "model_tur": null
   },
   {
    "id": "adv_19",
@@ -365,7 +383,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "model_tur": null
   },
   {
    "id": "adv_20",
@@ -376,7 +395,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "model_tur": null
   },
   {
    "id": "adv_21",
@@ -406,7 +426,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "orta",
-   "hata": null
+   "hata": null,
+   "model_tur": null
   },
   {
    "id": "adv_22",
@@ -430,7 +451,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "model_tur": null
   },
   {
    "id": "adv_23",
@@ -454,7 +476,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "orta",
-   "hata": null
+   "hata": null,
+   "model_tur": null
   },
   {
    "id": "adv_24",
@@ -465,7 +488,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "dusuk",
-   "hata": null
+   "hata": null,
+   "model_tur": null
   },
   {
    "id": "adv_25",
@@ -476,7 +500,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "dusuk",
-   "hata": null
+   "hata": null,
+   "model_tur": null
   },
   {
    "id": "adv_26",
@@ -487,7 +512,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "dusuk",
-   "hata": null
+   "hata": null,
+   "model_tur": null
   },
   {
    "id": "adv_27",
@@ -498,7 +524,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "model_tur": null
   },
   {
    "id": "adv_28",
@@ -522,7 +549,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "dusuk",
-   "hata": null
+   "hata": null,
+   "model_tur": null
   },
   {
    "id": "adv_29",
@@ -546,7 +574,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
-   "hata": null
+   "hata": null,
+   "model_tur": null
   },
   {
    "id": "adv_30",
@@ -570,7 +599,8 @@
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "orta",
-   "hata": null
+   "hata": null,
+   "model_tur": null
   }
  ]
 }

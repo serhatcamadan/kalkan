@@ -33,6 +33,7 @@ class Tahmin:
     ham: str | None = None                # LLM ham çıktısı (yalnızca şema bozuksa, hata ayıklama için)
     risk: str | None = None               # politika kararı (yalnızca tam pipeline modellerinde)
     hata: str | None = None               # arka uç / şema hatası (anahtar içermez)
+    model_tur: str | None = None          # katman=True: modelin HAM türü (tur = gösterilen tür) → yeniden puanlanabilir
 
     def sozluk(self) -> dict:
         return asdict(self)

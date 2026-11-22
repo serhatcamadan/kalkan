@@ -135,6 +135,47 @@ alarm verdi) · G5 ✅.
 - kor_17 (meşru OTP → alarm): kuralın "şifre" kalıbı talep sayılıyor; "paylaşmayın" istisnası talep varsa devreye
   girmiyor. v2 modelin 8b'deki hatasının kural tarafındaki aynısı.
 
+### Politika v1.2 (A yolu): IBAN kuralı
+"Meşru/reklam" dense bile mesajda IBAN varsa → ORTA. kor_13 → `kor: false`. kor_10 ve kor_17 bilinçli olarak
+düzeltilmedi (kör örneğe bakıp regex ayarlamak olurdu); ADR-0005 ekinde "bilinen zayıflık". Yeni kör örnekler:
+kor_21 (karekodla ödeme, linksiz), kor_22 (telefonla kod isteyen "güvenlik birimi"), kor_24 (kripto adresine ücret).
+kor_23 (arkadaş arası meşru IBAN) kuralın bedelini görmek için yazıldı → `kor: false`; alarm alması beklenir.
+
+Tahminler (v1.2 ölçümünden önce): golden/doğrulama FPR **değişmez** (IBAN'lı meşru yok); kor_13 artık yakalanır;
+kor_23 yanlış alarm alır; yeni kör örneklerden (kor_21/22/24) **en çok 1'i** sızar (en olası kor_21: link, IBAN,
+talep fiili yok).
+
+**Yan hata (bulundu ve düzeltildi): `yeniden_puanla` v1 katmanlı sonuçları bozdu.** v1.2'yi uygulamak için
+çalıştırılan `make yeniden-puanla`, `sistem-*` ve `katmanli__*` dosyalarını katman mantığı olmadan, yalnızca model
+politikasıyla yeniden puanladı (ör. katmanli__uci recall 0.767 → 0.625; sistem golden'da 33 risk değişti; metrikler
+şans eseri aynı kaldı). Ayrıca eski veri sürümlü bir dosyada (zs-0.8b doğrulama) çöktü. v1.1: katmanli__* atlanır
+(`make katmanli` üretir), sistem-* servisle aynı hatla puanlanır (bunun için sonuçlara `model_tur` eklendi; eski
+dosyalar `risk_onceki`'den geri alınır), eski veri sürümlü dosyalar atlanır. Test: `test_yeniden_puanla_katmanli_servisle_ayni`.
+
+**v1.2 sonuçları (kör set v1.1, 24 örnek; sistem gerçek llama-server ile):**
+| model | sızıntı (19 saldırı) | sızanlar | zor negatif yanlış alarm (5) |
+|---|---|---|---|
+| kural (tür vekili, politikasız) | 3 | kor_09, kor_10, kor_13 | kor_17 |
+| TF-IDF | 2 | kor_12, kor_24 | kor_23 |
+| ft-v3 tek başına | 2 | kor_08, kor_12 | kor_20, kor_23 |
+| **sistem (★, politika v1.2)** | **1** | **kor_10** (bilinen zayıflık) | kor_17 (bilinen), kor_20 (bilinçli), kor_23 (bilinçli) |
+
+- golden ★ 0.905 / 1.000 / 0.018 ve doğrulama ★ **değişmedi** ✅ · adversarial sızıntı 0 ✅ · kor_13 artık yakalanıyor ✅.
+- **Yeni kör örneklerin üçü de (kor_21 karekod, kor_22 telefonla kod, kor_24 kripto adresi) sistemde yakalandı**
+  (tahmin: en çok 1 sızar → 0 sızdı ✅). Kural da üçünü tek başına yakaladı (sızanlar listesinde yoklar); TF-IDF
+  kor_24'ü kaçırdı. Yani bu üç örnekte katmanlı yapı kurala bir şey eklemedi.
+- kor_23 (arkadaş arası meşru IBAN) beklendiği gibi alarm aldı: v1.2'nin görünür bedeli.
+- Kural satırı tür vekiliyle ölçülüyor (politika uygulanmaz); IBAN kuralı politikada olduğu için kural tek başına
+  kor_13'ü hâlâ kaçırıyor gibi görünür, sistemde kural katmanı politikadan geçtiği için yakalanır.
+
+**Adım 9 sonu, açık zayıflıklar (README "Sınırlar"a girecek):**
+1. kor_10 türü: BÜYÜK HARF + ASCII, linksiz, "numarayı arayın" yönlendirmesi (kural sözlüğü kaçırıyor; model
+   bulsa bile talep kanıtı alıntılamadığı için ★ yükseltmiyor).
+2. kor_17 türü: meşru tek kullanımlık şifre bildirimi, kural "şifre" kelimesini talep sayıyor → yanlış alarm.
+3. 2.000+ karakterlik meşru mesajlar ve IBAN içeren meşru mesajlar → bilinçli alarm (belirsiz/orta).
+4. Kör setin 19 saldırısından 16'sı hâlâ kör (kor_01/02 kırpma kuralıyla, kor_13 v1.2'yi tetikledi); bir sonraki
+   ayar turundan önce yeni kör örnek gerekir.
+
 **Denetim satırı** (CLI örneği): mesajdan kelime yok; yalnızca sinyal türleri (`kisa_link`, `link`, `tutar`),
 kanıt sinyalleri, uzunluk (48), HMAC özeti ✅.
 

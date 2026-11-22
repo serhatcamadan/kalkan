@@ -1,4 +1,9 @@
-"""KALKAN · policy.py — risk ve öneri KODLA belirlenir                 v1.1 · 2026-11-21
+"""KALKAN · policy.py — risk ve öneri KODLA belirlenir                 v1.2 · 2026-11-22
+
+v1.2: Model (veya kural) "meşru/reklam" dese bile mesajda IBAN varsa → ORTA. Gerekçe: kurumlar SMS/WhatsApp ile
+      bir IBAN'a para göndermenizi istemez; IBAN hem PII hem kanıt (ADR-0003). Tetikleyen: kör set kor_13
+      ("numaram değişti / acil 2.500 lazım / IBAN"), bu yüzden kor_13 artık KÖR DEĞİL. Bedeli ÖLÇÜLMEMİŞ: sentetik
+      setlerde IBAN'lı meşru mesaj yok (0/690); gerçek hayatta arkadaş arası "IBAN'ım şu" mesajları alarm alır.
 
 v1.1: "Reklam" diyen model + resmi olmayan link + yasal ret satırı yok → ORTA. Gerekçe taksonomide yazılı
       (reklam_spam: "ret mekanizması içerir"; TR'de ticari iletide İYS/ret zorunlu). Tetikleyen: adversarial adv_21
@@ -17,7 +22,7 @@ from dataclasses import dataclass
 
 from .schema import DOLANDIRICILIK_DISI, DeterministikSinyal, DogrulanmisKanit, Risk, Tur
 
-POLITIKA_SURUMU = "1.1"
+POLITIKA_SURUMU = "1.2"
 GUCLU_SINYAL = {"marka_iceren_yabanci", "benzer_alan_adi", "punycode", "unicode_alan_adi", "gizli_karakter",
                 "gizlilik_ifadesi"}
 ORTA_SINYAL = {"kisa_link", "supheli_tld", "iban"}
@@ -71,7 +76,10 @@ def karar_ver(tur: Tur | None, kanitlar: list[DogrulanmisKanit], sinyaller: list
     reklam_ama_retsiz = tur == Tur.reklam_spam and resmi_olmayan_link and "ret_mekanizmasi" not in tipler
     if reklam_ama_retsiz:
         gerekce.append("reklam_dedi_ama_ret_yok_ve_resmi_olmayan_link")
-    if guclu or enjeksiyon or reklam_ama_retsiz or (orta and tur == Tur.mesru_islem and "kisa_link" in tipler):
+    iban_var = "iban" in tipler
+    if iban_var:
+        gerekce.append("dolandiricilik_disi_dedi_ama_iban_var")
+    if guclu or enjeksiyon or reklam_ama_retsiz or iban_var or (orta and tur == Tur.mesru_islem and "kisa_link" in tipler):
         return Karar(Risk.orta, "CELISKI_DOGRULA",
                      f"{MESAJ['orta']} Bağlantıya tıklamadan veya bilgi paylaşmadan önce gönderenin resmi kanalından doğrulayın.",
                      gerekce + ["model_dolandiricilik_disi_dedi_ama_isaret_var"])
