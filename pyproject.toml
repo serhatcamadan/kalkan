@@ -6,17 +6,21 @@ build-backend = "setuptools.build_meta"
 [tool.setuptools.packages.find]
 include = ["kalkan*"]   # data/, training/, deploy/ … paket değil
 
+[tool.setuptools.package-data]
+kalkan = ["web/*"]      # demo arayüzü (Adım 10)
+
 [project]
 name = "kalkan"
-version = "0.7.0"
+version = "0.10.0"
 description = "Türkçe dolandırıcılık mesajı analizcisi — kanıt önce, fail-closed"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = ["pydantic>=2.13,<3", "pyyaml>=6.0"]   # httpx: Adım 5
 
 [project.optional-dependencies]
-dev = ["pytest>=8", "ruff>=0.6"]
+dev = ["pytest>=8", "ruff>=0.6", "httpx>=0.28"]          # httpx: FastAPI TestClient
 eval = ["scikit-learn>=1.5", "matplotlib>=3.8"]   # Adım 4 TF-IDF, Adım 7 kayıp eğrisi
+api = ["fastapi>=0.162,<0.163", "uvicorn>=0.54,<0.55"]   # Adım 10 (sürümler 2026-11-22 PyPI)
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

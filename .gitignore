@@ -31,4 +31,5 @@ eval/results/*__olta.json
 training/logs/*.png
 
 # denetim kaydı (metinsiz, yine de yerelde)
-logs/
+/logs/
+deploy/logs/

@@ -1,0 +1,54 @@
+/* KALKAN · demo arayüzü · v1 · 2026-11-22 · dış kaynak yok (CSP: yalnızca kendi kaynağı; yazı tipi sistemden) */
+:root{
+  --murekkep:#1f2a37; --ikincil:#4b5563; --soluk:#6b7280; --kagit:#fbfcfd; --balon:#eceff3; --cizgi:#d6dbe1;
+  --isaret:#ffe27a; --isaret-alt:#c99a00;
+  --yuksek:#b3261e; --orta:#9a5700; --belirsiz:#4f5596; --dusuk:#2e6b4f;
+  --yazi:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans","Helvetica Neue",Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html{background:var(--kagit);color:var(--murekkep);font:17px/1.55 var(--yazi);-webkit-text-size-adjust:100%}
+body{margin:0}
+main{max-width:42rem;margin:0 auto;padding:2.5rem 1.25rem 4rem}
+h1{font-size:2.1rem;line-height:1.15;margin:0 0 .4rem;letter-spacing:-.01em;text-wrap:balance}
+.giris{color:var(--ikincil);margin:0 0 1.75rem;max-width:34rem}
+label{display:block;font-weight:600;margin-bottom:.4rem}
+textarea{width:100%;min-height:8.5rem;resize:vertical;padding:.9rem 1rem;border:1.5px solid var(--cizgi);
+  border-radius:1.1rem 1.1rem 1.1rem .3rem;background:#fff;color:inherit;font:inherit;line-height:1.5}
+textarea:focus{outline:none;border-color:var(--murekkep);box-shadow:0 0 0 3px rgba(31,42,55,.15)}
+.satir{display:flex;flex-wrap:wrap;align-items:center;gap:.75rem 1.25rem;margin-top:.85rem}
+button{font:inherit;font-weight:600;cursor:pointer;border-radius:.6rem}
+.ana{background:var(--murekkep);color:#fff;border:0;padding:.7rem 1.4rem}
+.ana:disabled{opacity:.55;cursor:progress}
+.ornekler{color:var(--soluk);font-size:.92rem}
+.ornekler button{background:none;border:0;padding:0;color:var(--murekkep);text-decoration:underline;
+  text-underline-offset:3px;font-weight:500;margin-left:.35rem}
+:focus-visible{outline:3px solid #2f6fdb;outline-offset:2px}
+.sayac{color:var(--soluk);font-size:.85rem;margin-left:auto}
+
+#sonuc{margin-top:2.5rem}
+.karar{border-left:.45rem solid var(--renk);padding:.2rem 0 .2rem 1.1rem;margin-bottom:1.75rem}
+.karar .seviye{color:var(--renk);font-weight:700;font-size:1rem;margin:0}
+.karar .cumle{font-size:1.45rem;line-height:1.3;font-weight:650;margin:.15rem 0 .35rem}
+.karar .tur{color:var(--ikincil);margin:0}
+h2{font-size:1.05rem;margin:1.9rem 0 .6rem}
+.balon{background:var(--balon);border-radius:1.1rem 1.1rem 1.1rem .3rem;padding:.95rem 1.1rem;white-space:pre-wrap;
+  overflow-wrap:anywhere;max-height:22rem;overflow:auto}
+mark{background:linear-gradient(transparent 12%,var(--isaret) 12%,var(--isaret) 92%,transparent 92%);color:inherit;
+  border-bottom:2px solid var(--isaret-alt);padding:0 .08em;cursor:help}
+mark sup{font-size:.68em;font-weight:700;color:var(--isaret-alt);margin-left:.1em}
+ol.kanitlar{padding-left:1.4rem;margin:.75rem 0 0}
+ol.kanitlar li{margin:.3rem 0}
+ol.kanitlar .ad{font-weight:600}
+.yok{color:var(--ikincil)}
+.oneri{font-size:1.05rem;margin:0}
+.uyari{background:#fff7e6;border:1px solid #f3d9a4;border-radius:.6rem;padding:.65rem .85rem;margin:.75rem 0 0;font-size:.95rem}
+details{margin-top:2rem;color:var(--ikincil);font-size:.92rem}
+summary{cursor:pointer;font-weight:600;color:var(--murekkep)}
+dl{display:grid;grid-template-columns:max-content 1fr;gap:.25rem 1rem;margin:.75rem 0 0}
+dt{color:var(--soluk)} dd{margin:0;overflow-wrap:anywhere}
+.hata{color:var(--yuksek);font-weight:600;margin-top:1.25rem}
+footer{margin-top:3.5rem;padding-top:1.25rem;border-top:1px solid var(--cizgi);color:var(--soluk);font-size:.88rem}
+footer p{margin:.35rem 0}
+@media (max-width:30rem){h1{font-size:1.75rem}.karar .cumle{font-size:1.25rem}.sayac{margin-left:0}}
+@media (prefers-reduced-motion:no-preference){#sonuc.yeni .karar{animation:gel .35s ease-out}}
+@keyframes gel{from{opacity:0;transform:translateY(.4rem)}to{opacity:1;transform:none}}

@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<title>Kalkan: şüpheli mesaj kontrolü</title>
+<link rel="stylesheet" href="/kalkan.css">
+<link rel="icon" href="data:,">
+</head>
+<body>
+<main>
+  <h1>Bu mesaj dolandırıcılık mı?</h1>
+  <p class="giris">Şüphelendiğiniz SMS ya da WhatsApp mesajını yapıştırın. Kalkan riski söyler ve nedenini mesajın
+    üzerinde işaretleyerek gösterir.</p>
+
+  <form id="form" novalidate>
+    <label for="mesaj">Mesaj</label>
+    <textarea id="mesaj" name="mesaj" maxlength="10000" required
+      placeholder="Örneğin: Paketiniz gümrükte bekliyor, 49,90 TL ödeyin…"></textarea>
+    <div class="satir">
+      <button class="ana" id="gonder" type="submit">Mesajı kontrol et</button>
+      <span class="ornekler">Örnek dene:
+        <button type="button" data-ornek="0">gümrük ücreti</button>
+        <button type="button" data-ornek="1">kargo bildirimi</button>
+        <button type="button" data-ornek="2">yakın</button>
+      </span>
+      <span class="sayac" id="sayac" aria-live="polite"></span>
+    </div>
+  </form>
+
+  <p class="hata" id="hata" role="alert" hidden></p>
+  <section id="sonuc" aria-live="polite" hidden></section>
+
+  <footer>
+    <p>Kalkan bir karar yardımcısıdır, kesin hüküm vermez. Emin değilseniz kurumu kendi bildiğiniz resmi
+      numarasından arayın; mesajdaki bağlantıya tıklamayın.</p>
+    <p>Mesajınız saklanmaz. Her kontrol için yalnızca mesaj metni içermeyen bir kayıt tutulur (risk, süre,
+      işaret türleri). Analiz bu sunucuda yapılır; mesaj üçüncü bir tarafa gönderilmez.</p>
+    <p>Demo. Kurum adları ve bağlantılar örneklerde uydurmadır.</p>
+  </footer>
+</main>
+
+<script src="/kalkan.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+# KALKAN · docker compose (Adım 10; VPS'te Adım 11)                      v1 · 2026-11-22
+# Kullanım (deploy/ klasöründe):  cp .env.ornek .env  →  tuzu doldur  →  docker compose up -d --build
+#   models/kalkan-0.8b-v3-Q8_0.gguf burada olmalı (repoya girmez; Mac'ten scp).
+# Ağ: llama-server DIŞARIYA HİÇ açılmaz (yalnızca iç ağ). API yalnızca 127.0.0.1:8000'de; internete Caddy açar (Adım 11).
+name: kalkan
+
+x-sertlestirme: &sertlestirme
+  read_only: true
+  tmpfs: ["/tmp"]
+  cap_drop: ["ALL"]
+  security_opt: ["no-new-privileges:true"]
+  restart: unless-stopped
+  logging: {driver: json-file, options: {max-size: "10m", max-file: "3"}}
+
+services:
+  llama:
+    <<: *sertlestirme
+    # Mac spike'ı ve VPS benchmark'ıyla AYNI llama.cpp derlemesi (build 12544, commit 5812201a8). Etiket sabit.
+    image: ghcr.io/ggml-org/llama.cpp:server-b12544
+    command: ["-m", "/models/kalkan-0.8b-v3-Q8_0.gguf", "--host", "0.0.0.0", "--port", "8080",
+              "-c", "4096", "-np", "1", "-t", "4", "--jinja"]
+    volumes: ["./models:/models:ro"]
+    expose: ["8080"]
+    mem_limit: 2g
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "http://127.0.0.1:8080/health"]
+      interval: 15s
+      timeout: 5s
+      retries: 20
+      start_period: 20s
+
+  api:
+    <<: *sertlestirme
+    build: {context: .., dockerfile: deploy/Dockerfile}
+    image: kalkan-api:0.10.0
+    environment:
+      KALKAN_LLAMA_URL: http://llama:8080
+      KALKAN_DENETIM_YOL: /app/logs/denetim.jsonl
+      KALKAN_DENETIM_TUZ: ${KALKAN_DENETIM_TUZ:?deploy/.env içinde KALKAN_DENETIM_TUZ gerekli (openssl rand -hex 32)}
+      KALKAN_GUVENILIR_VEKIL: ${KALKAN_GUVENILIR_VEKIL:-0}
+      KALKAN_LIMIT_DAKIKA: ${KALKAN_LIMIT_DAKIKA:-10}
+      KALKAN_LIMIT_GUN: ${KALKAN_LIMIT_GUN:-200}
+    ports: ["127.0.0.1:8000:8000"]
+    volumes: ["./logs:/app/logs"]
+    mem_limit: 512m
+    depends_on:
+      llama: {condition: service_healthy}

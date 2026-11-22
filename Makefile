@@ -1,5 +1,5 @@
 # KALKAN v7.0 · 2026-11-19
-.PHONY: eval-kor kor-ozet eval-sistem egit-v3 loss-v3 kontrol-v3 sablon-paket-15 sablon-iceri-15 katmanli export-ft sunucu-ft gguf-parite gguf-parite-sema eval-ft sft-veri sablon-parite egit-08 loss kontrol-08 kontrol-08-it sablon-paket sablon-iceri egit-v2 loss-v2 kontrol-v2 kontrol-08-temel yeniden-puanla eval-gpt-pilot eval-gpt eval-gpt-ekonomik sunucu-08 sunucu-2b eval-zs-08 eval-zs-2b eval eval-hizli rapor llm-paket llm-iceri teyit veri veri-istatistik incele golden dis-veri token-olc spike gguf-2b bench-mac bench test lint clean-spike
+.PHONY: api api-deneme eval-kor kor-ozet eval-sistem egit-v3 loss-v3 kontrol-v3 sablon-paket-15 sablon-iceri-15 katmanli export-ft sunucu-ft gguf-parite gguf-parite-sema eval-ft sft-veri sablon-parite egit-08 loss kontrol-08 kontrol-08-it sablon-paket sablon-iceri egit-v2 loss-v2 kontrol-v2 kontrol-08-temel yeniden-puanla eval-gpt-pilot eval-gpt eval-gpt-ekonomik sunucu-08 sunucu-2b eval-zs-08 eval-zs-2b eval eval-hizli rapor llm-paket llm-iceri teyit veri veri-istatistik incele golden dis-veri token-olc spike gguf-2b bench-mac bench test lint clean-spike
 spike:          ## Mac: Adım 1 dönüşüm spike'ı
 	bash training/spike/spike_convert.sh
 gguf-2b:        ## Mac: Qwen3.5-2B → .spike/gguf/C2B-Q4_K_M.gguf
@@ -56,6 +56,14 @@ IT_SEC ?= 450
 ADP  ?= training/adapters/ft-0.8b-$(FTV)-it$(IT_SEC)
 FTAD ?= kalkan-0.8b-$(FTV)
 Q    ?= Q8_0
+api:            ## Adım 10: API + demo arayüzü (sunucu-ft açıkken) → http://127.0.0.1:8000
+	KALKAN_DENETIM_YOL=logs/denetim.jsonl uvicorn kalkan.api:uygulama --factory --host 127.0.0.1 --port 8000 --no-server-header
+api-deneme:     ## api açıkken: üç istek + sağlık (mesaj metni denetim kaydına girmemeli)
+	@curl -s http://127.0.0.1:8000/saglik; echo
+	@curl -s -X POST http://127.0.0.1:8000/analiz -H 'Content-Type: application/json' \
+	  -d '{"mesaj":"Kestane Kargo: gönderiniz gümrükte. 49,90 TL ödeyin: kstn-kargo.info/ode"}' | python3 -c "import json,sys; d=json.load(sys.stdin); print(d['risk'], d['tur'], d['sure_ms'], 'ms')"
+	@curl -s -o /dev/null -w "boş mesaj → %{http_code}\n" -X POST http://127.0.0.1:8000/analiz -H 'Content-Type: application/json' -d '{"mesaj":""}'
+	@tail -1 logs/denetim.jsonl
 eval-kor:       ## Adım 9b: KÖR saldırı seti, BİR KEZ (sunucu-ft açıkken) · kural, tfidf, ft tek başına, sistem
 	python -m eval.run_eval --set kor
 	python -m eval.run_eval --model llm --etiket ft-0.8b-$(FTV)-$(Q) --istem kisa --set kor
