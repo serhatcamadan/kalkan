@@ -3,17 +3,18 @@
   "model": "tfidf",
   "set": "adversarial",
   "n": 30,
-  "zaman": "2026-11-20T22:11:21",
-  "git": "284aa14",
+  "zaman": "2026-11-22T11:45:50",
+  "git": "ef617cc",
   "veri_sha256": "539ec5edf4cc57b7",
   "dis_set_limit": null,
+  "golden_limit": null,
   "hazirlik": {
    "C_secimi_dogrulama_makro_f1": {
-    "0.3": 0.7157,
-    "1.0": 0.7157,
-    "3.0": 0.7157,
-    "10.0": 0.7001,
-    "30.0": 0.7092
+    "0.3": 0.8222,
+    "1.0": 0.8161,
+    "3.0": 0.8143,
+    "10.0": 0.8143,
+    "30.0": 0.8105
    },
    "secilen_C": 0.3
   },
@@ -25,8 +26,13 @@
   "p95_ms": 1.4,
   "json_gecerlilik": 1.0,
   "usd_1000_mesaj": 0.0,
-  "dusuk_risk_sizintisi": 2,
+  "dusuk_risk_sizintisi": 3,
   "sizintilar": [
+   {
+    "id": "adv_10",
+    "saldiri": "homoglyph",
+    "tahmin": "mesru_islem"
+   },
    {
     "id": "adv_17",
     "saldiri": "hibrit",
@@ -42,19 +48,19 @@
   "yanlis_alarmlar": [
    {
     "id": "adv_28",
-    "tahmin": "sahte_kargo_gumruk"
+    "tahmin": "kurum_taklidi"
    },
    {
     "id": "adv_29",
-    "tahmin": "kurum_taklidi"
+    "tahmin": "sahte_kamu_gorevlisi"
    },
    {
     "id": "adv_30",
     "tahmin": "yakin_taklidi"
    }
   ],
-  "tur_kabul_orani": 0.9,
-  "not": "Politika kodu (Adım 5) gelene kadar vekil ölçüt: dolandırıcılık-dışı tür tahmini = düşük risk.",
+  "tur_kabul_orani": 0.8333,
+  "olcut": "vekil: dolandırıcılık-dışı tür = düşük risk",
   "alinti_sayisi": 0,
   "kapi_oncesi_gecerlilik": null,
   "eslesme_p": null,
@@ -67,270 +73,330 @@
    "tur": "kurum_taklidi",
    "kanitlar": [],
    "json_gecerli": true,
-   "sure_ms": 1.5554580022580922,
+   "sure_ms": 1.4879170339554548,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "adv_02",
    "tur": "sahte_kargo_gumruk",
    "kanitlar": [],
    "json_gecerli": true,
-   "sure_ms": 0.8092090138234198,
+   "sure_ms": 0.8417499484494328,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "adv_03",
    "tur": "yakin_taklidi",
    "kanitlar": [],
    "json_gecerli": true,
-   "sure_ms": 0.7749170181341469,
+   "sure_ms": 0.777791952714324,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "adv_04",
    "tur": "kurum_taklidi",
    "kanitlar": [],
    "json_gecerli": true,
-   "sure_ms": 0.7844999781809747,
+   "sure_ms": 0.7943330565467477,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "adv_05",
    "tur": "odul_kampanya",
    "kanitlar": [],
    "json_gecerli": true,
-   "sure_ms": 0.731833977624774,
+   "sure_ms": 0.7382920011878014,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "adv_06",
    "tur": "sahte_kamu_gorevlisi",
    "kanitlar": [],
    "json_gecerli": true,
-   "sure_ms": 0.8498330134898424,
+   "sure_ms": 0.8011249592527747,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "adv_07",
    "tur": "kurum_taklidi",
    "kanitlar": [],
    "json_gecerli": true,
-   "sure_ms": 0.7890419801697135,
+   "sure_ms": 0.7298330310732126,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "adv_08",
    "tur": "kurum_taklidi",
    "kanitlar": [],
    "json_gecerli": true,
-   "sure_ms": 0.9344579884782434,
+   "sure_ms": 0.8125000167638063,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "adv_09",
    "tur": "sahte_kargo_gumruk",
    "kanitlar": [],
    "json_gecerli": true,
-   "sure_ms": 0.891790958121419,
+   "sure_ms": 0.7786670466884971,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "adv_10",
-   "tur": "kurum_taklidi",
+   "tur": "mesru_islem",
    "kanitlar": [],
    "json_gecerli": true,
-   "sure_ms": 0.8510419866070151,
+   "sure_ms": 0.8936250815168023,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "adv_11",
    "tur": "sahte_kargo_gumruk",
    "kanitlar": [],
    "json_gecerli": true,
-   "sure_ms": 0.6849580095149577,
+   "sure_ms": 0.7758330320939422,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "adv_12",
    "tur": "kurum_taklidi",
    "kanitlar": [],
    "json_gecerli": true,
-   "sure_ms": 0.717374961823225,
+   "sure_ms": 0.7146249990910292,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "adv_13",
    "tur": "kurum_taklidi",
    "kanitlar": [],
    "json_gecerli": true,
-   "sure_ms": 0.7157080108299851,
+   "sure_ms": 0.7206660229712725,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "adv_14",
    "tur": "sahte_kamu_gorevlisi",
    "kanitlar": [],
    "json_gecerli": true,
-   "sure_ms": 0.8108330075629056,
+   "sure_ms": 0.8188330102711916,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "adv_15",
    "tur": "kurum_taklidi",
    "kanitlar": [],
    "json_gecerli": true,
-   "sure_ms": 0.8014580234885216,
+   "sure_ms": 0.7136659696698189,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "adv_16",
    "tur": "yakin_taklidi",
    "kanitlar": [],
    "json_gecerli": true,
-   "sure_ms": 0.7494590245187283,
+   "sure_ms": 0.6985829677432775,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "adv_17",
    "tur": "mesru_islem",
    "kanitlar": [],
    "json_gecerli": true,
-   "sure_ms": 0.7916669710539281,
+   "sure_ms": 0.7718340493738651,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "adv_18",
    "tur": "kurum_taklidi",
    "kanitlar": [],
    "json_gecerli": true,
-   "sure_ms": 0.7693330408073962,
+   "sure_ms": 0.7656669477000833,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "adv_19",
    "tur": "mesru_islem",
    "kanitlar": [],
    "json_gecerli": true,
-   "sure_ms": 0.7772920071147382,
+   "sure_ms": 0.7731660734862089,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "adv_20",
    "tur": "kurum_taklidi",
    "kanitlar": [],
    "json_gecerli": true,
-   "sure_ms": 1.4194580144248903,
+   "sure_ms": 1.4026669086888433,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "adv_21",
    "tur": "odul_kampanya",
    "kanitlar": [],
    "json_gecerli": true,
-   "sure_ms": 0.6967500085011125,
+   "sure_ms": 0.7038749754428864,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "adv_22",
-   "tur": "kurum_taklidi",
+   "tur": "sahte_kamu_gorevlisi",
    "kanitlar": [],
    "json_gecerli": true,
-   "sure_ms": 0.745666038710624,
+   "sure_ms": 0.7921250071376562,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "adv_23",
    "tur": "gorev_is_ilani",
    "kanitlar": [],
    "json_gecerli": true,
-   "sure_ms": 0.893290969543159,
+   "sure_ms": 0.7443749345839024,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "adv_24",
    "tur": "mesru_islem",
    "kanitlar": [],
    "json_gecerli": true,
-   "sure_ms": 0.6861249567009509,
+   "sure_ms": 0.8484579157084227,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "adv_25",
    "tur": "mesru_islem",
    "kanitlar": [],
    "json_gecerli": true,
-   "sure_ms": 0.7266669999808073,
+   "sure_ms": 0.7354170083999634,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "adv_26",
    "tur": "reklam_spam",
    "kanitlar": [],
    "json_gecerli": true,
-   "sure_ms": 0.7275830139406025,
+   "sure_ms": 0.7336660055443645,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "adv_27",
    "tur": "mesru_islem",
    "kanitlar": [],
    "json_gecerli": true,
-   "sure_ms": 0.6821670103818178,
+   "sure_ms": 0.6842080038040876,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "adv_28",
-   "tur": "sahte_kargo_gumruk",
-   "kanitlar": [],
-   "json_gecerli": true,
-   "sure_ms": 0.7199999527074397,
-   "maliyet_usd": 0.0,
-   "ham": null
-  },
-  {
-   "id": "adv_29",
    "tur": "kurum_taklidi",
    "kanitlar": [],
    "json_gecerli": true,
-   "sure_ms": 0.7435420411638916,
+   "sure_ms": 0.7296249968931079,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
+  },
+  {
+   "id": "adv_29",
+   "tur": "sahte_kamu_gorevlisi",
+   "kanitlar": [],
+   "json_gecerli": true,
+   "sure_ms": 0.7371669635176659,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "adv_30",
    "tur": "yakin_taklidi",
    "kanitlar": [],
    "json_gecerli": true,
-   "sure_ms": 0.6787500460632145,
+   "sure_ms": 0.758665963076055,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   }
  ]
 }

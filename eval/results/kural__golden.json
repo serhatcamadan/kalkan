@@ -3,17 +3,18 @@
   "model": "kural",
   "set": "golden",
   "n": 297,
-  "zaman": "2026-11-20T22:10:05",
-  "git": "284aa14",
+  "zaman": "2026-11-22T11:44:33",
+  "git": "ef617cc",
   "veri_sha256": "2e46892225886536",
   "dis_set_limit": null,
+  "golden_limit": null,
   "hazirlik": {},
-  "sure_sn": 0.31
+  "sure_sn": 0.3
  },
  "metrikler": {
   "n": 297,
   "p50_ms": 0.8,
-  "p95_ms": 2.2,
+  "p95_ms": 2.1,
   "json_gecerlilik": 1.0,
   "usd_1000_mesaj": 0.0,
   "dogruluk": 0.8956,
@@ -166,6 +167,7 @@
   "fn": 6,
   "fp": 0,
   "tn": 54,
+  "risk_dagilimi": null,
   "alinti_sayisi": 597,
   "kapi_oncesi_gecerlilik": 1.0,
   "eslesme_p": 0.7839,
@@ -204,9 +206,11 @@
    "tur": "mesru_islem",
    "kanitlar": [],
    "json_gecerli": true,
-   "sure_ms": 11.509584030136466,
+   "sure_ms": 8.26779194176197,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-oyun_07-002",
@@ -222,27 +226,33 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.4314999678172171,
+   "sure_ms": 0.28487504459917545,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-reklam_06-000",
    "tur": "reklam_spam",
    "kanitlar": [],
    "json_gecerli": true,
-   "sure_ms": 2.7053329977206886,
+   "sure_ms": 1.837666961364448,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-mesru_07-010",
    "tur": "mesru_islem",
    "kanitlar": [],
    "json_gecerli": true,
-   "sure_ms": 0.30583300394937396,
+   "sure_ms": 0.22841698955744505,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-kurum_06-004",
@@ -262,18 +272,22 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 2.7935829712077975,
+   "sure_ms": 2.048084046691656,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-reklam_07-011",
    "tur": "reklam_spam",
    "kanitlar": [],
    "json_gecerli": true,
-   "sure_ms": 2.2334170062094927,
+   "sure_ms": 1.6655829967930913,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-kargo_07-005",
@@ -293,18 +307,22 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 1.2556669535115361,
+   "sure_ms": 0.9769579628482461,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-reklam_07-010",
    "tur": "reklam_spam",
    "kanitlar": [],
    "json_gecerli": true,
-   "sure_ms": 2.124083985108882,
+   "sure_ms": 1.6875829314813018,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-yatirim_06-003",
@@ -324,9 +342,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 1.0716660181060433,
+   "sure_ms": 0.8843339746817946,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-bahis_06-000",
@@ -342,9 +362,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.28295896481722593,
+   "sure_ms": 0.2292919671162963,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-bahis_07-006",
@@ -360,18 +382,22 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 1.871083048172295,
+   "sure_ms": 1.5674999449402094,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-mesru_07-006",
    "tur": "mesru_islem",
    "kanitlar": [],
    "json_gecerli": true,
-   "sure_ms": 0.27004204457625747,
+   "sure_ms": 0.24025002494454384,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-gorev_07-002",
@@ -387,9 +413,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.3409999771974981,
+   "sure_ms": 0.2767910482361913,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-gorev_06-008",
@@ -401,18 +429,22 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.3362919669598341,
+   "sure_ms": 0.2923749852925539,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-reklam_06-007",
    "tur": "reklam_spam",
    "kanitlar": [],
    "json_gecerli": true,
-   "sure_ms": 2.272334008011967,
+   "sure_ms": 1.9150420557707548,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-oyun_06-001",
@@ -428,9 +460,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 1.5670830034650862,
+   "sure_ms": 1.452833996154368,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-kargo_06-008",
@@ -450,9 +484,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 2.1990409586578608,
+   "sure_ms": 1.9319159910082817,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-odul_07-002",
@@ -472,18 +508,22 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 1.9059589831158519,
+   "sure_ms": 1.7279579769819975,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-mesru_07-003",
    "tur": "mesru_islem",
    "kanitlar": [],
    "json_gecerli": true,
-   "sure_ms": 0.25687500601634383,
+   "sure_ms": 0.23495801724493504,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-kargo_07-009",
@@ -503,18 +543,22 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 1.1305409716442227,
+   "sure_ms": 1.0212920606136322,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-reklam_06-003",
    "tur": "reklam_spam",
    "kanitlar": [],
    "json_gecerli": true,
-   "sure_ms": 2.119167009368539,
+   "sure_ms": 2.0187499467283487,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-yatirim_07-012",
@@ -534,9 +578,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.3107090014964342,
+   "sure_ms": 0.28808298520743847,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-yatirim_07-006",
@@ -556,9 +602,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.2969589550048113,
+   "sure_ms": 0.2884159330278635,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-kurum_07-005",
@@ -578,9 +626,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 1.9026250229217112,
+   "sure_ms": 1.8593339482322335,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-kamu_06-005",
@@ -600,9 +650,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.32941700192168355,
+   "sure_ms": 0.3144999500364065,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-yakin_06-003",
@@ -618,9 +670,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.33425004221498966,
+   "sure_ms": 0.3302500117570162,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-yatirim_07-010",
@@ -636,9 +690,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.3054169937968254,
+   "sure_ms": 0.28737494722008705,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-yakin_06-013",
@@ -654,9 +710,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.2722919452935457,
+   "sure_ms": 0.2672499977052212,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-yakin_07-011",
@@ -672,9 +730,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.1997080398723483,
+   "sure_ms": 0.1938329078257084,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-yakin_07-007",
@@ -690,9 +750,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.19166700076311827,
+   "sure_ms": 0.19512500148266554,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-gorev_06-006",
@@ -704,9 +766,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.30262500513345003,
+   "sure_ms": 0.29166601598262787,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-kamu_06-009",
@@ -726,18 +790,22 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.30341697856783867,
+   "sure_ms": 0.30829093884676695,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-mesru_06-007",
    "tur": "mesru_islem",
    "kanitlar": [],
    "json_gecerli": true,
-   "sure_ms": 0.2793750027194619,
+   "sure_ms": 0.2715829759836197,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-odul_06-006",
@@ -757,9 +825,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.836874998640269,
+   "sure_ms": 0.816166982986033,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-oyun_06-009",
@@ -775,9 +845,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 1.4143330045044422,
+   "sure_ms": 1.375833060592413,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-kamu_07-010",
@@ -793,9 +865,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.3726250142790377,
+   "sure_ms": 0.3628339618444443,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-yatirim_06-006",
@@ -815,9 +889,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.8628329960629344,
+   "sure_ms": 0.8590420475229621,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-kurum_06-012",
@@ -833,9 +909,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 2.2156659979373217,
+   "sure_ms": 2.123915939591825,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-bahis_07-004",
@@ -851,9 +929,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 1.605333003681153,
+   "sure_ms": 1.490833004936576,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-bahis_06-011",
@@ -869,9 +949,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.24108303477987647,
+   "sure_ms": 0.22741698194295168,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-kurum_07-010",
@@ -891,9 +973,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 2.0286249928176403,
+   "sure_ms": 1.9616669742390513,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-odul_06-004",
@@ -913,9 +997,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.819833017885685,
+   "sure_ms": 0.791958998888731,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-kargo_06-004",
@@ -935,9 +1021,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 2.1285840193741024,
+   "sure_ms": 2.0851250737905502,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-yatirim_07-005",
@@ -957,9 +1045,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.28716702945530415,
+   "sure_ms": 0.28237502556294203,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-kurum_07-007",
@@ -979,36 +1069,44 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 1.7057500081136823,
+   "sure_ms": 1.6579160001128912,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-reklam_06-013",
    "tur": "reklam_spam",
    "kanitlar": [],
    "json_gecerli": true,
-   "sure_ms": 1.9352909876033664,
+   "sure_ms": 1.8833340145647526,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-mesru_07-012",
    "tur": "mesru_islem",
    "kanitlar": [],
    "json_gecerli": true,
-   "sure_ms": 0.23470900487154722,
+   "sure_ms": 0.2353749005123973,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-mesru_07-004",
    "tur": "mesru_islem",
    "kanitlar": [],
    "json_gecerli": true,
-   "sure_ms": 0.225124997086823,
+   "sure_ms": 0.22791698575019836,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-bahis_06-001",
@@ -1024,9 +1122,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.23250002413988113,
+   "sure_ms": 0.2300409832969308,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-gorev_07-011",
@@ -1042,9 +1142,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.27091597439721227,
+   "sure_ms": 0.2649580128490925,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-yakin_06-007",
@@ -1060,9 +1162,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.2547500189393759,
+   "sure_ms": 0.26937504298985004,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-gorev_07-006",
@@ -1078,9 +1182,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.2776249893940985,
+   "sure_ms": 0.278458115644753,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-kurum_07-004",
@@ -1100,9 +1206,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 1.958165958058089,
+   "sure_ms": 1.951957936398685,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-gorev_07-012",
@@ -1118,9 +1226,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.28029101667925715,
+   "sure_ms": 0.3240410005673766,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-kamu_07-002",
@@ -1140,9 +1250,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.3504999913275242,
+   "sure_ms": 0.377916032448411,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-yakin_07-005",
@@ -1162,9 +1274,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.19475002773106098,
+   "sure_ms": 0.20195799879729748,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-kargo_06-005",
@@ -1184,9 +1298,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 2.129625005181879,
+   "sure_ms": 2.122499980032444,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-bahis_06-008",
@@ -1202,9 +1318,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.2347499830648303,
+   "sure_ms": 0.24425005540251732,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-kargo_07-012",
@@ -1224,27 +1342,33 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 1.4591249637305737,
+   "sure_ms": 1.4852500753477216,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-gorev_07-007",
    "tur": "mesru_islem",
    "kanitlar": [],
    "json_gecerli": true,
-   "sure_ms": 0.25995803298428655,
+   "sure_ms": 0.24945801123976707,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-mesru_06-009",
    "tur": "mesru_islem",
    "kanitlar": [],
    "json_gecerli": true,
-   "sure_ms": 0.2669579698704183,
+   "sure_ms": 0.28020795434713364,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-kargo_07-002",
@@ -1264,9 +1388,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 1.3911659480072558,
+   "sure_ms": 1.3360000448301435,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-gorev_06-009",
@@ -1278,9 +1404,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.28858304722234607,
+   "sure_ms": 0.28891698457300663,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-gorev_06-004",
@@ -1292,9 +1420,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.2947080065496266,
+   "sure_ms": 0.27950003277510405,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-yakin_06-008",
@@ -1310,9 +1440,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.2840409870259464,
+   "sure_ms": 0.28058304451406,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-gorev_07-004",
@@ -1328,9 +1460,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.2914160140790045,
+   "sure_ms": 0.2757080364972353,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-kurum_06-003",
@@ -1350,18 +1484,22 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 2.1259579807519913,
+   "sure_ms": 2.0976249361410737,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-mesru_06-004",
    "tur": "mesru_islem",
    "kanitlar": [],
    "json_gecerli": true,
-   "sure_ms": 0.2875829814001918,
+   "sure_ms": 0.27779105585068464,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-bahis_06-003",
@@ -1377,18 +1515,22 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.23199996212497354,
+   "sure_ms": 0.23308407980948687,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-mesru_06-012",
    "tur": "mesru_islem",
    "kanitlar": [],
    "json_gecerli": true,
-   "sure_ms": 0.27595896972343326,
+   "sure_ms": 0.26245799381285906,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-bahis_06-009",
@@ -1404,9 +1546,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.2138750278390944,
+   "sure_ms": 0.22308295592665672,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-odul_07-000",
@@ -1426,9 +1570,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 1.9960419740527868,
+   "sure_ms": 1.960666966624558,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-yatirim_06-012",
@@ -1448,9 +1594,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.8622920140624046,
+   "sure_ms": 0.8453329792246222,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-gorev_07-008",
@@ -1466,9 +1614,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.281625019852072,
+   "sure_ms": 0.27187494561076164,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-odul_06-011",
@@ -1488,18 +1638,22 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.8189160143956542,
+   "sure_ms": 0.8084999863058329,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-mesru_07-009",
    "tur": "mesru_islem",
    "kanitlar": [],
    "json_gecerli": true,
-   "sure_ms": 0.23479200899600983,
+   "sure_ms": 0.22679101675748825,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-oyun_07-004",
@@ -1515,9 +1669,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.2573750098235905,
+   "sure_ms": 0.26529200840741396,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-yakin_06-006",
@@ -1533,9 +1689,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.2549170167185366,
+   "sure_ms": 0.25245791766792536,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-gorev_06-005",
@@ -1547,9 +1705,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.2904580323956907,
+   "sure_ms": 0.2756250323727727,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-kurum_06-005",
@@ -1569,9 +1729,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 1.7137500108219683,
+   "sure_ms": 1.7017500940710306,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-gorev_06-007",
@@ -1583,9 +1745,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.29304204508662224,
+   "sure_ms": 0.32008299604058266,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-kamu_07-005",
@@ -1605,9 +1769,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.34620799124240875,
+   "sure_ms": 0.4491249565035105,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-odul_07-009",
@@ -1627,9 +1793,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 2.0630420185625553,
+   "sure_ms": 1.9381670281291008,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-kamu_06-018",
@@ -1649,9 +1817,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.2981250290758908,
+   "sure_ms": 0.2960829297080636,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-yakin_06-004",
@@ -1667,9 +1837,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.24729198776185513,
+   "sure_ms": 0.26358291506767273,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-kargo_07-011",
@@ -1689,9 +1861,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.8245000499300659,
+   "sure_ms": 0.794125022366643,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-kargo_06-006",
@@ -1711,18 +1885,22 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 2.138666051905602,
+   "sure_ms": 2.0985830342397094,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-reklam_07-001",
    "tur": "reklam_spam",
    "kanitlar": [],
    "json_gecerli": true,
-   "sure_ms": 1.7365830135531723,
+   "sure_ms": 1.7528750468045473,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-kargo_06-001",
@@ -1742,9 +1920,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 1.6787080094218254,
+   "sure_ms": 1.69962493237108,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-bahis_06-005",
@@ -1760,9 +1940,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.23612502263858914,
+   "sure_ms": 0.24787499569356441,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-kargo_06-012",
@@ -1782,9 +1964,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 2.013707999140024,
+   "sure_ms": 2.030082978308201,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-bahis_06-010",
@@ -1800,18 +1984,22 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.2304170047864318,
+   "sure_ms": 0.2232920378446579,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-reklam_07-007",
    "tur": "reklam_spam",
    "kanitlar": [],
    "json_gecerli": true,
-   "sure_ms": 1.713083009235561,
+   "sure_ms": 1.7313329735770822,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-odul_07-001",
@@ -1831,18 +2019,22 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 2.2090410348027945,
+   "sure_ms": 2.2646660218015313,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-reklam_06-011",
    "tur": "reklam_spam",
    "kanitlar": [],
    "json_gecerli": true,
-   "sure_ms": 1.9642080296762288,
+   "sure_ms": 2.0071249455213547,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-kamu_07-008",
@@ -1862,9 +2054,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.35137502709403634,
+   "sure_ms": 0.34129200503230095,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-bahis_07-011",
@@ -1880,9 +2074,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 1.586040947586298,
+   "sure_ms": 1.4815418981015682,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-yatirim_06-001",
@@ -1902,18 +2098,22 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 1.5476669650524855,
+   "sure_ms": 1.4786249957978725,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-mesru_06-013",
    "tur": "mesru_islem",
    "kanitlar": [],
    "json_gecerli": true,
-   "sure_ms": 0.2656250144354999,
+   "sure_ms": 0.2947920002043247,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-yakin_06-002",
@@ -1929,9 +2129,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.2525000018067658,
+   "sure_ms": 0.26883394457399845,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-kamu_06-017",
@@ -1951,9 +2153,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.291000003926456,
+   "sure_ms": 0.3038340946659446,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-kurum_07-011",
@@ -1973,9 +2177,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 2.0568330073729157,
+   "sure_ms": 2.0305829821154475,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-yatirim_07-001",
@@ -1995,9 +2201,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.2732090069912374,
+   "sure_ms": 0.2799170324578881,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-odul_06-010",
@@ -2017,9 +2225,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.8760420023463666,
+   "sure_ms": 2.038292004726827,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-yakin_06-012",
@@ -2035,9 +2245,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.25395903503522277,
+   "sure_ms": 0.24745799601078033,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-odul_07-004",
@@ -2057,9 +2269,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 2.1593329729512334,
+   "sure_ms": 2.056957921013236,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-oyun_07-012",
@@ -2075,18 +2289,22 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.3037910209968686,
+   "sure_ms": 0.2592080272734165,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-reklam_06-012",
    "tur": "reklam_spam",
    "kanitlar": [],
    "json_gecerli": true,
-   "sure_ms": 1.9370419904589653,
+   "sure_ms": 1.9004590576514602,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-oyun_06-004",
@@ -2102,9 +2320,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.9275830234400928,
+   "sure_ms": 0.9653340093791485,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-gorev_06-000",
@@ -2116,9 +2336,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.28745800955221057,
+   "sure_ms": 0.3195840399712324,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-kargo_07-006",
@@ -2138,9 +2360,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.9206670220009983,
+   "sure_ms": 1.0074999881908298,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-kamu_07-007",
@@ -2160,9 +2384,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.36562501918524504,
+   "sure_ms": 0.3519579768180847,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-kargo_06-013",
@@ -2182,9 +2408,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 1.9957500044256449,
+   "sure_ms": 1.8620830960571766,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-oyun_07-011",
@@ -2200,9 +2428,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.28620800003409386,
+   "sure_ms": 0.25491707492619753,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-kargo_07-001",
@@ -2222,9 +2452,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 1.3873749994672835,
+   "sure_ms": 1.3223749119788408,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-odul_06-003",
@@ -2244,18 +2476,22 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 1.0322079760953784,
+   "sure_ms": 0.9895000839605927,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-reklam_06-004",
    "tur": "reklam_spam",
    "kanitlar": [],
    "json_gecerli": true,
-   "sure_ms": 1.9692499772645533,
+   "sure_ms": 1.9483750220388174,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-kurum_07-002",
@@ -2275,18 +2511,22 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 1.6486250096932054,
+   "sure_ms": 1.6157079953700304,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-mesru_07-005",
    "tur": "mesru_islem",
    "kanitlar": [],
    "json_gecerli": true,
-   "sure_ms": 0.23058400256559253,
+   "sure_ms": 0.24333305191248655,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-yakin_06-010",
@@ -2298,9 +2538,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.27545797638595104,
+   "sure_ms": 0.29250001534819603,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-kamu_06-000",
@@ -2320,9 +2562,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.28783403104171157,
+   "sure_ms": 0.305499997921288,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-gorev_06-002",
@@ -2334,9 +2578,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.3028750070370734,
+   "sure_ms": 0.291000003926456,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-kamu_07-004",
@@ -2356,9 +2602,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.36445801379159093,
+   "sure_ms": 0.35258301068097353,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-kargo_06-007",
@@ -2378,27 +2626,33 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 1.792416034732014,
+   "sure_ms": 1.7597080441191792,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-gorev_06-013",
    "tur": "mesru_islem",
    "kanitlar": [],
    "json_gecerli": true,
-   "sure_ms": 0.2684580394998193,
+   "sure_ms": 0.2734160516411066,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-mesru_06-001",
    "tur": "mesru_islem",
    "kanitlar": [],
    "json_gecerli": true,
-   "sure_ms": 0.2699579927138984,
+   "sure_ms": 0.26875000912696123,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-yakin_07-000",
@@ -2418,18 +2672,22 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.20179100101813674,
+   "sure_ms": 0.20708295051008463,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-reklam_07-009",
    "tur": "reklam_spam",
    "kanitlar": [],
    "json_gecerli": true,
-   "sure_ms": 1.7531660269014537,
+   "sure_ms": 1.7339580226689577,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-yakin_07-002",
@@ -2449,9 +2707,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.2257919986732304,
+   "sure_ms": 0.23166707251220942,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-kurum_06-006",
@@ -2471,9 +2731,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 1.9039170001633465,
+   "sure_ms": 2.0005410769954324,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-bahis_07-012",
@@ -2489,9 +2751,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 1.7784159863367677,
+   "sure_ms": 1.8289999570697546,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-oyun_06-002",
@@ -2507,9 +2771,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 1.3839169987477362,
+   "sure_ms": 1.3851249823346734,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-gorev_07-010",
@@ -2525,18 +2791,22 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.2910830080509186,
+   "sure_ms": 0.31174998730421066,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-reklam_06-006",
    "tur": "reklam_spam",
    "kanitlar": [],
    "json_gecerli": true,
-   "sure_ms": 1.9986669649370015,
+   "sure_ms": 1.921165967360139,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-yatirim_07-008",
@@ -2556,9 +2826,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.3203750238753855,
+   "sure_ms": 0.30025001615285873,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-kamu_06-027",
@@ -2578,9 +2850,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.30233297729864717,
+   "sure_ms": 0.2847500145435333,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-oyun_06-010",
@@ -2596,9 +2870,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.8271660190075636,
+   "sure_ms": 0.8197909919545054,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-odul_07-008",
@@ -2618,9 +2894,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 2.399250050075352,
+   "sure_ms": 2.317667007446289,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-oyun_07-000",
@@ -2636,9 +2914,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.2756670000962913,
+   "sure_ms": 0.2685419749468565,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-bahis_07-010",
@@ -2654,9 +2934,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 1.6205830033868551,
+   "sure_ms": 1.5943750040605664,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-yatirim_07-000",
@@ -2676,9 +2958,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.2899999963119626,
+   "sure_ms": 0.2840000670403242,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-odul_07-011",
@@ -2698,9 +2982,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 2.2012919653207064,
+   "sure_ms": 2.140625030733645,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-oyun_06-003",
@@ -2716,9 +3002,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 1.08691694913432,
+   "sure_ms": 1.0739589342847466,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-yakin_06-001",
@@ -2734,9 +3022,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.2807909622788429,
+   "sure_ms": 0.2696249866858125,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-yakin_07-003",
@@ -2756,27 +3046,33 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.20995800150558352,
+   "sure_ms": 0.2132500521838665,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-reklam_06-001",
    "tur": "reklam_spam",
    "kanitlar": [],
    "json_gecerli": true,
-   "sure_ms": 1.9801250309683383,
+   "sure_ms": 1.954333041794598,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-gorev_06-011",
    "tur": "mesru_islem",
    "kanitlar": [],
    "json_gecerli": true,
-   "sure_ms": 0.28612499590963125,
+   "sure_ms": 0.2849589800462127,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-odul_06-005",
@@ -2796,9 +3092,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.8343749796040356,
+   "sure_ms": 0.8227919461205602,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-gorev_07-003",
@@ -2814,9 +3112,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.29508303850889206,
+   "sure_ms": 0.28237502556294203,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-kamu_07-012",
@@ -2832,9 +3132,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.35683298483490944,
+   "sure_ms": 0.35745801869779825,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-yatirim_07-007",
@@ -2854,9 +3156,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.2886250149458647,
+   "sure_ms": 0.3071660175919533,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-yatirim_06-004",
@@ -2876,9 +3180,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.8472499903291464,
+   "sure_ms": 0.8543750736862421,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-oyun_06-005",
@@ -2894,9 +3200,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 1.386958989314735,
+   "sure_ms": 1.3759579742327332,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-odul_06-001",
@@ -2916,9 +3224,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 1.447791000828147,
+   "sure_ms": 1.4542080461978912,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-oyun_06-012",
@@ -2934,27 +3244,33 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 1.0658330284059048,
+   "sure_ms": 1.0665419977158308,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-gorev_07-009",
    "tur": "mesru_islem",
    "kanitlar": [],
    "json_gecerli": true,
-   "sure_ms": 0.26633398374542594,
+   "sure_ms": 0.26404205709695816,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-reklam_06-002",
    "tur": "reklam_spam",
    "kanitlar": [],
    "json_gecerli": true,
-   "sure_ms": 1.9548330456018448,
+   "sure_ms": 2.0651250379160047,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-oyun_07-008",
@@ -2970,18 +3286,22 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.30499999411404133,
+   "sure_ms": 0.24662504438310862,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-mesru_07-007",
    "tur": "mesru_islem",
    "kanitlar": [],
    "json_gecerli": true,
-   "sure_ms": 0.2519999979995191,
+   "sure_ms": 0.2109169727191329,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-bahis_07-009",
@@ -2997,9 +3317,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 1.7927500302903354,
+   "sure_ms": 1.6579999355599284,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-kurum_07-006",
@@ -3019,9 +3341,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 2.3106670123524964,
+   "sure_ms": 2.1919169230386615,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-oyun_06-008",
@@ -3037,9 +3361,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.822708010673523,
+   "sure_ms": 0.8036249782890081,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-odul_06-007",
@@ -3059,9 +3385,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.8104160078801215,
+   "sure_ms": 0.830290955491364,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-kargo_07-000",
@@ -3081,9 +3409,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 1.4968329924158752,
+   "sure_ms": 1.508584013208747,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-bahis_06-012",
@@ -3099,9 +3429,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.251916004344821,
+   "sure_ms": 0.2286670496687293,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-yakin_07-008",
@@ -3121,9 +3453,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.20229199435561895,
+   "sure_ms": 0.18312502652406693,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-yatirim_06-002",
@@ -3143,9 +3477,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 1.508000015746802,
+   "sure_ms": 1.4207500498741865,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-yakin_07-001",
@@ -3165,9 +3501,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.20454201148822904,
+   "sure_ms": 0.19045802764594555,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-yatirim_06-011",
@@ -3187,9 +3525,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.8634160039946437,
+   "sure_ms": 0.8289580000564456,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-oyun_06-013",
@@ -3209,9 +3549,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 1.474207965657115,
+   "sure_ms": 1.4249999076128006,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-oyun_07-006",
@@ -3227,9 +3569,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.26862503727898,
+   "sure_ms": 0.26712496764957905,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-kargo_06-002",
@@ -3249,18 +3593,22 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 1.9576670019887388,
+   "sure_ms": 1.9377090502530336,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-reklam_07-008",
    "tur": "reklam_spam",
    "kanitlar": [],
    "json_gecerli": true,
-   "sure_ms": 1.7265420174226165,
+   "sure_ms": 1.7137089744210243,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-yatirim_07-009",
@@ -3280,18 +3628,22 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.2850419841706753,
+   "sure_ms": 0.2864999696612358,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-mesru_07-002",
    "tur": "mesru_islem",
    "kanitlar": [],
    "json_gecerli": true,
-   "sure_ms": 0.2277909661643207,
+   "sure_ms": 0.2256670268252492,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-yatirim_06-008",
@@ -3311,9 +3663,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 1.5043329913169146,
+   "sure_ms": 1.506416010670364,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-kargo_06-010",
@@ -3329,9 +3683,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 1.9664999563246965,
+   "sure_ms": 1.9694160437211394,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-odul_07-003",
@@ -3351,9 +3707,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 2.166457998100668,
+   "sure_ms": 2.1620409097522497,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-odul_06-008",
@@ -3373,9 +3731,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.8356670150533319,
+   "sure_ms": 0.8257919689640403,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-odul_07-012",
@@ -3395,9 +3755,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 2.159166964702308,
+   "sure_ms": 2.2020830074325204,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-oyun_07-001",
@@ -3413,9 +3775,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.2643750049173832,
+   "sure_ms": 0.26041700039058924,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-kamu_06-002",
@@ -3435,9 +3799,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.29883295064792037,
+   "sure_ms": 0.3107910742983222,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-yakin_06-009",
@@ -3453,9 +3819,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.2733329893089831,
+   "sure_ms": 0.2648750087246299,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-yatirim_06-010",
@@ -3475,9 +3843,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.8968330221250653,
+   "sure_ms": 0.8694169810041785,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-bahis_06-002",
@@ -3493,9 +3863,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.23508304730057716,
+   "sure_ms": 0.23687502834945917,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-bahis_07-003",
@@ -3511,9 +3883,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 1.6490419511683285,
+   "sure_ms": 1.5939159784466028,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-kurum_07-000",
@@ -3533,9 +3907,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 1.7348749679513276,
+   "sure_ms": 1.7325830413028598,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-kargo_07-004",
@@ -3555,9 +3931,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 1.1228749644942582,
+   "sure_ms": 1.1084169382229447,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-oyun_07-010",
@@ -3573,9 +3951,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.267457973677665,
+   "sure_ms": 0.27400010731071234,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-kamu_06-007",
@@ -3595,9 +3975,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.30325003899633884,
+   "sure_ms": 0.3102079499512911,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-odul_07-010",
@@ -3617,18 +3999,22 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 2.1753330365754664,
+   "sure_ms": 2.2436250001192093,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-mesru_07-000",
    "tur": "mesru_islem",
    "kanitlar": [],
    "json_gecerli": true,
-   "sure_ms": 0.23283303016796708,
+   "sure_ms": 0.22983306553214788,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-oyun_06-007",
@@ -3644,9 +4030,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 1.36674998793751,
+   "sure_ms": 1.4512079069390893,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-bahis_06-006",
@@ -3662,9 +4050,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.22962503135204315,
+   "sure_ms": 0.2827499993145466,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-yakin_06-000",
@@ -3680,18 +4070,22 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.25762501172721386,
+   "sure_ms": 0.26895804330706596,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-mesru_06-000",
    "tur": "mesru_islem",
    "kanitlar": [],
    "json_gecerli": true,
-   "sure_ms": 0.2596250269562006,
+   "sure_ms": 0.26366603560745716,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-odul_07-005",
@@ -3711,9 +4105,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 2.2021670010872185,
+   "sure_ms": 2.0493330666795373,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-yatirim_07-002",
@@ -3733,9 +4129,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.2922499552369118,
+   "sure_ms": 0.299665960483253,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-kurum_07-003",
@@ -3755,18 +4153,22 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 2.161292009986937,
+   "sure_ms": 2.114083035849035,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-mesru_06-003",
    "tur": "mesru_islem",
    "kanitlar": [],
    "json_gecerli": true,
-   "sure_ms": 0.2648339723236859,
+   "sure_ms": 0.28620800003409386,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-yakin_07-006",
@@ -3786,9 +4188,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.2215420245192945,
+   "sure_ms": 0.22570800501853228,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-bahis_06-004",
@@ -3804,9 +4208,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.22041599731892347,
+   "sure_ms": 0.22208294831216335,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-kamu_07-001",
@@ -3826,9 +4232,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.3303749836049974,
+   "sure_ms": 0.32700004521757364,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-kamu_06-022",
@@ -3848,9 +4256,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.28070900589227676,
+   "sure_ms": 0.28199993539601564,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-yatirim_06-005",
@@ -3870,18 +4280,22 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.8644170011393726,
+   "sure_ms": 0.8292499696835876,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-mesru_06-011",
    "tur": "mesru_islem",
    "kanitlar": [],
    "json_gecerli": true,
-   "sure_ms": 0.2755839959718287,
+   "sure_ms": 0.2596660051494837,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-kamu_06-001",
@@ -3901,9 +4315,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.2911249757744372,
+   "sure_ms": 0.2798329805955291,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-kargo_06-011",
@@ -3923,9 +4339,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 2.1346249850466847,
+   "sure_ms": 2.056791912764311,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-kamu_07-003",
@@ -3945,9 +4363,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.3352499916218221,
+   "sure_ms": 0.33887499012053013,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-kurum_06-009",
@@ -3967,9 +4387,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 1.9460420007817447,
+   "sure_ms": 1.9199999514967203,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-odul_06-009",
@@ -3989,9 +4411,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 1.4602500014007092,
+   "sure_ms": 1.4280839823186398,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-kargo_07-003",
@@ -4011,9 +4435,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 1.1255419813096523,
+   "sure_ms": 1.1255840072408319,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-kargo_07-007",
@@ -4029,9 +4455,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.9189580450765789,
+   "sure_ms": 0.9517910657450557,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-oyun_07-009",
@@ -4047,9 +4475,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.28033298440277576,
+   "sure_ms": 0.2716250019147992,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-kurum_07-008",
@@ -4069,9 +4499,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 1.708791998680681,
+   "sure_ms": 1.6948749544098973,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-kurum_06-011",
@@ -4091,9 +4523,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 1.7042499966919422,
+   "sure_ms": 1.6805410850793123,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-gorev_06-001",
@@ -4105,9 +4539,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.30633294954895973,
+   "sure_ms": 0.31512498389929533,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-kurum_06-010",
@@ -4127,9 +4563,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 1.6168750007636845,
+   "sure_ms": 1.5939169097691774,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-yatirim_07-004",
@@ -4149,18 +4587,22 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.27712498558685184,
+   "sure_ms": 0.2990409266203642,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-mesru_07-001",
    "tur": "mesru_islem",
    "kanitlar": [],
    "json_gecerli": true,
-   "sure_ms": 0.24799996754154563,
+   "sure_ms": 0.3113750135526061,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-oyun_06-011",
@@ -4176,9 +4618,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.8128339541144669,
+   "sure_ms": 0.8989580674096942,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-bahis_07-002",
@@ -4194,9 +4638,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 1.6164580010809004,
+   "sure_ms": 1.4780830824747682,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-yatirim_06-013",
@@ -4216,9 +4662,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.8340000058524311,
+   "sure_ms": 0.7934999885037541,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-kamu_06-024",
@@ -4234,18 +4682,22 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.3070419770665467,
+   "sure_ms": 0.3077919827774167,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-reklam_06-009",
    "tur": "reklam_spam",
    "kanitlar": [],
    "json_gecerli": true,
-   "sure_ms": 1.9670829642564058,
+   "sure_ms": 1.8721249653026462,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-oyun_06-000",
@@ -4261,9 +4713,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 1.3920000055804849,
+   "sure_ms": 1.3346660416573286,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-kargo_07-010",
@@ -4283,18 +4737,22 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.835042039398104,
+   "sure_ms": 0.8097089594230056,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-reklam_07-004",
    "tur": "reklam_spam",
    "kanitlar": [],
    "json_gecerli": true,
-   "sure_ms": 1.7233749967999756,
+   "sure_ms": 1.6897500026971102,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-gorev_07-001",
@@ -4310,9 +4768,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.27404201682657003,
+   "sure_ms": 0.2856670180335641,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-oyun_07-007",
@@ -4328,9 +4788,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.25224999990314245,
+   "sure_ms": 0.2574579557403922,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-kurum_06-008",
@@ -4350,9 +4812,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 1.9171250169165432,
+   "sure_ms": 1.8428330076858401,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-yakin_07-012",
@@ -4372,9 +4836,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.21129200467839837,
+   "sure_ms": 0.1985409762710333,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-bahis_07-005",
@@ -4390,9 +4856,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 1.6259579570032656,
+   "sure_ms": 1.6036670422181487,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-kurum_06-002",
@@ -4412,18 +4880,22 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 2.178166003432125,
+   "sure_ms": 2.4224170483648777,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-reklam_07-005",
    "tur": "reklam_spam",
    "kanitlar": [],
    "json_gecerli": true,
-   "sure_ms": 1.7501250258646905,
+   "sure_ms": 2.13274999987334,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-yatirim_07-011",
@@ -4443,9 +4915,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.2820420195348561,
+   "sure_ms": 0.3161249915137887,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-kurum_06-000",
@@ -4465,9 +4939,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 1.962208014447242,
+   "sure_ms": 1.9136250484734774,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-kamu_07-006",
@@ -4487,9 +4963,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.3795420052483678,
+   "sure_ms": 0.4030840937048197,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-bahis_07-007",
@@ -4505,18 +4983,22 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 1.7605830216780305,
+   "sure_ms": 1.7237499123439193,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-mesru_06-002",
    "tur": "mesru_islem",
    "kanitlar": [],
    "json_gecerli": true,
-   "sure_ms": 0.27420796686783433,
+   "sure_ms": 0.2665839856490493,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-yatirim_06-009",
@@ -4536,9 +5018,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 1.562874997034669,
+   "sure_ms": 1.5235829632729292,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-kargo_06-000",
@@ -4558,9 +5042,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 1.965500006917864,
+   "sure_ms": 1.9296250538900495,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-yakin_06-005",
@@ -4576,9 +5062,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.26862503727898,
+   "sure_ms": 0.2887500450015068,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-odul_07-007",
@@ -4598,18 +5086,22 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 2.182625001296401,
+   "sure_ms": 2.1609170362353325,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-reklam_06-008",
    "tur": "reklam_spam",
    "kanitlar": [],
    "json_gecerli": true,
-   "sure_ms": 1.996167004108429,
+   "sure_ms": 1.9656249787658453,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-bahis_07-001",
@@ -4621,27 +5113,33 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 1.7620419966988266,
+   "sure_ms": 1.7650839872658253,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-reklam_06-010",
    "tur": "reklam_spam",
    "kanitlar": [],
    "json_gecerli": true,
-   "sure_ms": 1.9660420366562903,
+   "sure_ms": 2.184416982345283,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-mesru_07-008",
    "tur": "mesru_islem",
    "kanitlar": [],
    "json_gecerli": true,
-   "sure_ms": 0.2282080240547657,
+   "sure_ms": 0.22191705647855997,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-kurum_06-001",
@@ -4661,27 +5159,33 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 1.723166962619871,
+   "sure_ms": 1.6112920129671693,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-mesru_06-010",
    "tur": "mesru_islem",
    "kanitlar": [],
    "json_gecerli": true,
-   "sure_ms": 0.26529195019975305,
+   "sure_ms": 0.27766695711761713,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-gorev_07-000",
    "tur": "mesru_islem",
    "kanitlar": [],
    "json_gecerli": true,
-   "sure_ms": 0.27358398074284196,
+   "sure_ms": 0.2962090075016022,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-bahis_07-000",
@@ -4697,9 +5201,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 1.7587500042282045,
+   "sure_ms": 1.6771249938756227,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-kurum_07-012",
@@ -4719,9 +5225,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 1.6325839678756893,
+   "sure_ms": 1.5981670003384352,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-yatirim_06-007",
@@ -4741,9 +5249,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.8588330238126218,
+   "sure_ms": 0.8663750486448407,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-kurum_07-001",
@@ -4763,9 +5273,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 2.341417013667524,
+   "sure_ms": 2.275749924592674,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-kargo_07-008",
@@ -4785,9 +5297,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.8275419822894037,
+   "sure_ms": 0.7999580120667815,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-kamu_07-009",
@@ -4807,18 +5321,22 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.34608395071700215,
+   "sure_ms": 0.3351249033585191,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-mesru_07-011",
    "tur": "mesru_islem",
    "kanitlar": [],
    "json_gecerli": true,
-   "sure_ms": 0.2264160430058837,
+   "sure_ms": 0.21908292546868324,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-oyun_06-006",
@@ -4830,9 +5348,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.7789999945089221,
+   "sure_ms": 0.7182919653132558,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-kargo_06-003",
@@ -4852,9 +5372,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 1.754417025949806,
+   "sure_ms": 1.7047090223059058,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-bahis_06-007",
@@ -4870,18 +5392,22 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.21762499818578362,
+   "sure_ms": 0.2215419663116336,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-mesru_06-006",
    "tur": "mesru_islem",
    "kanitlar": [],
    "json_gecerli": true,
-   "sure_ms": 0.2557080006226897,
+   "sure_ms": 0.2493340289220214,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-bahis_07-008",
@@ -4897,27 +5423,33 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 1.8684170208871365,
+   "sure_ms": 1.8772910116240382,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-reklam_06-005",
    "tur": "reklam_spam",
    "kanitlar": [],
    "json_gecerli": true,
-   "sure_ms": 1.9821669557131827,
+   "sure_ms": 1.9849170930683613,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-reklam_07-006",
    "tur": "reklam_spam",
    "kanitlar": [],
    "json_gecerli": true,
-   "sure_ms": 1.756124955136329,
+   "sure_ms": 1.6177920624613762,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-kamu_06-003",
@@ -4937,9 +5469,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.29979104874655604,
+   "sure_ms": 0.2982909791171551,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-yakin_07-004",
@@ -4959,18 +5493,22 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.19825005438178778,
+   "sure_ms": 0.19579194486141205,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-mesru_06-005",
    "tur": "mesru_islem",
    "kanitlar": [],
    "json_gecerli": true,
-   "sure_ms": 0.30333298491314054,
+   "sure_ms": 0.2625830238685012,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-odul_06-012",
@@ -4990,9 +5528,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.7885000086389482,
+   "sure_ms": 0.7564579136669636,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-kamu_07-011",
@@ -5012,9 +5552,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.3546250518411398,
+   "sure_ms": 0.331499963067472,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-odul_06-013",
@@ -5034,9 +5576,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.7897919858805835,
+   "sure_ms": 0.7805419154465199,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-gorev_06-010",
@@ -5048,9 +5592,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.2791670267470181,
+   "sure_ms": 0.271082972176373,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-kurum_06-013",
@@ -5070,27 +5616,33 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 1.8552920082584023,
+   "sure_ms": 1.8357910448685288,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-reklam_07-000",
    "tur": "reklam_spam",
    "kanitlar": [],
    "json_gecerli": true,
-   "sure_ms": 1.7147500184364617,
+   "sure_ms": 1.6615419881418347,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-yatirim_06-000",
    "tur": "mesru_islem",
    "kanitlar": [],
    "json_gecerli": true,
-   "sure_ms": 1.475958968512714,
+   "sure_ms": 1.4494580682367086,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-kamu_06-010",
@@ -5106,9 +5658,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.2800829824991524,
+   "sure_ms": 0.29216601978987455,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-gorev_07-005",
@@ -5124,9 +5678,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.2839170047082007,
+   "sure_ms": 0.28354208916425705,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-yakin_07-010",
@@ -5146,9 +5702,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.19770796643570065,
+   "sure_ms": 0.20725000649690628,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-oyun_07-005",
@@ -5164,9 +5722,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.264208996668458,
+   "sure_ms": 0.2680419711396098,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-yatirim_07-003",
@@ -5186,9 +5746,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.28129195561632514,
+   "sure_ms": 0.2850419841706753,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-yakin_06-011",
@@ -5204,9 +5766,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.24700001813471317,
+   "sure_ms": 0.25575002655386925,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-kargo_06-009",
@@ -5226,9 +5790,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 2.3154160007834435,
+   "sure_ms": 2.262334106490016,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-kamu_07-000",
@@ -5248,9 +5814,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.3548330278135836,
+   "sure_ms": 0.35808293614536524,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-kurum_07-009",
@@ -5270,9 +5838,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 1.765957975294441,
+   "sure_ms": 1.8189160618931055,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-yakin_07-009",
@@ -5292,9 +5862,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.1926659606397152,
+   "sure_ms": 0.19362499006092548,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-gorev_06-012",
@@ -5306,18 +5878,22 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.2875839709304273,
+   "sure_ms": 0.2781249349936843,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-reklam_07-002",
    "tur": "reklam_spam",
    "kanitlar": [],
    "json_gecerli": true,
-   "sure_ms": 1.7331669805571437,
+   "sure_ms": 1.6284170560538769,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-kurum_06-007",
@@ -5337,9 +5913,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 1.9381250021979213,
+   "sure_ms": 1.8547499785199761,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-oyun_07-003",
@@ -5355,9 +5933,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.2594590187072754,
+   "sure_ms": 0.24541595485061407,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-kamu_06-016",
@@ -5377,9 +5957,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.28491602279245853,
+   "sure_ms": 0.2994169481098652,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-odul_06-000",
@@ -5399,9 +5981,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.8331249700859189,
+   "sure_ms": 0.7925829850137234,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-bahis_06-013",
@@ -5417,9 +6001,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.2280839835293591,
+   "sure_ms": 0.22158294450491667,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-odul_06-002",
@@ -5439,18 +6025,22 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.8190830121748149,
+   "sure_ms": 0.8090410847216845,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-reklam_07-003",
    "tur": "reklam_spam",
    "kanitlar": [],
    "json_gecerli": true,
-   "sure_ms": 1.7132499488070607,
+   "sure_ms": 1.7123339930549264,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-gorev_06-003",
@@ -5462,9 +6052,11 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 0.27891702484339476,
+   "sure_ms": 0.27558300644159317,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-odul_07-006",
@@ -5484,18 +6076,22 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 2.35016702208668,
+   "sure_ms": 2.337042009457946,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   },
   {
    "id": "tes-reklam_07-012",
    "tur": "reklam_spam",
    "kanitlar": [],
    "json_gecerli": true,
-   "sure_ms": 1.7177080153487623,
+   "sure_ms": 1.708333962596953,
    "maliyet_usd": 0.0,
-   "ham": null
+   "ham": null,
+   "risk": null,
+   "hata": null
   }
  ]
 }

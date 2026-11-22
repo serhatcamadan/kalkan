@@ -1,5 +1,5 @@
 # KALKAN v7.0 · 2026-11-19
-.PHONY: export-ft sunucu-ft gguf-parite gguf-parite-sema eval-ft sft-veri sablon-parite egit-08 loss kontrol-08 kontrol-08-it sablon-paket sablon-iceri egit-v2 loss-v2 kontrol-v2 kontrol-08-temel yeniden-puanla eval-gpt-pilot eval-gpt eval-gpt-ekonomik sunucu-08 sunucu-2b eval-zs-08 eval-zs-2b eval eval-hizli rapor llm-paket llm-iceri teyit veri veri-istatistik incele golden dis-veri token-olc spike gguf-2b bench-mac bench test lint clean-spike
+.PHONY: katmanli export-ft sunucu-ft gguf-parite gguf-parite-sema eval-ft sft-veri sablon-parite egit-08 loss kontrol-08 kontrol-08-it sablon-paket sablon-iceri egit-v2 loss-v2 kontrol-v2 kontrol-08-temel yeniden-puanla eval-gpt-pilot eval-gpt eval-gpt-ekonomik sunucu-08 sunucu-2b eval-zs-08 eval-zs-2b eval eval-hizli rapor llm-paket llm-iceri teyit veri veri-istatistik incele golden dis-veri token-olc spike gguf-2b bench-mac bench test lint clean-spike
 spike:          ## Mac: Adım 1 dönüşüm spike'ı
 	bash training/spike/spike_convert.sh
 gguf-2b:        ## Mac: Qwen3.5-2B → .spike/gguf/C2B-Q4_K_M.gguf
@@ -53,7 +53,9 @@ DIS_LIMIT ?= 300
 # Adım 8 — fine-tune modeli: GGUF + parite + tam eval
 ADP  ?= training/adapters/ft-0.8b-v2-it600
 FTAD ?= kalkan-0.8b-v2
-Q    ?= Q4_K_M
+Q    ?= Q8_0
+katmanli:       ## Adım 8b: kural + ft katmanlı karar, çevrimdışı ($0) → eval/results/katmanli__*.json
+	python -m eval.katmanli --ft ft-0.8b-v2-$(or $(Q),Q8_0)
 export-ft:      ## adaptör → .spike/gguf/$(FTAD)-{Q4_K_M,Q8_0}.gguf (B yolu, f32 birleştirme)
 	bash training/export_gguf.sh $(ADP) $(FTAD)
 sunucu-ft:      ## ayrı terminalde açık kalsın: make sunucu-ft Q=Q8_0 | Q=Q4_K_M

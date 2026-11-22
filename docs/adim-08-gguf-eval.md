@@ -68,4 +68,73 @@ bellek bant genişliğiyle sınırlı, Q8 Q4'ten ~1,3–1,6× yavaş beklenir �
 (gerekirse Adım 8 sonunda) Q8_0 ile yeniden ölçülecek. Ara seçenek Q6_K/Q5_K_M ancak Q8 VPS'te yetmezse denenir.
 
 ### Tam sistem (Q8_0, kısa istem, şema + kapı + politika v1.1)
-(doldurulacak)
+| set | n | makro-F1 | dol. recall | meşru FPR | kanıt (kapı öncesi) | eşleşme F1 | p95 ms (Mac) |
+|---|---|---|---|---|---|---|---|
+| golden | 297 | 0.507 | **1.000** ✅ | **0.296** ❌ | 0.970 ✅ | 0.793 | 1.339 |
+| doğrulama | 198 | 0.594 | 1.000 | 0.528 | 0.965 | 0.745 | 1.460 |
+| adversarial | 30 | – | – | – | 0.956 | – | sızıntı **0** ✅ |
+| OLTA (e-posta) | 300 | – | 0.956 | 0.924 | – | – | 1.744 |
+| UCI (e-posta) | 300 | – | 1.000 | 0.994 | – | – | 2.274 |
+
+Aynı cetvelde (golden): kural 0.887 / recall 0.975 / FPR 0.000 · gpt-5.4-mini 0.905 / FPR 0.000 · zs-2b 0.236 / FPR 0.43.
+
+**Karne:** G4 ✅ (recall ≥ 0.95, FPR 0.20–0.50 aralığında: 0.296 → karar kuralı FPR'de geçmiyor) ·
+G5 ✅ sızıntı 0, OLTA recall 0.956 ≥ 0.70 — ama OLTA/UCI'de FPR ~%92–99: model e-postaların neredeyse tamamına
+alarm veriyor (alan dışı; uzun metin, İngilizce UCI). Bu "yüksek recall" bir ayırt etme değil: ayırt etme = recall − FPR
+≈ 0.03 (OLTA), ≈ 0.01 (UCI).
+
+**Okuma:** ince ayarlı 0.8B biçimi (JSON, birebir alıntı, kısa çıktı) ve güvenlik ağını (sızıntı 0) öğrendi; ama
+"meşru"yu tanımayı öğrenmedi. Dolandırıcılık tarafına yaslanıyor: fail-closed tasarımda bu kaçırmaktan iyidir, ama
+FPR 0.30 bir kullanıcıya her üç meşru mesajdan birinde alarm demek. Golden'da kural modeli her ölçüde önde; ancak kural
+OLTA'da recall 0.197 → kuralların başarısı şablon diline uyumdan geliyor, gerçek dağılıma taşınmıyor.
+
+## Adım 8b — katmanlı karar: kural birinci, ince ayarlı model ikinci görüş
+
+**Fikir:** iki katmanın kör noktaları farklı. Kural golden'da FPR 0 ama gerçek dağılımda (OLTA) recall 0.197;
+ft-0.8b her şeye alarm veriyor ama kapıdan geçen birebir alıntılar üretiyor. Katmanlı: risk önce kural + deterministik
+sinyallerle; kural "düşük" derse model ancak **kanıtıyla** riski ORTA'ya çıkarabilir, asla düşüremez.
+Model çıktısı (alıntılar, tür) her durumda "Neden?" açıklaması olarak gösterilir.
+
+**Yöntem:** `python -m eval.katmanli`: hiçbir model yeniden çağrılmaz ($0); ft tahminleri sonuç dosyalarından,
+kural yerelde; ikisi de aynı politika (v1.1). 6 varyant raporlanır; **★ `ikinci_talep` çalıştırmadan önce seçildi**
+(kural düşük + ft dolandırıcılık + kapıdan geçen ≥ 2 kanıt + en az biri ödeme/kod/kimlik TALEBİ → ORTA).
+Gerekçe: talep, dolandırıcılığın şablon diline en az bağlı, davranışsal işareti. Golden'a bakıp varyant seçmek
+golden'ı ayar setine çevirirdi; diğer varyantlar keşif olarak yazılır, karar ★ ile verilir.
+
+### Tahminler (çalıştırmadan önce)
+| # | Tahmin |
+|---|---|
+| K1 | ★ golden: FPR ≤ 0.03, recall ≥ 0.975 (kuraldan kötü değil) |
+| K2 | ★ OLTA: recall kuralın 0.197'sinden ≥ 0.45'e çıkar, FPR ≤ 0.35 → ayırt etme ≥ +0.15 (kural ≈ 0) |
+| K3 | `veya` golden FPR ≈ 0.30 (ft'ye eşit): kör birleştirme işe yaramaz, kanıt şartı gerekli |
+| K4 | ★ adversarial sızıntı 0 |
+
+### Sonuçlar
+| set | kural | ft | veya | ve | ikinci | ★ ikinci_talep |
+|---|---|---|---|---|---|---|
+| golden F1 / recall / FPR | 0.887 / 0.975 / **0.000** | 0.507 / 1.000 / 0.296 | 0.779 / 1.000 / 0.296 | 0.887 / 0.975 / 0.000 | 0.852 / 1.000 / 0.278 | 0.845 / 0.984 / **0.259** |
+| doğrulama F1 / recall / FPR | 0.722 / 0.889 / 0.056 | 0.594 / 1.000 / 0.528 | 0.696 / 1.000 / 0.528 | 0.702 / 0.889 / 0.056 | 0.696 / 1.000 / 0.528 | 0.737 / 0.988 / 0.250 |
+| adversarial sızıntı / zor negatif alarm | 0 / 2 | 0 / 6 | 0 / 6 | 0 / 2 | 0 / 6 | 0 / 4 |
+| OLTA recall / FPR / ayırt | 0.418 / 0.322 / **+0.096** | 0.956 / 0.924 / +0.032 | 0.973 / 0.924 / +0.049 | 0.401 / 0.322 / +0.079 | 0.956 / 0.915 / +0.041 | 0.615 / 0.644 / **−0.029** |
+| UCI recall / FPR / ayırt | 0.492 / 0.372 / +0.120 | 1.000 / 0.994 / +0.006 | 1.000 / 0.994 / +0.006 | 0.492 / 0.372 / +0.120 | 0.958 / 0.939 / +0.019 | 0.817 / 0.622 / +0.195 |
+
+(Kural burada politika v1.1'den geçiyor; Adım 4 tablosundaki kural satırı tür vekiliyle ölçülmüştü: OLTA 0.197/0.195.
+Politikanın link güvenlik ağı kurala recall ekliyor ama FPR'yi de aynı oranda artırıyor.)
+
+**Karne:** K1 ❌ (★ golden FPR 0.259, tahmin ≤ 0.03) · K2 ❌ (★ OLTA ayırt −0.029, tahmin ≥ +0.15) · K3 ✅ · K4 ✅.
+
+**Okuma: model kanıt şartıyla bile ayırt edici bilgi eklemiyor.** "Talep" şartı FPR'yi yalnızca 0.296 → 0.259'a
+indirdi: model meşru mesajlarda da kapıdan geçen "talep" kanıtı üretiyor (ör. meşru tek kullanımlık kod bildiriminde
+"kod" geçen cümleyi `kod_talebi` diye alıntılamak, faturadaki son ödeme cümlesini `odeme_talebi`). Kapı alıntının
+mesajda **geçtiğini** doğrular, **anlamının doğru etiketlendiğini** değil (bilinen sınır, ADR-0005'e eklenecek).
+OLTA'da ★ kuraldan kötü; UCI'deki +0.195 FPR 0.62 ile kullanılamaz ve UCI zaten İngilizce e-posta.
+
+**İki yan bulgu:**
+- **TF-IDF golden 0.491 → 0.689 (FPR 0)**: yalnızca şablon çeşitliliği (Adım 7b) ile. Aynı veriyle ince ayarlı 0.8B
+  0.507 / FPR 0.296. Bu veride doğrusal bir model ince ayarlı LLM'yi geçiyor.
+- **Kural doğrulamada 0.990 → 0.722**: kurallar eski 11 doğrulama şablonuna göre yazılmıştı; yeni 11 şablonda düştü.
+  Kural da şablon diline uyuyor; golden'daki 0.887'nin bir kısmı aynı etki.
+
+**Kök neden adayı: sınıf dengesizliği.** Eğitimde 11 türün 9'u dolandırıcılık: örneklerin yalnızca %18'i meşru/reklam
+(272/1496). Model "emin değilsem dolandırıcılık" önselini öğrenmiş: doğrulama ve golden'da hiç dolandırıcılık
+kaçırmayıp meşruların üçte birine alarm vermesi bununla tutarlı. Gerçek dünyada oran tam tersi (meşru çoğunlukta).
