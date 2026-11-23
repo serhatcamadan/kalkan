@@ -2,10 +2,10 @@
  "meta": {
   "model": "katmanli",
   "set": "kor",
-  "n": 20,
-  "zaman": "2026-11-22T17:44:19",
-  "git": "a04927b",
-  "veri_sha256": "55a4706571174015",
+  "n": 24,
+  "zaman": "2026-11-22T17:55:40",
+  "git": "b04ac0f",
+  "veri_sha256": "f2b63595fb572e7e",
   "dis_set_limit": null,
   "golden_limit": null,
   "hazirlik": {
@@ -24,17 +24,17 @@
    "gguf": "kalkan-0.8b-v3-Q8_0.gguf",
    "llama_build": "b12544-5812201a8"
   },
-  "sure_sn": 13.86,
-  "politika_surumu": "1.2",
+  "sure_sn": 18.47,
   "katmanli": {
    "ft": "ft-0.8b-v3-Q8_0",
    "varyant": "ikinci_talep"
-  }
+  },
+  "politika_surumu": "1.2"
  },
  "metrikler": {
-  "n": 20,
-  "p50_ms": 816.4,
-  "p95_ms": 1365.2,
+  "n": 24,
+  "p50_ms": 948.8,
+  "p95_ms": 1490.6,
   "json_gecerlilik": 1.0,
   "usd_1000_mesaj": 0.0,
   "dusuk_risk_sizintisi": 1,
@@ -45,20 +45,24 @@
     "tahmin": "mesru_islem"
    }
   ],
-  "zor_negatif_yanlis_alarm": 2,
+  "zor_negatif_yanlis_alarm": 3,
   "yanlis_alarmlar": [
    {
     "id": "kor_17",
     "tahmin": "kurum_taklidi"
    },
    {
+    "id": "kor_23",
+    "tahmin": "mesru_islem"
+   },
+   {
     "id": "kor_20",
     "tahmin": "gorev_is_ilani"
    }
   ],
-  "tur_kabul_orani": 0.75,
+  "tur_kabul_orani": 0.7917,
   "olcut": "politika riski",
-  "alinti_sayisi": 27,
+  "alinti_sayisi": 37,
   "kapi_oncesi_gecerlilik": 1.0,
   "eslesme_p": null,
   "eslesme_r": null,
@@ -77,7 +81,7 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 1587.3008749913424,
+   "sure_ms": 1598.0500840814784,
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
@@ -108,7 +112,7 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 1365.1694169966504,
+   "sure_ms": 1346.796124940738,
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
@@ -120,7 +124,7 @@
    "tur": "sahte_kargo_gumruk",
    "kanitlar": [],
    "json_gecerli": true,
-   "sure_ms": 209.4947500154376,
+   "sure_ms": 208.4115829784423,
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
@@ -151,7 +155,7 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 1098.91062497627,
+   "sure_ms": 1130.8313749032095,
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "orta",
@@ -182,7 +186,7 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 989.5469580078498,
+   "sure_ms": 1040.1197080500424,
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
@@ -194,7 +198,7 @@
    "tur": "sahte_kargo_gumruk",
    "kanitlar": [],
    "json_gecerli": true,
-   "sure_ms": 191.9187919702381,
+   "sure_ms": 196.6751249274239,
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
@@ -219,7 +223,7 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 991.0349999554455,
+   "sure_ms": 1018.8117090146989,
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
@@ -250,7 +254,7 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 1078.4778749803081,
+   "sure_ms": 1117.5465419655666,
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "orta",
@@ -262,7 +266,7 @@
    "tur": "kurum_taklidi",
    "kanitlar": [],
    "json_gecerli": true,
-   "sure_ms": 191.93820806685835,
+   "sure_ms": 190.90637494809926,
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
@@ -293,7 +297,7 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 816.4450830081478,
+   "sure_ms": 816.8404579628259,
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "orta",
@@ -324,7 +328,7 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 1109.759540995583,
+   "sure_ms": 1064.6673339651898,
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "dusuk",
@@ -349,7 +353,7 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 779.8186249565333,
+   "sure_ms": 724.6151249855757,
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
@@ -361,7 +365,7 @@
    "tur": "yasa_disi_bahis",
    "kanitlar": [],
    "json_gecerli": true,
-   "sure_ms": 210.0793330464512,
+   "sure_ms": 200.309417094104,
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
@@ -380,7 +384,7 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 930.0234580878168,
+   "sure_ms": 917.5675829173997,
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "orta",
@@ -392,7 +396,7 @@
    "tur": "kurum_taklidi",
    "kanitlar": [],
    "json_gecerli": true,
-   "sure_ms": 197.3296250216663,
+   "sure_ms": 191.62916706409305,
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
@@ -404,7 +408,88 @@
    "tur": "kurum_taklidi",
    "kanitlar": [],
    "json_gecerli": true,
-   "sure_ms": 196.4141249191016,
+   "sure_ms": 190.66212500911206,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek",
+   "hata": null,
+   "model_tur": null
+  },
+  {
+   "id": "kor_21",
+   "tur": "sahte_kargo_gumruk",
+   "kanitlar": [
+    {
+     "alinti": "Ödeme için kuryenin göstereceği karekodu okutmanız yeterli",
+     "sinyal": "kimlik_talebi",
+     "bas": 52,
+     "bit": 110
+    },
+    {
+     "alinti": "kapıda nakit alınmaz",
+     "sinyal": "aciliyet",
+     "bas": 112,
+     "bit": 132
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1092.7211249945685,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek",
+   "hata": null,
+   "model_tur": null
+  },
+  {
+   "id": "kor_22",
+   "tur": "kurum_taklidi",
+   "kanitlar": [
+    {
+     "alinti": "Sarnıçbank güvenlik birimi sizi 10 dakika içinde arayacak",
+     "sinyal": "yetki_iddiasi",
+     "bas": 0,
+     "bit": 57
+    },
+    {
+     "alinti": "Kimliğinizi doğrulamak için telefonunuza gelen SMS kodunu yetkiliye söyleyin",
+     "sinyal": "kod_talebi",
+     "bas": 59,
+     "bit": 135
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1111.0139999072999,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "yuksek",
+   "hata": null,
+   "model_tur": null
+  },
+  {
+   "id": "kor_24",
+   "tur": "yatirim_vip_grup",
+   "kanitlar": [
+    {
+     "alinti": "Yatırımınızın 18.400 TL iadesi onaylandı",
+     "sinyal": "odul_vaadi",
+     "bas": 0,
+     "bit": 40
+    },
+    {
+     "alinti": "Serbest bırakılması için önce 0,002 BTC işlem ücretini bc1q9x7k2m4p8r6t3w5y0z1a2",
+     "sinyal": "odeme_talebi",
+     "bas": 42,
+     "bit": 122
+    },
+    {
+     "alinti": "s3d4f5g6h7j8k9l0",
+     "sinyal": "kanal_degistirme",
+     "bas": 122,
+     "bit": 138
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 1490.614959038794,
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
@@ -416,7 +501,7 @@
    "tur": "kurum_taklidi",
    "kanitlar": [],
    "json_gecerli": true,
-   "sure_ms": 197.8671250399202,
+   "sure_ms": 191.8477501021698,
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "yuksek",
@@ -428,7 +513,7 @@
    "tur": "mesru_islem",
    "kanitlar": [],
    "json_gecerli": true,
-   "sure_ms": 195.80658292397857,
+   "sure_ms": 191.24733295757324,
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "dusuk",
@@ -440,10 +525,41 @@
    "tur": "mesru_islem",
    "kanitlar": [],
    "json_gecerli": true,
-   "sure_ms": 206.69966598507017,
+   "sure_ms": 200.32654097303748,
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "dusuk",
+   "hata": null,
+   "model_tur": null
+  },
+  {
+   "id": "kor_23",
+   "tur": "mesru_islem",
+   "kanitlar": [
+    {
+     "alinti": "Akşamki yemek kişi başı 340 TL çıktı",
+     "sinyal": "odul_vaadi",
+     "bas": 0,
+     "bit": 36
+    },
+    {
+     "alinti": "IBAN'ım [IBAN]",
+     "sinyal": "yakinlik_iddiasi",
+     "bas": 38,
+     "bit": 52
+    },
+    {
+     "alinti": "müsait olunca atarsın 🙂",
+     "sinyal": "aciliyet",
+     "bas": 54,
+     "bit": 77
+    }
+   ],
+   "json_gecerli": true,
+   "sure_ms": 948.8178750034422,
+   "maliyet_usd": 0.0,
+   "ham": null,
+   "risk": "orta",
    "hata": null,
    "model_tur": null
   },
@@ -471,7 +587,7 @@
     }
    ],
    "json_gecerli": true,
-   "sure_ms": 1267.5699170213193,
+   "sure_ms": 1242.4376249546185,
    "maliyet_usd": 0.0,
    "ham": null,
    "risk": "orta",

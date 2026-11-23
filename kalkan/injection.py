@@ -1,4 +1,7 @@
-"""KALKAN · injection.py — talimat enjeksiyonu taraması ve güvenli sarmalama   v1 · 2026-11-20
+"""KALKAN · injection.py — talimat enjeksiyonu taraması ve güvenli sarmalama   v1.1 · 2026-11-23
+
+v1.1: "ai" kelime sınırı (\bai\b). v1'de başında \b yoktu: "Dubai/Sanghai/Thai ... resmi" meşru mesajları
+      lekeleniyor, politika bunları en az ORTA yapıyordu (canlı duman testi T1: orta / CELISKI_DOGRULA).
 
 İlke: mesaj HER ZAMAN VERİDİR. İki savunma katmanı:
   1. Sarmalama: mesaj <mesaj>…</mesaj> arasında gönderilir; mesajın içindeki sınırlayıcı benzeri etiketler
@@ -18,7 +21,7 @@ KALIPLAR = {
                        r"(onceki|yukaridaki)\s+(tum\s+)?(talimat|komut)\w*\s+(yok say|unut|dikkate alma)\w*",
     "rol_ele_gecirme": r"\b(system|assistant|sistem notu|sistem mesaji|yeni gorev|new task)\s*[:\]]",
     "siniflandirma_dayatma": r"(guvenli|mesru|risk\w*\s*:?\s*dusuk|safe|legit\w*)\s*(olarak)?\s*(isaretle|siniflandir|mark|label)\w*|"
-                             r"(analiz arac\w*|yapay zeka|asistan\w*|ai)\b[^.]{0,60}(guvenli|resmi|dogrulan)\w*",
+                             r"(analiz arac\w*|yapay zeka|asistan\w*|\bai)\b[^.]{0,60}(guvenli|resmi|dogrulan)\w*",
     "sinirlayici_kacis": r"</?\s*(mesaj|message|system|user|assistant)\s*>",
     "cikti_dayatma": r"\{\s*\"?(kanitlar|tur|risk)\"?\s*:",
 }
