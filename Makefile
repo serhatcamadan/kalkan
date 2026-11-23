@@ -1,5 +1,5 @@
 # KALKAN v7.0 · 2026-11-19
-.PHONY: api api-deneme eval-kor kor-ozet eval-sistem egit-v3 loss-v3 kontrol-v3 sablon-paket-15 sablon-iceri-15 katmanli export-ft sunucu-ft gguf-parite gguf-parite-sema eval-ft sft-veri sablon-parite egit-08 loss kontrol-08 kontrol-08-it sablon-paket sablon-iceri egit-v2 loss-v2 kontrol-v2 kontrol-08-temel yeniden-puanla eval-gpt-pilot eval-gpt eval-gpt-ekonomik sunucu-08 sunucu-2b eval-zs-08 eval-zs-2b eval eval-hizli rapor llm-paket llm-iceri teyit veri veri-istatistik incele golden dis-veri token-olc spike gguf-2b bench-mac bench test lint clean-spike
+.PHONY: vps-gonder api api-deneme eval-kor kor-ozet eval-sistem egit-v3 loss-v3 kontrol-v3 sablon-paket-15 sablon-iceri-15 katmanli export-ft sunucu-ft gguf-parite gguf-parite-sema eval-ft sft-veri sablon-parite egit-08 loss kontrol-08 kontrol-08-it sablon-paket sablon-iceri egit-v2 loss-v2 kontrol-v2 kontrol-08-temel yeniden-puanla eval-gpt-pilot eval-gpt eval-gpt-ekonomik sunucu-08 sunucu-2b eval-zs-08 eval-zs-2b eval eval-hizli rapor llm-paket llm-iceri teyit veri veri-istatistik incele golden dis-veri token-olc spike gguf-2b bench-mac bench test lint clean-spike
 spike:          ## Mac: Adım 1 dönüşüm spike'ı
 	bash training/spike/spike_convert.sh
 gguf-2b:        ## Mac: Qwen3.5-2B → .spike/gguf/C2B-Q4_K_M.gguf
@@ -56,6 +56,13 @@ IT_SEC ?= 450
 ADP  ?= training/adapters/ft-0.8b-$(FTV)-it$(IT_SEC)
 FTAD ?= kalkan-0.8b-$(FTV)
 Q    ?= Q8_0
+vps-gonder:     ## Adım 11: YALNIZCA çalışma zamanı dosyaları VPS'e (git, veri, eğitim, anahtar YOK) → vps:~/kalkan
+	ssh vps 'mkdir -p ~/kalkan/kalkan ~/kalkan/data ~/kalkan/deploy/models ~/kalkan/deploy/logs'
+	rsync -a --delete --exclude __pycache__ kalkan/ vps:~/kalkan/kalkan/
+	rsync -a data/taxonomy.yaml vps:~/kalkan/data/
+	rsync -a deploy/compose.yaml deploy/Caddyfile deploy/Dockerfile deploy/Dockerfile.llama deploy/requirements-api.txt deploy/.env.ornek \
+	  deploy/sertlestir.sh vps:~/kalkan/deploy/
+	ssh vps 'cd ~/kalkan && find . -type f -not -path "./deploy/models/*" -not -path "./deploy/logs/*" | sort | head -40'
 api:            ## Adım 10: API + demo arayüzü (sunucu-ft açıkken) → http://127.0.0.1:8000
 	KALKAN_DENETIM_YOL=logs/denetim.jsonl uvicorn kalkan.api:uygulama --factory --host 127.0.0.1 --port 8000 --no-server-header
 api-deneme:     ## api açıkken: üç istek + sağlık (mesaj metni denetim kaydına girmemeli)

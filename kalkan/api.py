@@ -1,4 +1,4 @@
-"""KALKAN · api.py — HTTP API + demo arayüzü (Adım 10)                   v1 · 2026-11-22
+"""KALKAN · api.py — HTTP API + demo arayüzü (Adım 10)                   v1.1 · 2026-11-22
 🧪 uvicorn kalkan.api:uygulama --factory --host 127.0.0.1 --port 8000   (llama-server: KALKAN_LLAMA_URL, varsayılan :8080)
 
 Uç noktalar
@@ -10,7 +10,8 @@ Güvenlik (Adım 9b'nin devamı)
   • Mesaj HİÇBİR yere yazılmaz: denetim kaydı metinsiz (kalkan/denetim.py), erişim logu yalnızca yol ve durum kodu.
   • Girdi sınırı: HAM_MAKS (10.000) karakter → fazlası 413. Boş mesaj → 422.
   • Hız sınırı: IP başına kayan pencere (dakikada / günde). IP yalnızca KALKAN_GUVENILIR_VEKIL=1 iken
-    X-Forwarded-For'dan okunur (Caddy arkasında, Adım 11); aksi halde bağlantı adresi (başlık taklidi engeli).
+    X-Forwarded-For'un SON öğesinden okunur (güvenilir tek vekilin, Caddy'nin, eklediği adres; ilk öğeler istemcinin
+    kendi yazabildiği değerler olabilir). Aksi halde bağlantı adresi (başlık taklidi engeli).
   • Eşzamanlılık: llama-server tek yuvalı (-np 1) → en çok 1 model çağrısı; kuyrukta en çok KUYRUK_MAKS bekleyen,
     fazlası hemen 503 "meşgul" (kuyruk sınırsız büyüyüp belleği ve gecikmeyi patlatmasın).
   • Model erişilemezse servis fail-closed çalışır (kural orta/yüksek → o; aksi halde belirsiz), 200 döner.
@@ -130,7 +131,7 @@ def uygulama(ayar: Ayar | None = None, arka_uc=None) -> FastAPI:
 
     def istemci_ip(request: Request) -> str:
         if ayar.vekil and (xff := request.headers.get("x-forwarded-for")):
-            return xff.split(",")[0].strip()
+            return xff.split(",")[-1].strip()      # son öğe: Caddy'nin gördüğü gerçek bağlantı adresi
         return request.client.host if request.client else "?"
 
     @app.get("/", include_in_schema=False)

@@ -134,3 +134,10 @@ def test_denetim_metinsiz(tmp_path, capsys):
     satir = (tmp_path / "denetim.jsonl").read_text(encoding="utf-8")
     assert "Kestane" not in satir and "49,90" not in satir and "kstn-kargo" not in satir
     assert "Kestane" not in "".join(capsys.readouterr())
+
+
+def test_xff_ilk_oge_taklit_edilemez(tmp_path):
+    """Caddy arkasında: istemci 'X-Forwarded-For: 9.9.9.9' gönderse bile vekil kendi gördüğü adresi SONA ekler."""
+    c = _istemci(tmp_path, dakika=1, vekil=True)
+    assert c.post("/analiz", json={"mesaj": KARGO}, headers={"X-Forwarded-For": "9.9.9.1, 5.5.5.5"}).status_code == 200
+    assert c.post("/analiz", json={"mesaj": KARGO}, headers={"X-Forwarded-For": "9.9.9.2, 5.5.5.5"}).status_code == 429

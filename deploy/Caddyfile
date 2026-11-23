@@ -1,0 +1,24 @@
+# KALKAN · Caddy (Adım 11)                                              v1 · 2026-11-22
+# Alan adı deploy/.env'deki KALKAN_ALAN_ADI'ndan (ör. kalkan-serhat.duckdns.org). Sertifika: Let's Encrypt, otomatik
+# (HTTP-01; 80 ve 443 açık olmalı). HTTP → HTTPS yönlendirmesi Caddy'nin varsayılanı.
+{
+	email {$KALKAN_ACME_EPOSTA}
+	admin off
+}
+
+{$KALKAN_ALAN_ADI} {
+	encode zstd gzip
+	request_body {
+		max_size 64KB
+	}
+	reverse_proxy api:8000 {
+		# İstemcinin gönderdiği X-Forwarded-For'u ASLA aktarma: yalnızca Caddy'nin gördüğü adres (api son öğeyi okur).
+		header_up X-Forwarded-For {remote_host}
+	}
+	header {
+		Strict-Transport-Security "max-age=31536000"
+		-Server
+		-Via
+	}
+	# Erişim logu bilerek kapalı (log yönergesi yok): istek gövdesi zaten loglanmaz, IP'ler de tutulmaz.
+}

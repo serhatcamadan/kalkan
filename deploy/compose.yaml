@@ -1,7 +1,10 @@
-# KALKAN · docker compose (Adım 10; VPS'te Adım 11)                      v1 · 2026-11-22
+# KALKAN · docker compose (Adım 10–11)                                  v1.2 · 2026-11-22
+# v1.2: llama imajı kaynaktan (Dockerfile.llama, aynı commit 5812201a8); resmi server-b12544 etiketi mevcut değil.
+# v1.1: caddy servisi (HTTPS, Let's Encrypt). İnternete yalnızca Caddy açılır (80, 443).
 # Kullanım (deploy/ klasöründe):  cp .env.ornek .env  →  tuzu doldur  →  docker compose up -d --build
 #   models/kalkan-0.8b-v3-Q8_0.gguf burada olmalı (repoya girmez; Mac'ten scp).
-# Ağ: llama-server DIŞARIYA HİÇ açılmaz (yalnızca iç ağ). API yalnızca 127.0.0.1:8000'de; internete Caddy açar (Adım 11).
+# Ağ: llama-server DIŞARIYA HİÇ açılmaz (yalnızca iç ağ). API host'ta yalnızca 127.0.0.1:8000 (yerel deneme için);
+#     internete Caddy açar. Not: Docker yayınlanan portlarda ufw'yi atlar; bu yüzden 127.0.0.1'e bağlamak şart.
 name: kalkan
 
 x-sertlestirme: &sertlestirme
@@ -15,8 +18,9 @@ x-sertlestirme: &sertlestirme
 services:
   llama:
     <<: *sertlestirme
-    # Mac spike'ı ve VPS benchmark'ıyla AYNI llama.cpp derlemesi (build 12544, commit 5812201a8). Etiket sabit.
-    image: ghcr.io/ggml-org/llama.cpp:server-b12544
+    # Mac spike'ı ve VPS benchmark'ıyla AYNI llama.cpp commit'i (5812201a8, build 12544), kaynaktan derlenir.
+    build: {context: ., dockerfile: Dockerfile.llama}
+    image: kalkan-llama:b12544
     command: ["-m", "/models/kalkan-0.8b-v3-Q8_0.gguf", "--host", "0.0.0.0", "--port", "8080",
               "-c", "4096", "-np", "1", "-t", "4", "--jinja"]
     volumes: ["./models:/models:ro"]
@@ -37,7 +41,7 @@ services:
       KALKAN_LLAMA_URL: http://llama:8080
       KALKAN_DENETIM_YOL: /app/logs/denetim.jsonl
       KALKAN_DENETIM_TUZ: ${KALKAN_DENETIM_TUZ:?deploy/.env içinde KALKAN_DENETIM_TUZ gerekli (openssl rand -hex 32)}
-      KALKAN_GUVENILIR_VEKIL: ${KALKAN_GUVENILIR_VEKIL:-0}
+      KALKAN_GUVENILIR_VEKIL: ${KALKAN_GUVENILIR_VEKIL:-1}   # Caddy arkasında; Caddy XFF'yi kendisi yazar
       KALKAN_LIMIT_DAKIKA: ${KALKAN_LIMIT_DAKIKA:-10}
       KALKAN_LIMIT_GUN: ${KALKAN_LIMIT_GUN:-200}
     ports: ["127.0.0.1:8000:8000"]
@@ -45,3 +49,22 @@ services:
     mem_limit: 512m
     depends_on:
       llama: {condition: service_healthy}
+
+  caddy:
+    <<: *sertlestirme
+    image: caddy:2.11
+    cap_add: ["NET_BIND_SERVICE"]
+    ports: ["80:80", "443:443", "443:443/udp"]
+    environment:
+      KALKAN_ALAN_ADI: ${KALKAN_ALAN_ADI:?deploy/.env içinde KALKAN_ALAN_ADI gerekli (ör. kalkan-xxx.duckdns.org)}
+      KALKAN_ACME_EPOSTA: ${KALKAN_ACME_EPOSTA:?deploy/.env içinde KALKAN_ACME_EPOSTA gerekli}
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_veri:/data
+      - caddy_ayar:/config
+    mem_limit: 256m
+    depends_on: [api]
+
+volumes:
+  caddy_veri:
+  caddy_ayar:

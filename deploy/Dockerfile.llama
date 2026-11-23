@@ -1,0 +1,25 @@
+# KALKAN · llama-server imajı, kaynaktan (Adım 11)                      v1 · 2026-11-22
+# Neden kendi imajımız: resmi ghcr.io/ggml-org/llama.cpp:server-b12544 etiketi yok ("not found"). Spike, Mac ölçümleri
+# ve VPS benchmark'ı commit 5812201a8 (build 12544) ile yapıldı; sürüm değiştirmek yerine AYNI commit'i derliyoruz.
+# CPU hedefi: GGML_NATIVE=OFF + AVX2/FMA/F16C. Adım 1 benchmark'ı yerel derlemeydi ama o makine AVX2'liydi (E5-2699v4);
+# sağlayıcı VM'i AVX-512'li bir makineye taşıdı ve geri taşıyabilir. NATIVE derleme AVX-512 kullanırsa eski
+# donanımda SIGILL ile çöker; AVX2 tabanı her iki makinede de çalışır ve ölçülen performansla aynı komut seti.
+FROM ubuntu:24.04 AS derle
+RUN apt-get update && apt-get install -y --no-install-recommends build-essential cmake git ca-certificates \
+ && rm -rf /var/lib/apt/lists/*
+ARG LLAMA_COMMIT=5812201a8
+RUN git clone https://github.com/ggml-org/llama.cpp /src && git -C /src checkout "$LLAMA_COMMIT"
+RUN cmake -S /src -B /build -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=OFF \
+      -DGGML_NATIVE=OFF -DGGML_AVX=ON -DGGML_AVX2=ON -DGGML_FMA=ON -DGGML_F16C=ON \
+      -DLLAMA_CURL=OFF -DLLAMA_BUILD_TESTS=OFF \
+ && cmake --build /build --config Release -j "$(nproc)" --target llama-server \
+ && /build/bin/llama-server --version
+
+FROM ubuntu:24.04
+RUN apt-get update && apt-get install -y --no-install-recommends libgomp1 curl ca-certificates \
+ && rm -rf /var/lib/apt/lists/* \
+ && useradd --system --uid 10002 --no-create-home llama
+COPY --from=derle /build/bin/llama-server /usr/local/bin/llama-server
+USER llama
+EXPOSE 8080
+ENTRYPOINT ["llama-server"]
