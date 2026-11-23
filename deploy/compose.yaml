@@ -36,7 +36,7 @@ services:
   api:
     <<: *sertlestirme
     build: {context: .., dockerfile: deploy/Dockerfile}
-    image: kalkan-api:0.10.0
+    image: kalkan-api:0.10.1
     environment:
       KALKAN_LLAMA_URL: http://llama:8080
       KALKAN_DENETIM_YOL: /app/logs/denetim.jsonl

@@ -141,3 +141,10 @@ def test_xff_ilk_oge_taklit_edilemez(tmp_path):
     c = _istemci(tmp_path, dakika=1, vekil=True)
     assert c.post("/analiz", json={"mesaj": KARGO}, headers={"X-Forwarded-For": "9.9.9.1, 5.5.5.5"}).status_code == 200
     assert c.post("/analiz", json={"mesaj": KARGO}, headers={"X-Forwarded-For": "9.9.9.2, 5.5.5.5"}).status_code == 429
+
+
+def test_head_istekleri(tmp_path):
+    """Çalışma süresi izleyicileri HEAD gönderir (Adım 11: / 405 dönüyordu)."""
+    c = _istemci(tmp_path)
+    assert c.head("/").status_code == 200 and c.head("/saglik").status_code == 200
+    assert c.head("/analiz").status_code == 405           # analiz yalnızca POST

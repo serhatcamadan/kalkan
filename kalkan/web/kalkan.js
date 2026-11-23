@@ -1,4 +1,4 @@
-/* KALKAN · demo arayüzü · v1 · 2026-11-22
+/* KALKAN · demo arayüzü · v1.1 · 2026-11-23 (çakışan kanıtlar tek işarette)
    Kullanıcı metni DOM'a yalnızca textContent/append ile girer (HTML olarak ayrıştırılmaz): mesajdaki kod çalışamaz. */
 "use strict";
 const ORNEKLER = [
@@ -117,16 +117,26 @@ function goster(d) {
 }
 
 function isaretli(metin, kanitlar) {
-  // Kanıt aralıkları (bas, bit) gösterilen (maskeli) metne göredir; çakışanlar atlanır.
+  // Kanıt aralıkları (bas, bit) gösterilen (maskeli) metne göredir. v1.1: çakışan/bitişik aralıklar tek işarette
+  // birleşir (ör. kural "49,90 TL ödeyin: kstn-kargo" ile bağlantı "kstn-kargo.info/ode"); numaralar "1,2" olur.
   const b = el("div", {class:"balon"});
-  const sira = kanitlar.map((k, i) => ({...k, no:i + 1})).sort((x, y) => x.bas - y.bas);
+  const gecerli = kanitlar.map((k, i) => ({...k, no:i + 1}))
+    .filter(k => k.bit <= metin.length && metin.slice(k.bas, k.bit) === k.alinti)
+    .sort((x, y) => x.bas - y.bas || y.bit - x.bit);
+  const gruplar = [];
+  for (const k of gecerli) {
+    const son = gruplar[gruplar.length - 1];
+    if (son && k.bas < son.bit) { son.bit = Math.max(son.bit, k.bit); son.k.push(k); }
+    else gruplar.push({bas:k.bas, bit:k.bit, k:[k]});
+  }
   let i = 0;
-  for (const k of sira) {
-    if (k.bas < i || k.bit > metin.length || metin.slice(k.bas, k.bit) !== k.alinti) continue;
-    b.append(metin.slice(i, k.bas));
-    const ad = SINYAL[k.sinyal] || k.sinyal;
-    b.append(el("mark", {title: ad, "aria-label": `${ad}: ${k.alinti}`}, metin.slice(k.bas, k.bit), el("sup", {}, String(k.no))));
-    i = k.bit;
+  for (const g of gruplar) {
+    b.append(metin.slice(i, g.bas));
+    const adlar = g.k.map(k => SINYAL[k.sinyal] || k.sinyal).join(", ");
+    const nolar = g.k.map(k => k.no).sort((x, y) => x - y).join(",");
+    b.append(el("mark", {title: adlar, "aria-label": `${adlar}: ${metin.slice(g.bas, g.bit)}`},
+                metin.slice(g.bas, g.bit), el("sup", {}, nolar)));
+    i = g.bit;
   }
   b.append(metin.slice(i));
   return b;

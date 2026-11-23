@@ -1,10 +1,11 @@
-"""KALKAN · api.py — HTTP API + demo arayüzü (Adım 10)                   v1.1 · 2026-11-22
+"""KALKAN · api.py — HTTP API + demo arayüzü (Adım 10)                   v1.2 · 2026-11-23
 🧪 uvicorn kalkan.api:uygulama --factory --host 127.0.0.1 --port 8000   (llama-server: KALKAN_LLAMA_URL, varsayılan :8080)
 
 Uç noktalar
   GET  /            demo arayüzü (kalkan/web/index.html; tek dosya, dış kaynak yok)
   POST /analiz      {"mesaj": "..."} → ürün yolu (ADR-0006: kural + ince ayarlı model, kısa istem)
   GET  /saglik      API ve model sunucusu ayakta mı, sürümler
+  HEAD / ve /saglik (v1.2): çalışma süresi izleyicileri çoğunlukla HEAD gönderir (Adım 11'de 405 dönüyordu)
 
 Güvenlik (Adım 9b'nin devamı)
   • Mesaj HİÇBİR yere yazılmaz: denetim kaydı metinsiz (kalkan/denetim.py), erişim logu yalnızca yol ve durum kodu.
@@ -134,7 +135,7 @@ def uygulama(ayar: Ayar | None = None, arka_uc=None) -> FastAPI:
             return xff.split(",")[-1].strip()      # son öğe: Caddy'nin gördüğü gerçek bağlantı adresi
         return request.client.host if request.client else "?"
 
-    @app.get("/", include_in_schema=False)
+    @app.api_route("/", methods=["GET", "HEAD"], include_in_schema=False)
     def ana_sayfa():
         return FileResponse(WEB / "index.html", media_type="text/html; charset=utf-8")
 
@@ -146,7 +147,7 @@ def uygulama(ayar: Ayar | None = None, arka_uc=None) -> FastAPI:
     def css():
         return FileResponse(WEB / "kalkan.css", media_type="text/css; charset=utf-8")
 
-    @app.get("/saglik")
+    @app.api_route("/saglik", methods=["GET", "HEAD"])
     def saglik():
         import json
         import urllib.request

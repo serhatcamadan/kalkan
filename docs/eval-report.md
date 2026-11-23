@@ -71,11 +71,11 @@ OLTA-TR sentetik oltalama e-postası, UCI gerçek spam/normal e-posta. İkisi de
 | kural | 18305 | 0.197 | 0.195 | 825 | 0.395 | 0.321 |
 | tfidf | 18305 | 0.708 | 0.543 | 825 | 0.745 | 0.802 |
 | zs-0.8b | 300 | 1.000 | 1.000 | 300 | 1.000 | 0.967 |
-| zs-2b | 300 | 0.830 | 0.712 | 300 | 0.958 | 0.856 |
+| zs-2b | 300 | 0.830 | 0.712 | 300 | 0.967 | 0.867 |
 | gpt-5.4-mini | 50 | 0.867 | 0.500 | — | — | — |
 | ft-0.8b-v2-Q8_0 | 300 | 0.956 | 0.924 | 300 | 1.000 | 0.994 |
 | ft-0.8b-v3-Q8_0 | 300 | 0.995 | 0.983 | 300 | 0.925 | 0.978 |
-| katmanli | 300 | 0.665 | 0.542 | 300 | 0.558 | 0.511 |
+| katmanli | 300 | 0.665 | 0.542 | 300 | 0.767 | 0.667 |
 | sistem-v3-Q8_0 | 300 | 0.665 | 0.542 | 300 | 0.558 | 0.511 |
 
 
@@ -111,11 +111,13 @@ OLTA-TR sentetik oltalama e-postası, UCI gerçek spam/normal e-posta. İkisi de
 - `kural/adversarial`: git ef617cc · veri 539ec5edf4cc57b7 · 2026-11-22T11:44:33
 - `kural/dogrulama`: git ef617cc · veri d2b097bf4bf12685 · 2026-11-22T11:44:33
 - `kural/golden`: git ef617cc · veri 2e46892225886536 · 2026-11-22T11:44:33
+- `kural/kor`: git b04ac0f · veri f2b63595fb572e7e · 2026-11-22T17:55:18
 - `kural/olta`: git ef617cc · veri 43fcfc17d8b1b7d9 · 2026-11-22T11:45:40
 - `kural/uci`: git ef617cc · veri 0000d324844a291a · 2026-11-22T11:45:47
 - `tfidf/adversarial`: git ef617cc · veri 539ec5edf4cc57b7 · 2026-11-22T11:45:50
 - `tfidf/dogrulama`: git ef617cc · veri d2b097bf4bf12685 · 2026-11-22T11:45:50
 - `tfidf/golden`: git ef617cc · veri 2e46892225886536 · 2026-11-22T11:45:50
+- `tfidf/kor`: git b04ac0f · veri f2b63595fb572e7e · 2026-11-22T17:55:21
 - `tfidf/olta`: git ef617cc · veri 43fcfc17d8b1b7d9 · 2026-11-22T11:46:33
 - `tfidf/uci`: git ef617cc · veri 0000d324844a291a · 2026-11-22T11:46:37
 - `zs-0.8b/adversarial`: git 79266c7 · veri 539ec5edf4cc57b7 · 2026-11-20T22:50:34
@@ -139,16 +141,19 @@ OLTA-TR sentetik oltalama e-postası, UCI gerçek spam/normal e-posta. İkisi de
 - `ft-0.8b-v3-Q8_0/adversarial`: git 3929225 · veri 539ec5edf4cc57b7 · 2026-11-22T14:26:46
 - `ft-0.8b-v3-Q8_0/dogrulama`: git 3929225 · veri d2b097bf4bf12685 · 2026-11-22T14:26:26
 - `ft-0.8b-v3-Q8_0/golden`: git 3929225 · veri 2e46892225886536 · 2026-11-22T14:22:31
+- `ft-0.8b-v3-Q8_0/kor`: git b04ac0f · veri f2b63595fb572e7e · 2026-11-22T17:55:40
 - `ft-0.8b-v3-Q8_0/olta`: git 3929225 · veri 43fcfc17d8b1b7d9 · 2026-11-22T14:35:04
 - `ft-0.8b-v3-Q8_0/uci`: git 3929225 · veri 0000d324844a291a · 2026-11-22T14:43:50
 - `katmanli/adversarial`: git 3929225 · veri 539ec5edf4cc57b7 · 2026-11-22T14:26:46
 - `katmanli/dogrulama`: git 3929225 · veri d2b097bf4bf12685 · 2026-11-22T14:26:26
 - `katmanli/golden`: git 3929225 · veri 2e46892225886536 · 2026-11-22T14:22:31
+- `katmanli/kor`: git a04927b · veri 55a4706571174015 · 2026-11-22T17:44:19
 - `katmanli/olta`: git 3929225 · veri 43fcfc17d8b1b7d9 · 2026-11-22T14:35:04
 - `katmanli/uci`: git 3929225 · veri 0000d324844a291a · 2026-11-22T14:43:50
-- `sistem-v3-Q8_0/adversarial`: git 299b1e7 · veri 539ec5edf4cc57b7 · 2026-11-22T17:10:55
+- `sistem-v3-Q8_0/adversarial`: git b04ac0f · veri 539ec5edf4cc57b7 · 2026-11-22T17:56:14
 - `sistem-v3-Q8_0/dogrulama`: git 299b1e7 · veri d2b097bf4bf12685 · 2026-11-22T17:10:38
 - `sistem-v3-Q8_0/golden`: git 299b1e7 · veri 2e46892225886536 · 2026-11-22T17:07:30
+- `sistem-v3-Q8_0/kor`: git b04ac0f · veri f2b63595fb572e7e · 2026-11-22T17:55:58
 - `sistem-v3-Q8_0/olta`: git 299b1e7 · veri 43fcfc17d8b1b7d9 · 2026-11-22T17:18:20
 - `sistem-v3-Q8_0/uci`: git 299b1e7 · veri 0000d324844a291a · 2026-11-22T17:26:32
 </details>
