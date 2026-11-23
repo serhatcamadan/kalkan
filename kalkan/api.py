@@ -147,6 +147,18 @@ def uygulama(ayar: Ayar | None = None, arka_uc=None) -> FastAPI:
     def css():
         return FileResponse(WEB / "kalkan.css", media_type="text/css; charset=utf-8")
 
+    @app.get("/favicon-32.png", include_in_schema=False)
+    def favicon_32():
+        return FileResponse(WEB / "favicon-32.png", media_type="image/png")
+
+    @app.get("/favicon-192.png", include_in_schema=False)
+    def favicon_192():
+        return FileResponse(WEB / "favicon-192.png", media_type="image/png")
+
+    @app.get("/apple-touch-icon.png", include_in_schema=False)
+    def apple_touch_icon():
+        return FileResponse(WEB / "apple-touch-icon.png", media_type="image/png")
+
     @app.api_route("/saglik", methods=["GET", "HEAD"])
     def saglik():
         import json

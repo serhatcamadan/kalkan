@@ -1,5 +1,5 @@
 # KALKAN v7.0 · 2026-11-19
-.PHONY: vps-gonder api api-deneme eval-kor kor-ozet eval-sistem egit-v3 loss-v3 kontrol-v3 sablon-paket-15 sablon-iceri-15 katmanli export-ft sunucu-ft gguf-parite gguf-parite-sema eval-ft sft-veri sablon-parite egit-08 loss kontrol-08 kontrol-08-it sablon-paket sablon-iceri egit-v2 loss-v2 kontrol-v2 kontrol-08-temel yeniden-puanla eval-gpt-pilot eval-gpt eval-gpt-ekonomik sunucu-08 sunucu-2b eval-zs-08 eval-zs-2b eval eval-hizli rapor llm-paket llm-iceri teyit veri veri-istatistik incele golden dis-veri token-olc spike gguf-2b bench-mac bench test lint clean-spike
+.PHONY: yayinla yayin-kontrol vps-gonder api api-deneme eval-kor kor-ozet eval-sistem egit-v3 loss-v3 kontrol-v3 sablon-paket-15 sablon-iceri-15 katmanli export-ft sunucu-ft gguf-parite gguf-parite-sema eval-ft sft-veri sablon-parite egit-08 loss kontrol-08 kontrol-08-it sablon-paket sablon-iceri egit-v2 loss-v2 kontrol-v2 kontrol-08-temel yeniden-puanla eval-gpt-pilot eval-gpt eval-gpt-ekonomik sunucu-08 sunucu-2b eval-zs-08 eval-zs-2b eval eval-hizli rapor llm-paket llm-iceri teyit veri veri-istatistik incele golden dis-veri token-olc spike gguf-2b bench-mac bench test lint clean-spike
 spike:          ## Mac: Adım 1 dönüşüm spike'ı
 	bash training/spike/spike_convert.sh
 gguf-2b:        ## Mac: Qwen3.5-2B → .spike/gguf/C2B-Q4_K_M.gguf
@@ -56,6 +56,14 @@ IT_SEC ?= 450
 ADP  ?= training/adapters/ft-0.8b-$(FTV)-it$(IT_SEC)
 FTAD ?= kalkan-0.8b-$(FTV)
 Q    ?= Q8_0
+yayinla:        ## kod/arayüz değişikliğini canlıya al: test → gönder → api'yi yeniden derle → kontrol
+	$(MAKE) --no-print-directory test
+	$(MAKE) --no-print-directory vps-gonder
+	ssh vps 'cd ~/kalkan/deploy && docker compose up -d --build api && docker image prune -f >/dev/null'
+	@sleep 5; $(MAKE) --no-print-directory yayin-kontrol
+yayin-kontrol:  ## canlı site ayakta mı, hangi sürüm
+	@curl -s -o /dev/null -w "ana sayfa: %{http_code}\n" https://kalkan-serhat.duckdns.org/
+	@curl -s https://kalkan-serhat.duckdns.org/saglik; echo
 vps-gonder:     ## Adım 11: YALNIZCA çalışma zamanı dosyaları VPS'e (git, veri, eğitim, anahtar YOK) → vps:~/kalkan
 	ssh vps 'mkdir -p ~/kalkan/kalkan ~/kalkan/data ~/kalkan/deploy/models ~/kalkan/deploy/logs'
 	rsync -a --delete --exclude __pycache__ kalkan/ vps:~/kalkan/kalkan/
