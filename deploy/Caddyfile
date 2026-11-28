@@ -22,3 +22,22 @@
 	}
 	# Erişim logu bilerek kapalı (log yönergesi yok): istek gövdesi zaten loglanmaz, IP'ler de tutulmaz.
 }
+
+# TEYIT · site block for the SHARED Caddy (runs in the Kalkan stack)                         v1 · 2026-11-27
+# Add to kalkan/deploy/Caddyfile (after the Kalkan site block). Caddy issues the Let's Encrypt certificate itself.
+{$TEYIT_ALAN_ADI} {
+	encode zstd gzip
+	request_body {
+		max_size 16KB
+	}
+	reverse_proxy teyit-api:8000 {
+		# never forward the client's own X-Forwarded-For: only the address Caddy saw (the API reads the last element)
+		header_up X-Forwarded-For {remote_host}
+	}
+	header {
+		Strict-Transport-Security "max-age=31536000"
+		-Server
+		-Via
+	}
+	# no access log on purpose: no visitor IPs are stored
+}

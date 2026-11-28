@@ -1,5 +1,5 @@
-# KALKAN · docker compose (Adım 10–11)                                  v1.2 · 2026-11-22
-# v1.2: llama imajı kaynaktan (Dockerfile.llama, aynı commit 5812201a8); resmi server-b12544 etiketi mevcut değil.
+# KALKAN · docker compose (Adım 10–11)                                  v1.3 · 2026-11-28
+# v1.3: caddy ortak hale geldi: TEYİT için ikinci site bloğu, "edge" ağı (harici). Kalkan'ın kendi servisleri değişmedi.# v1.2: llama imajı kaynaktan (Dockerfile.llama, aynı commit 5812201a8); resmi server-b12544 etiketi mevcut değil.
 # v1.1: caddy servisi (HTTPS, Let's Encrypt). İnternete yalnızca Caddy açılır (80, 443).
 # Kullanım (deploy/ klasöründe):  cp .env.ornek .env  →  tuzu doldur  →  docker compose up -d --build
 #   models/kalkan-0.8b-v3-Q8_0.gguf burada olmalı (repoya girmez; Mac'ten scp).
@@ -58,6 +58,10 @@ services:
     environment:
       KALKAN_ALAN_ADI: ${KALKAN_ALAN_ADI:?deploy/.env içinde KALKAN_ALAN_ADI gerekli (ör. kalkan-xxx.duckdns.org)}
       KALKAN_ACME_EPOSTA: ${KALKAN_ACME_EPOSTA:?deploy/.env içinde KALKAN_ACME_EPOSTA gerekli}
+      # v1.3: ortak Caddy — ikinci site (TEYİT). Blok deploy/Caddyfile'ın sonunda.
+      TEYIT_ALAN_ADI: ${TEYIT_ALAN_ADI:?deploy/.env içinde TEYIT_ALAN_ADI gerekli (ör. kap-teyit.duckdns.org)}
+    # default: Kalkan'ın kendi ağı (api'ye ulaşmak için). edge: TEYİT'in api'siyle paylaşılan ağ (teyit-api).
+    networks: [default, edge]
     volumes:
       - ./Caddyfile:/etc/caddy/Caddyfile:ro
       - caddy_veri:/data
@@ -68,3 +72,8 @@ services:
 volumes:
   caddy_veri:
   caddy_ayar:
+
+networks:
+  # VPS'te bir kez oluşturuldu: docker network create edge (TEYİT Adım 11b). Bu compose onu yaratmaz, yalnızca bağlanır.
+  edge:
+    external: true
